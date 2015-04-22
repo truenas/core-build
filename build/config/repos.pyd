@@ -25,7 +25,7 @@
 
 if GIT_LOCATION == "INTERNAL":
     repository(
-        name="freenas"
+        name="freenas",
         path="FreeNAS",
         url="git@gitserver.ixsystems.com:/git/repos/freenas-build/freenas.git",
         branch="freenas10/development"
@@ -47,7 +47,7 @@ if GIT_LOCATION == "INTERNAL":
 
 if GIT_LOCATION == "EXTERNAL":
     repository(
-        name="freenas"
+        name="freenas",
         path="FreeNAS",
         url="http://github.com/freenas/freenas.git",
         branch="freenas10/development"

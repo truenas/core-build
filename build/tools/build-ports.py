@@ -120,7 +120,7 @@ def prepare_jail():
 
 def merge_freenas_ports():
     sh('mkdir -p ${PORTS_OVERLAY}/freenas')
-    sh('cp -a ${BUILD_ROOT}/nas_ports/freenas ${PORTS_OVERLAY}/')
+    sh('cp -a ${BUILD_ROOT}/FreeNAS/nas_ports/freenas ${PORTS_OVERLAY}/')
 
 
 def prepare_env():
