@@ -63,10 +63,10 @@ def create_overlay():
 
 
 def create_poudriere_config():
+    sh('mkdir -p ${DISTFILES_CACHE}')
     setfile('${POUDRIERE_ROOT}/etc/poudriere.conf', template('${BUILD_CONFIG}/templates/poudriere.conf', {
         'ports_repo': reposconf['repository']['ports']['path'],
         'ports_branch': reposconf['repository']['ports']['branch'],
-        'ports_distfiles_cache': e('${OBJDIR}/ports/distfiles')
     }))
 
     tree = e('${POUDRIERE_ROOT}/etc/poudriere.d/ports/p')
