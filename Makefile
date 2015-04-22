@@ -50,7 +50,8 @@ GIT_LOCATION!=cat ${GIT_REPO_SETTING}
 .export BUILD_STARTED
 .export GIT_REPO_SETTING
 
-git-verify:
+.BEGIN:
+.if !make(git-internal) && !make(git-external) && !make(remote) && !make(sync)
 	@if [ ! -f ${GIT_REPO_SETTING} ]; then \
 		echo "No git repo choice is set.  Please use \"make git-external\" to build as an"; \
 		echo "external developer or \"make git-internal\" to build as an ${COMPANY}"; \
@@ -58,8 +59,8 @@ git-verify:
 		exit 1; \
 	fi
 	@echo "NOTICE: You are building from the ${GIT_LOCATION} git repo."
+.endif
 
-.BEGIN:
 .if !make(remote) && !make(sync)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
 .if !make(checkout) && !make(update) && !make(clean) && !make(distclean) && !make(git-internal) && !make(git-external)
@@ -70,6 +71,6 @@ git-verify:
 buildenv:
 	@${BUILD_TOOLS}/buildenv.py sh
 
-.DEFAULT: git-verify
+.DEFAULT:
 	@mkdir -p ${OBJDIR}
 	@${BUILD_TOOLS}/buildenv.py ${MK} ${.TARGETS}
