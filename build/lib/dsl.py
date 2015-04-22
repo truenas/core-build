@@ -78,7 +78,7 @@ class GlobalsWrapper(dict):
                 if name not in self.dict:
                     self.dict[name] = {}
                 ident = kwargs.get('name', str(uuid.uuid4()))
-                self.dict[name][ident] = kwargs
+                self.dict[name].setdefault(ident, {}).update(kwargs)
 
         return fn
 

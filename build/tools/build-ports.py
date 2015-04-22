@@ -56,6 +56,12 @@ def calculate_make_jobs():
     debug('Using {0} make jobs', makejobs)
 
 
+def create_overlay():
+    sh('rm -rf ${PORTS_OVERLAY}')
+    sh('mkdir -p ${PORTS_OVERLAY}')
+    sh('mount_unionfs -o below ${PORTS_ROOT} ${PORTS_OVERLAY}')
+
+
 def create_poudriere_config():
     setfile('${POUDRIERE_ROOT}/etc/poudriere.conf', template('${BUILD_CONFIG}/templates/poudriere.conf', {
         'ports_repo': reposconf['repository']['ports']['path'],
@@ -137,9 +143,10 @@ def prepare_env():
 
 
 def cleanup_env():
-    sh('rm -rf ${PORTS_OVERLAY}/freenas')
+    sh('umount -f ${PORTS_OVERLAY}')
+    sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []).values():
-        sh('umount', cmd['source'])
+        sh('umount -f', cmd['source'])
 
 
 def run():
@@ -151,8 +158,9 @@ if __name__ == '__main__':
         info('Skipping ports build as instructed by setting SKIP_PORTS')
         sys.exit(0)
 
-    obtain_jail_name()
+    create_overlay()
     on_abort(cleanup_env)
+    obtain_jail_name()
     calculate_make_jobs()
     create_poudriere_config()
     create_make_conf()

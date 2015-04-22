@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-port(name="sysutils/pcbsd-appweb")
+#port(name="sysutils/pcbsd-appweb")
 port(name="net/mDNSResponder")
 port(name="textproc/libxml2")
 port(name="devel/libffi")
