@@ -1,0 +1,70 @@
+### SublimeText ###
+*.sublime-workspace
+
+### PyCharm ###
+.idea
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+
+### PROJECT SETTINGS ###
+
+*.pyc
+*.swp
+*.mo
+*.o
+/gui/local_settings.py
+/FreeBSD/
+/filtered-patches/
+/os-base/
+/pbi/
+/sbin/
+
+# Exlude compiled Sphinx docs
+/docs/*/_build/
+
+
+# Any and all logs
+*.log
+
+# Exclude Grunt and Bower build data
+node_modules
+bower_components
+
+# Exclude compiled webapp
+src/gui/app/build/
+src/gui/app/public/
+src/gui/app/ssrjs/
+src/gui/app-deploy/
+
+# Exclude config files
+freenas9-conf.json
+freenas10-conf.json
+src/gui/freenas9-conf - Copy.json
+src/gui/freenas9-conf - MiniHome.json
+src/gui/freenas10-conf - mini.json
