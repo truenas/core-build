@@ -31,7 +31,7 @@ import os
 import sys
 import glob
 from dsl import load_file
-from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_abort, chroot
+from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_exit, chroot
 
 
 dsl = load_file('${BUILD_CONFIG}/ports.pyd', os.environ)
@@ -66,8 +66,7 @@ if __name__ == '__main__':
 
     info('Installing ports')
     info('Log file: {0}', logfile)
-    on_abort(umount_packages)
+    on_exit(umount_packages)
     mount_packages()
     create_pkgng_configuration()
     install_ports()
-    umount_packages()

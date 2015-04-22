@@ -30,7 +30,7 @@ import sys
 import time
 import datetime
 import subprocess
-import signal
+import atexit
 import string
 import signal
 import inspect
@@ -123,13 +123,12 @@ def appendfile(filename, contents):
     f.write('\n')
 
 
-def on_abort(func):
+def on_exit(func):
     def abort():
         info('Build aborted, cleaning up')
         func()
 
-    signal.signal(signal.SIGINT, abort)
-    signal.signal(signal.SIGTERM, abort)
+    atexit.register(abort)
 
 
 def get_caller_vars():
