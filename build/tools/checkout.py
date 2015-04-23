@@ -28,11 +28,11 @@
 
 
 import os
-from dsl import load_file
+from dsl import load_profile_config
 from utils import sh, sh_str, info, debug, e, setfile, appendfile
 
 
-dsl = load_file('${BUILD_CONFIG}/repos.pyd', os.environ)
+dsl = load_profile_config()
 manifest = {sh_str("git config --get remote.origin.url"): sh_str("git rev-parse --short HEAD")}
 
 
@@ -60,7 +60,7 @@ def generate_manifest():
         appendfile('${BUILD_ROOT}/FreeBSD/repo-manifest', e('${k} ${v}'))
 
 if __name__ == '__main__':
-    for i in dsl['repository'].values():
+    for i in dsl['repos']:
         info('Checkout: {0} -> {1}', i['name'], i['path'])
         debug('Repository URL: {0}', i['url'])
         debug('Local branch: {0}', i['branch'])

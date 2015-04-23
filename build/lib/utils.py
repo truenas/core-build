@@ -205,7 +205,7 @@ def import_function(filename, fname):
 def elapsed():
     timestamp = env('BUILD_STARTED', str(int(time.time())))
     td = int(timestamp)
-    return str(datetime.timedelta(seconds=time.time() - td))
+    return str(datetime.timedelta(seconds=time.time() - td)).split('.')[0] # XXX
 
 
 def info(fmt, *args):

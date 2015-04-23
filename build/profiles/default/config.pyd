@@ -90,7 +90,7 @@ else:
 	    "ctl",
 #	    "cxgbe/t4_firmware",
 #	    "cxgbe/t5_firmware",
-	    "syscons"
+	    "syscons",
         "netgraph/ether",
         "netgraph/socket"
     ]

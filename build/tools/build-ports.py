@@ -63,8 +63,8 @@ def create_overlay():
 def create_poudriere_config():
     sh('mkdir -p ${DISTFILES_CACHE}')
     setfile('${POUDRIERE_ROOT}/etc/poudriere.conf', template('${BUILD_CONFIG}/templates/poudriere.conf', {
-        'ports_repo': reposconf['repository']['ports']['path'],
-        'ports_branch': reposconf['repository']['ports']['branch'],
+        'ports_repo': config['repos'].where(name='ports')['path'],
+        'ports_branch': config['repos'].where(name='ports')['branch'],
     }))
 
     tree = e('${POUDRIERE_ROOT}/etc/poudriere.d/ports/p')
@@ -83,11 +83,11 @@ def create_ports_list():
     sh('rm -rf', portoptions)
 
     f = open(portslist, 'w')
-    for port in installer_ports['ports'] + config['ports'].values():
+    for port in installer_ports['ports'] + config['ports']:
         name = port['name'] if isinstance(port, dict) else port
         name_und = name.replace('/', '_')
         options_path = pathjoin(portoptions, name_und)
-        f.write('{0}\n'.format(port['name']))
+        f.write('{0}\n'.format(name))
 
         sh('mkdir -p', options_path)
         if isinstance(port, dict) and 'options' in port:
@@ -128,12 +128,12 @@ def merge_freenas_ports():
 
 
 def prepare_env():
-    for cmd in jailconf.get('copy', []).values():
+    for cmd in jailconf.get('copy', []):
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
         sh('rm -rf ${dest}')
         sh('cp -a', cmd['source'], dest)
 
-    for cmd in jailconf.get('link', []).values():
+    for cmd in jailconf.get('link', []):
         flags = '-o {0}'.format(cmd['flags']) if 'flags' in cmd else ''
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
         sh('mkdir -p', os.path.dirname(dest))
@@ -143,7 +143,7 @@ def prepare_env():
 def cleanup_env():
     sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
-    for cmd in jailconf.get('link', []).values():
+    for cmd in jailconf.get('link', []):
         sh('umount -f', cmd['source'])
 
 

@@ -139,7 +139,7 @@ def installkernel(destdir, log):
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
 
-    modules = ' '.join(dsl['kernel_module'])
+    modules = ' '.join(config['kernel_modules'])
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",

@@ -32,7 +32,6 @@ from utils import glob, e, info
 
 
 def main():
-    info("Selected profile: {0}", e('${PROFILE}') or 'default')
     info("Available profiles:")
     for i in glob("${BUILD_PROFILES}/*"):
         dsl = load_file(e("${i}/config.pyd"), os.environ)
@@ -40,7 +39,8 @@ def main():
             continue
 
         profile = dsl["profile"]
-        info('{0}', profile["name"])
+        selected = e("${PROFILE}") == profile["name"]
+        info('* {0}{1}', profile["name"], " [selected]" if selected else "")
         info('\tDescription: {0}', profile["description"])
         info('\tOwner: {0}', profile["owner"])
         info('\tStatus: {0}', profile["status"])
