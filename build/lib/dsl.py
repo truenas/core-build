@@ -26,6 +26,12 @@
 #####################################################################
 
 import os
+import ast
+
+
+class ConfigDict(dict):
+    def __getattr__(self, item):
+        return self.get(item)
 
 
 class ConfigArray(list):
@@ -63,6 +69,9 @@ class GlobalsWrapper(dict):
                 return self.dict[item]
 
             return self.env.get(item, None)
+
+        if item == 'ConfigDict':
+            return ConfigDict
 
         if item == 'e':
             from utils import e
@@ -110,9 +119,23 @@ class GlobalsWrapper(dict):
                 self.dict[k] = v
 
 
+class AstTransformer(ast.NodeTransformer):
+    def visit_Str(self, node):
+        return ast.Call(func=ast.Name(id='e', ctx=ast.Load()), args=[node], keywords=[], starargs=None, kwargs=None)
+
+    def visit_Dict(self, node):
+        return ast.Call(func=ast.Name(id='ConfigDict', ctx=ast.Load()), args=[node], keywords=[], starargs=None, kwargs=None)
+
+
 def load_file(filename, env):
+    from utils import e
+    filename = e(filename)
     g = GlobalsWrapper(env, filename)
-    execfile(os.path.expandvars(filename), g)
+    with open(filename, 'r') as f:
+        tree = ast.parse(f.read(), filename)
+        t2 = ast.fix_missing_locations(AstTransformer().visit(tree))
+        exec compile(t2, filename, 'exec') in g
+
     return g.dict
 
 def load_profile_config():
