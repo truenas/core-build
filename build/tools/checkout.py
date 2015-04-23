@@ -55,6 +55,7 @@ def checkout_repo(repo):
 
 
 def generate_manifest():
+    sh('rm -f ${BUILD_ROOT}/FreeBSD/repo-manifest')
     for k, v in manifest.items():
         appendfile('${BUILD_ROOT}/FreeBSD/repo-manifest', e('${k} ${v}'))
 
