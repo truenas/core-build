@@ -124,11 +124,7 @@ def appendfile(filename, contents):
 
 
 def on_exit(func):
-    def abort():
-        info('Build aborted, cleaning up')
-        func()
-
-    atexit.register(abort)
+    atexit.register(func)
 
 
 def get_caller_vars():
@@ -155,7 +151,7 @@ def e(s, **kwargs):
 
 
 def pathjoin(*args):
-    return os.path.join(*[os.path.expandvars(i) for i in args])
+    return os.path.join(*[e(i) for i in args])
 
 
 def objdir(path):
@@ -224,3 +220,12 @@ def log(fmt, *args):
 def error(fmt, *args):
     print '[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args))
     sys.exit(1)
+
+
+def get_port_names(ports):
+    for i in ports:
+        if isinstance(i, dict):
+            yield i.name
+            continue
+
+        yield i

@@ -35,3 +35,4 @@ profile = {
 repos.where(name="freenas")["branch"] = "freenas10/feature/launchd"
 repos.where(name="trueos")["branch"] = "freebsd10_mach"
 kernel_modules += "mach"
+kernel_config += "kernel/MACH"

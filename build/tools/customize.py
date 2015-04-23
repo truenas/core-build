@@ -27,15 +27,15 @@
 #####################################################################
 
 import os
-from dsl import load_file
+from dsl import load_profile_config
 from utils import sh, glob, objdir, info, setup_env
 
 
-dsl = load_file('${BUILD_CONFIG}/config.pyd', os.environ)
+dsl = load_profile_config()
 
 
 def main():
-    for i in dsl['customize_task']:
+    for i in dsl['customize_tasks']:
         logfile = objdir('logs/custom-${i}')
         sh('${BUILD_ROOT}/build/customize/${i}.py ${WORLD_DESTDIR}', log=logfile)
 

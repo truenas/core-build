@@ -28,11 +28,10 @@
 
 
 import os
-from dsl import load_file
-from utils import sh, info, objdir, e, chroot, glob, setup_env, setfile, template, sha256, import_function
+from dsl import load_file, load_profile_config
+from utils import sh, info, objdir, e, chroot, glob, setfile, template, sha256, import_function, get_port_names, on_exit
 
 
-dsl = load_file('${BUILD_CONFIG}/config.pyd', os.environ)
 ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
 installworld = import_function('build-os', 'installworld')
 installkernel = import_function('build-os', 'installkernel')
@@ -259,7 +258,7 @@ def cleandirs():
 
 
 def install_ports():
-    pkgs = ' '.join(ports['port'].keys())
+    pkgs = ' '.join(get_port_names(ports.ports))
     info('Installing packages')
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/etc/pkg/repos')
     sh('cp ${BUILD_CONFIG}/templates/pkg-repos/local.conf ${INSTUFS_DESTDIR}/usr/local/etc/pkg/repos/')
@@ -336,6 +335,7 @@ def make_iso_image():
 
 if __name__ == '__main__':
     info("Creating ISO image")
+    on_exit(umount_packages)
     cleandirs()
     installworld(e('${INSTUFS_DESTDIR}'), installworldlog, distributionlog)
     installkernel(e('${ISO_DESTDIR}'), installkernellog)
@@ -343,7 +343,6 @@ if __name__ == '__main__':
     mount_packages()
     install_ports()
     install_pkgtools()
-    umount_packages()
     populate_ufsroot()
     install_files()
     copy_packages()

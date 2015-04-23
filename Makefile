@@ -51,10 +51,12 @@ PROFILE != cat ${PROFILE_SETTING}
 .export BUILD_ROOT
 .export BUILD_CONFIG
 .export BUILD_TOOLS
+.export BUILD_LOGLEVEL
 .export PYTHONPATH
 .export OBJDIR
 .export BUILD_STARTED
 .export GIT_REPO_SETTING
+.export PROFILE
 
 .BEGIN:
 .if !make(git-internal) && !make(git-external) && !make(remote) && !make(sync)
@@ -64,8 +66,8 @@ PROFILE != cat ${PROFILE_SETTING}
 		echo "internal developer.  You only need to do this once."; \
 		exit 1; \
 	fi
-	@echo "==> NOTICE: You are building from the ${GIT_LOCATION} git repo."
-	@echo "==> NOTICE: Selected profile: ${PROFILE}"
+	@echo "[0:00:00] ==> NOTICE: You are building from the ${GIT_LOCATION} git repo."
+	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
 .endif
 
 .if !make(remote) && !make(sync)

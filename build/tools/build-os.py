@@ -29,7 +29,7 @@
 import os
 import sys
 from dsl import load_profile_config
-from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error
+from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error, pathjoin
 
 
 config = load_profile_config()
@@ -63,7 +63,7 @@ def create_make_conf_build():
 def create_kernel_config():
     conf = open(kernconf, 'w')
     for i in config['kernel_config']:
-        f = open(e('${PROFILE_ROOT}/${i}'), 'r')
+        f = open(pathjoin('${PROFILE_ROOT}', i), 'r')
         conf.write(f.read())
         f.close()
 

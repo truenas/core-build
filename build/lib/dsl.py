@@ -36,7 +36,7 @@ class ConfigDict(dict):
 
 class ConfigArray(list):
     def __iadd__(self, other):
-        if not isinstance(other, list):
+        if type(other) not in (list, ConfigArray):
             self.append(other)
             return self
 
@@ -59,7 +59,7 @@ class ConfigArray(list):
 class GlobalsWrapper(dict):
     def __init__(self, env, filename):
         super(GlobalsWrapper, self).__init__()
-        self.dict = {}
+        self.dict = ConfigDict()
         self.filename = filename
         self.env = env
 
@@ -72,6 +72,9 @@ class GlobalsWrapper(dict):
 
         if item == 'ConfigDict':
             return ConfigDict
+
+        if item == 'ConfigArray':
+            return ConfigArray
 
         if item == 'e':
             from utils import e
@@ -121,10 +124,33 @@ class GlobalsWrapper(dict):
 
 class AstTransformer(ast.NodeTransformer):
     def visit_Str(self, node):
-        return ast.Call(func=ast.Name(id='e', ctx=ast.Load()), args=[node], keywords=[], starargs=None, kwargs=None)
+        return ast.Call(
+            func=ast.Name(id='e', ctx=ast.Load()),
+            args=[node],
+            keywords=[],
+            starargs=None,
+            kwargs=None
+        )
+
+    def visit_List(self, node):
+        self.generic_visit(node)
+        return ast.Call(
+            func=ast.Name(id='ConfigArray', ctx=ast.Load()),
+            args=[node],
+            keywords=[],
+            starargs=None,
+            kwargs=None
+        )
 
     def visit_Dict(self, node):
-        return ast.Call(func=ast.Name(id='ConfigDict', ctx=ast.Load()), args=[node], keywords=[], starargs=None, kwargs=None)
+        self.generic_visit(node)
+        return ast.Call(
+            func=ast.Name(id='ConfigDict', ctx=ast.Load()),
+            args=[node],
+            keywords=[],
+            starargs=None,
+            kwargs=None
+        )
 
 
 def load_file(filename, env):

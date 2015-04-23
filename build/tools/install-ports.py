@@ -31,7 +31,7 @@ import os
 import sys
 import glob
 from dsl import load_profile_config
-from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_exit, chroot
+from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_exit, chroot, get_port_names
 
 
 config = load_profile_config()
@@ -55,7 +55,7 @@ def create_pkgng_configuration():
 
 
 def install_ports():
-    pkgs = ' '.join(config['ports'].keys())
+    pkgs = ' '.join(get_port_names(config.ports))
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile)
 
 

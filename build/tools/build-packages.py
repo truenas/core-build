@@ -29,11 +29,11 @@
 import os
 import sys
 import time
-from dsl import load_file
+from dsl import load_profile_config
 from utils import sh, sh_str, e, setup_env, objdir, info, debug, error
 
 
-dsl = load_file('${BUILD_CONFIG}/packages.pyd', os.environ)
+config = load_profile_config()
 tooldir = objdir('pkgtools')
 pkgdir = objdir('packages')
 pkgtoolslog = objdir('logs/build-pkgtools')
@@ -75,7 +75,7 @@ def build_packages():
     info('Building packages')
     sh('rm -rf ${pkgdir}/Packages')
     sh('mkdir -p ${pkgdir}/Packages')
-    for i in dsl['package'].values():
+    for i in config['packages']:
         template = i['template']
         name = i['name']
         sh(
@@ -90,7 +90,7 @@ def build_packages():
 def create_manifest():
     info('Creating package manifests')
     pkgs = []
-    for i in dsl['package'].values():
+    for i in config['packages']:
         name = i['name']
         pkgs.append(e("${name}=${VERSION}-${pkgversion}"))
 

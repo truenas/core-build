@@ -26,117 +26,117 @@
 ports += {
     "name": "freenas/freenas-files",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-debug",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-datastore",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-dispatcher",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-etcd",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-networkd",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-fnstatd",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-10gui",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-cli",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/py-libzfs",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/py-netif",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/py-sysctl",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/py-fnutils",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
