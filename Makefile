@@ -32,11 +32,17 @@ BUILD_CONFIG := ${BUILD_ROOT}/build/config
 BUILD_TOOLS := ${BUILD_ROOT}/build/tools
 PYTHONPATH := ${BUILD_ROOT}/build/lib
 OBJDIR ?= ${BUILD_ROOT}/objs/amd64
+PROFILE ?= default
+GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
+PROFILE_SETTING = ${BUILD_ROOT}/.profile-setting
 MK := ${MAKE} -f ${BUILD_ROOT}/Makefile.inc1
 
-GIT_REPO_SETTING=${BUILD_ROOT}/.git-repo-setting
 .if exists(${GIT_REPO_SETTING})
-GIT_LOCATION!=cat ${GIT_REPO_SETTING}
+GIT_LOCATION != cat ${GIT_REPO_SETTING}
+.endif
+
+.if exists(${PROFILE_SETTING})
+PROFILE != cat ${PROFILE_SETTING}
 .endif
 
 .export MK
@@ -58,12 +64,13 @@ GIT_LOCATION!=cat ${GIT_REPO_SETTING}
 		echo "internal developer.  You only need to do this once."; \
 		exit 1; \
 	fi
-	@echo "NOTICE: You are building from the ${GIT_LOCATION} git repo."
+	@echo "==> NOTICE: You are building from the ${GIT_LOCATION} git repo."
+	@echo "==> NOTICE: Selected profile: ${PROFILE}"
 .endif
 
 .if !make(remote) && !make(sync)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
-.if !make(checkout) && !make(update) && !make(clean) && !make(distclean) && !make(git-internal) && !make(git-external)
+.if !make(checkout) && !make(update) && !make(clean) && !make(distclean) && !make(git-internal) && !make(git-external) && !make(profiles)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-sandbox.py
 .endif
 .endif

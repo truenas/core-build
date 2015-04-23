@@ -23,21 +23,15 @@
 # SUCH DAMAGE.
 #
 
-aux_files = [
-    {
-        "name": e("${PRODUCT}-MANIFEST"),
-        "source": e("${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"))
-    },
-    {
-        "name": "ReleaseNotes",
-        "source": e("${BUILD_ROOT}/ReleaseNotes"))
-    },
-    {
-        "name": "ChangeLog",
-        "source": e("${BUILD_ROOT}/ChangeLog"))
-    },
-    {
-        "name": "NOTICE",
-        "source": e("${BUILD_ROOT}/NOTICE"))
-    }
-]
+include("${DEFAULT_PROFILE}/config.pyd")
+
+profile = {
+    "name": "launchd",
+    "description": "launchd integration profile",
+    "owner": "jakub@ixsystems.com",
+    "status": "active"
+}
+
+repos.where(name="freenas")["branch"] = "freenas10/feature/launchd"
+repos.where(name="trueos")["branch"] = "freebsd10_mach"
+kernel_modules += "mach"

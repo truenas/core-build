@@ -23,22 +23,22 @@
 # SUCH DAMAGE.
 #
 
-package(
-    name="base-os",
-    template=e("${BUILD_CONFIG}/templates/packages/base-os")
-)
+packages += {
+    "name": "base-os",
+    "template": e("${BUILD_CONFIG}/templates/packages/base-os")
+}
 
-package(
-    name="freebsd-pkgdb",
-    template=e("${BUILD_CONFIG}/templates/packages/freebsd-pkgdb")
-)
+packages += {
+    "name": "freebsd-pkgdb",
+    "template": e("${BUILD_CONFIG}/templates/packages/freebsd-pkgdb")
+}
 
-package(
-    name="freenas-pkg-tools",
-    template=e("${BUILD_CONFIG}/templates/packages/freenas-pkg-tools")
-)
+packages += {
+    "name": "freenas-pkg-tools",
+    "template": e("${BUILD_CONFIG}/templates/packages/freenas-pkg-tools")
+}
 
-package(
-    name="freenasUI",
-    template=e("${BUILD_CONFIG}/templates/packages/freenasUI")
-)
+packages += {
+    "name": "freenasUI",
+    "template": e("${BUILD_CONFIG}/templates/packages/freenasUI")
+}

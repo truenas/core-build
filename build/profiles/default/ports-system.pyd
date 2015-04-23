@@ -1,0 +1,407 @@
+#+
+# Copyright (c) 2010-2015 iXsystems, Inc., All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL iXsystems, Inc. OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+
+#ports += "sysutils/pcbsd-appweb"
+ports += "net/mDNSResponder"
+ports += "textproc/libxml2"
+ports += "devel/libffi"
+ports += "archivers/lz4"
+ports += "archivers/lzo2"
+ports += "archivers/pigz"
+ports += "archivers/plzip"
+ports += "security/easy-rsa"
+ports += {
+    "name": "security/openvpn",
+    "options": ["WITHOUT_CHECK=yes"]
+}
+ports += {
+    "name": "converters/iconv",
+    "options": ["OPTIONS_FILE_UNSET+=CCSUTIL"]
+}
+ports += "devel/gettext"
+ports += "comms/lrzsz"
+ports += "devel/pkgconf"
+ports += "devel/m4"
+ports += "sysutils/screen"
+ports += "devel/libpthread-stubs"
+ports += "devel/cdialog"
+ports += "dns/inadyn-mt"
+ports += "devel/pcre"
+ports += "editors/nano"
+ports += "ftp/proftpd"
+ports += "misc/cpuid"
+ports += "net-mgmt/clog"
+ports += "net-mgmt/sipcalc"
+
+if LABEL != "TrueNAS":
+    ports += "net/vblade"
+    ports += {
+        "name": "emulators/virtualbox-ose-kmod",
+        "options": ["OPTIONS_FILE_SET+=VIMAGE"]
+    }
+
+ports += "security/libgpg-error"
+ports += "security/libgcrypt"
+ports += "databases/db48"
+ports += "security/cyrus-sasl2-gssapi"
+ports += "net/openldap24-sasl-client"
+ports += "net/smbldap-tools"
+ports += {
+    "name": "net/rsync",
+    "options": [
+        "OPTIONS_FILE_SET+=ACL",
+        "OPTIONS_FILE_SET+=ICONV",
+        "OPTIONS_FILE_UNSET+=FLAGS"
+    ]
+}
+ports += {
+    "name": "lang/python27",
+    "options": [
+        "OPTIONS_FILE_UNSET+=NLS",
+        "OPTIONS_FILE_SET+=DEBUG"
+    ]
+}
+ports += "lang/python2"
+ports += "lang/python"
+ports += "lang/cython"
+# conflicting version of python (the below is installed as dependency of another port albeit as a different version)
+#ports += "devel/py-setuptools"
+ports += "dns/py-bonjour"
+ports += "dns/py-dnspython"
+ports += "devel/tevent"
+ports += {
+    "name":"devel/talloc",
+    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
+}
+ports += "devel/libexecinfo"
+ports += "devel/popt"
+ports += {
+    "name": "databases/tdb",
+    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
+}
+ports += "sysutils/libsunacl"
+ports += "security/pam_ldap"
+ports += "security/pam_mkhomedir"
+ports += {
+    "name": "shells/bash",
+    "options": ["OPTIONS_FILE_UNSET+=NLS"]
+}
+ports += "shells/ksh93"
+ports += "shells/mksh"
+ports += "shells/zsh"
+ports += {
+    "name": "shells/scponly",
+    "options": [
+        "OPTIONS_FILE_SET+=GFTP",
+        "OPTIONS_FILE_SET+=RSYNC",
+        "OPTIONS_FILE_SET+=SCP",
+        "OPTIONS_FILE_SET+=WINSCP"
+    ]
+}
+
+ports += "sysutils/e2fsprogs"
+ports += "sysutils/fusefs-libs"
+ports += "devel/libublio"
+ports += "sysutils/fusefs-ntfs"
+ports += "sysutils/smartmontools"
+ports += "net/libdnet"
+ports += {
+    "name": "emulators/open-vm-tools-nox11",
+    "options": ["WITHOUT_ICU=y"]
+}
+
+if PRODUCT == "TrueNAS":
+	ports += {
+	    "name": "emulators/qemu",
+	    "options": [
+            "WITHOUT_ADD_AUDIO=y",
+            "WITHOUT_ALL_TARGETS=y",
+            "WITHOUT_CDROM_DMA=y",
+            "WITHOUT_CURL=y",
+            "WITHOUT_GNS3=y",
+            "WITHOUT_GNUTLS=y",
+            "WITHOUT_KQEMU=y",
+            "WITHOUT_BPF=y",
+            "WITHOUT_RTL8139_TIMER=y",
+            "WITHOUT_SAMBA=y",
+            "WITHOUT_SDL=y"
+	    ]
+	}
+
+ports += "databases/sqlite3"
+ports += "databases/py-sqlite3"
+ports += "databases/py-bsddb3"
+ports += "databases/mongodb"
+ports += "databases/pymongo"
+ports += "devel/py-gevent"
+ports += "www/py-gevent-websocket"
+ports += "www/py-flask"
+ports += "www/py-flask-bootstrap"
+ports += "devel/py-argh"
+ports += "devel/py-texttable"
+ports += "devel/py-columnize"
+ports += "devel/py-pip"
+ports += "devel/py-pyee"
+ports += "devel/py-watchdog"
+ports += "devel/py-setproctitle"
+ports += "devel/py-jsonschema"
+ports += "devel/py-jsonpointer"
+ports += "devel/py-natural"
+ports += "devel/py-enum34"
+ports += "net/py-ipaddress"
+ports += "math/py-networkx"
+ports += "math/py-pandas"
+ports += "devel/py-tables"
+ports += "devel/py-termcolor"
+ports += "sysutils/py-psutil"
+ports += "textproc/py-mako"
+ports += "www/py-ws4py"
+ports += "www/py-flup"
+ports += "www/node"
+ports += "devel/py-asn1"
+ports += "devel/py-asn1-modules"
+ports += "security/openssl"
+ports += "security/py-openssl"
+ports += "security/py-htpasswd"
+ports += {
+    "name": "www/apache24",
+    "options": ["WITH_OPENSSL_PORT=yes"]
+}
+ports += "www/mod_mpm_itk"
+ports += "sysutils/syslog-ng"
+ports += {
+    "name": "www/nginx",
+    "options": [
+        "WITH_OPENSSL_PORT=yes",
+        "OPTIONS_FILE_SET+=HTTP_SSL",
+        "OPTIONS_FILE_SET+=HTTP_UPLOAD",
+        "OPTIONS_FILE_SET+=HTTP_UPLOAD_PROGRESS",
+        "OPTIONS_FILE_SET+=SPDY",
+        "OPTIONS_FILE_SET+=STATUS"
+    ]
+}
+ports += {
+    "name": "net-mgmt/net-snmp",
+    "options": [
+        "OPTIONS_FILE_UNSET+=PERL",
+        "OPTIONS_FILE_UNSET+=PERL_EMBEDDED",
+        "NET_SNMP_WITHOUT_MIB_MODULE_LIST=sctp-mib"
+    ]
+}
+ports += {
+    "name": "sysutils/nut",
+    "options": ["OPTIONS_FILE_UNSET+=NEON"]
+}
+ports += "textproc/py-libxml2"
+ports += "textproc/expat2"
+ports += "devel/gamin"
+#ports += "devel/gio-fam-backend"
+
+if PRODUCT == "TrueNAS":
+	ports += "devel/bison"
+	ports += "devel/libffi"
+
+ports += "misc/gnomehier"
+ports += "www/py-httplib2"
+ports += "net/py-oauth2"
+ports += "sysutils/jailme"
+
+
+if REPORTING:
+	ports += "devel/libstatgrab"
+	ports += "devel/libltdl"
+	ports += "net/liboping"
+	ports += {
+	    "name": "net-mgmt/collectd5",
+	    "options": [
+            "OPTIONS_FILE_UNSET+=BIND",
+            "OPTIONS_FILE_UNSET+=SNMP",
+            "OPTIONS_FILE_SET+=DISK",
+            "OPTIONS_FILE_SET+=STATGRAB"
+        ]
+    }
+
+#FIXME: gobject now requires cairo as build dependency
+ports += "devel/gobject-introspection"
+ports += "devel/py-ipaddr"
+ports += "converters/base64"
+ports += {
+    "name": "emulators/mtools",
+    "options": ["OPTIONS_FILE_UNSET+=X11"]
+}
+ports += "sysutils/arcconf"
+ports += "sysutils/tw_cli"
+ports += "sysutils/megacli"
+
+if PRODUCT != "TrueNAS":
+	ports += "sysutils/areca-cli"
+	ports += "sysutils/hptcli"
+
+ports += {
+    "name": "net/py-ldap2",
+    "options": ["OPTIONS_FILE_SET+=SASL"]
+}
+ports += "sysutils/ataidle"
+ports += "sysutils/gnome_subr"
+ports += {
+    "name": "devel/dbus",
+    "options": ["OPTIONS_FILE_UNSET+=X11"]
+}
+ports += "devel/dbus-glib"
+ports += "devel/libdaemon"
+ports += "databases/gdbm"
+ports += "devel/py-lxml"
+ports += "textproc/py-xml"
+ports += "sysutils/dmidecode"
+ports += "sysutils/graid5"
+ports += {
+    "name": "sysutils/tmux",
+    "options": ["OPTIONS_FILE_SET+=LIBEVENT2"]
+}
+ports += "devel/py-dbus"
+ports += {
+    "name": "net/netatalk3",
+    "options": [
+        "OPTIONS_FILE_SET+=PAM",
+        "OPTIONS_FILE_SET+=ACL",
+        "OPTIONS_FILE_SET+=SENDFILE",
+        "OPTIONS_FILE_SET+=MDNSRESPONDER",
+        "OPTIONS_FILE_UNSET+=AVAHI",
+        "OPTIONS_FILE_SET+=LDAP"
+    ]
+}
+
+ports += "net/ladvd"
+ports += "dns/libidn"
+ports += "ftp/wget"
+ports += "benchmarks/iozone"
+ports += "benchmarks/iperf"
+ports += "benchmarks/netperf"
+ports += {
+    "name": "security/sudo",
+    "options": [
+        "OPTIONS_FILE_SET+=LDAP",
+        "OPTIONS_FILE_SET+=SSSD"
+    ]
+}
+ports += "sysutils/ipmitool"
+ports += "devel/py-mimeparse"
+ports += "devel/py-six"
+ports += "devel/py-dateutil"
+ports += "devel/py-rose"
+ports += "devel/py-lockfile"
+ports += "devel/py-daemon"
+ports += "devel/py-polib"
+ports += "devel/py-ujson"
+ports += "devel/py-simplejson"
+ports += "www/wgetpaste"
+ports += "devel/py-greenlet"
+ports += "net/py-eventlet"
+ports += "sysutils/sg3_utils"
+ports += "graphics/jpeg"
+ports += "www/py-requests"
+ports += "sysutils/smp_utils"
+ports += "net/trafshow"
+
+#
+# These are all for SSSD
+#
+ports += "textproc/xmlcatmgr"
+ports += "textproc/libxslt"
+ports += "dns/c-ares"
+ports += "databases/ldb"
+ports += "devel/libunistring"
+ports += "devel/ding-libs"
+ports += "devel/nspr"
+ports += "security/nss"
+ports += "security/krb5"
+ports += "security/sssd"
+ports += {
+    "name": "security/ca_root_nss",
+    "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
+}
+ports += "ftp/curl"
+ports += {
+    "name": "devel/git",
+    "options": [
+        "OPTIONS_FILE_UNSET+=SVN",
+        "OPTIONS_FILE_UNSET+=CVS",
+        "OPTIONS_FILE_UNSET+=P4",
+        "OPTIONS_FILE_UNSET+=PERL",
+        "OPTIONS_FILE_UNSET+=CONTRIB",
+        "OPTIONS_FILE_UNSET+=NLS"
+    ]
+}
+
+ports += "math/gmp"
+ports += "security/libtasn1"
+ports += "security/p11-kit"
+ports += "security/nettle"
+ports += "devel/libinotify"
+ports += "dns/samba-nsupdate"
+ports += "security/gnutls"
+ports += {
+    "name": "net/samba41",
+    "options": [
+        "OPTIONS_FILE_SET+=ACL_SUPPORT",
+        "OPTIONS_FILE_SET+=ADS",
+        "OPTIONS_FILE_SET+=AIO_SUPPORT",
+        "OPTIONS_FILE_UNSET+=AVAHI",
+        "OPTIONS_FILE_UNSET+=CUPS",
+        "OPTIONS_FILE_SET+=DEBUG",
+        "OPTIONS_FILE_UNSET+=DEVELOPER",
+        "OPTIONS_FILE_SET+=DNSUPDATE",
+        "OPTIONS_FILE_SET+=EXP_MODULES",
+        "OPTIONS_FILE_SET+=FAM_SUPPORT",
+        "OPTIONS_FILE_SET+=LDAP",
+        "OPTIONS_FILE_SET+=MANPAGES",
+        "OPTIONS_FILE_SET+=MDNSRESPONDER",
+        "OPTIONS_FILE_SET+=PAM_SMBPASS",
+        "OPTIONS_FILE_SET+=PTHREADPOOL",
+        "OPTIONS_FILE_SET+=QUOTAS",
+        "OPTIONS_FILE_UNSET+=SWAT",
+        "OPTIONS_FILE_SET+=SYSLOG",
+        "OPTIONS_FILE_SET+=UTMP",
+        "OPTIONS_FILE_SET+=WINBIND",
+        "OPTIONS_FILE_SET+=NSUPDATE",
+        "OPTIONS_FILE_UNSET+=BIND98",
+        "OPTIONS_FILE_UNSET+=BIND99",
+        "WITH_DEBUG=yes"
+    ]
+}
+
+
+ports += "sysutils/grub2-pcbsd"
+ports += "sysutils/beadm-devel"
+ports += "net/py-pysphere"
+
+if DEBUG:
+	ports += "editors/vim-lite"
+	ports += "misc/py-pexpect"
+	ports += "devel/ctags"
+	ports += {
+	    "name": "devel/ipython",
+	    "options": ["OPTIONS_FILE_UNSET+=X11", "OPTIONS_FILE_UNSET+=ZMQ"]
+	}

@@ -28,11 +28,11 @@
 
 import os
 import sys
-from dsl import load_file
+from dsl import load_profile_config
 from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error
 
 
-dsl = load_file('${BUILD_CONFIG}/config.pyd', os.environ)
+config = load_profile_config()
 arch = env('TARGET_ARCH', 'amd64')
 makeconfbuild = objdir('make-build.conf')
 kernconf = objdir(e('${KERNCONF}'))
@@ -54,17 +54,16 @@ def calculate_make_jobs():
 
 def create_make_conf_build():
     conf = open(makeconfbuild, 'w')
-    for m in dsl['make_conf_build'].values():
-        for k, v in m.items():
-            conf.write('{0}={1}\n'.format(k, v))
+    for k, v in config['make_conf_build'].items():
+        conf.write('{0}={1}\n'.format(k, v))
 
     conf.close()
 
 
 def create_kernel_config():
     conf = open(kernconf, 'w')
-    for i in dsl['kernel_config']:
-        f = open(os.path.join(env('BUILD_CONFIG'), i), 'r')
+    for i in config['kernel_config']:
+        f = open(e('${PROFILE_ROOT}/${i}'), 'r')
         conf.write(f.read())
         f.close()
 
@@ -72,7 +71,7 @@ def create_kernel_config():
 
 
 def buildkernel():
-    modules = ' '.join(dsl['kernel_module'])
+    modules = ' '.join(config['kernel_module'])
     info('Building kernel from ${{TRUEOS_ROOT}}')
     info('Log file: {0}', kernlog)
     debug('Kernel configuration file: {0}', kernconf)

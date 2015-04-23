@@ -23,25 +23,25 @@
 # SUCH DAMAGE.
 #
 
-port(name="lang/python27")
-port(name="lang/python2")
-port(name="lang/python")
-port(name="databases/sqlite3")
-port(name="databases/py-sqlite3")
-port(name="databases/py-bsddb3")
+ports += "lang/python27"
+ports += "lang/python2"
+ports += "lang/python"
+ports += "databases/sqlite3"
+ports += "databases/py-sqlite3"
+ports += "databases/py-bsddb3"
 
-port(
-    name="freenas/pc-sysinstall",
-    options=[
+ports += {
+    "name": "freenas/pc-sysinstall",
+    "options": [
         e("PRODUCT_VERSION=${VERSION}"),
         e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
         e("REVISION=${GIT_REVISION}")
     ]
-)
+}
 
-port(
-    name="freenas/freenas-installer",
-    options=[
+ports += {
+    "name": "freenas/freenas-installer",
+    "options": [
         e("PRODUCT_VERSION=${VERSION}"),
         e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
         e("REVISION=${GIT_REVISION}")

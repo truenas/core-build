@@ -107,6 +107,7 @@ sync:
 		--exclude '.git-repo-setting' \
 		--exclude 'objs' \
 		--exclude 'FreeBSD' \
+		--exclude 'FreeNAS' \
 		--exclude '.git' \
 		--exclude '.idea' . ${host}:${dir}/
 
@@ -176,3 +177,6 @@ ports: check-root build-gui
 portsjail:
 	@${BUILD_TOOLS}/build-os.py
 	@${BUILD_TOOLS}/install-jail.py
+
+profiles:
+	@${BUILD_TOOLS}/profiles.py

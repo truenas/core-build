@@ -26,47 +26,25 @@
 #
 #####################################################################
 
-
 import os
-import sys
-import glob
-from dsl import load_profile_config
-from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_exit, chroot
+from dsl import load_file
+from utils import glob, e, info
 
 
-config = load_profile_config()
-logfile = objdir('logs/pkg-install')
+def main():
+    info("Selected profile: {0}", e('${PROFILE}') or 'default')
+    info("Available profiles:")
+    for i in glob("${BUILD_PROFILES}/*"):
+        dsl = load_file(e("${i}/config.pyd"), os.environ)
+        if dsl is None:
+            continue
+
+        profile = dsl["profile"]
+        info('{0}', profile["name"])
+        info('\tDescription: {0}', profile["description"])
+        info('\tOwner: {0}', profile["owner"])
+        info('\tStatus: {0}', profile["status"])
 
 
-def mount_packages():
-    sh('mkdir -p ${WORLD_DESTDIR}/usr/ports/packages')
-    sh('mount -t nullfs ${OBJDIR}/ports/packages/ja-p ${WORLD_DESTDIR}/usr/ports/packages')
-
-
-def umount_packages():
-    sh('umount ${WORLD_DESTDIR}/usr/ports/packages')
-
-
-def create_pkgng_configuration():
-    sh('mkdir -p ${WORLD_DESTDIR}/usr/local/etc/pkg/repos')
-    for i in glob.glob(e('${BUILD_CONFIG}/templates/pkg-repos/*')):
-        fname = os.path.basename(i)
-        sh(e('cp ${i} ${WORLD_DESTDIR}/usr/local/etc/pkg/repos/${fname}'))
-
-
-def install_ports():
-    pkgs = ' '.join(config['ports'].keys())
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile)
-
-
-if __name__ == '__main__':
-    if e('${SKIP_PORTS_INSTALL}'):
-        info('Skipping ports install as instructed by setting SKIP_PORTS_INSTALL')
-        sys.exit(0)
-
-    info('Installing ports')
-    info('Log file: {0}', logfile)
-    on_exit(umount_packages)
-    mount_packages()
-    create_pkgng_configuration()
-    install_ports()
+if __name__ == "__main__":
+    main()

@@ -28,7 +28,18 @@ if BUILD_TYPE == "RELEASE":
 else:
     url = e("http://download.freenas.org/nightlies/${VERSION_SHORT}")
 
-format("iso", "GUI_Upgrade.txz")
-aux_file(name="ReleaseNotes", source=e("${BUILD_ROOT}/ReleaseNotes"))
-aux_file(name="MANIFEST", source=e("${BUILD_ROOT}/FreeBSD/repo-manifest"))
-aux_file(name="README", source=e("${BUILD_ROOT}/README.md"), template=True)
+formats = ["iso", "GUI_Upgrade.txz"]
+aux_files = [
+    {
+        "name": "ReleaseNotes",
+        "source": e("${BUILD_ROOT}/ReleaseNotes")
+    },
+    {
+        "name": "MANIFEST",
+        "source": e("${BUILD_ROOT}/FreeBSD/repo-manifest"))
+    },
+    {
+        "name": "README",
+        "source": e("${BUILD_ROOT}/README.md"), template=True)
+    }
+]

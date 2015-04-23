@@ -29,17 +29,15 @@
 import os
 import sys
 import string
-from dsl import load_file
+from dsl import load_file, load_profile_config
 from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, setup_env, template, debug, error, on_exit, info
 
 
 makejobs = 1
 jailname = None
-dsl = load_file('${BUILD_CONFIG}/ports.pyd', os.environ)
-installer_dsl = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
-reposconf = load_file('${BUILD_CONFIG}/repos.pyd', os.environ)
+config = load_profile_config()
+installer_ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
 jailconf = load_file('${BUILD_CONFIG}/jail.pyd', os.environ)
-conf = load_file('${BUILD_CONFIG}/config.pyd', os.environ)
 
 portslist = e('${POUDRIERE_ROOT}/etc/ports.conf')
 portoptions = e('${POUDRIERE_ROOT}/etc/poudriere.d/options')
@@ -85,14 +83,14 @@ def create_ports_list():
     sh('rm -rf', portoptions)
 
     f = open(portslist, 'w')
-    for port in installer_dsl['port'].values() + dsl['port'].values():
-        port_und = port['name'].replace('/', '_')
-        options_path = pathjoin(portoptions, port_und)
+    for port in installer_ports['ports'] + config['ports'].values():
+        name = port['name'] if isinstance(port, dict) else port
+        name_und = name.replace('/', '_')
+        options_path = pathjoin(portoptions, name_und)
         f.write('{0}\n'.format(port['name']))
 
         sh('mkdir -p', options_path)
-
-        if 'options' in port:
+        if isinstance(port, dict) and 'options' in port:
             opt = open(pathjoin(options_path, 'options'), 'w')
             for o in port['options']:
                 opt.write('{0}\n'.format(o))

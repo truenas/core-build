@@ -24,21 +24,18 @@
 #
 
 
-link(
-    source=TRUEOS_ROOT,
-    dest="/usr/src",
-    flags="ro",
-)
+link += {
+    "source": TRUEOS_ROOT,
+    "dest": "/usr/src",
+    "flags": "ro",
+}
 
-copy(
-    source=SRC_ROOT,
-    dest="/usr/freenas_src"
-)
+copy += {
+    "source": SRC_ROOT,
+    "dest": "/usr/freenas_src"
+}
 
-copy(
-    source=GUI_DESTDIR,
-    dest="/usr/freenas_gui"
-)
-
-if PRODUCT == "TrueNAS":
-    pass
+copy += {
+    "source": GUI_DESTDIR,
+    "dest": "/usr/freenas_gui"
+}

@@ -24,59 +24,59 @@
 #
 
 if GIT_LOCATION == "INTERNAL":
-    repository(
-        name="freenas",
-        path="FreeNAS",
-        url="git@gitserver.ixsystems.com:/git/repos/freenas-build/freenas.git",
-        branch="freenas10/development"
-    )
+    repos += {
+        "name": "freenas",
+        "path": "FreeNAS",
+        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/freenas.git",
+        "branch": "freenas10/development"
+    }
 
-    repository(
-        name="trueos",
-        path="FreeBSD/src",
-        url="git@gitserver.ixsystems.com:/git/repos/freenas-build/trueos.git",
-        branch="freebsd10"
-    )
+    repos += {
+        "name": "trueos",
+        "path" :"FreeBSD/src",
+        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/trueos.git",
+        "branch": "freebsd10"
+    }
 
-    repository(
-        name="ports",
-        path="FreeBSD/ports",
-        url="git@gitserver.ixsystems.com:/git/repos/freenas-build/ports.git",
-        branch="masters/2014q4"
-    )
+    repos += {
+        "name" :"ports",
+        "path": "FreeBSD/ports",
+        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/ports.git",
+        "branch": "masters/2014q4"
+    }
 
 if GIT_LOCATION == "EXTERNAL":
-    repository(
-        name="freenas",
-        path="FreeNAS",
-        url="http://github.com/freenas/freenas.git",
-        branch="freenas10/development"
-    )
+    repos += {
+        "name": "freenas",
+        "path": "FreeNAS",
+        "url": "http://github.com/freenas/freenas.git",
+        "branch": "freenas10/development"
+    }
 
-    repository(
-        name="trueos",
-        path="FreeBSD/src",
-        url="https://github.com/trueos/trueos",
-        branch="freebsd10"
-    )
+    repos += {
+        "name": "trueos",
+        "path": "FreeBSD/src",
+        "url": "https://github.com/trueos/trueos",
+        "branch": "freebsd10"
+    }
 
-    repository(
-        name="ports",
-        path="FreeBSD/ports",
-        url="https://github.com/freenas/ports.git",
-        branch="masters/2014q4"
-    )
+    repos += {
+        "name": "ports",
+        "path": "FreeBSD/ports",
+        "url": "https://github.com/freenas/ports.git",
+        "branch": "masters/2014q4"
+    }
 
-repository(
-    name="pcbsd",
-    path="FreeBSD/pcbsd",
-    url="https://github.com/pcbsd/pcbsd.git",
-    branch="master"
-)
+repos += {
+    "name": "pcbsd",
+    "path": "FreeBSD/pcbsd",
+    "url": "https://github.com/pcbsd/pcbsd.git",
+    "branch": "master"
+}
 
 if LABEL == "TrueNAS":
-    repository(
-        name="truenas-components",
-        path="src/truenas",
-        branch="master"
-    )
+    repos += {
+        "name": "truenas-components",
+        "path": "src/truenas",
+        "branch": "master"
+    }

@@ -26,13 +26,35 @@
 #####################################################################
 
 import os
-import uuid
+
+
+class ConfigArray(list):
+    def __iadd__(self, other):
+        if not isinstance(other, list):
+            self.append(other)
+            return self
+
+        return super(ConfigArray, self).__iadd__(other)
+
+    def where(self, **predicates):
+        for i in self:
+            found = True
+            for k, v in predicates.items():
+                if i[k] != v:
+                    found = False
+                    break
+
+            if found:
+                return i
+
+        return None
 
 
 class GlobalsWrapper(dict):
-    def __init__(self, env):
+    def __init__(self, env, filename):
         super(GlobalsWrapper, self).__init__()
         self.dict = {}
+        self.filename = filename
         self.env = env
 
     def __getitem__(self, item):
@@ -59,7 +81,12 @@ class GlobalsWrapper(dict):
         if item == 'include':
             return self.include
 
-        return self.wrap(item)
+        if item in self.dict:
+            return self.dict[item]
+
+        arr = ConfigArray()
+        self.dict[item] = arr
+        return arr
 
     def __setitem__(self, key, value):
         if key.isupper():
@@ -67,22 +94,11 @@ class GlobalsWrapper(dict):
         else:
             self.dict[key] = value
 
-    def wrap(self, name):
-        def fn(*args, **kwargs):
-            if args:
-                if name not in self.dict:
-                    self.dict[name] = []
-                self.dict[name].extend(args)
-
-            if kwargs:
-                if name not in self.dict:
-                    self.dict[name] = {}
-                ident = kwargs.get('name', str(uuid.uuid4()))
-                self.dict[name].setdefault(ident, {}).update(kwargs)
-
-        return fn
-
     def include(self, filename):
+        filename = os.path.expandvars(filename)
+        if filename[0] != '/':
+            filename = os.path.join(os.path.dirname(self.filename), filename)
+
         d = load_file(filename, self.env)
         for k, v in d.items():
             if k in self.dict:
@@ -94,8 +110,10 @@ class GlobalsWrapper(dict):
                 self.dict[k] = v
 
 
-
 def load_file(filename, env):
-    g = GlobalsWrapper(env)
+    g = GlobalsWrapper(env, filename)
     execfile(os.path.expandvars(filename), g)
     return g.dict
+
+def load_profile_config():
+    return load_file('${BUILD_PROFILES}/${PROFILE}/config.pyd', os.environ)
