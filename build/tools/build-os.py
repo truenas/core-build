@@ -71,7 +71,7 @@ def create_kernel_config():
 
 
 def buildkernel():
-    modules = ' '.join(config['kernel_module'])
+    modules = ' '.join(config['kernel_modules'])
     info('Building kernel from ${{TRUEOS_ROOT}}')
     info('Log file: {0}', kernlog)
     debug('Kernel configuration file: {0}', kernconf)

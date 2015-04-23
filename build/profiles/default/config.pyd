@@ -44,7 +44,7 @@ kernel_modules = [
     "cc/cc_cubic",
     "cc/cc_hd",
     "cc/cc_htcp",
-    "cc/cc_vegas"
+    "cc/cc_vegas",
     "cxgb",
     "cxgbe",
     "cyclic",
