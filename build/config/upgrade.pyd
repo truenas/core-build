@@ -25,19 +25,19 @@
 
 aux_files = [
     {
-        "name": e("${PRODUCT}-MANIFEST"),
-        "source": e("${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"))
+        "name": "${PRODUCT}-MANIFEST",
+        "source": "${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"
     },
     {
         "name": "ReleaseNotes",
-        "source": e("${BUILD_ROOT}/ReleaseNotes"))
+        "source": "${BUILD_ROOT}/ReleaseNotes"
     },
     {
         "name": "ChangeLog",
-        "source": e("${BUILD_ROOT}/ChangeLog"))
+        "source": "${BUILD_ROOT}/ChangeLog"
     },
     {
         "name": "NOTICE",
-        "source": e("${BUILD_ROOT}/NOTICE"))
+        "source": "${BUILD_ROOT}/NOTICE"
     }
 ]

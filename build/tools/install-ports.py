@@ -31,7 +31,7 @@ import os
 import sys
 import glob
 from dsl import load_profile_config
-from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_exit, chroot, get_port_names
+from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_abort, chroot, get_port_names
 
 
 config = load_profile_config()
@@ -39,12 +39,14 @@ logfile = objdir('logs/pkg-install')
 
 
 def mount_packages():
+    on_abort(umount_packages)
     sh('mkdir -p ${WORLD_DESTDIR}/usr/ports/packages')
     sh('mount -t nullfs ${OBJDIR}/ports/packages/ja-p ${WORLD_DESTDIR}/usr/ports/packages')
 
 
 def umount_packages():
     sh('umount ${WORLD_DESTDIR}/usr/ports/packages')
+    on_abort(None)
 
 
 def create_pkgng_configuration():
@@ -66,7 +68,7 @@ if __name__ == '__main__':
 
     info('Installing ports')
     info('Log file: {0}', logfile)
-    on_exit(umount_packages)
     mount_packages()
     create_pkgng_configuration()
     install_ports()
+    umount_packages()

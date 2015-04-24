@@ -29,7 +29,7 @@
 
 import os
 from dsl import load_file, load_profile_config
-from utils import sh, info, objdir, e, chroot, glob, setfile, template, sha256, import_function, get_port_names, on_exit
+from utils import sh, info, objdir, e, chroot, glob, setfile, template, sha256, import_function, get_port_names, on_abort
 
 
 ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
@@ -274,12 +274,14 @@ def install_pkgtools():
 
 
 def mount_packages():
+    on_abort(umount_packages)
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/ports/packages')
     sh('mount -t nullfs ${OBJDIR}/ports/packages/ja-p ${INSTUFS_DESTDIR}/usr/ports/packages')
 
 
 def umount_packages():
     sh('umount ${INSTUFS_DESTDIR}/usr/ports/packages')
+    on_abort(None)
 
 
 def install_files():
@@ -335,13 +337,13 @@ def make_iso_image():
 
 if __name__ == '__main__':
     info("Creating ISO image")
-    on_exit(umount_packages)
     cleandirs()
     installworld(e('${INSTUFS_DESTDIR}'), installworldlog, distributionlog)
     installkernel(e('${ISO_DESTDIR}'), installkernellog)
     create_ufs_dirs()
     mount_packages()
     install_ports()
+    umount_packages()
     install_pkgtools()
     populate_ufsroot()
     install_files()

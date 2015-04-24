@@ -34,12 +34,12 @@ from utils import e, sh, sh_str, readfile, setfile, template, setup_env
 
 
 dsl = load_file('${BUILD_CONFIG}/release.pyd', os.environ)
-url = dsl['url']
+url = dsl.url
 
 
 def stage_release():
     sh('mkdir -p ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}')
-    for ext in dsl['format']:
+    for ext in dsl.formats:
         path = e('${OBJDIR}/${NAME}.${ext}')
         if os.path.exists(path):
             sh('mv ${path} ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/')
@@ -47,7 +47,8 @@ def stage_release():
 
 
 def get_aux_files_desc():
-    for name, aux in dsl['aux_file'].items():
+    for aux in dsl.aux_files:
+        name = aux.name
         yield {
             'filename': name,
             'hash': sh_str("sha256 -q ${RELEASE_STAGEDIR}/${name}"),
@@ -55,7 +56,7 @@ def get_aux_files_desc():
 
 
 def get_image_files_desc():
-    for ext in dsl['format']:
+    for ext in dsl.formats:
         path = e('${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/${NAME}.${ext}')
         filename = os.path.basename(path)
         if os.path.exists(path):
@@ -68,15 +69,16 @@ def get_image_files_desc():
 
 
 def create_aux_files(dsl, dest):
-    for name, aux in dsl['aux_file'].items():
-        if not os.path.exists(aux['source']):
+    for aux in dsl.aux_files:
+        if not os.path.exists(aux.source):
             continue
 
         if aux.get('template'):
-            f = template(aux['source'])
+            f = template(aux.source)
         else:
-            f = readfile(aux['source'])
+            f = readfile(aux.source)
 
+        name = aux.name
         setfile('${dest}/${name}', f)
 
 

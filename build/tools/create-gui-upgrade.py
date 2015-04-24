@@ -28,11 +28,9 @@
 
 
 import os
-from dsl import load_file
 from utils import sh, info, objdir, e, chroot, setup_env, setfile, sha256, template
 
 
-dsl = load_file("${BUILD_CONFIG}/config.pyd", os.environ)
 output = objdir("${NAME}.GUI_Upgrade")
 
 

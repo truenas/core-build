@@ -30,12 +30,14 @@ import sys
 import time
 import datetime
 import subprocess
-import atexit
 import string
 import signal
 import inspect
 from collections import defaultdict
 from dsl import load_file
+
+
+_abort_func = None
 
 
 def interrupt(signal, frame):
@@ -123,8 +125,18 @@ def appendfile(filename, contents):
     f.write('\n')
 
 
-def on_exit(func):
-    atexit.register(func)
+def on_abort(func):
+    global _abort_func
+
+    def fn(signum, frame):
+        if _abort_func is not None:
+            _abort_func()
+        error('Build aborted')
+
+    _abort_func = func
+    signal.signal(signal.SIGINT, fn)
+    signal.signal(signal.SIGTERM, fn)
+    signal.signal(signal.SIGQUIT, fn)
 
 
 def get_caller_vars():
@@ -219,6 +231,8 @@ def log(fmt, *args):
 
 def error(fmt, *args):
     print '[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args))
+    if _abort_func is not None:
+        _abort_func()
     sys.exit(1)
 
 

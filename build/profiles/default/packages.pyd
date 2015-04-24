@@ -25,20 +25,20 @@
 
 packages += {
     "name": "base-os",
-    "template": "${PROFILE_ROOT}/packages/base-os"
+    "template": "${DEFAULT_PROFILE}/packages/base-os"
 }
 
 packages += {
     "name": "freebsd-pkgdb",
-    "template": "${PROFILE_ROOT}/packages/freebsd-pkgdb"
+    "template": "${DEFAULT_PROFILE}/packages/freebsd-pkgdb"
 }
 
 packages += {
     "name": "freenas-pkg-tools",
-    "template": "${PROFILE_ROOT}/packages/freenas-pkg-tools"
+    "template": "${DEFAULT_PROFILE}/packages/freenas-pkg-tools"
 }
 
 packages += {
     "name": "freenasUI",
-    "template": "${PROFILE_ROOT}/packages/freenasUI"
+    "template": "${DEFAULT_PROFILE}/packages/freenasUI"
 }

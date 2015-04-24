@@ -32,14 +32,15 @@ formats = ["iso", "GUI_Upgrade.txz"]
 aux_files = [
     {
         "name": "ReleaseNotes",
-        "source": e("${BUILD_ROOT}/ReleaseNotes")
+        "source": "${BUILD_ROOT}/ReleaseNotes"
     },
     {
         "name": "MANIFEST",
-        "source": e("${BUILD_ROOT}/FreeBSD/repo-manifest"))
+        "source": "${BUILD_ROOT}/FreeBSD/repo-manifest"
     },
     {
         "name": "README",
-        "source": e("${BUILD_ROOT}/README.md"), template=True)
+        "source": "${BUILD_ROOT}/README.md",
+        "template": True
     }
 ]

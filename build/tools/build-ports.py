@@ -30,7 +30,7 @@ import os
 import sys
 import string
 from dsl import load_file, load_profile_config
-from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, setup_env, template, debug, error, on_exit, info
+from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, setup_env, template, debug, error, on_abort, info
 
 
 makejobs = 1
@@ -157,7 +157,7 @@ if __name__ == '__main__':
         sys.exit(0)
 
     create_overlay()
-    on_exit(cleanup_env)
+    on_abort(cleanup_env)
     obtain_jail_name()
     calculate_make_jobs()
     create_poudriere_config()
@@ -167,3 +167,4 @@ if __name__ == '__main__':
     merge_freenas_ports()
     prepare_env()
     run()
+    cleanup_env()
