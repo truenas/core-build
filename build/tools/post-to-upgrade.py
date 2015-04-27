@@ -42,7 +42,7 @@ def main():
     temp_dest = sh_str("ssh ${ssh} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} mktemp /tmp/changelog-XXXXXXXXX")
 
-    sh('scp -r ${BUILD_ROOT}/objs/LATEST/. ${ssh}:${temp_dest}')
+    sh('scp -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
     if changelog:
         if changelog == '-':
             print 'Enter changelog, ^D to end:'
