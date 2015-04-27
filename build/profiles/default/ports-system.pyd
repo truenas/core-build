@@ -227,21 +227,18 @@ ports += "misc/gnomehier"
 ports += "www/py-httplib2"
 ports += "net/py-oauth2"
 ports += "sysutils/jailme"
-
-
-if REPORTING:
-	ports += "devel/libstatgrab"
-	ports += "devel/libltdl"
-	ports += "net/liboping"
-	ports += {
-	    "name": "net-mgmt/collectd5",
-	    "options": [
-            "OPTIONS_FILE_UNSET+=BIND",
-            "OPTIONS_FILE_UNSET+=SNMP",
-            "OPTIONS_FILE_SET+=DISK",
-            "OPTIONS_FILE_SET+=STATGRAB"
-        ]
-    }
+ports += "devel/libstatgrab"
+ports += "devel/libltdl"
+ports += "net/liboping"
+ports += {
+    "name": "net-mgmt/collectd5",
+    "options": [
+        "OPTIONS_FILE_UNSET+=BIND",
+        "OPTIONS_FILE_UNSET+=SNMP",
+        "OPTIONS_FILE_SET+=DISK",
+        "OPTIONS_FILE_SET+=STATGRAB"
+    ]
+}
 
 #FIXME: gobject now requires cairo as build dependency
 ports += "devel/gobject-introspection"
