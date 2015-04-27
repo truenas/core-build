@@ -35,11 +35,11 @@ config = load_profile_config()
 
 
 def check_sandbox():
-    if not os.path.exists(e('${BUILD_ROOT}/FreeBSD/.pulled')):
+    if not os.path.exists(e('${BE_ROOT}/.pulled')):
         error('Sandbox is not fully checked out')
 
     for i in config['repos']:
-        if not os.path.isdir(os.path.join(e('${BUILD_ROOT}'), i['path'], '.git')):
+        if not os.path.isdir(os.path.join(e('${BE_ROOT}'), i['path'], '.git')):
             error('Sandbox is not fully checked out, {0} is missing', i['name'])
 
     info('Sandbox is fully checked out')

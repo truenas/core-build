@@ -31,7 +31,8 @@ BUILD_ROOT ?= ${.CURDIR}
 BUILD_CONFIG := ${BUILD_ROOT}/build/config
 BUILD_TOOLS := ${BUILD_ROOT}/build/tools
 PYTHONPATH := ${BUILD_ROOT}/build/lib
-OBJDIR ?= ${BUILD_ROOT}/objs/amd64
+BE_ROOT := ${BUILD_ROOT}/_BE
+OBJDIR := ${BE_ROOT}/objs
 PROFILE ?= default
 GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
 PROFILE_SETTING = ${BUILD_ROOT}/.profile-setting
@@ -53,6 +54,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .export BUILD_TOOLS
 .export BUILD_LOGLEVEL
 .export PYTHONPATH
+.export BE_ROOT
 .export OBJDIR
 .export BUILD_STARTED
 .export GIT_REPO_SETTING

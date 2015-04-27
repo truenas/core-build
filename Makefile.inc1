@@ -32,7 +32,7 @@
 .ifdef SCRIPT
 RELEASE_LOGFILE?=${SCRIPT}
 .else
-RELEASE_LOGFILE?=release.build.log
+RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 .endif
 
 .if defined(CHANGELOG)
@@ -70,9 +70,9 @@ dumpenv:
 	@${BUILD_TOOLS}/dumpenv.py
 
 clean:
-	chflags -R 0 ${BUILD_ROOT}/objs
-	rm -rf ${BUILD_ROOT}/objs
-	rm -rf release.build.log
+	chflags -R 0 ${BE_ROOT}/objs
+	rm -rf ${BE_ROOT}/objs
+	rm -rf ${BE_ROOT}/release.build.log
 
 clean-packages:
 	find ${MAKEOBJDIRPREFIX}/ports -type f -delete
@@ -94,8 +94,9 @@ clean-ui-package:
 	${MK} clean-package p=freenas-10gui
 	rm -rf objs/os-base/*/gui-dest
 
-distclean: clean
-	rm -fr FreeBSD nas_source
+distclean:
+	chflags -R 0 ${BE_ROOT}
+	rm -rf ${BE_ROOT}
 
 save-build-env:
 	@${BUILD_TOOLS}/save-build-env.py
@@ -105,9 +106,7 @@ sync:
 		--rsync-path="sudo rsync" \
 		--delete \
 		--exclude '.git-repo-setting' \
-		--exclude 'objs' \
-		--exclude 'FreeBSD' \
-		--exclude 'FreeNAS' \
+		--exclude '_BE' \
 		--exclude '.git' \
 		--exclude '.idea' . ${host}:${dir}/
 
@@ -180,3 +179,6 @@ portsjail:
 
 profiles:
 	@${BUILD_TOOLS}/profiles.py
+
+select-profile:
+	@${BUILD_TOOLS}/select-profile.py ${name}

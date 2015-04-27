@@ -125,13 +125,21 @@ def appendfile(filename, contents):
     f.write('\n')
 
 
+def abort():
+    global _abort_func
+    if _abort_func is not None:
+        tmpfn = _abort_func
+        _abort_func = None
+        tmpfn()
+
+
 def on_abort(func):
     global _abort_func
 
     def fn(signum, frame):
-        if _abort_func is not None:
-            _abort_func()
-        error('Build aborted')
+        info('ERROR: Build aborted')
+        abort()
+        sys.exit(1)
 
     _abort_func = func
     signal.signal(signal.SIGINT, fn)
@@ -231,8 +239,7 @@ def log(fmt, *args):
 
 def error(fmt, *args):
     print '[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args))
-    if _abort_func is not None:
-        _abort_func()
+    abort()
     sys.exit(1)
 
 

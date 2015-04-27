@@ -46,7 +46,7 @@ def read_repo_manifest():
     global sequence
 
     versions = []
-    f = open(e("${BUILD_ROOT}/FreeBSD/repo-manifest"))
+    f = open(e("${BE_ROOT}/repo-manifest"))
     for i in f:
         versions.append(i.split()[1])
 

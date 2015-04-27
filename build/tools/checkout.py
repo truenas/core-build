@@ -37,7 +37,7 @@ manifest = {sh_str("git config --get remote.origin.url"): sh_str("git rev-parse 
 
 
 def checkout_repo(repo):
-    os.chdir(e('${BUILD_ROOT}'))
+    os.chdir(e('${BE_ROOT}'))
     if os.path.isdir(os.path.join(repo['path'], '.git')):
         os.chdir(repo['path'])
         branch = sh_str('git rev-parse --abbrev-ref HEAD')
@@ -55,9 +55,9 @@ def checkout_repo(repo):
 
 
 def generate_manifest():
-    sh('rm -f ${BUILD_ROOT}/FreeBSD/repo-manifest')
+    sh('rm -f ${BE_ROOT}/repo-manifest')
     for k, v in manifest.items():
-        appendfile('${BUILD_ROOT}/FreeBSD/repo-manifest', e('${k} ${v}'))
+        appendfile('${BE_ROOT}/repo-manifest', e('${k} ${v}'))
 
 if __name__ == '__main__':
     for i in dsl['repos']:
@@ -67,4 +67,4 @@ if __name__ == '__main__':
         checkout_repo(i)
 
     generate_manifest()
-    setfile('${BUILD_ROOT}/FreeBSD/.pulled', e('${PRODUCT}'))
+    setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
