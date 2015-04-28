@@ -74,7 +74,7 @@ PROFILE != cat ${PROFILE_SETTING}
 
 .if !make(remote) && !make(sync)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
-.if !make(checkout) && !make(update) && !make(clean) && !make(distclean) && !make(git-internal) && !make(git-external) && !make(profiles)
+.if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(git-internal) && !make(git-external) && !make(profiles)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-sandbox.py
 .endif
 .endif
