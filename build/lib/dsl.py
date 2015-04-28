@@ -93,6 +93,9 @@ class GlobalsWrapper(dict):
         if item == 'include':
             return self.include
 
+        if item == 'exists':
+            return os.path.exists
+
         if item in self.dict:
             return self.dict[item]
 
