@@ -94,7 +94,7 @@ clean-ui-package:
 	${MK} clean-package p=freenas-10gui
 	rm -rf objs/os-base/*/gui-dest
 
-distclean:
+cleandist:
 	chflags -R 0 ${BE_ROOT}
 	rm -rf ${BE_ROOT}
 
