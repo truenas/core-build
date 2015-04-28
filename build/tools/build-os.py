@@ -83,6 +83,7 @@ def buildkernel():
         "-j {0}".format(makejobs),
         "-C ${TRUEOS_ROOT}",
         "NO_KERNELCLEAN=YES",
+        "DEBUG=",
         "__MAKE_CONF={0}".format(makeconfbuild),
         "KERNCONFDIR={0}".format(os.path.dirname(kernconf)),
         "KERNCONF={0}".format(os.path.basename(kernconf)),
@@ -98,10 +99,11 @@ def buildworld():
     debug('World make.conf: {0}', makeconfbuild)
 
     sh(
-        "env MAKEOBJDIRPREFIX=${OBJDIR}",
+        "env MAKEOBJDIRPREFIX=${OBJDIR} DEBUG=",
         "make",
         "-j {0}".format(makejobs),
         "-C ${TRUEOS_ROOT}",
+        "DEBUG=",
         "__MAKE_CONF={0}".format(makeconfbuild),
         "NOCLEAN=YES",
         "buildworld",
