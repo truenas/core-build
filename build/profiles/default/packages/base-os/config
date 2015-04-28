@@ -40,4 +40,4 @@ exclude = /usr/local/www/gui
 	/var/db/pkg
 	/etc/rc.d/netif
 	/etc/rc.d/routing
-	/dev
+	/dev/*
