@@ -223,7 +223,6 @@ if PRODUCT == "TrueNAS":
 	ports += "devel/bison"
 	ports += "devel/libffi"
 
-ports += "misc/gnomehier"
 ports += "www/py-httplib2"
 ports += "net/py-oauth2"
 ports += "sysutils/jailme"
