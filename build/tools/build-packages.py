@@ -83,7 +83,7 @@ def build_packages():
             "-R ${WORLD_DESTDIR}",
             "-T ${template}",
             "-N ${name}",
-            "-V ${VERSION}",
+            "-V ${VERSION}-${pkgversion}",
             '${pkgdir}/Packages/${name}-${VERSION}-${pkgversion}.tgz')
 
 
