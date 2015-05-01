@@ -75,11 +75,11 @@ clean:
 	rm -rf ${BE_ROOT}/release.build.log
 
 clean-packages:
-	find ${MAKEOBJDIRPREFIX}/ports -type f -delete
+	find ${OBJDIR}/ports -type f -delete
 
 clean-package:
 .if defined(p)
-	find ${MAKEOBJDIRPREFIX}/ports -name "${p}*" | xargs rm -fr
+	find ${OBJDIR}/ports -name "${p}*" | xargs rm -fr
 .else
 	@echo "Clean a single package from object tree"
 	@echo "" 
