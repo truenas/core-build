@@ -60,6 +60,9 @@ def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile)
 
+    if not os.path.exists(e('${WORLD_DESTDIR}/etc/freenas.conf')):
+        error('Packages installation failed, see {0}', logfile)
+
 
 if __name__ == '__main__':
     if e('${SKIP_PORTS_INSTALL}'):
