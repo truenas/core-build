@@ -37,6 +37,7 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 
 def stage_upgrade():
+    sh('rm -rf ${UPGRADE_STAGEDIR}')
     sh('mkdir -p ${UPGRADE_STAGEDIR}')
     sh('cp -R ${OBJDIR}/packages/Packages ${UPGRADE_STAGEDIR}/')
     sh('rm -f ${BE_ROOT}/release/LATEST')
