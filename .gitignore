@@ -31,6 +31,8 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+# Python files
+*.pyc
 
 ### PROJECT SETTINGS ###
 _BE/
