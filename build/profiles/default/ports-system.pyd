@@ -64,7 +64,6 @@ if LABEL != "TrueNAS":
 
 ports += "security/libgpg-error"
 ports += "security/libgcrypt"
-ports += "databases/db48"
 ports += {
     "name": "net/rsync",
     "options": [
@@ -82,7 +81,6 @@ ports += {
 }
 ports += "lang/python2"
 ports += "lang/python"
-ports += "lang/cython"
 # conflicting version of python (the below is installed as dependency of another port albeit as a different version)
 #ports += "devel/py-setuptools"
 ports += "dns/py-bonjour"
@@ -148,7 +146,6 @@ if PRODUCT == "TrueNAS":
 
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
-ports += "databases/py-bsddb3"
 ports += "databases/mongodb"
 ports += "databases/pymongo"
 ports += "devel/py-gevent"
