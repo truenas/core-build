@@ -188,6 +188,8 @@ ports += {
     "name": "www/nginx",
     "options": [
         "WITH_OPENSSL_PORT=yes",
+        "OPTIONS_FILE_SET+=DEBUG"
+        "OPTIONS_FILE_SET+=DEBUGLOG"
         "OPTIONS_FILE_SET+=HTTP_SSL",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD_PROGRESS",
