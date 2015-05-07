@@ -102,13 +102,14 @@ save-build-env:
 	@${BUILD_TOOLS}/save-build-env.py
 
 sync:
-	rsync -al \
+	rsync -avl \
 		--rsync-path="sudo rsync" \
 		--delete \
 		--exclude '.git-repo-setting' \
-		--exclude '_BE' \
+		--include '_BE/freenas' \
+		--exclude '_BE/*' \
 		--exclude '.git' \
-		--exclude '.idea' . ${host}:${dir}/
+		--exclude '.idea' . ${host}:${dir}/ \
 
 remote: sync
 	ssh -o StrictHostKeyChecking=no -t ${host} sudo make -C ${dir} ${target}
