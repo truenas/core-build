@@ -380,6 +380,7 @@ ports += {
 ports += "sysutils/grub2-pcbsd"
 ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
+ports += "mail/nullmailer"
 
 if DEBUG:
 	ports += "editors/vim-lite"
