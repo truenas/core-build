@@ -380,7 +380,10 @@ ports += {
 ports += "sysutils/grub2-pcbsd"
 ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
-ports += "mail/nullmailer"
+ports += {
+    "name": "mail/nullmailer",
+    "options": ["OPTIONS_FILE_SET+=GNUTLS"]
+}
 
 if DEBUG:
 	ports += "editors/vim-lite"
