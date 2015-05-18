@@ -38,10 +38,11 @@ def main():
         pkg_paths.append(i)
         pkg_names.append(os.path.basename(i))
 
+    pkg_dest_paths = ' '.join([os.path.join('/tmp', i) for i in pkg_names])
     pkg_paths = ' '.join(pkg_paths)
     pkg_names = ' '.join(pkg_names)
     sh('scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${pkg_paths} ${host}:/tmp/')
-    sh('ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -t ${host} pkg add -f ${pkg_names}')
+    sh('ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -t ${host} pkg add -f ${pkg_dest_paths}')
 
 
 if __name__ == '__main__':
