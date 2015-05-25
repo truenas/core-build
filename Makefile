@@ -25,7 +25,7 @@
 #
 #####################################################################
 
-BUILD_TIMESTAMP != date '+%Y%m%d'
+BUILD_TIMESTAMP != date -u '+%Y%m%d%H%M' 
 BUILD_STARTED != date '+%s'
 BUILD_ROOT ?= ${.CURDIR}
 BUILD_CONFIG := ${BUILD_ROOT}/build/config
