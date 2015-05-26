@@ -67,13 +67,6 @@ if GIT_LOCATION == "EXTERNAL":
         "branch": "masters/2014q4"
     }
 
-repos += {
-    "name": "pcbsd",
-    "path": "pcbsd",
-    "url": "https://github.com/pcbsd/pcbsd.git",
-    "branch": "master"
-}
-
 if LABEL == "TrueNAS":
     repos += {
         "name": "truenas-components",
