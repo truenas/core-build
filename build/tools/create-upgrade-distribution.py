@@ -48,7 +48,7 @@ def stage_upgrade():
     if env('REBOOT'):
        sh('echo ${REBOOT} > ${UPGRADE_STAGEDIR}/FORCEREBOOT')
     sh('rm -f ${BE_ROOT}/release/LATEST')
-    sh('ln -sf ${SEQUENCE}-Update ${BE_ROOT}/release/LATEST')
+    sh('ln -sf ${UPGRADE_STAGEDIR} ${BE_ROOT}/release/LATEST')
 
 
 if __name__ == '__main__':
