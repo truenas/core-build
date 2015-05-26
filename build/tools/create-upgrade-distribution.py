@@ -29,7 +29,7 @@
 
 import os
 from dsl import load_file
-from utils import e, sh, setup_env, import_function
+from utils import e, sh, setup_env, import_function, env
 
 
 dsl = load_file('${BUILD_CONFIG}/upgrade.pyd', os.environ)
@@ -40,8 +40,15 @@ def stage_upgrade():
     sh('rm -rf ${UPGRADE_STAGEDIR}')
     sh('mkdir -p ${UPGRADE_STAGEDIR}')
     sh('cp -R ${OBJDIR}/packages/Packages ${UPGRADE_STAGEDIR}/')
+    # If RESTART is given, save that
+    if env('RESTART'):
+       sh('echo ${RESTART} > ${UPGRADE_STAGEDIR}/RESTART')
+
+    # And if REBOOT is given, put that in FORCEREBOOT
+    if env('REBOOT'):
+       sh('echo ${REBOOT} > ${UPGRADE_STAGEDIR}/FORCEREBOOT')
     sh('rm -f ${BE_ROOT}/release/LATEST')
-    sh('ln -sf ${SEQUENCE}-Update ${BE_ROOT}/release/LATEST')
+    sh('ln -sf ${UPGRADE_STAGEDIR} ${BE_ROOT}/release/LATEST')
 
 
 if __name__ == '__main__':

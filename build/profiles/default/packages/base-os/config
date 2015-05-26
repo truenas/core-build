@@ -41,3 +41,21 @@ exclude = /usr/local/www/gui
 	/etc/rc.d/netif
 	/etc/rc.d/routing
 	/dev/*
+
+[Services]
+
+# This is a list of comma-seperated services provided by this package.
+# "reboot" is kinda special.
+# Note that I removed "DirectoryServices"
+# services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
+# The above code will be uncommented because we are not ready for
+# rebootless updates in freenas10 yet, so instead just `reboot`
+services = reboot
+
+
+# This is a list of comma-seperated services that will always be
+# be restarted when this package is update.  "all" means all services
+# provided by this package.
+# In this case, nothing is automatically restarted, because base-os requires
+# a reboot unless otherwise stated.
+# restart = all
