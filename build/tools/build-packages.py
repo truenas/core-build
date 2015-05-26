@@ -72,28 +72,27 @@ def build_pkgtools():
 
 
 def build_packages():
+    retval = []
     info('Building packages')
     sh('rm -rf ${pkgdir}/Packages')
     sh('mkdir -p ${pkgdir}/Packages')
     for i in config['packages']:
         template = i['template']
         name = i['name']
+        pkg_file_name = e('${pkgdir}/Packages/${name}-${VERSION}-${pkgversion}.tgz')
         sh(
             "${tooldir}/usr/local/bin/create_package",
             "-R ${WORLD_DESTDIR}",
             "-T ${template}",
             "-N ${name}",
             "-V ${VERSION}-${pkgversion}",
-            '${pkgdir}/Packages/${name}-${VERSION}-${pkgversion}.tgz')
+            "${pkg_file_name}" )
+        retval.append(pkg_file_name)
+    return retval
 
 
-def create_manifest():
+def create_manifest(pkgs):
     info('Creating package manifests')
-    pkgs = []
-    for i in config['packages']:
-        name = i['name']
-        pkgs.append(e("${name}=${VERSION}-${pkgversion}"))
-
     date = int(time.time())
     train = e('${TRAIN}') or 'FreeNAS'
     sh(
@@ -115,5 +114,5 @@ if __name__ == '__main__':
         info('Skipping build of following packages: ${SKIP_PACKAGES}')
     read_repo_manifest()
     build_pkgtools()
-    build_packages()
-    create_manifest()
+    pkg_list = build_packages()
+    create_manifest(pkg_list)
