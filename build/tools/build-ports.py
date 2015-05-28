@@ -139,6 +139,10 @@ def prepare_env():
         sh('mkdir -p', os.path.dirname(dest))
         sh('mount -t nullfs', flags, cmd['source'], dest)
 
+    osversion=sh_str("awk '/\#define __FreeBSD_version/ { print $3 }' ${JAIL_DESTDIR}/usr/include/sys/param.h")
+    login_env = e(',UNAME_r=${FREEBSD_RELEASE_VERSION% *},UNAME_v=FreeBSD ${FREEBSD_RELEASE_VERSION},OSVERSION=${osversion}')
+    sh('sed -i "" -e "s/,UNAME_r.*:/:/ ; s/:\(setenv.*\):/:\\1${login_env}:/" ${JAIL_DESTDIR}/etc/login.conf')
+    sh('cap_mkdb ${JAIL_DESTDIR}/etc/login.conf');
 
 def cleanup_env():
     sh('umount -f ${PORTS_OVERLAY}')
