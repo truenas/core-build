@@ -371,9 +371,10 @@ ports += {
         "OPTIONS_FILE_SET+=UTMP",
         "OPTIONS_FILE_SET+=WINBIND",
         "OPTIONS_FILE_SET+=NSUPDATE",
-        "OPTIONS_FILE_UNSET+=BIND98",
         "OPTIONS_FILE_UNSET+=BIND99",
-        "WITH_DEBUG=yes"
+        "OPTIONS_FILE_UNSET+=BIND910",
+        "WITH_DEBUG=yes",
+        "CRAZY=yes"
     ]
 }
 
