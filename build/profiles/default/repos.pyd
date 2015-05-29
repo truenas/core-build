@@ -42,7 +42,7 @@ if GIT_LOCATION == "INTERNAL":
         "name" :"ports",
         "path": "ports",
         "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/ports.git",
-        "branch": "masters/2015q2"
+        "branch": "masters/2014q4"
     }
 
 if GIT_LOCATION == "EXTERNAL":
