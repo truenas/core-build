@@ -121,6 +121,7 @@ ports += "devel/libublio"
 ports += "sysutils/fusefs-ntfs"
 ports += "sysutils/smartmontools"
 ports += "net/libdnet"
+ports += "net/mosh"
 ports += "net/py-s3cmd"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
