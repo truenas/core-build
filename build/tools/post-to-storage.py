@@ -29,12 +29,22 @@
 
 import os
 import sys
+import glob
 from utils import sh, sh_str, e, setup_env, info
 
 
 def main():
-    name = os.path.basename(e('${RELEASE_STAGEDIR}'))
-    sh('cp -r ${RELEASE_STAGEDIR} ${IX_INTERNAL_PATH}/${name}')
+    # name = os.path.basename(e('${RELEASE_STAGEDIR}'))
+    # sh('cp -r ${RELEASE_STAGEDIR} ${IX_INTERNAL_PATH}/${name}')
+    ref_date = 0
+    rel_dir = ''
+    dirstring = e('${BE_ROOT}/release/${PRODUCT}-10.1-${MILESTONE}')
+    for x in glob.glob("{0}-*".format(dirstring)):
+        if os.lstat(x).st_ctime > ref_date:
+            ref_date = os.lstat(x).st_ctime
+            rel_dir = x
+    name = os.path.basename(rel_dir)
+    sh('cp -r ${rel_dir} ${IX_INTERNAL_PATH}/${name}')
 
 
 if __name__ == '__main__':

@@ -29,6 +29,7 @@
 
 import os
 import sys
+import glob
 from utils import sh, sh_str, e, setup_env, info
 
 
@@ -37,9 +38,21 @@ def main():
     if user == 'root':
         user = 'jkh'
 
-    sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${DOWNLOAD_TARGETDIR}')
-    sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${DOWNLOAD_TARGETDIR}')
-    sh('scp -pr ${RELEASE_STAGEDIR}/* ${user}@${DOWNLOAD_HOST}:${DOWNLOAD_TARGETDIR}/')
+    # sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${DOWNLOAD_TARGETDIR}')
+    # sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${DOWNLOAD_TARGETDIR}')
+    # sh('scp -pr ${RELEASE_STAGEDIR}/* ${user}@${DOWNLOAD_HOST}:${DOWNLOAD_TARGETDIR}/')
+    ref_date = 0
+    rel_dir = ''
+    dirstring = e('${BE_ROOT}/release/${PRODUCT}-10.1-${MILESTONE}')
+    for x in glob.glob("{0}-*".format(dirstring)):
+        if os.lstat(x).st_ctime > ref_date:
+            ref_date = os.lstat(x).st_ctime
+            rel_dir = x
+    buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
+    downlodtargetdir = e('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
+    sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downlodtargetdir}')
+    sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downlodtargetdir}')
+    sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downlodtargetdir}/')
 
 
 if __name__ == '__main__':
