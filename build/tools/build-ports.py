@@ -105,6 +105,7 @@ def obtain_jail_name():
     for i in string.ascii_lowercase:
         if sh('jls -q -n -j j${i}-p', log="/dev/null", nofail=True) != 0:
             jailname = e('j${i}')
+            setfile(e('${OBJDIR}/jailname'), jailname)
             return
 
     error('No jail names available')
