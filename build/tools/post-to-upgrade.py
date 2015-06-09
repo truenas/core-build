@@ -39,10 +39,11 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 def main():
     changelog = e('${CHANGELOG}')
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    temp_dest = sh_str("ssh ${ssh} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
-    temp_changelog = sh_str("ssh ${ssh} mktemp /tmp/changelog-XXXXXXXXX")
+    sshopts='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
+    temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
 
-    sh('scp -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
+    sh('scp ${sshopts} -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
     if changelog:
 	cl_file = None
         if changelog == '-':
@@ -52,12 +53,12 @@ def main():
 	    cl_file.close()
 	    changelog = cl_file.name
 
-        sh('scp ${changelog} ${ssh}:${temp_changelog}')
+        sh('scp ${sshopts} ${changelog} ${ssh}:${temp_changelog}')
 	if cl_file is not None:
 	    os.remove(cl_file.name)
 
     sh(
-        "ssh ${ssh}",
+        "ssh ${sshopts} ${ssh}",
         "/usr/local/bin/freenas-release",
         "-P ${PRODUCT}",
         "-D ${UPDATE_DB}",
@@ -67,8 +68,8 @@ def main():
         "add ${temp_dest}"
     )
 
-    sh("ssh ${ssh} rm -rf ${temp_dest}")
-    sh("ssh ${ssh} rm -rf ${temp_changelog}")
+    sh("ssh ${sshopts} ${ssh} rm -rf ${temp_dest}")
+    sh("ssh ${sshopts} ${ssh} rm -rf ${temp_changelog}")
 
 
 if __name__ == '__main__':
