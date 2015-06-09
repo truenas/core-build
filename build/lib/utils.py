@@ -54,7 +54,7 @@ def sh(*args, **kwargs):
         f = open(logfile, mode)
 
     debug('sh: {0}', cmd)
-    ret = subprocess.call(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True)
+    ret = subprocess.call(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True, bufsize=65536)
     if ret != 0 and not nofail:
         info('Failed command: {0}', cmd)
         info('Returned value: {0}', ret)
