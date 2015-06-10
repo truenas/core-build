@@ -47,7 +47,6 @@ kernel_modules = [
     "cc/cc_vegas",
     "cxgb",
     "cxgbe",
-    "cyclic",
     "dtrace",
     "ext2fs",
     "fdescfs",
