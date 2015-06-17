@@ -29,7 +29,7 @@
 import os
 import sys
 import threading
-from utils import sh, sh_spawn, e, glob, objdir, info, load_file, import_function, on_abort
+from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, load_file, import_function, on_abort
 
 
 load_file('${BUILD_CONFIG}/tests/bhyve.pyd', os.environ)
