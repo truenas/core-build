@@ -1,0 +1,10 @@
+{
+	"Label": "org.freebsd.getty.ttyu0",
+	"ProgramArguments": [
+		"/usr/libexec/getty",
+		"std.9600",
+		"ttyu0"
+	],
+	"RunAtLoad": true,
+	"KeepAlive": true
+}
