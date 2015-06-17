@@ -51,7 +51,7 @@ def setup_network():
 
 	info('Configuring VM networking')
 	tapdev = sh_str('ifconfig tap create')
-	info('Using tap device: ${tapdev}')
+	info('Using tap device: ${{tapdev}}')
 	sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
