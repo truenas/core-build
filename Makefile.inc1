@@ -175,8 +175,13 @@ build-gui:
 ports: check-root build-gui
 	@${BUILD_TOOLS}/build-ports.py
 
-portsjail:
+trueos:
 	@${BUILD_TOOLS}/build-os.py
+
+trueos-tests:
+	@${BUILD_TOOLS}/run-trueos-tests.py
+
+portsjail: trueos
 	@${BUILD_TOOLS}/install-jail.py
 
 profiles:

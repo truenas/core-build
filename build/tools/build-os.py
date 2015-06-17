@@ -70,11 +70,11 @@ def create_kernel_config():
     conf.close()
 
 
-def buildkernel():
-    modules = ' '.join(config['kernel_modules'])
-    info('Building kernel from ${{TRUEOS_ROOT}}')
+def buildkernel(kconf, modules):
+    modules = ' '.join(modules)
+    info('Building kernel ${{KERNCONF}} from ${{TRUEOS_ROOT}}')
     info('Log file: {0}', kernlog)
-    debug('Kernel configuration file: {0}', kernconf)
+    debug('Kernel configuration file: {0}', kconf)
     debug('Selected modules: {0}', modules)
 
     sh(
@@ -85,8 +85,6 @@ def buildkernel():
         "NO_KERNELCLEAN=YES",
         "DEBUG=",
         "__MAKE_CONF={0}".format(makeconfbuild),
-        "KERNCONFDIR={0}".format(os.path.dirname(kernconf)),
-        "KERNCONF={0}".format(os.path.basename(kernconf)),
         "MODULES_OVERRIDE='{0}'".format(modules),
         "buildkernel",
         log=kernlog
@@ -137,11 +135,14 @@ def installworld(destdir, worldlog, distriblog):
     )
 
 
-def installkernel(destdir, log):
+def installkernel(destdir, log, modules=None):
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
 
-    modules = ' '.join(config['kernel_modules'])
+    if not modules:
+        modules = config['kernel_modules']
+        
+    modules = ' '.join(modules)
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
@@ -154,13 +155,15 @@ def installkernel(destdir, log):
     )
 
 
+calculate_make_jobs()
+
+
 if __name__ == '__main__':
     if env('SKIP_OS'):
         info('Skipping buildworld & buildkernel as instructed by setting SKIP_OS')
         sys.exit(0)
 
-    calculate_make_jobs()
     create_make_conf_build()
     create_kernel_config()
     buildworld()
-    buildkernel()
+    buildkernel(kernconf, config['kernel_modules'])

@@ -63,6 +63,19 @@ def sh(*args, **kwargs):
     return ret
 
 
+def sh_spawn(*args, **kwargs):
+    logfile = kwargs.pop('log', None)
+    mode = kwargs.pop('mode', 'w')
+    nofail = kwargs.pop('nofail', False)
+    cmd = e(' '.join(args), **get_caller_vars())
+    if logfile:
+        sh('mkdir -p', os.path.dirname(logfile))
+        f = open(logfile, mode)
+
+    debug('sh: {0}', cmd)
+    return subprocess.Popen(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True)
+
+
 def sh_str(*args, **kwargs):
     logfile = kwargs.pop('log', None)
     mode = kwargs.pop('mode', 'w')
