@@ -29,7 +29,7 @@
 import os
 import sys
 import threading
-from utils import sh, sh_spawn, e, glob, objdir, info, load_file, import_function
+from utils import sh, sh_spawn, e, glob, objdir, info, load_file, import_function, on_abort
 
 
 load_file('${BUILD_CONFIG}/tests/bhyve.pyd', os.environ)
@@ -43,6 +43,16 @@ vm_proc = None
 vm_wait_thread = None
 current_test = None
 shutdown = False
+tapdev = None
+
+
+def setup_network():
+	global tapdev
+
+	info('Configuring VM networking')
+	tapdev = sh_str('ifconfig tap create')
+	info('Using tap device: ${tapdev}')
+	sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
 def setup_rootfs():
@@ -63,11 +73,13 @@ def setup_vm():
 	vm_proc = sh_spawn(
 	    'bhyve -m ${RAM_SIZE} -A -H -P',
             '-s 0:0,hostbridge',
-            '-s 1:0,virtio-net,tap0',
+            '-s 1:0,virtio-net,${tapdev}',
             '-s 2:0,ahci-hd,${OBJDIR}/test-root.ufs',
             '-s 31,lpc -l com1,${output}',
             '${VM_NAME}'
         )
+
+        on_abort(shutdown_vm)
 
 
 def wait_vm():
@@ -83,6 +95,8 @@ def wait_vm():
 
 def shutdown_vm():
 	sh('bhyvectl --destroy --vm=${VM_NAME}')
+	sh('ifconfig ${tapdev} destroy')
+	on_abort(None)
 
 
 def main():
@@ -95,6 +109,7 @@ def main():
 
 if __name__ == '__main__':
 	setup_rootfs()
+	setup_network()
 	setup_vm()
 	wait_vm()
 	main()
