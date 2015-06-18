@@ -40,6 +40,7 @@ buildkernel = import_function('build-os', 'buildkernel')
 installworld = import_function('build-os', 'installworld')
 installkernel = import_function('build-os', 'installkernel')
 vm_proc = None
+socat_proc = None
 vm_wait_thread = None
 current_test = None
 shutdown = False
@@ -65,9 +66,8 @@ def setup_rootfs():
 
 
 def setup_vm():
-	global vm_proc
+	global vm_proc, socat_proc
 
-	output = 'stdio' if e('${PLAYGROUND}') else e('{CONSOLE_MASTER}')
 	info('Starting up VM')
 	sh('bhyveload -m ${RAM_SIZE} -d ${OBJDIR}/test-root.ufs ${VM_NAME}')
 	vm_proc = sh_spawn(
@@ -75,8 +75,15 @@ def setup_vm():
             '-s 0:0,hostbridge',
             '-s 1:0,virtio-net,${tapdev}',
             '-s 2:0,ahci-hd,${OBJDIR}/test-root.ufs',
-            '-s 31,lpc -l com1,${output}',
+            '-s 31,lpc -l com1,${CONSOLE_MASTER}',
             '${VM_NAME}'
+        )
+
+	info('Starting telnet server on port {0}', e('${TELNET_PORT}'))
+        socat_proc = sh_spawn(
+            'socat',
+            'tcp-l:${TELNET_PORT},reuseaddr,fork',
+            '${CONSOLE_SLAVE},raw,echo=0,crnl'
         )
 
         on_abort(shutdown_vm)
@@ -88,20 +95,26 @@ def wait_vm():
 	def wait_thread():
 		errcode = vm_proc.wait()
 		info('VM exited')
+		shutdown_vm()
 
 	vm_wait_thread = threading.Thread(target=wait_thread)
 	vm_wait_thread.start()
 
 
 def shutdown_vm():
+	if socat_proc:
+		socat_proc.terminate()
+
 	sh('bhyvectl --destroy --vm=${VM_NAME}')
 	sh('ifconfig ${tapdev} destroy')
-	on_abort(None)
 
 
 def main():
 	if e('${PLAYGROUND}'):
-		vm_wait_thread.join()
+		info('Type RETURN to kill VM')
+		raw_input()
+		socat_proc.terminate()
+		vm_proc.kill()
 		return
 
 	for t in glob('${TESTS_ROOT}/trueos/*.py'):
@@ -113,4 +126,3 @@ if __name__ == '__main__':
 	setup_vm()
 	wait_vm()
 	main()
-	shutdown_vm()
