@@ -27,9 +27,10 @@
 #####################################################################
 
 import os
-import sys
+import subprocess
+import imp
 import threading
-from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, load_file, import_function, on_abort
+from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, debug, error, load_file, import_function, on_abort
 
 
 load_file('${BUILD_CONFIG}/tests/bhyve.pyd', os.environ)
@@ -83,7 +84,7 @@ def setup_vm():
     logfile = objdir(e('logs/bhyve.${pid}.log'))
 
     info('Starting telnet server on port {0}', e('${TELNET_PORT}'))
-    info('Console log file is: {0}', logfile)
+    info('Console log file is {0}', logfile)
     termserv_proc = sh_spawn(
         'python',
         '${BUILD_TOOLS}/terminal-server.py',
@@ -109,8 +110,40 @@ def wait_vm():
 
 def shutdown_vm():
     termserv_proc.terminate()
-    sh('bhyvectl --destroy --vm=${VM_NAME}')
+    sh('bhyvectl --destroy --vm=${VM_NAME}', nofail=True)
     sh('ifconfig ${tapdev} destroy')
+
+
+def console():
+    pass
+
+
+def ssh(command):
+    keyfile = e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa')
+    proc = subprocess.Popen(
+        [
+            'ssh',
+            '-o', 'StrictHostKeyChecking=no',
+            '-o', 'UserKnownHostsFile=/dev/null',
+            '-i', keyfile,
+            e('root@${VM_IP}'),
+            command
+        ],
+        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        close_fds=True
+    )
+
+    debug('Running command on a VM: {0}', command)
+
+    out, err = proc.communicate()
+
+    if proc.returncode != 0:
+        debug('Command failed:')
+        debug('stdout: {0}', out.strip())
+        debug('stderr: {0}', err.strip())
+
+    return proc.returncode, out, err
 
 
 def main():
@@ -120,8 +153,32 @@ def main():
         vm_proc.kill()
         return
 
-    for t in glob('${TESTS_ROOT}/trueos/*.py'):
-        info('Running test ${t}')
+    tests_total = len(glob('${TESTS_ROOT}/trueos/*.py'))
+    tests_success = []
+    tests_failure = []
+
+    for t in sorted(glob('${TESTS_ROOT}/trueos/*.py')):
+        testname = os.path.splitext(os.path.basename(t))[0]
+        info('Running test {0}', testname)
+        mod = imp.load_source(testname, t)
+        success, reason = mod.run(console, ssh)
+
+        if success is None:
+            error('Test {0} returned aborted test schedule: {1}', testname, reason)
+        elif success:
+            tests_success.append(testname)
+        else:
+            info('Failed: {0}', reason)
+            tests_failure.append(testname)
+
+    vm_proc.kill()
+    info('{0} total tests', tests_total)
+    info('{0} successes', len(tests_success))
+    info('{0} failures', len(tests_failure))
+
+    if len(tests_failure) > 0:
+        info('Failed tests: {0}', ', '.join(tests_failure))
+
 
 if __name__ == '__main__':
     setup_rootfs()
