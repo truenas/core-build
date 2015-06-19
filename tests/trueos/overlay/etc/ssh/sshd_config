@@ -46,7 +46,7 @@
 
 #LoginGraceTime 2m
 PermitRootLogin yes
-#StrictModes yes
+StrictModes no
 #MaxAuthTries 6
 #MaxSessions 10
 
