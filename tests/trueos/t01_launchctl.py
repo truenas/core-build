@@ -27,7 +27,7 @@
 from tests import success, failure
 
 
-def run(console, ssh):
+def run(ssh):
     ret, out, err = ssh('launchctl list')
 
     if ret != 0:

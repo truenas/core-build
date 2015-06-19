@@ -28,7 +28,7 @@ import time
 from tests import success, fatal
 
 
-def run(console, ssh):
+def run(ssh):
     for i in range(0, 30):
         ret, out, err = ssh('uname -a')
         if ret == 0:

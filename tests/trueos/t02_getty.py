@@ -28,7 +28,7 @@ import json
 from tests import success, failure
 
 
-def run(console, ssh):
+def run(ssh):
     ret, out, err = ssh('launchctl dump org.freebsd.getty.ttyu0')
 
     if ret != 0:
@@ -46,5 +46,8 @@ def run(console, ssh):
 
     if job["Label"] != "org.freebsd.getty.ttyu0":
         return failure('getty job has wrong label')
+
+    if "PID" not in job:
+        return failure('launchd reported that getty job is not running')
 
     return success()

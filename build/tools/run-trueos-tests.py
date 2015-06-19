@@ -30,6 +30,7 @@ import os
 import subprocess
 import imp
 import threading
+import time
 from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, debug, error, load_file, import_function, on_abort
 
 
@@ -53,7 +54,7 @@ def setup_network():
 
     info('Configuring VM networking')
     tapdev = sh_str('ifconfig tap create')
-    info('Using tap device: {0}', tapdev)
+    info('Using tap device {0}', tapdev)
     sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
@@ -114,15 +115,12 @@ def shutdown_vm():
     sh('ifconfig ${tapdev} destroy')
 
 
-def console():
-    pass
-
-
 def ssh(command):
     keyfile = e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa')
     proc = subprocess.Popen(
         [
             'ssh',
+            '-o', 'ServerAliveInterval=10',
             '-o', 'StrictHostKeyChecking=no',
             '-o', 'UserKnownHostsFile=/dev/null',
             '-i', keyfile,
@@ -161,7 +159,14 @@ def main():
         testname = os.path.splitext(os.path.basename(t))[0]
         info('Running test {0}', testname)
         mod = imp.load_source(testname, t)
-        success, reason = mod.run(console, ssh)
+        success, reason = mod.run(ssh)
+
+        # Give VM a while if panic happened
+        time.sleep(2)
+
+        if vm_proc.returncode is not None:
+            # VM crashed!
+            error('Test {0} caused VM crash', testname)
 
         if success is None:
             error('Test {0} returned aborted test schedule: {1}', testname, reason)
