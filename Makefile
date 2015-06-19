@@ -61,18 +61,19 @@ PROFILE != cat ${PROFILE_SETTING}
 .export PROFILE
 
 .BEGIN:
-.if !make(git-internal) && !make(git-external) && !make(remote) && !make(sync)
+.if !make(git-internal) && !make(git-external) && !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@if [ ! -f ${GIT_REPO_SETTING} ]; then \
 		echo "No git repo choice is set.  Please use \"make git-external\" to build as an"; \
 		echo "external developer or \"make git-internal\" to build as an ${COMPANY}"; \
 		echo "internal developer.  You only need to do this once."; \
+		echo "To install all necessary packages, \"make bootstrap-pkgs\""; \
 		exit 1; \
 	fi
 	@echo "[0:00:00] ==> NOTICE: You are building from the ${GIT_LOCATION} git repo."
 	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
 .endif
 
-.if !make(remote) && !make(sync)
+.if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
 .if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(git-internal) && !make(git-external) && !make(profiles)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-sandbox.py
@@ -81,6 +82,15 @@ PROFILE != cat ${PROFILE_SETTING}
 
 buildenv:
 	@${BUILD_TOOLS}/buildenv.py sh
+
+bootstrap-pkgs:
+	pkg install -y archivers/pxz
+	pkg install -y lang/python
+	pkg install -y ports-mgmt/poudriere-devel
+	pkg install -y sysutils/grub2-pcbsd
+	pkg install -y sysutils/xorriso
+	pkg install -y www/npm
+	pkg install -y devel/gmake
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
