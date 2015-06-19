@@ -25,31 +25,27 @@
 #
 
 import time
-import json
+import threading
 from tests import success, failure
 
 
 def run(ssh):
-    time.sleep(10)
-    ret, out, err = ssh('launchctl dump com.apple.notifyd')
+    p_ret = None
 
+    def waiter():
+        ret, out, err = ssh('notifyutil -1 foo')
+        p_ret = ret
+
+    t = threading.Thread(target=waiter)
+    t.start()
+
+    time.sleep(3)
+    ret, out, err = ssh('notifyutil -p foo')
     if ret != 0:
-        return failure('notifyd job isn\t even loaded')
+        return failure('notifyutil -p returned non-zero exit code')
 
-    # Filter our 'launch_msg() debug lines'
-    lines = out.split('\n')
-    lines = filter(lambda l: 'launchd_msg_recv' not in l, lines)
-    data = '\n'.join(lines)
-
-    try:
-        job = json.loads(data)
-    except ValueError, e:
-        return failure('"launchctl dump" returned unreadable json: {0}'.format(data))
-
-    if job["Label"] != "com.apple.notifyd":
-        return failure('notifyd job has wrong label')
-
-    if "PID" not in job:
-        return failure('notifyd is not running')
+    t.join()
+    if p_ret != 0:
+        return failure('notifyutil -1 returned non-zero exit code')
 
     return success()
