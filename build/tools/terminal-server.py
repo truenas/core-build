@@ -116,6 +116,12 @@ class Main(object):
 
         self.start_server(int(args.p))
 
+        if self.logfile:
+            self.logfile.close()
+
+        self.console.close()
+
+
 if __name__ == '__main__':
     m = Main()
     m.main()
