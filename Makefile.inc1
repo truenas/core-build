@@ -181,6 +181,12 @@ trueos:
 trueos-tests:
 	@${BUILD_TOOLS}/run-trueos-tests.py
 
+trueos-playground:
+	@PLAYGROUND=yes ${BUILD_TOOLS}/run-trueos-tests.py
+
+trueos-ssh:
+	@START_SSH=yes ${BUILD_TOOLS}/run-trueos-tests.py
+
 portsjail: trueos
 	@${BUILD_TOOLS}/install-jail.py
 

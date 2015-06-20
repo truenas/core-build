@@ -49,6 +49,16 @@ shutdown = False
 tapdev = None
 
 
+ssh_args =  ['ssh',
+    '-o', 'LogLevel=QUIET',
+    '-o', 'ServerAliveInterval=10',
+    '-o', 'StrictHostKeyChecking=no',
+    '-o', 'UserKnownHostsFile=/dev/null',
+    '-i', e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa'),
+    e('root@${VM_IP}')
+]
+
+
 def setup_network():
     global tapdev
 
@@ -66,6 +76,9 @@ def setup_rootfs():
     sh('rsync -ah ${TESTS_ROOT}/trueos/overlay/ ${OBJDIR}/test-root')
     sh('makefs -M ${IMAGE_SIZE} ${OBJDIR}/test-root.ufs ${OBJDIR}/test-root')
 
+
+def install_python_packages():
+    sh('cd ${SRC_ROOT}/py-launch; python setup.py install ')
 
 def setup_vm():
     global vm_proc, termserv_proc
@@ -117,18 +130,8 @@ def shutdown_vm():
 
 def ssh(command, logfile):
     appendfile(logfile, 'ssh: ${command}')
-    keyfile = e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa')
     proc = subprocess.Popen(
-        [
-            'ssh',
-            '-o', 'LogLevel=QUIET',
-            '-o', 'ServerAliveInterval=10',
-            '-o', 'StrictHostKeyChecking=no',
-            '-o', 'UserKnownHostsFile=/dev/null',
-            '-i', keyfile,
-            e('root@${VM_IP}'),
-            command
-        ],
+        ssh_args + [command],
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,
         close_fds=True
@@ -184,8 +187,11 @@ def main():
 
 
 if __name__ == '__main__':
-    setup_rootfs()
-    setup_network()
-    setup_vm()
-    wait_vm()
-    main()
+    if e('${START_SSH}'):
+        sh(' '.join(ssh_args))
+    else:
+        setup_rootfs()
+        setup_network()
+        setup_vm()
+        wait_vm()
+        main()
