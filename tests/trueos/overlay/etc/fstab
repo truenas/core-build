@@ -1,1 +1,2 @@
 /dev/ada0	/	ufs	rw	0	0
+/dev/ada1	none	swap	sw	0	0

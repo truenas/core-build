@@ -77,6 +77,10 @@ def setup_rootfs():
     sh('makefs -M ${IMAGE_SIZE} ${OBJDIR}/test-root.ufs ${OBJDIR}/test-root')
 
 
+def setup_swap():
+    sh('truncate -s ${SWAP_SIZE} ${OBJDIR}/test-swap.bin')
+
+
 def install_python_packages():
     sh('cd ${SRC_ROOT}/py-launch; python setup.py install ')
 
@@ -90,6 +94,7 @@ def setup_vm():
         '-s 0:0,hostbridge',
         '-s 1:0,virtio-net,${tapdev}',
         '-s 2:0,ahci-hd,${OBJDIR}/test-root.ufs',
+        '-s 3:0,ahci-hd,${OBJDIR}/test-swap.bin',
         '-s 31,lpc -l com1,${CONSOLE_MASTER}',
         '${VM_NAME}'
     )
@@ -193,6 +198,7 @@ if __name__ == '__main__':
         sh('telnet 0 ${TELNET_PORT}')
     else:
         setup_rootfs()
+        setup_swap()
         setup_network()
         setup_vm()
         wait_vm()
