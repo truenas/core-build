@@ -31,7 +31,7 @@ import subprocess
 import imp
 import threading
 import time
-from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, debug, error, load_file, import_function, on_abort
+from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, debug, error, load_file, import_function, on_abort, appendfile
 
 
 load_file('${BUILD_CONFIG}/tests/bhyve.pyd', os.environ)
@@ -115,11 +115,13 @@ def shutdown_vm():
     sh('ifconfig ${tapdev} destroy')
 
 
-def ssh(command):
+def ssh(command, logfile):
+    appendfile(logfile, 'ssh: ${command}')
     keyfile = e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa')
     proc = subprocess.Popen(
         [
             'ssh',
+            '-o', 'LogLevel=QUIET',
             '-o', 'ServerAliveInterval=10',
             '-o', 'StrictHostKeyChecking=no',
             '-o', 'UserKnownHostsFile=/dev/null',
@@ -132,14 +134,9 @@ def ssh(command):
         close_fds=True
     )
 
-    debug('Running command on a VM: {0}', command)
-
     out, err = proc.communicate()
-
-    if proc.returncode != 0:
-        debug('Command failed:')
-        debug('stdout: {0}', out.strip())
-        debug('stderr: {0}', err.strip())
+    appendfile(logfile, out, nl=False)
+    appendfile(logfile, err, nl=False)
 
     return proc.returncode, out, err
 
@@ -157,9 +154,10 @@ def main():
 
     for t in sorted(glob('${TESTS_ROOT}/trueos/*.py')):
         testname = os.path.splitext(os.path.basename(t))[0]
-        info('Running test {0}', testname)
+        logfile = objdir('logs/test-${testname}.log')
+        info('Running test {0} (logfile {1})', testname, logfile)
         mod = imp.load_source(testname, t)
-        success, reason = mod.run(ssh)
+        success, reason = mod.run(lambda x: ssh(x, logfile))
 
         # Give VM a while if panic happened
         time.sleep(2)

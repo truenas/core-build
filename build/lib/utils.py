@@ -126,8 +126,9 @@ def setfile(filename, contents):
     f.close()
 
 
-def appendfile(filename, contents):
+def appendfile(filename, contents, nl=True):
     filename = e(filename, **get_caller_vars())
+    contents = e(contents, **get_caller_vars())
     debug('appendfile: {0}', filename)
 
     if not os.path.isdir(os.path.dirname(filename)):
@@ -135,7 +136,8 @@ def appendfile(filename, contents):
 
     f = open(filename, 'a')
     f.write(contents)
-    f.write('\n')
+    if nl:
+        f.write('\n')
 
 
 def abort():
@@ -188,7 +190,7 @@ def pathjoin(*args):
 
 
 def objdir(path):
-    return os.path.join(e('${OBJDIR}'), path)
+    return os.path.join(e('${OBJDIR}'), e(path, **get_caller_vars()))
 
 
 def template(filename, variables=None):
