@@ -189,6 +189,8 @@ def main():
 if __name__ == '__main__':
     if e('${START_SSH}'):
         sh(' '.join(ssh_args))
+    elif e('${START_TELNET}'):
+        sh('telnet 0 ${TELNET_PORT}')
     else:
         setup_rootfs()
         setup_network()

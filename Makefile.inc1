@@ -187,6 +187,9 @@ trueos-playground:
 trueos-ssh:
 	@START_SSH=yes ${BUILD_TOOLS}/run-trueos-tests.py
 
+trueos-telnet:
+	@START_TELNET=yes ${BUILD_TOOLS}/run-trueos-tests.py
+
 portsjail: trueos
 	@${BUILD_TOOLS}/install-jail.py
 
