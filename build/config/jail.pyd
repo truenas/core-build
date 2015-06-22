@@ -36,6 +36,21 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-libzfs",
+    "dest": "/usr/freenas_src/py-libzfs"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-netif",
+    "dest": "/usr/freenas_src/py-netif"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-cam",
+    "dest": "/usr/freenas_src/py-cam"
+}
+
+copy += {
     "source": GUI_DESTDIR,
     "dest": "/usr/freenas_gui"
 }
