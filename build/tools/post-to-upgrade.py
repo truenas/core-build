@@ -54,8 +54,8 @@ def main():
             changelog = cl_file.name
 
         sh('scp ${sshopts} ${changelog} ${ssh}:${temp_changelog}')
-    if cl_file is not None:
-        os.remove(cl_file.name)
+        if cl_file is not None:
+            os.remove(cl_file.name)
 
     sh(
         "ssh ${sshopts} ${ssh}",
