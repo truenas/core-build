@@ -45,17 +45,17 @@ def main():
 
     sh('scp ${sshopts} -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
     if changelog:
-	cl_file = None
+        cl_file = None
         if changelog == '-':
             print 'Enter changelog, ^D to end:'
-	    cl_file = tempfile.NamedTemporaryFile(delete = False)
-	    cl_file.write(sys.stdin.read())
-	    cl_file.close()
-	    changelog = cl_file.name
+            cl_file = tempfile.NamedTemporaryFile(delete=False)
+            cl_file.write(sys.stdin.read())
+            cl_file.close()
+            changelog = cl_file.name
 
         sh('scp ${sshopts} ${changelog} ${ssh}:${temp_changelog}')
-	if cl_file is not None:
-	    os.remove(cl_file.name)
+    if cl_file is not None:
+        os.remove(cl_file.name)
 
     sh(
         "ssh ${sshopts} ${ssh}",
