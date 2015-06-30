@@ -13,10 +13,10 @@ licenses = [BSD, MIT, GPL]
 [Scripts]
 post-install = /usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
-	/usr/sbin/service datastore init
-	/usr/sbin/service datastore start
+	/usr/local/sbin/dsinit --init
+	/usr/local/sbin/dsinit --start-forked
 	/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
-	/usr/sbin/service datastore stop
+	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
@@ -40,6 +40,7 @@ exclude = /usr/local/www/gui
 	/var/db/pkg
 	/etc/rc.d/netif
 	/etc/rc.d/routing
+	/etc/launchd.d/org.freebsd.getty.ttyv0.json
 	/dev/*
 
 [Services]
