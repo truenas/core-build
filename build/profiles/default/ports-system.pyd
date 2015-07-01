@@ -185,7 +185,6 @@ ports += {
     "options": ["WITH_OPENSSL_PORT=yes"]
 }
 ports += "www/mod_mpm_itk"
-ports += "sysutils/syslog-ng"
 ports += {
     "name": "www/nginx",
     "options": [
