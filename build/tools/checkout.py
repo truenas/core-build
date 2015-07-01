@@ -51,6 +51,9 @@ def checkout_repo(repo):
         sh('git clone', '-b', repo['branch'], repo['url'], repo['path'])
         os.chdir(repo['path'])
 
+    if 'commit' in repo:
+        sh('git checkout', repo['commit'])
+
     manifest[repo['url']] = sh_str("git rev-parse --short HEAD")
 
 
