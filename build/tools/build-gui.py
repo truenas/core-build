@@ -80,14 +80,12 @@ def install():
     sh(grunt, 'deploy --force --dir=${GUI_DESTDIR}', log=logfile, mode='a')
 
 
-# def create_plist():
-#     with open(e('${GUI_DESTDIR}/gui-plist'), 'w') as f:
-#         for i in walk('${GUI_DESTDIR}'):
-#             if not os.path.isdir(e('${GUI_DESTDIR}/${i}')):
-#                 f.write(e('/usr/local/www/gui/${i}\n'))
+def create_plist():
+    with open(e('${GUI_DESTDIR}/gui-plist'), 'w') as f:
+        for i in walk('${GUI_DESTDIR}'):
+            if not os.path.isdir(e('${GUI_DESTDIR}/${i}')):
+                f.write(e('/usr/local/www/gui/${i}\n'))
 
-#         with open(e('${GUI_STAGEDIR}/custom-plist')) as c:
-#             f.write(c.read())
 
 
 if __name__ == '__main__':
@@ -102,3 +100,4 @@ if __name__ == '__main__':
     q = apply_npm_quirks()
     install()
     remove_npm_quirks(q)
+    create_plist()
