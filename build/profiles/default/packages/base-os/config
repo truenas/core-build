@@ -22,7 +22,9 @@ post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
 	/usr/bin/touch /data/cd-upgrade
 	/usr/bin/touch /data/need-update
-	/usr/local/sbin/dsmigrate -f /usr/local/share/datastore/factory.json
+	/usr/local/sbin/dsinit --start-forked --port 60000
+	/usr/local/sbin/dsmigrate -f /usr/local/share/datastore/factory.json --alt
+	/usr/local/sbin/dsinit --stop-forked
 
 [Files]
 exclude = /usr/local/www/gui
