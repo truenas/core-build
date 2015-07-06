@@ -35,8 +35,7 @@ if GIT_LOCATION == "INTERNAL":
         "name": "trueos",
         "path" :"trueos",
         "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/trueos.git",
-        "branch": "freebsd10",
-        "commit": "a3a2df945a8321eb2449960582af6a682d68ec3b"
+        "branch": "freebsd10"
     }
 
     repos += {
