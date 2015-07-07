@@ -72,8 +72,7 @@ kernel_modules = [
     "udf",
     "usb/xhci",
     "zfs",
-    "iscsi",
-    "mach"
+    "iscsi"
 ]
 
 if PRODUCT == "TrueNAS":
