@@ -140,14 +140,14 @@ ports += {
     ]
 }
 
-ports += {
-    "name": "freenas/py-launch",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
+# ports += {
+#    "name": "freenas/py-launch",
+#    "options": [
+#        "PRODUCT_VERSION=${VERSION}",
+#        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+#        "REVISION=${GIT_REVISION}"
+#    ]
+# }
 
 ports += {
     "name": "freenas/py-cam",
