@@ -42,7 +42,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-gui",
+    "name": "freenas/freenas-ui",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",

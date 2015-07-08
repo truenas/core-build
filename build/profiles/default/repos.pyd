@@ -45,6 +45,13 @@ if GIT_LOCATION == "INTERNAL":
         "branch": "freenas10"
     }
 
+    repos += {
+        "name" :"licenselib",
+        "path": "licenselib",
+        "url": "git@gitserver.ixsystems.com:repos/projects/licenselib",
+        "branch": "master"
+    }   
+
 if GIT_LOCATION == "EXTERNAL":
     repos += {
         "name": "freenas",
@@ -66,6 +73,13 @@ if GIT_LOCATION == "EXTERNAL":
         "url": "https://github.com/freenas/ports.git",
         "branch": "freenas10"
     }
+
+    repos += {
+        "name" :"py-licenselib",
+        "path": "py-licenselib",
+        "url": "https://github.com/freenas/py-licenselib.git",
+        "branch": "master"
+    }   
 
 if LABEL == "TrueNAS":
     repos += {

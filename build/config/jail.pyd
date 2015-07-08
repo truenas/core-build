@@ -34,3 +34,13 @@ copy += {
     "source": SRC_ROOT,
     "dest": "/usr/freenas_src"
 }
+
+copy += {
+    "source": "${FREENAS_ROOT}/gui",
+    "dest": "/usr/freenasUI"
+}
+
+copy += {
+    "source": "${BE_ROOT}/licenselib",
+    "dest": "/usr/freenas_src/licenselib"
+}

@@ -169,10 +169,7 @@ git-external:
 tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
 
-build-gui: 
-	@${BUILD_TOOLS}/build-gui.py
-
-ports: check-root build-gui
+ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
 
 trueos:
