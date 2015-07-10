@@ -59,7 +59,9 @@ def create_pkgng_configuration():
 
 def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
+    sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile)
+    sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.exists(e('${WORLD_DESTDIR}/etc/freenas.conf')):
         error('Packages installation failed, see {0}', logfile)
