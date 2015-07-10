@@ -50,6 +50,7 @@ build: portsjail ports world packages images
 
 world:
 	@${BUILD_TOOLS}/install-world.py
+	@${BUILD_TOOLS}/early-customize.py
 	@${BUILD_TOOLS}/install-ports.py
 	@${BUILD_TOOLS}/customize.py
 
