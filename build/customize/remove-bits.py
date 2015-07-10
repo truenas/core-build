@@ -36,10 +36,10 @@ setup_env()
 
 def main(destdir):
     # Kill .pyo files
-    sh("find ${destdir}/usr/local -name '*.pyo' -delete")
+    sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
 
     # Kill includes
-    sh("find ${destdir}/usr/local/include \! -name 'pyconfig.h' -delete")
+    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -delete")
 
     # Kill docs
     sh('rm -rf ${destdir}/usr/local/share/doc')
@@ -63,7 +63,7 @@ def main(destdir):
     sh('rm -rf ${destdir}/usr/share/me')
 
     # Kill static libraries
-    sh("find ${destdir}/usr/local -name '*.a' -or -name '*.la' -delete")
+    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
 
     # magic.mgc is just a speed optimization
     sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
