@@ -35,7 +35,7 @@ setup_env()
 def main():
     rev = e('${GIT_REVISION}')
     revstr = e('(${rev})') if rev else ''
-    setfile('${WORLD_DESTDIR}/etc/version', e('${PRODUCT} ${VERSION} ${revstr}'))
+    setfile('${WORLD_DESTDIR}/etc/version', e('${PRODUCT}-${VERSION} ${revstr}'))
 
 
 if __name__ == '__main__':
