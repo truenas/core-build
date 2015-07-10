@@ -96,6 +96,7 @@ else:
 
 # World configuration
 make_conf_build = {
+    "WITHOUT_ATM":                  "yes",
     "WITHOUT_BIND_DNSSEC":          "yes",
     "WITHOUT_BIND_ETC":             "yes",
     "WITHOUT_BIND_LIBS_LWRES":      "yes",
@@ -135,12 +136,17 @@ make_conf_build = {
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
     "DEFAULT_VERSIONS":             "python=2.7",
     "NOPORTDOCS":                   "yes",
+    "WANT_OPENLDAP_SASL":           "yes",
     "LOCAL_DIRS":                   ""
 }
+
+early_customize_tasks = [
+    "write-version"
+]
 
 customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
     "strip-binaries",
-    "write-version"
+    "conf-base"
 ]

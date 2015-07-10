@@ -75,9 +75,9 @@ if GIT_LOCATION == "EXTERNAL":
     }
 
     repos += {
-        "name" :"py-licenselib",
-        "path": "py-licenselib",
-        "url": "https://github.com/freenas/py-licenselib.git",
+        "name" :"licenselib",
+        "path": "licenselib",
+        "url": "https://github.com/freenas/licenselib.git",
         "branch": "master"
     }   
 

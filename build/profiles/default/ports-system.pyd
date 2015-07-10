@@ -427,10 +427,13 @@ if DEBUG:
 # Here 9.3 legacy starts
 # which will be removed at some point
 ports += {
-    "name": "www/py-django",
+    "name": "www/py-django16",
     "options": ["OPTIONS_FILE_SET+=FASTCGI"]
 }
 
 ports += "www/py-dojango"
 ports += "www/dojo"
 ports += "databases/py-south"
+ports += "www/py-django16-tastypie"
+ports += "www/py-django-json-rpc"
+ports += "sysutils/syslog-ng"
