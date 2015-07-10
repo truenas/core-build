@@ -312,6 +312,11 @@ def copy_packages():
     sh('cp ${OBJDIR}/packages/${PRODUCT}-MANIFEST ${ISO_DESTDIR}/')
 
 
+def copy_data():
+    sh('mkdir -p ${INSTUFS_DESTDIR}/data')
+    sh('cp -R ${WORLD_DESTDIR}/data ${INSTUFS_DESTDIR}/data')
+
+
 def clean_ufs_image():
     sh('${BUILD_ROOT}/build/customize/remove-bits.py ${INSTUFS_DESTDIR}')
 
@@ -347,6 +352,7 @@ if __name__ == '__main__':
     install_pkgtools()
     populate_ufsroot()
     install_files()
+    copy_data()
     copy_packages()
     clean_ufs_image()
     setup_diskless()
