@@ -219,7 +219,6 @@ instufs = objdir('instufs')
 
 
 def create_iso_dirs():
-    sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
     sh('mkdir -p ${ISO_DESTDIR}/data')
     sh('mkdir -p ${ISO_DESTDIR}/dev')
     sh('mkdir -p ${ISO_DESTDIR}/.mount')
@@ -255,6 +254,7 @@ def cleandirs():
         sh('rm -rf ${INSTUFS_DESTDIR}')
 
     sh('rm -rf ${ISO_DESTDIR}')
+    sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
 
 
 def install_ports():

@@ -39,7 +39,7 @@ def main(destdir):
     sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
 
     # Kill includes
-    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -delete")
+    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
 
     # Kill docs
     sh('rm -rf ${destdir}/usr/local/share/doc')
