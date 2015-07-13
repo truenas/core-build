@@ -63,11 +63,12 @@ def generate_manifest():
         appendfile('${BE_ROOT}/repo-manifest', e('${k} ${v}'))
 
 if __name__ == '__main__':
-    for i in dsl['repos']:
-        info('Checkout: {0} -> {1}', i['name'], i['path'])
-        debug('Repository URL: {0}', i['url'])
-        debug('Local branch: {0}', i['branch'])
-        checkout_repo(i)
+    if not e('${SKIP_CHECKOUT}'):
+        for i in dsl['repos']:
+            info('Checkout: {0} -> {1}', i['name'], i['path'])
+            debug('Repository URL: {0}', i['url'])
+            debug('Local branch: {0}', i['branch'])
+            checkout_repo(i)
 
     generate_manifest()
     setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
