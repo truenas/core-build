@@ -7,7 +7,7 @@ www = http://www.freenas.org/
 origin = freenas/pkg-tools
 maintainer = dev@ixsystems.com
 prefix = /
-arch = freebsd:9:x86:64
+arch = freebsd:10:x86:64
 licenselogic = or
 licenses = [BSD]
 

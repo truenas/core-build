@@ -30,7 +30,7 @@ include("packages.pyd")
 
 profile = {
     "name": "default",
-    "description": "Default FreeNAS 9.3 profile",
+    "description": "Default FreeNAS 10.1 profile",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
