@@ -30,7 +30,7 @@ import os
 import sys
 import string
 from dsl import load_file, load_profile_config
-from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, appendfile, readfile, setup_env, template, debug, error, on_abort, info
+from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, setup_env, template, debug, error, on_abort, info
 
 
 makejobs = 1
@@ -76,8 +76,6 @@ def create_poudriere_config():
 def create_make_conf():
     makeconf = e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf')
     setfile(makeconf, template('${BUILD_CONFIG}/templates/poudriere-make.conf'))
-    appendfile(makeconf, readfile(objdir('make-build.conf')))
-
 
 def create_ports_list():
     info('Creating ports list')
