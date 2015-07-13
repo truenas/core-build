@@ -7,7 +7,7 @@ www = http://www.freenas.org/
 origin = freenas/pkg-tools
 maintainer = dev@ixsystems.com
 prefix = /
-arch = freebsd:10:x86:64
+arch = freebsd:9:x86:64
 licenselogic = or
 licenses = [BSD]
 
@@ -32,5 +32,5 @@ include = /usr/local/lib/freenasOS/Configuration.py
 [Scripts]
 
 # Have a post-upgrade script so it knows an upgrade is safe
-post-upgrade =
+post-upgrade = 
 	true

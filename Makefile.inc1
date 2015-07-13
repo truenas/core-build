@@ -50,6 +50,7 @@ build: portsjail ports world packages images
 
 world:
 	@${BUILD_TOOLS}/install-world.py
+	@${BUILD_TOOLS}/early-customize.py
 	@${BUILD_TOOLS}/install-ports.py
 	@${BUILD_TOOLS}/customize.py
 
@@ -169,10 +170,7 @@ git-external:
 tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
 
-build-gui: 
-	@${BUILD_TOOLS}/build-gui.py
-
-ports: check-root build-gui
+ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
 
 trueos:

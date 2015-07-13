@@ -1,4 +1,5 @@
 [Package]
+
 name = base-os
 comment = "FreeNAS OS"
 desc = "FreeNAS OS (derived from FreeBSD)"
@@ -6,29 +7,34 @@ www = http://www.freenas.org/
 origin = freenas/os
 maintainer = dev@ixsystems.com
 prefix = /
-arch = freebsd:10:x86:64
+arch = freebsd:9:x86:64
 licenselogic = or
 licenses = [BSD, MIT, GPL]
 
+requires-reboot = True
 [Scripts]
+
 post-install = /usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
-	/usr/local/sbin/dsinit --init
-	/usr/local/sbin/dsinit --start-forked
-	/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
-	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
-	/usr/bin/touch /boot/modules/linker.hints
-	/usr/bin/touch /data/cd-upgrade
-	/usr/bin/touch /data/need-update
-	/usr/local/sbin/dsinit --start-forked --port 60000
-	/usr/local/sbin/dsmigrate -f /usr/local/share/datastore/factory.json --alt
-	/usr/local/sbin/dsinit --stop-forked
+	     /usr/bin/touch /boot/modules/linker.hints
+	/bin/sh /etc/ix.rc.d/ix-device_hints start
+	test -f /usr/local/www/freenasUI/manage.py && yes | /usr/local/bin/python /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
+	   for disk in $(sysctl -n kern.disks); do
+	       gpart show ${disk} | grep -q bios-boot && /usr/local/sbin/grub-install --modules="zfs part_gpt" /dev/${disk}
+	   done
+	fi
+	    
+#	/usr/bin/touch /data/cd-upgrade
+#	/usr/bin/touch /data/need-update
+#	test -f /data/freenas-v1.db && \
+#	     /usr/bin/yes | /usr/local/bin/python \
+#		      /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
 [Files]
-exclude = /usr/local/www/gui
-	/usr/share/man
+exclude = /usr/local/www/freenasUI
 	/usr/lib/*.a
 	/usr/local/share/doc
 	/usr/local/share/gtk-doc
@@ -36,13 +42,11 @@ exclude = /usr/local/www/gui
 	/usr/local/info
 	/usr/local/man
 	/usr/local/share/examples
-	/usr/share/groff_font
-	/usr/share/tmac
-	/usr/share/me
+	/var/log
+	/conf/base/var/log/usr/log
+	/conf/base/var/db/fontconfig
 	/var/db/pkg
-	/etc/rc.d/netif
-	/etc/rc.d/routing
-	/etc/launchd.d/org.freebsd.getty.ttyv0.json
+	/conf/var/db/pkg
 	/dev/*
 
 [Services]
@@ -50,11 +54,7 @@ exclude = /usr/local/www/gui
 # This is a list of comma-seperated services provided by this package.
 # "reboot" is kinda special.
 # Note that I removed "DirectoryServices"
-# services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
-# The above code will be uncommented because we are not ready for
-# rebootless updates in freenas10 yet, so instead just `reboot`
-services = reboot
-
+services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
 
 # This is a list of comma-seperated services that will always be
 # be restarted when this package is update.  "all" means all services

@@ -26,48 +26,21 @@
 #
 #####################################################################
 
-
-import sys
-from utils import setup_env, sh
-
-
-setup_env()
+import os
+from dsl import load_profile_config
+from utils import sh, glob, objdir, info, setup_env
 
 
-def main(destdir):
-    # Kill .pyo files
-    sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
+dsl = load_profile_config()
 
-    # Kill includes
-    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
 
-    # Kill docs
-    sh('rm -rf ${destdir}/usr/local/share/doc')
-    sh('rm -rf ${destdir}/usr/local/share/gtk-doc')
-
-    # Kill gobject introspection xml
-    sh('rm -rf ${destdir}/usr/local/share/git-1.0')
-
-    # Kill info
-    sh('rm -rf ${destdir}/usr/local/info')
-
-    # Kill man pages
-    sh('rm -rf ${destdir}/usr/local/man')
-
-    # Kill examples
-    sh('rm -rf ${destdir}/usr/local/share/examples')
-
-    # Kill groff_fonts junk
-    sh('rm -rf ${destdir}/usr/share/groff_font')
-    sh('rm -rf ${destdir}/usr/share/tmac')
-    sh('rm -rf ${destdir}/usr/share/me')
-
-    # Kill static libraries
-    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
-
-    # magic.mgc is just a speed optimization
-    sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
+def main():
+    for i in dsl['early_customize_tasks']:
+        logfile = objdir('logs/custom-${i}')
+        sh('${BUILD_ROOT}/build/customize/${i}.py ${WORLD_DESTDIR}', log=logfile)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    info('Running early customization tasks')
+    main()
+    info('Early customization done')

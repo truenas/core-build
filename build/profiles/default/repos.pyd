@@ -46,25 +46,11 @@ if GIT_LOCATION == "INTERNAL":
     }
 
     repos += {
-        "name": "py-libzfs",
-        "path": "py-libzfs",
-        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/py-libzfs.git",
+        "name" :"licenselib",
+        "path": "licenselib",
+        "url": "git@gitserver.ixsystems.com:repos/projects/licenselib",
         "branch": "master"
-    }
-
-    repos += {
-        "name": "py-netif",
-        "path": "py-netif",
-        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/py-netif.git",
-        "branch": "master"
-    }
-
-    repos += {
-        "name": "py-cam",
-        "path": "py-cam",
-        "url": "git@gitserver.ixsystems.com:/git/repos/freenas-build/py-cam.git",
-        "branch": "master"
-    }
+    }   
 
 if GIT_LOCATION == "EXTERNAL":
     repos += {
@@ -89,25 +75,11 @@ if GIT_LOCATION == "EXTERNAL":
     }
 
     repos += {
-        "name": "py-libzfs",
-        "path": "py-libzfs",
-        "url": "https://github.com/freenas/py-libzfs.git",
+        "name" :"licenselib",
+        "path": "licenselib",
+        "url": "https://github.com/freenas/licenselib.git",
         "branch": "master"
-    }
-
-    repos += {
-        "name": "py-netif",
-        "path": "py-netif",
-        "url": "https://github.com/freenas/py-netif.git",
-        "branch": "master"
-    }
-
-    repos += {
-        "name": "py-cam",
-        "path": "py-cam",
-        "url": "https://github.com/freenas/py-cam.git",
-        "branch": "master"
-    }
+    }   
 
 if LABEL == "TrueNAS":
     repos += {

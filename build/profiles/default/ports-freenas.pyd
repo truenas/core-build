@@ -42,7 +42,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-datastore",
+    "name": "freenas/freenas-ui",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
@@ -51,7 +51,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-dispatcher",
+    "name": "freenas/py-licenselib",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
@@ -60,7 +60,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-etcd",
+    "name": "freenas/pcbsd-warden",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
@@ -69,102 +69,10 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-networkd",
+    "name": "freenas/pcbsd-pbi",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=${GIT_REVISION}"
     ]
 }
-
-ports += {
-    "name": "freenas/freenas-fnstatd",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/freenas-10gui",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/freenas-cli",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-libzfs",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-netif",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-sysctl",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-fnutils",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-# ports += {
-#    "name": "freenas/py-launch",
-#    "options": [
-#        "PRODUCT_VERSION=${VERSION}",
-#        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-#        "REVISION=${GIT_REVISION}"
-#    ]
-# }
-
-ports += {
-    "name": "freenas/py-cam",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-SMART",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-

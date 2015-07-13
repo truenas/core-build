@@ -1,8 +1,7 @@
 [Package]
-
-name = freebsd-pkgdb
-comment = "FreeBSD pkg db files"
-desc = "FreeNAS OS (derived from FreeBSD)"
+name = docs
+comment = "Release documentation"
+desc = "Release documentation"
 www = http://www.freenas.org/
 origin = freenas/os
 maintainer = dev@ixsystems.com
@@ -12,6 +11,8 @@ licenselogic = or
 licenses = [BSD, MIT, GPL]
 
 requires-reboot = False
+
+post-upgrade = true
+
 [Files]
-include =
-	/var/db/pkg
+include = /usr/local/www/data/docs

@@ -219,7 +219,6 @@ instufs = objdir('instufs')
 
 
 def create_iso_dirs():
-    sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
     sh('mkdir -p ${ISO_DESTDIR}/data')
     sh('mkdir -p ${ISO_DESTDIR}/dev')
     sh('mkdir -p ${ISO_DESTDIR}/.mount')
@@ -255,6 +254,7 @@ def cleandirs():
         sh('rm -rf ${INSTUFS_DESTDIR}')
 
     sh('rm -rf ${ISO_DESTDIR}')
+    sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
 
 
 def install_ports():
@@ -312,6 +312,11 @@ def copy_packages():
     sh('cp ${OBJDIR}/packages/${PRODUCT}-MANIFEST ${ISO_DESTDIR}/')
 
 
+def copy_data():
+    sh('mkdir -p ${INSTUFS_DESTDIR}/data')
+    sh('cp -R ${WORLD_DESTDIR}/data ${INSTUFS_DESTDIR}/data')
+
+
 def clean_ufs_image():
     sh('${BUILD_ROOT}/build/customize/remove-bits.py ${INSTUFS_DESTDIR}')
 
@@ -347,6 +352,7 @@ if __name__ == '__main__':
     install_pkgtools()
     populate_ufsroot()
     install_files()
+    copy_data()
     copy_packages()
     clean_ufs_image()
     setup_diskless()
