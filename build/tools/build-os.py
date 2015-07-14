@@ -78,12 +78,11 @@ def buildkernel(kconf, modules):
     debug('Selected modules: {0}', modules)
 
     sh(
-        "env MAKEOBJDIRPREFIX=${OBJDIR}",
+        "env -u DEBUG -u MAKEFLAGS MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-j {0}".format(makejobs),
         "-C ${TRUEOS_ROOT}",
         "NO_KERNELCLEAN=YES",
-        "DEBUG=",
         "__MAKE_CONF={0}".format(makeconfbuild),
         "MODULES_OVERRIDE='{0}'".format(modules),
         "buildkernel",
@@ -97,11 +96,10 @@ def buildworld():
     debug('World make.conf: {0}', makeconfbuild)
 
     sh(
-        "env MAKEOBJDIRPREFIX=${OBJDIR} DEBUG=",
+        "env -u DEBUG -u MAKEFLAGS MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-j {0}".format(makejobs),
         "-C ${TRUEOS_ROOT}",
-        "DEBUG=",
         "__MAKE_CONF={0}".format(makeconfbuild),
         "NOCLEAN=YES",
         "buildworld",
