@@ -41,6 +41,7 @@ ports += {
     "options": ["OPTIONS_FILE_UNSET+=CCSUTIL"]
 }
 ports += "devel/gettext"
+ports += "devel/py-icu"
 ports += "comms/lrzsz"
 ports += "devel/pkgconf"
 ports += "devel/m4"
