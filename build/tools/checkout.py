@@ -65,6 +65,10 @@ def generate_manifest():
 if __name__ == '__main__':
     if not e('${SKIP_CHECKOUT}'):
         for i in dsl['repos']:
+            if e('${CHECKOUT_ONLY}'):
+                if i['name'] not in e('${CHECKOUT_ONLY}').split(','):
+                    continue
+
             info('Checkout: {0} -> {1}', i['name'], i['path'])
             debug('Repository URL: {0}', i['url'])
             debug('Local branch: {0}', i['branch'])
