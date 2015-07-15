@@ -157,16 +157,6 @@ build-bug-report:
 	mail -s "build fail for $${SUDO_USER:-$$USER}" ${BUILD_BUG_EMAIL} < \
 		${RELEASE_LOGFILE}
 
-git-internal:
-	@echo "INTERNAL" > ${GIT_REPO_SETTING}
-	@echo "You are set up for internal (${COMPANY}) development.  You can use"
-	@echo "the standard make targets (e.g. build or release) now."
-
-git-external:
-	@echo "EXTERNAL" > ${GIT_REPO_SETTING}
-	@echo "You are set up for external (github) development.  You can use"
-	@echo "the standard make targets (e.g. build or release) now."
-
 tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
 
