@@ -50,10 +50,3 @@ repos += {
     "url": "https://github.com/freenas/licenselib.git",
     "branch": "master"
 }   
-
-if LABEL == "TrueNAS":
-    repos += {
-        "name": "truenas-components",
-        "path": "src/truenas",
-        "branch": "master"
-    }

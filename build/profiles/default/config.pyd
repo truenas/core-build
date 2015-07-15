@@ -75,24 +75,14 @@ kernel_modules = [
     "iscsi"
 ]
 
-if PRODUCT == "TrueNAS":
-	kernel_modules += [
-	    "hwpmc",
-	    "ipdivert",
-	    "ipfw",
-	    "ispfw",
-	    "linprocfs",
-	    "syscons/blank"
-	]
-else:
-	kernel_modules += [
-	    "ctl",
+kernel_modules += [
+    "ctl",
 #	    "cxgbe/t4_firmware",
 #	    "cxgbe/t5_firmware",
-	    "syscons",
-        "netgraph/ether",
-        "netgraph/socket"
-    ]
+    "syscons",
+    "netgraph/ether",
+    "netgraph/socket"
+]
 
 # World configuration
 make_conf_build = {
