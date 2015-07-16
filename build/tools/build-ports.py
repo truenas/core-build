@@ -37,7 +37,7 @@ makejobs = 1
 jailname = None
 config = load_profile_config()
 installer_ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
-jailconf = load_file('${BUILD_CONFIG}/jail.pyd', os.environ)
+jailconf = load_file('${PROFILE_ROOT}/jail.pyd', os.environ)
 
 portslist = e('${POUDRIERE_ROOT}/etc/ports.conf')
 portoptions = e('${POUDRIERE_ROOT}/etc/poudriere.d/options')
@@ -122,15 +122,16 @@ def prepare_jail():
     sh("jail -U root -c name=${jailname} path=${JAIL_DESTDIR} command=/sbin/ldconfig -m /lib /usr/lib /usr/lib/compat")
 
 
-def merge_freenas_ports():
-    sh('mkdir -p ${PORTS_OVERLAY}/freenas')
-    sh('cp -a ${FREENAS_ROOT}/nas_ports/freenas ${PORTS_OVERLAY}/')
+def merge_port_trees():
+    for i in config['port_trees']:
+        sh('cp -a ${i} ${PORTS_OVERLAY}/')
 
 
 def prepare_env():
     for cmd in jailconf.get('copy', []):
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
         sh('rm -rf ${dest}')
+        sh('mkdir -p', dest)
         sh('cp -a', cmd['source'], dest)
 
     for cmd in jailconf.get('link', []):
@@ -168,7 +169,7 @@ if __name__ == '__main__':
     create_make_conf()
     create_ports_list()
     prepare_jail()
-    merge_freenas_ports()
+    merge_port_trees()
     prepare_env()
     run()
     cleanup_env()

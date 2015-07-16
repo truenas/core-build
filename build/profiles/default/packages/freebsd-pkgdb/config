@@ -13,5 +13,4 @@ licenses = [BSD, MIT, GPL]
 
 requires-reboot = False
 [Files]
-include =
-	/var/db/pkg
+include = @include(filelist)

@@ -52,6 +52,27 @@ repos += {
 }
 
 repos += {
+    "name": "py-libzfs",
+    "path": "py-libzfs",
+    "url": "https://github.com/freenas/py-libzfs.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-netif",
+    "path": "py-netif",
+    "url": "https://github.com/freenas/py-netif.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-cam",
+    "path": "py-cam",
+    "url": "https://github.com/freenas/py-cam.git",
+    "branch": "master"
+}
+
+repos += {
     "name" :"licenselib",
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",

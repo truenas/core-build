@@ -24,13 +24,12 @@
 #
 
 include("repos.pyd")
-include("ports-freenas.pyd")
-include("ports-system.pyd")
+include("ports.pyd")
 include("packages.pyd")
 
 profile = {
     "name": "default",
-    "description": "Default FreeNAS 10.1 profile",
+    "description": "Default FreeNAS 9.3 profile",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }

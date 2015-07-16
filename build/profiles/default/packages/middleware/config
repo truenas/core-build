@@ -1,0 +1,21 @@
+[Package]
+name = middleware
+comment = "FreeNAS middleware"
+desc = "FreeNAS middleware"
+www = http://www.freenas.org/
+origin = freenas/middleware
+maintainer = dev@ixsystems.com
+prefix = /
+arch = freebsd:10:x86:64
+licenselogic = or
+licenses = [BSD, MIT, GPL]
+requires-reboot = True
+
+[Files]
+include = @include(filelist)
+
+[Scripts]
+
+[Services]
+services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
+restart = all

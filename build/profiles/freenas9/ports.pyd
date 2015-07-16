@@ -23,5 +23,9 @@
 # SUCH DAMAGE.
 #
 
-include("${BUILD_CONFIG}/ports-freenas.pyd")
-include("${BUILD_CONFIG}/ports-system.pyd")
+include("${PROFILE_ROOT}/ports-freenas.pyd")
+include("${PROFILE_ROOT}/ports-system.pyd")
+
+port_trees = [
+	"${FREENAS_ROOT}/nas_ports/freenas"
+]

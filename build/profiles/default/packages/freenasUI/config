@@ -13,7 +13,7 @@ licenses = [BSD, MIT, GPL]
 
 requires-reboot = False
 [Files]
-include = /usr/local/www/freenasUI
+include = @include(filelist)
 
 [Scripts]
 

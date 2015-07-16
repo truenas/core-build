@@ -50,5 +50,5 @@ packages += {
 
 packages += {
     "name": "middleware",
-    "template": ${PROFILE_ROOT}/packages/middleware"
+    "template": "${PROFILE_ROOT}/packages/middleware"
 }

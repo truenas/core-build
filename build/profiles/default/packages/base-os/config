@@ -7,7 +7,7 @@ www = http://www.freenas.org/
 origin = freenas/os
 maintainer = dev@ixsystems.com
 prefix = /
-arch = freebsd:10:x86:64
+arch = freebsd:9:x86:64
 licenselogic = or
 licenses = [BSD, MIT, GPL]
 
@@ -34,7 +34,9 @@ post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
 #		      /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
 [Files]
-exclude = /usr/local/www/freenasUI
+exclude = @include(../middleware/filelist)
+	@include(../freenasUI/filelist)
+	@include(../freebsd-pkgdb/filelist)
 	/usr/lib/*.a
 	/usr/local/share/doc
 	/usr/local/share/gtk-doc
@@ -45,7 +47,6 @@ exclude = /usr/local/www/freenasUI
 	/var/log
 	/conf/base/var/log/usr/log
 	/conf/base/var/db/fontconfig
-	/var/db/pkg
 	/conf/var/db/pkg
 	/dev/*
 

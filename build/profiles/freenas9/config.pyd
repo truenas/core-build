@@ -24,8 +24,7 @@
 #
 
 include("repos.pyd")
-include("ports-freenas.pyd")
-include("ports-system.pyd")
+include("ports.pyd")
 include("packages.pyd")
 
 profile = {

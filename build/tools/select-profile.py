@@ -26,25 +26,14 @@
 #
 #####################################################################
 
-import os
-from dsl import load_file
-from utils import glob, e, info
+import sys
+from utils import glob, e, info, setfile
 
 
-def main():
-    info("Selected profile: {0}", e('${PROFILE}') or 'default')
-    info("Available profiles:")
-    for i in glob("${BUILD_PROFILES}/*"):
-        dsl = load_file(e("${i}/config.pyd"), os.environ)
-        if dsl is None:
-            continue
-
-        profile = dsl["profile"]
-        info('{0}', profile["name"])
-        info('\tDescription: {0}', profile["description"])
-        info('\tOwner: {0}', profile["owner"])
-        info('\tStatus: {0}', profile["status"])
+def main(name):
+    setfile("${BUILD_ROOT}/.profile-setting", name)
+    info("New selected profile: {0}", name)
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])

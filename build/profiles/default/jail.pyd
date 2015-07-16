@@ -23,11 +23,44 @@
 # SUCH DAMAGE.
 #
 
-include("${PROFILE_ROOT}/ports-freenas.pyd")
-include("${PROFILE_ROOT}/ports-middleware.pyd")
-include("${PROFILE_ROOT}/ports-system.pyd")
 
-port_trees = [
-	"${FREENAS_ROOT}/nas_ports/freenas",
-	"${BE_ROOT}/middleware/nas_ports/freenas",
-]
+link += {
+    "source": TRUEOS_ROOT,
+    "dest": "/usr/src",
+    "flags": "ro",
+}
+
+copy += {
+    "source": "${SRC_ROOT}/*",
+    "dest": "/usr/freenas_src"
+}
+
+copy += {
+    "source": "${BE_ROOT}/middleware/src/*",
+    "dest": "/usr/freenas_src"
+}
+
+copy += {
+    "source": "${FREENAS_ROOT}/gui/",
+    "dest": "/usr/freenasUI"
+}
+
+copy += {
+    "source": "${BE_ROOT}/licenselib/",
+    "dest": "/usr/freenas_src/licenselib"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-libzfs/",
+    "dest": "/usr/freenas_src/py-libzfs"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-netif/",
+    "dest": "/usr/freenas_src/py-netif"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-cam/",
+    "dest": "/usr/freenas_src/py-cam"
+}
