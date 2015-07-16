@@ -38,8 +38,11 @@ def main():
     # sh('cp -r ${RELEASE_STAGEDIR} ${IX_INTERNAL_PATH}/${name}')
     ref_date = 0
     rel_dir = ''
-    dirstring = e('${BE_ROOT}/release/${PRODUCT}-10.1-${MILESTONE}')
-    for x in glob.glob("{0}-*".format(dirstring)):
+    dirstring = e('${BE_ROOT}/release/${PRODUCT}')
+    for x in glob.glob("{0}*".format(dirstring)):
+        if e('${BUILD_ARCH_SHORT}') not in os.listdir(x):
+            continue
+
         if os.lstat(x).st_ctime > ref_date:
             ref_date = os.lstat(x).st_ctime
             rel_dir = x
