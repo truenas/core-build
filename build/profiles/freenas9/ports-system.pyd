@@ -267,7 +267,6 @@ ports += {
 }
 ports += "sysutils/arcconf"
 ports += "sysutils/tw_cli"
-ports += "sysutils/megacli"
 
 if PRODUCT != "TrueNAS":
 	ports += "sysutils/areca-cli"
