@@ -30,7 +30,7 @@
 import os
 import sys
 import glob
-from utils import sh, sh_str, e, setup_env, info
+from utils import sh, sh_str, e, setup_env, info, error
 
 
 def main():
@@ -43,11 +43,18 @@ def main():
     # sh('scp -pr ${RELEASE_STAGEDIR}/* ${user}@${DOWNLOAD_HOST}:${DOWNLOAD_TARGETDIR}/')
     ref_date = 0
     rel_dir = ''
-    dirstring = e('${BE_ROOT}/release/${PRODUCT}-10.1-${MILESTONE}')
-    for x in glob.glob("{0}-*".format(dirstring)):
+    dirstring = e('${BE_ROOT}/release/${PRODUCT}')
+    for x in glob.glob("{0}*".format(dirstring)):
+        if e('${BUILD_ARCH_SHORT}') not in os.listdir(x):
+            continue
+
         if os.lstat(x).st_ctime > ref_date:
             ref_date = os.lstat(x).st_ctime
             rel_dir = x
+
+    if not rel_dir:
+        error('Release not found')
+
     buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
     downlodtargetdir = e('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downlodtargetdir}')

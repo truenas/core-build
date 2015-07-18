@@ -30,7 +30,7 @@
 import os
 import sys
 import glob
-from utils import sh, sh_str, e, setup_env, info
+from utils import sh, sh_str, e, setup_env, info, error
 
 
 def main():
@@ -46,6 +46,10 @@ def main():
         if os.lstat(x).st_ctime > ref_date:
             ref_date = os.lstat(x).st_ctime
             rel_dir = x
+
+    if not rel_dir:
+        error('Release not found')
+
     name = os.path.basename(rel_dir)
     sh('cp -r ${rel_dir} ${IX_INTERNAL_PATH}/${name}')
 
