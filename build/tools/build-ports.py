@@ -131,7 +131,6 @@ def prepare_env():
     for cmd in jailconf.get('copy', []):
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
         sh('rm -rf ${dest}')
-        sh('mkdir -p', dest)
         sh('cp -a', cmd['source'], dest)
 
     for cmd in jailconf.get('link', []):
