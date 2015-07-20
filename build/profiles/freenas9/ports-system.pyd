@@ -55,7 +55,6 @@ ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
 ports += "sysutils/iocage"
-ports += "sysutils/pcbsd-appweb"
 
 if LABEL != "TrueNAS":
     ports += "net/vblade"
