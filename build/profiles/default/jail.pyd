@@ -31,36 +31,36 @@ link += {
 }
 
 copy += {
-    "source": "${SRC_ROOT}/*",
+    "source": "${SRC_ROOT}",
     "dest": "/usr/freenas_src"
 }
 
 copy += {
-    "source": "${BE_ROOT}/middleware/src/*",
-    "dest": "/usr/freenas_src"
+    "source": "${BE_ROOT}/middleware/src",
+    "dest": "/usr/middleware_src"
 }
 
 copy += {
-    "source": "${FREENAS_ROOT}/gui/",
+    "source": "${FREENAS_ROOT}/gui",
     "dest": "/usr/freenasUI"
 }
 
 copy += {
-    "source": "${BE_ROOT}/licenselib/",
+    "source": "${BE_ROOT}/licenselib",
     "dest": "/usr/freenas_src/licenselib"
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-libzfs/",
-    "dest": "/usr/freenas_src/py-libzfs"
+    "source": "${BE_ROOT}/py-libzfs",
+    "dest": "/usr/middleware_src/py-libzfs"
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-netif/",
-    "dest": "/usr/freenas_src/py-netif"
+    "source": "${BE_ROOT}/py-netif",
+    "dest": "/usr/middleware_src/py-netif"
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-cam/",
-    "dest": "/usr/freenas_src/py-cam"
+    "source": "${BE_ROOT}/py-cam",
+    "dest": "/usr/middleware_src/py-cam"
 }
