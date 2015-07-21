@@ -25,7 +25,10 @@ post-upgrade =
 	/usr/bin/touch /data/cd-upgrade
 	/usr/bin/touch /data/need-update
 	/usr/local/sbin/dsinit --start-forked --port 60000
-	/usr/local/sbin/dsmigrate -f /usr/local/share/datastore/factory.json --alt
+	/usr/local/sbin/dsmigrate \
+		-f /usr/local/share/datastore/factory.json \
+		-d /usr/local/share/datastore/migrations \
+		--alt
 	/usr/local/sbin/dsinit --stop-forked
 
 [Services]
