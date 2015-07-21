@@ -111,7 +111,7 @@ sync:
 		--include '_BE/freenas' \
 		--exclude '_BE/*' \
 		--exclude '.git' \
-		--exclude '.idea' . ${host}:${dir}/ \
+		--exclude '.idea' . ${host}:${dir}/
 
 remote: sync
 	ssh -o StrictHostKeyChecking=no -t ${host} sudo make -C ${dir} ${target}
