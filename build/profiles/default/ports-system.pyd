@@ -176,7 +176,7 @@ ports += "www/py-gevent-websocket"
 ports += "www/py-flask"
 ports += "www/py-flask-bootstrap"
 ports += "devel/py-argh"
-ports += "devel/py-texttable"
+ports += "textproc/py-texttable"
 ports += "devel/py-columnize"
 ports += "devel/py-pip"
 ports += "devel/py-pyee"
@@ -187,6 +187,14 @@ ports += "devel/py-jsonpointer"
 ports += "devel/py-natural"
 ports += "devel/py-enum34"
 ports += "net/py-ipaddress"
+ports += {
+    "name": "math/py-matplotlib",
+    "options": [
+        "OPTIONS_FILE_UNSET+=GTKBACKEND",
+        "OPTIONS_FILE_UNSET+=GTKAGGBACKEND",
+        "OPTIONS_FILE_UNSET+=TKAGGBACKEND"
+    ]
+}
 ports += "math/py-networkx"
 ports += "math/py-pandas"
 ports += "devel/py-tables"

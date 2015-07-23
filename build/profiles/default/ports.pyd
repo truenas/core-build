@@ -28,6 +28,6 @@ include("${PROFILE_ROOT}/ports-middleware.pyd")
 include("${PROFILE_ROOT}/ports-system.pyd")
 
 port_trees = [
-	"${FREENAS_ROOT}/nas_ports/freenas",
-	"${BE_ROOT}/middleware/nas_ports/freenas",
+	"${FREENAS_ROOT}/nas_ports",
+	"${BE_ROOT}/middleware/nas_ports",
 ]

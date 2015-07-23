@@ -124,7 +124,7 @@ def prepare_jail():
 
 def merge_port_trees():
     for i in config['port_trees']:
-        sh('cp -a ${i} ${PORTS_OVERLAY}/')
+        sh('cp -a ${i}/* ${PORTS_OVERLAY}/')
 
 
 def prepare_env():
