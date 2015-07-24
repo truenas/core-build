@@ -410,7 +410,7 @@ ports += {
 }
 
 
-ports += "sysutils/grub2-pcbsd"
+ports += "sysutils/grub2-freenas"
 ports += "sysutils/beadm-devel"
 #ports += "net/glusterfs"
 ports += "net/py-pysphere"
