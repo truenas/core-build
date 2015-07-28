@@ -55,13 +55,8 @@ ports += "ftp/proftpd"
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
-
-if LABEL != "TrueNAS":
-    ports += "net/vblade"
-    ports += {
-        "name": "emulators/virtualbox-ose-kmod",
-        "options": ["OPTIONS_FILE_SET+=VIMAGE"]
-    }
+ports += "sysutils/iocage-devel"
+ports += "net/vblade"
 
 ports += "security/libgpg-error"
 ports += "security/libgcrypt"
