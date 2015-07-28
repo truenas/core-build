@@ -55,7 +55,7 @@ ports += "ftp/proftpd"
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
-ports += "sysutils/iocage-devel"
+ports += "sysutils/iocage"
 ports += "net/vblade"
 
 ports += "security/libgpg-error"
