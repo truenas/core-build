@@ -54,7 +54,6 @@ ports += "ftp/proftpd"
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
-ports += "sysutils/iocage"
 
 if LABEL != "TrueNAS":
     ports += "net/vblade"
