@@ -116,7 +116,7 @@ ports += {
 dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam"]
 
 for iter_port in dedicated_repo_ports:
-    iter_port_git_rev = sh_str(
+    iter_port_git_rev = sh(
         "git -C ${BE_ROOT}/${iter_port} rev-parse --verify --short HEAD")
 
     ports += {
