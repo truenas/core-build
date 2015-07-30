@@ -124,6 +124,6 @@ for iter_port in dedicated_repo_ports:
         "options": [
             "PRODUCT_VERSION=${VERSION}",
             "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-            "REVISION=${iter_port_git_rev}"
+            "REVISION="+ iter_port_git_rev
         ]
     }
