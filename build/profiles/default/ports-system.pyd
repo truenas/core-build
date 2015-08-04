@@ -42,6 +42,7 @@ ports += {
 }
 ports += "devel/gettext"
 ports += "devel/py-icu"
+ports += "devel/py-ply"
 ports += "comms/lrzsz"
 ports += "devel/pkgconf"
 ports += "devel/m4"
