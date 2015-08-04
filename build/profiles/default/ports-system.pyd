@@ -406,6 +406,7 @@ ports += {
 }
 
 
+ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
 ports += "sysutils/beadm-devel"
 #ports += "net/glusterfs"

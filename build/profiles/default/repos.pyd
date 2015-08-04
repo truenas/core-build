@@ -78,3 +78,10 @@ repos += {
     "url": "https://github.com/freenas/licenselib.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "sample",
+    "path": "sample",
+    "url": "https://github.com/freenas/sample.git",
+    "branch": "master"
+}
