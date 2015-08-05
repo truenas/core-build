@@ -140,6 +140,8 @@ ports += "sysutils/smartmontools"
 ports += "net/libdnet"
 ports += "net/mosh"
 ports += "net/py-s3cmd"
+ports += "databases/py-swift"
+ports += "databases/py-swiftclient"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["WITHOUT_ICU=y"]
