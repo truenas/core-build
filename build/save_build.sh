@@ -20,7 +20,7 @@ if [ -z "$NANO_LABEL" ] ; then
     exit 1
 fi
 
-: ${SAVED_BUILD_ENV_ROOT="/freenas/BSD/releng/${NANO_LABEL}/build_env/"}
+: ${SAVED_BUILD_ENV_ROOT="/builds/${NANO_LABEL}/build_env/"}
 
 : ${SAVED_VERSION_NAME=${VERSION}}
 
