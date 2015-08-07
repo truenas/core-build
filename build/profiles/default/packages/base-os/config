@@ -49,7 +49,7 @@ exclude = @include(../middleware/filelist)
 	/conf/base/var/db/fontconfig
 	/conf/var/db/pkg
 	/dev/*
-	/data
+	/data/*
 
 [Services]
 

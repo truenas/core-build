@@ -314,7 +314,7 @@ def copy_packages():
 
 def copy_data():
     sh('mkdir -p ${INSTUFS_DESTDIR}/data')
-    sh('cp -R ${WORLD_DESTDIR}/data ${INSTUFS_DESTDIR}/data')
+    sh('cp -R ${WORLD_DESTDIR}/data ${INSTUFS_DESTDIR}/')
 
 
 def clean_ufs_image():
