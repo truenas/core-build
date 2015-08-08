@@ -29,7 +29,7 @@
 
 import os
 from dsl import load_file, load_profile_config
-from utils import sh, info, objdir, e, chroot, glob, setfile, template, sha256, import_function, get_port_names, on_abort
+from utils import sh, info, objdir, e, chroot, glob, readfile, setfile, template, sha256, import_function, get_port_names, on_abort
 
 
 ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
@@ -275,8 +275,9 @@ def install_pkgtools():
 
 def mount_packages():
     on_abort(umount_packages)
+    jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/ports/packages')
-    sh('mount -t nullfs ${OBJDIR}/ports/packages/ja-p ${INSTUFS_DESTDIR}/usr/ports/packages')
+    sh('mount -t nullfs ${OBJDIR}/ports/packages/${jailname}-p ${INSTUFS_DESTDIR}/usr/ports/packages')
 
 
 def umount_packages():
