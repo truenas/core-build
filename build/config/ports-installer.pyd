@@ -33,17 +33,17 @@ ports += "databases/py-bsddb3"
 ports += {
     "name": "freenas/pc-sysinstall",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
 
 ports += {
     "name": "freenas/freenas-installer",
     "options": [
-        e("PRODUCT_VERSION=${VERSION}"),
-        e("BUILD_TIMESTAMP=${BUILD_TIMESTAMP}"),
-        e("REVISION=${GIT_REVISION}")
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
     ]
 }
