@@ -34,12 +34,10 @@ setup_env()
 
 def main():
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc')
-    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/var')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/mnt')
     sh('touch ${WORLD_DESTDIR}/etc/diskless')
     sh('cp -a ${WORLD_DESTDIR}/etc/ ${WORLD_DESTDIR}/conf/base/etc')
-    sh('cp -a ${WORLD_DESTDIR}/usr/local/etc/ ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('cp -a ${WORLD_DESTDIR}/var/ ${WORLD_DESTDIR}/conf/base/var')
 
     setfile('${WORLD_DESTDIR}/conf/base/var/md_size', '')
