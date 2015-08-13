@@ -73,6 +73,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-bsd",
+    "path": "py-bsd",
+    "url": "https://github.com/freenas/py-bsd.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "licenselib",
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",
