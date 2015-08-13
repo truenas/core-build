@@ -137,5 +137,6 @@ customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
     "strip-binaries",
+    "install-avatar-conf",
     "conf-base"
 ]
