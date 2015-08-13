@@ -85,3 +85,10 @@ repos += {
     "url": "https://github.com/freenas/sample.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "py-SMART",
+    "path": "py-SMART",
+    "url": "https://github.com/freenas/py-SMART.git",
+    "branch": "master"
+}

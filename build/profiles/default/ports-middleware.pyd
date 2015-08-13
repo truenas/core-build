@@ -104,20 +104,10 @@ ports += {
     ]
 }
 
-ports += {
-    "name": "freenas/py-SMART",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam"]
+dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam", "py-SMART"]
 
 for iter_port in dedicated_repo_ports:
-    iter_port_git_rev = sh(
-        "git -C ${BE_ROOT}/${iter_port} rev-parse --verify --short HEAD")
+    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port))
 
     ports += {
         "name": "freenas/"+iter_port,

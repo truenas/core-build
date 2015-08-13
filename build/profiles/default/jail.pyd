@@ -64,3 +64,8 @@ copy += {
     "source": "${BE_ROOT}/py-cam",
     "dest": "/usr/middleware_src/py-cam"
 }
+
+copy += {
+    "source": "${BE_ROOT}/py-SMART",
+    "dest": "/usr/middleware_src/py-SMART"
+}
