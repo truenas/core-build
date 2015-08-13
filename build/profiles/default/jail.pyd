@@ -68,6 +68,7 @@ copy += {
 copy += {
     "source": "${BE_ROOT}/py-SMART",
     "dest": "/usr/middleware_src/py-SMART"
+}
 
 copy += {
     "source": "${BE_ROOT}/py-bsd",
