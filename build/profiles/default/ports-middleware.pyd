@@ -87,15 +87,6 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/py-sysctl",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/py-fnutils",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
