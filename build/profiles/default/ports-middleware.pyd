@@ -23,12 +23,14 @@
 # SUCH DAMAGE.
 #
 
+middleware_git_rev = sh("git -C ${BE_ROOT}/middleware rev-list HEAD --count")
+
 ports += {
     "name": "freenas/freenas-middleware-files",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -37,7 +39,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -46,7 +48,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -55,7 +57,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -64,7 +66,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -73,7 +75,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -82,7 +84,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
@@ -91,7 +93,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
 
