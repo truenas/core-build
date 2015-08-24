@@ -33,3 +33,4 @@
 /usr/local/sbin/etcd
 /usr/local/sbin/fnstatd
 /usr/local/sbin/networkd
+/usr/local/libexec/taskproxy
