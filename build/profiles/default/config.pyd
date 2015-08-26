@@ -71,7 +71,8 @@ kernel_modules = [
     "udf",
     "usb/xhci",
     "zfs",
-    "iscsi"
+    "iscsi",
+    "fuse"
 ]
 
 kernel_modules += [
