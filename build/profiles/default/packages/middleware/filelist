@@ -14,6 +14,9 @@
 /usr/local/lib/python2.7/site-packages/libzfs
 /usr/local/lib/python2.7/site-packages/pySMART
 /usr/local/share/datastore
+/usr/local/etc/pkg/repos/pcbsd.conf
+/usr/local/etc/pkg/fingerprints/pcbsd/revoked/.keepme
+/usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 /usr/local/etc/rc.d/datastore
 /usr/local/etc/rc.d/dispatcher
 /usr/local/etc/rc.d/etcd
