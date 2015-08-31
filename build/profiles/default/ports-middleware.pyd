@@ -23,7 +23,10 @@
 # SUCH DAMAGE.
 #
 
-middleware_git_rev = sh("git -C ${BE_ROOT}/middleware rev-list HEAD --count")
+middleware_git_rev = sh("git -C ${BE_ROOT}/middleware rev-list HEAD --count") \
+    if exists("${BE_ROOT}/middleware") \
+    else "0"
+
 
 ports += {
     "name": "freenas/freenas-middleware-files",
@@ -109,7 +112,9 @@ ports += {
 dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam", "py-SMART", "py-bsd"]
 
 for iter_port in dedicated_repo_ports:
-    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port))
+    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port)) \
+        if exists("${BE_ROOT}/{0}".format(iter_port)) \
+        else "0"
 
     ports += {
         "name": "freenas/"+iter_port,
