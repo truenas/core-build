@@ -51,7 +51,7 @@ def main():
         error('Release not found')
 
     name = os.path.basename(rel_dir)
-    sh('[ -d ${IX_INTERNAL_PATH} ] && cp -r ${rel_dir} ${IX_INTERNAL_PATH}/${name}')
+    sh('if [ -d ${IX_INTERNAL_PATH} ]; then cp -r ${rel_dir} ${IX_INTERNAL_PATH}/${name}; fi')
 
 
 if __name__ == '__main__':
