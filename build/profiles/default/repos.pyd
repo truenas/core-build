@@ -45,6 +45,13 @@ repos += {
 }
 
 repos += {
+    "name": "gui",
+    "path": "gui",
+    "url": "https://github.com/freenas/gui.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "middleware",
     "path": "middleware",
     "url": "https://github.com/freenas/middleware.git",
