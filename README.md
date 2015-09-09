@@ -39,6 +39,8 @@ To build FreeNAS 10 from scratch (experts only):
 
 ## Building the System Quickstart Flow:
 
+Note: All these commands must be run as `root`.
+
 ```
 % make checkout
 % make release
