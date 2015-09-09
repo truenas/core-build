@@ -30,4 +30,5 @@ include("${PROFILE_ROOT}/ports-system.pyd")
 port_trees = [
 	"${FREENAS_ROOT}/nas_ports",
 	"${BE_ROOT}/middleware/nas_ports",
+	"${BE_ROOT}/gui/nas_ports"
 ]
