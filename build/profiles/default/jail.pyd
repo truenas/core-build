@@ -41,6 +41,11 @@ copy += {
 }
 
 copy += {
+    "source": "${GUI_DESTDIR}",
+    "dest": "/usr/freenas_gui"
+}
+
+copy += {
     "source": "${FREENAS_ROOT}/gui",
     "dest": "/usr/freenasUI"
 }
