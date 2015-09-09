@@ -43,41 +43,14 @@ def cleandirs():
 
 
 def copy():
-    sh('cp -a ${SRC_ROOT}/gui/ ${GUI_STAGEDIR}/')
-
-
-def gplusplus_version():
-    return glob.glob('/usr/local/bin/g++??')[0]
-
-
-def apply_npm_quirks():
-    q = []
-    if not os.path.islink('/usr/local/bin/g++'):
-        os.symlink(gplusplus_version(), '/usr/local/bin/g++')
-        q.append('g++')
-
-    if not os.path.islink('/usr/local/bin/c++'):
-        os.symlink(gplusplus_version(), '/usr/local/bin/c++')
-        q.append('c++')
-
-    return q
-
-
-def remove_npm_quirks(quirks):
-    for i in quirks:
-        os.unlink(os.path.join('/usr/local/bin', i))
+    sh('cp -a ${BE_ROOT}/gui/ ${GUI_STAGEDIR}/')
 
 
 def install():
     node_modules = e('${GUI_STAGEDIR}/node_modules')
-    bower = e('${node_modules}/bower/bin/bower')
-    grunt = e('${node_modules}/grunt-cli/bin/grunt')
 
     os.chdir(e('${GUI_STAGEDIR}'))
-    sh('npm install grunt grunt-cli bower', log=logfile)
-    sh('npm install', log=logfile, mode='a')
-    sh(bower, '--allow-root install', log=logfile, mode='a')
-    sh(grunt, 'deploy --force --dir=${GUI_DESTDIR}', log=logfile, mode='a')
+    sh('npm run package --output=${GUI_DESTDIR}', log=logfile, mode='a')
 
 
 def create_plist():
@@ -97,7 +70,5 @@ if __name__ == '__main__':
     info('Log file: {0}', logfile)
     cleandirs()
     copy()
-    q = apply_npm_quirks()
     install()
-    remove_npm_quirks(q)
     create_plist()
