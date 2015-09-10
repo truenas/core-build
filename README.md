@@ -31,9 +31,9 @@ To build FreeNAS 10 from scratch (experts only):
   * sysutils/xorriso
   * www/npm
   * devel/gmake
-  * py-sphinx
-  * py-sphinx_rtd_theme
-  * py-sphinxcontrib-httpdomain
+  * textproc/py-sphinx
+  * textproc/py-sphinx_rtd_theme
+  * textproc/py-sphinxcontrib-httpdomain
 
   (and all the dependencies that these ports/pkgs install, of course)
 
