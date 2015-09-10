@@ -29,6 +29,7 @@
 import os
 import sys
 import time
+import hashlib
 from dsl import load_profile_config
 from utils import sh, sh_str, e, setup_env, objdir, info, debug, error
 
@@ -47,10 +48,13 @@ def read_repo_manifest():
 
     versions = []
     f = open(e("${BE_ROOT}/repo-manifest"))
+    o = open(e("${BE_ROOT}/objs/world/etc/repo-manifest"), "w")
+
     for i in f:
         versions.append(i.split()[1])
+        o.write(i)
 
-    pkgversion = '-'.join(versions)
+    pkgversion = hashlib.md5('-'.join(versions)).hexdigest()
     sequence = sh_str('git show -s --format=%ct')
 
 

@@ -163,7 +163,7 @@ tag:
 build-gui:
 	@${BUILD_TOOLS}/build-gui.py
 
-ports: check-root build-gui
+ports: check-root # build-gui
 	@${BUILD_TOOLS}/build-ports.py
 
 trueos:
