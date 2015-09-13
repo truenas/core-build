@@ -38,7 +38,7 @@ def main():
     sh('go get -u github.com/ipfs/go-ipfs/cmd/ipfs')
     sh('mv ${GOPATH}/bin/ipfs ${WORLD_DESTDIR}/usr/local/sbin')
     sh('curl -o ${WORLD_DESTDIR}/usr/local/etc/rc.d/exp_ipfs http://download.freenas.org/distfiles/exp_ipfs')
-
+    sh('chmod 0755 ${WORLD_DESTDIR}/usr/local/etc/rc.d/exp_ipfs')
 
 if __name__ == '__main__':
     main()
