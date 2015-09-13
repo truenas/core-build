@@ -61,6 +61,10 @@ def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile)
+    info('Installing riak cs')
+    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 add http://s3.amazonaws.com/downloads.basho.com/riak-cs/2.0/2.0.1/freebsd/10/riak-cs-2.0.1.txz', log=logfile)
+    info('Installing stanchion')
+    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 add http://s3.amazonaws.com/downloads.basho.com/stanchion/2.0/2.0.0/freebsd/10/stanchion-2.0.0.txz', log=logfile)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.exists(e('${WORLD_DESTDIR}/etc/freenas.conf')):
