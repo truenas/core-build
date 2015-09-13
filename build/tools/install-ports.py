@@ -43,6 +43,10 @@ def mount_packages():
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${WORLD_DESTDIR}/usr/ports/packages')
     sh('mount -t nullfs ${OBJDIR}/ports/packages/${jailname}-p ${WORLD_DESTDIR}/usr/ports/packages')
+    info('Fetching Riak-cs -- Please WAIT!')
+    sh('fetch http://s3.amazonaws.com/downloads.basho.com/riak-cs/2.0/2.0.1/freebsd/10/riak-cs-2.0.1.txz -o ${WORLD_DESTDIR}/usr/ports/packages/')
+    info('Fetching Stanchion -- Please WAIT!')
+    sh('fetch http://s3.amazonaws.com/downloads.basho.com/stanchion/2.0/2.0.0/freebsd/10/stanchion-2.0.0.txz -o ${WORLD_DESTDIR}/usr/ports/packages/')
 
 
 def umount_packages():
@@ -62,9 +66,9 @@ def install_ports():
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile)
     info('Installing riak cs')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 add http://s3.amazonaws.com/downloads.basho.com/riak-cs/2.0/2.0.1/freebsd/10/riak-cs-2.0.1.txz', log=logfile)
+    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f /usr/ports/packages/riak-cs-2.0.1.txz', log=logfile)
     info('Installing stanchion')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 add http://s3.amazonaws.com/downloads.basho.com/stanchion/2.0/2.0.0/freebsd/10/stanchion-2.0.0.txz', log=logfile)
+    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f /usr/ports/packages/stanchion-2.0.0.txz', log=logfile)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.exists(e('${WORLD_DESTDIR}/etc/freenas.conf')):
