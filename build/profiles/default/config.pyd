@@ -135,6 +135,7 @@ early_customize_tasks = [
 ]
 
 customize_tasks = [
+    "install-ipfs",
     "remove-bits",
     "remove-var-cache-pkg",
     "strip-binaries",
