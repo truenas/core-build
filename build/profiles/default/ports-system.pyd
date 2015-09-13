@@ -64,6 +64,7 @@ ports += "security/libgpg-error"
 ports += "security/libgcrypt"
 ports += "databases/db48"
 ports += "security/cyrus-sasl2-gssapi"
+ports += "ports-mgmt/pkg"
 ports += {
     "name": "net/openldap24-sasl-client",
     "options": ["WITH_OPENSSL_PORT=y"]
