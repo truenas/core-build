@@ -43,12 +43,20 @@ def mount_packages():
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${WORLD_DESTDIR}/usr/ports/packages')
     sh('mount -t nullfs ${OBJDIR}/ports/packages/${jailname}-p ${WORLD_DESTDIR}/usr/ports/packages')
-    info('Fetching Riak-DB -- Please WAIT!')
-    sh('fetch http://s3.amazonaws.com/downloads.basho.com/riak/2.1/2.1.1/freebsd/10/riak-2.1.1.txz -o ${WORLD_DESTDIR}/usr/ports/packages/')
-    info('Fetching Riak-cs -- Please WAIT!')
-    sh('fetch http://s3.amazonaws.com/downloads.basho.com/riak-cs/2.0/2.0.1/freebsd/10/riak-cs-2.0.1.txz -o ${WORLD_DESTDIR}/usr/ports/packages/')
-    info('Fetching Stanchion -- Please WAIT!')
-    sh('fetch http://s3.amazonaws.com/downloads.basho.com/stanchion/2.0/2.0.0/freebsd/10/stanchion-2.0.0.txz -o ${WORLD_DESTDIR}/usr/ports/packages/')
+
+
+def fetch_binary_packages():
+    if e('${SKIP_PACKAGES_FETCH}'):
+        return
+
+    for i in config.binary_packages:
+        _, name = os.path.split(i)
+
+        if os.path.exists(e('${WORLD_DESTDIR}/usr/ports/packages/${name}')):
+            continue
+
+        info('Fetching package {0}', name)
+        sh('fetch ${i} -o ${WORLD_DESTDIR}/usr/ports/packages/')
 
 
 def umount_packages():
@@ -67,17 +75,18 @@ def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile)
-    info('Installing Riak DB')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f /usr/ports/packages//riak-2.1.1.txz', log=logfile)
-    info('Installing riak cs')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f /usr/ports/packages/riak-cs-2.0.1.txz', log=logfile)
-    info('Installing stanchion')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f /usr/ports/packages/stanchion-2.0.0.txz', log=logfile)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.exists(e('${WORLD_DESTDIR}/etc/freenas.conf')):
         error('Packages installation failed, see {0}', logfile)
 
+
+def install_binary_packages():
+    for i in config.binary_packages:
+        _, name = os.path.split(i)
+        path = e('/usr/ports/packages/${name}')
+        chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install ${path}', log=logfile)
+    
 
 if __name__ == '__main__':
     if e('${SKIP_PORTS_INSTALL}'):
@@ -87,6 +96,8 @@ if __name__ == '__main__':
     info('Installing ports')
     info('Log file: {0}', logfile)
     mount_packages()
+    fetch_binary_packages()
     create_pkgng_configuration()
     install_ports()
+    install_binary_packages()
     umount_packages()
