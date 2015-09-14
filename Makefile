@@ -83,6 +83,7 @@ bootstrap-pkgs:
 	pkg install -y sysutils/xorriso
 	pkg install -y www/npm
 	pkg install -y devel/gmake
+	pkg install -y lang/go
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
