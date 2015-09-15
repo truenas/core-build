@@ -37,3 +37,15 @@
 /usr/local/sbin/fnstatd
 /usr/local/sbin/networkd
 /usr/local/libexec/taskproxy
+/usr/local/etc/riak-cs/advanced.config
+/usr/local/etc/riak-cs/cert.pem
+/usr/local/etc/riak-cs/key.pem
+/usr/local/etc/riak-cs/riak-cs.conf
+/usr/local/etc/riak/advanced.config.orig
+/usr/local/etc/riak/riak.conf
+/usr/local/etc/riak/solr-log4j.properties
+/usr/local/etc/stanchion/advanced.config
+/usr/local/etc/stanchion/cert.pem
+/usr/local/etc/stanchion/key.pem
+/usr/local/etc/stanchion/stanchion.conf
+/usr/local/etc/rc.d/riak-cs
