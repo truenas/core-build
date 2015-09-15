@@ -85,7 +85,7 @@ def install_binary_packages():
     for i in config.binary_packages:
         _, name = os.path.split(i)
         path = e('/usr/ports/packages/${name}')
-        chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install ${path}', log=logfile)
+        chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -f ${path}', log=logfile)
     
 
 if __name__ == '__main__':
