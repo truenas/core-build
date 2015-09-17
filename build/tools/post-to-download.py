@@ -60,6 +60,8 @@ def main():
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downlodtargetdir}')
     sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downlodtargetdir}')
     sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downlodtargetdir}/')
+    info('Synchronizing download server to CDN')
+    sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
 
 
 if __name__ == '__main__':
