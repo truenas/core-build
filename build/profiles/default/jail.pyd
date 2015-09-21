@@ -79,3 +79,8 @@ copy += {
     "source": "${BE_ROOT}/py-bsd",
     "dest": "/usr/middleware_src/py-bsd"
 }
+
+copy += {
+    "source": "${BE_ROOT}/py-smbconf",
+    "dest": "/usr/middleware_src/py-smbconf"
+}
