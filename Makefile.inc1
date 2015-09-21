@@ -143,10 +143,7 @@ rebuild: checkout all
 cdrom:
 	@${BUILD_TOOLS}/create-iso.py
 
-gui-upgrade:
-	@${BUILD_TOOLS}/create-gui-upgrade.py
-
-images: cdrom gui-upgrade
+images: cdrom
 
 # intentionally split up to prevent abuse/spam
 BUILD_BUG_DOMAIN?=ixsystems.com
