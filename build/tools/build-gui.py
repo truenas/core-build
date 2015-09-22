@@ -50,7 +50,8 @@ def install():
     node_modules = e('${GUI_STAGEDIR}/node_modules')
 
     os.chdir(e('${GUI_STAGEDIR}'))
-    sh('npm run package --output=${GUI_DESTDIR}', log=logfile, mode='a')
+    sh('npm install')
+    sh('${node_modules}/.bin/gulp deploy --output=${GUI_DESTDIR}', log=logfile, mode='a')
 
 
 def create_plist():
@@ -59,7 +60,8 @@ def create_plist():
             if not os.path.isdir(e('${GUI_DESTDIR}/${i}')):
                 f.write(e('/usr/local/www/gui/${i}\n'))
 
-
+        with open(e('${GUI_STAGEDIR}/custom-plist')) as c:
+            f.write(c.read())
 
 if __name__ == '__main__':
     if env('SKIP_GUI'):
