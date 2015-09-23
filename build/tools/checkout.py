@@ -48,7 +48,10 @@ def checkout_repo(repo):
 
         sh('git pull --rebase')
     else:
-        sh('git clone', '-b', repo['branch'], repo['url'], repo['path'])
+        if e('${CHECKOUT_SHALLOW}'):
+            sh('git clone', '-b', repo['branch'], '--depth', '1', repo['url'], repo['path'])
+        else:
+            sh('git clone', '-b', repo['branch'], repo['url'], repo['path'])
         os.chdir(repo['path'])
 
     if 'commit' in repo:
