@@ -144,6 +144,8 @@ ports += "net/py-s3cmd"
 ports += "databases/py-swift"
 ports += "databases/py-swiftclient"
 ports += "databases/riak2"
+ports += "sysutils/riak-cs"
+ports += "sysutils/stanchion"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["WITHOUT_ICU=y"]

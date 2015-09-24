@@ -34,6 +34,4 @@ port_trees = [
 ]
 
 binary_packages = [
-	"http://s3.amazonaws.com/downloads.basho.com/riak-cs/2.0/2.0.1/freebsd/10/riak-cs-2.0.1.txz",
-	"http://s3.amazonaws.com/downloads.basho.com/stanchion/2.0/2.0.0/freebsd/10/stanchion-2.0.0.txz"
 ]
