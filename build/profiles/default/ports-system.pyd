@@ -146,6 +146,7 @@ ports += "databases/py-swiftclient"
 ports += "databases/riak2"
 ports += "sysutils/riak-cs"
 ports += "sysutils/stanchion"
+ports += "sysutils/ipfs-go"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["WITHOUT_ICU=y"]
