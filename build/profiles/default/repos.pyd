@@ -90,7 +90,8 @@ repos += {
     "name": "py-smbconf",
     "path": "py-smbconf",
     "url": "https://github.com/freenas/py-smbconf.git",
-    "branch": "master"
+    "branch": "master",
+    "commit": "11528d592e4899086ad96a843b26035eb4741b15"
 }
 
 repos += {
