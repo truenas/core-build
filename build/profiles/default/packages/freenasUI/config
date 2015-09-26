@@ -30,6 +30,8 @@ include = @include(filelist)
 #		            /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
 post-upgrade = 
+	rm -rf /usr/local/www/freenasUI/jails
+	rm -rf /usr/local/www/freenasUI/plugins
 	touch /tmp/.sqlite3_ha_skip
 	yes | /usr/local/bin/python /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations > "/data/update.failed" 2>&1 && rm -f /data/update.failed
 	rm -f /tmp/.sqlite3_ha_skip
