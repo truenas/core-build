@@ -425,10 +425,6 @@ ports += "sysutils/grub2-freenas"
 ports += "sysutils/beadm-devel"
 #ports += "sysutils/glusterfs"
 ports += "net/py-pysphere"
-ports += {
-    "name": "mail/nullmailer",
-    "options": ["OPTIONS_FILE_SET+=GNUTLS"]
-}
 
 # This is a silly for fun thing
 # feel free to remove it if need be
