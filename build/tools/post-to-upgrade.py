@@ -73,6 +73,8 @@ def main():
 
     sh("ssh ${sshopts} ${ssh} rm -rf ${temp_dest}")
     sh("ssh ${sshopts} ${ssh} rm -rf ${temp_changelog}")
+    # This last line syncs up with the cdn
+    sh("ssh ${sshopts} ${ssh} /usr/local/sbin/rsync-mirror.sh")
 
 
 if __name__ == '__main__':
