@@ -31,7 +31,7 @@ link += {
 }
 
 copy += {
-    "source": "${FNBASE_SRC_ROOT}",
+    "source": "${SRC_ROOT}",
     "dest": "/usr/freenas_src"
 }
 
