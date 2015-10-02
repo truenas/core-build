@@ -64,13 +64,13 @@ def build_pkgtools():
 
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
-        "make -C ${MIDDLEWARE_ROOT}/src/freenas-pkgtools obj all install DESTDIR=${tooldir} PREFIX=/usr/local",
+        "make -C ${SRC_ROOT}/freenas-pkgtools obj all install DESTDIR=${tooldir} PREFIX=/usr/local",
         log=pkgtoolslog
     )
 
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
-        "make -C ${MIDDLEWARE_ROOT}/src/freenas-pkgtools obj all install DESTDIR=${WORLD_DESTDIR} PREFIX=/usr/local",
+        "make -C ${SRC_ROOT}/freenas-pkgtools obj all install DESTDIR=${WORLD_DESTDIR} PREFIX=/usr/local",
         log=pkgtoolslog
     )
 
