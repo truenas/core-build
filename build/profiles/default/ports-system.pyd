@@ -142,6 +142,7 @@ ports += "sysutils/smartmontools"
 ports += "net/libdnet"
 ports += "net/mosh"
 ports += "net/py-s3cmd"
+ports += "devel/py-magic"
 ports += "databases/py-swift"
 ports += "databases/py-swiftclient"
 ports += "databases/riak2"
@@ -379,6 +380,8 @@ ports += {
         "OPTIONS_FILE_UNSET+=PERL",
         "OPTIONS_FILE_UNSET+=CONTRIB",
         "OPTIONS_FILE_UNSET+=NLS"
+        "OPTIONS_FILE_SET+=MCURL"
+        "OPTIONS_FILE_SET+=MCURL_JSON"
     ]
 }
 
