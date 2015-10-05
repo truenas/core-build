@@ -54,7 +54,10 @@ world:
 	@${BUILD_TOOLS}/install-ports.py
 	@${BUILD_TOOLS}/customize.py
 
-packages:
+docs:
+	@${BUILD_TOOLS}/build-docs.py
+
+packages: docs
 	@${BUILD_TOOLS}/build-packages.py
 
 checkout:
