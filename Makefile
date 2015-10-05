@@ -83,6 +83,10 @@ bootstrap-pkgs:
 	pkg install -y sysutils/xorriso
 	pkg install -y www/npm
 	pkg install -y devel/gmake
+	pkg install -y textproc/py-sphinx
+	pkg install -y textproc/py-sphinx_rtd_theme
+	pkg install -y textproc/py-sphinxcontrib-httpdomain
+
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
