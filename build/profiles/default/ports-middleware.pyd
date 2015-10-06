@@ -109,7 +109,7 @@ ports += {
     ]
 }
 
-dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam", "py-SMART", "py-bsd", "py-smbconf"]
+dedicated_repo_ports = ["py-libzfs", "py-netif", "py-cam", "py-SMART", "py-bsd", "py-smbconf", "iocage-devel"]
 
 for iter_port in dedicated_repo_ports:
     iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port)) \

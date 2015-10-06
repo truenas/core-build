@@ -114,3 +114,10 @@ repos += {
     "url": "https://github.com/freenas/py-SMART.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "iocage-devel",
+    "path": "iocage-devel",
+    "url": "https://github.com/iocage/iocage.git",
+    "branch": "develop"
+}

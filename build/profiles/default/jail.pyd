@@ -89,3 +89,8 @@ copy += {
     "source": "${BE_ROOT}/py-smbconf",
     "dest": "/usr/middleware_src/py-smbconf"
 }
+
+copy += {
+    "source": "${BE_ROOT}/iocage-devel",
+    "dest": "/usr/middleware_src/iocage-devel"
+}
