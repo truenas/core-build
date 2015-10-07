@@ -22,7 +22,6 @@ post-install =
 	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = 
-	/usr/local/sbin/dsinit --check-dbdirs
 	/usr/local/sbin/dsinit --start-forked --port 60000
 	/usr/local/sbin/dsmigrate \
 		-f /usr/local/share/datastore/factory.json \
