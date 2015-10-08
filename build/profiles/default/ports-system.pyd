@@ -393,7 +393,7 @@ ports += "devel/libinotify"
 ports += "dns/samba-nsupdate"
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba41",
+    "name": "net/samba43",
     "options": [
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
@@ -418,6 +418,10 @@ ports += {
         "OPTIONS_FILE_SET+=NSUPDATE",
         "OPTIONS_FILE_UNSET+=BIND99",
         "OPTIONS_FILE_UNSET+=BIND910",
+        "OPTIONS_FILE_SET+=CLUSTER",
+        "OPTIONS_FILE_SET+=LIBZFS",
+        "OPTIONS_FILE_UNSET+=SPOTLIGHT",
+        "OPTIONS_FILE_SET+=GLUSTERFS",
         "WITH_DEBUG=yes",
         "CRAZY=yes"
     ]
