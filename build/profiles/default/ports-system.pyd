@@ -457,7 +457,6 @@ ports += "www/py-dojango"
 ports += "www/dojo"
 ports += "databases/py-south"
 ports += "www/py-django16-tastypie"
-ports += "www/py-django-json-rpc"
 ports += "sysutils/syslog-ng"
 
 # Legacy reporting ports
