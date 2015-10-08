@@ -55,7 +55,7 @@ def checkout_repo(repo):
         os.chdir(repo['path'])
 
     if e('${CHECKOUT_TAG}'):
-        sh('git checkout ${TAG}')
+        sh('git checkout ${CHECKOUT_TAG}')
     elif 'commit' in repo:
         sh('git checkout', repo['commit'])
 
