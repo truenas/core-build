@@ -426,8 +426,8 @@ ports += {
 
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
+ports += "sysutils/glusterfs"
 ports += "sysutils/beadm-devel"
-#ports += "sysutils/glusterfs"
 ports += "net/py-pysphere"
 
 # This is a silly for fun thing
