@@ -77,7 +77,7 @@ def install_ports():
     chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
-    if not os.path.isdir('${WORLD_DESTDIR}/data'):
+    if not os.path.isdir(e('${WORLD_DESTDIR}/data')):
         error('Package installation failed')
 
 
