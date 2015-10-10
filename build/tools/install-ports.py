@@ -74,11 +74,12 @@ def create_pkgng_configuration():
 def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
-    chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile)
+    err = chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -r local -f ${pkgs}', log=logfile, nofail=True)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
-    if not os.path.isdir(e('${WORLD_DESTDIR}/data')):
-        error('Package installation failed')
+    if not os.path.isdir(e('${WORLD_DESTDIR}/data')) or err != 0:
+        error('Packages installation failed, see log file {0}', logfile)
+
 
 
 def install_binary_packages():
