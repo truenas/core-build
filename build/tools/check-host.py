@@ -27,13 +27,16 @@
 #####################################################################
 
 import os
-from utils import e, info, debug, error
+from utils import e, info, debug, error, sh_str
 
 
 def check_build_sanity():
     if len(e('${BUILD_ROOT}')) > 38:
         error("Current path too long ({0} characters) for nullfs mounts during build",
               len(os.getcwd()))
+
+    if e('${BE_ROOT}') in sh_str('mount'):
+        error("You have dangling mounts inside {0}, did last build crash?", e('${BE_ROOT}'))
 
 
 def check_port(name, port):
