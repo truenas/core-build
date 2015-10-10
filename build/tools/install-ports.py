@@ -78,7 +78,7 @@ def install_ports():
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.isdir('${WORLD_DESTDIR}/data'):
-        fail('Package installation failed')
+        error('Package installation failed')
 
 
 def install_binary_packages():
