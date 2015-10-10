@@ -148,8 +148,11 @@ def prepare_env():
 
 
 def cleanup_env():
-    poudriere_proc.terminate()
-    poudriere_proc.wait()
+    info('Cleaning up poudriere environment...')
+    if poudriere_proc.poll():
+        poudriere_proc.terminate()
+        poudriere_proc.wait()
+        
     sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
