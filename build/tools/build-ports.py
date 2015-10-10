@@ -35,6 +35,7 @@ from utils import sh, sh_str, env, e, objdir, pathjoin, setfile, setup_env, temp
 
 makejobs = 1
 jailname = None
+poudriere_proc = None
 config = load_profile_config()
 installer_ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
 jailconf = load_file('${PROFILE_ROOT}/jail.pyd', os.environ)
@@ -76,6 +77,7 @@ def create_poudriere_config():
 def create_make_conf():
     makeconf = e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf')
     setfile(makeconf, template('${BUILD_CONFIG}/templates/poudriere-make.conf'))
+
 
 def create_ports_list():
     info('Creating ports list')
@@ -139,12 +141,15 @@ def prepare_env():
         sh('mkdir -p', os.path.dirname(dest))
         sh('mount -t nullfs', flags, cmd['source'], dest)
 
-    osversion=sh_str("awk '/\#define __FreeBSD_version/ { print $3 }' ${JAIL_DESTDIR}/usr/include/sys/param.h")
+    osversion = sh_str("awk '/\#define __FreeBSD_version/ { print $3 }' ${JAIL_DESTDIR}/usr/include/sys/param.h")
     login_env = e(',UNAME_r=${FREEBSD_RELEASE_VERSION% *},UNAME_v=FreeBSD ${FREEBSD_RELEASE_VERSION},OSVERSION=${osversion}')
     sh('sed -i "" -e "s/,UNAME_r.*:/:/ ; s/:\(setenv.*\):/:\\1${login_env}:/" ${JAIL_DESTDIR}/etc/login.conf')
     sh('cap_mkdb ${JAIL_DESTDIR}/etc/login.conf');
 
+
 def cleanup_env():
+    poudriere_proc.terminate()
+    poudriere_proc.wait()
     sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
@@ -152,7 +157,9 @@ def cleanup_env():
 
 
 def run():
-    sh('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p')
+    global poudriere_proc
+    poudriere_proc = sh_spawn('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p')
+    poudriere_proc.wait()
 
 
 if __name__ == '__main__':
