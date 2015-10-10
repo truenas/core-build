@@ -53,6 +53,14 @@ def check_port_version(name, port, version):
         error('Wrong version of {0} installed:', port)
 
 
+def check_port_byfile(name, port, fname):
+    debug('Checking for "{0}"', name)
+    if os.path.exists(fname):
+        return
+
+    error('{0} not found.  Please run "pkg install {1}" or install from ports', fname, port)
+
+
 def check_build_tools():
     check_port('git', 'devel/git')
     check_port('pxz', 'archivers/pxz')
@@ -65,6 +73,13 @@ def check_build_tools():
     check_port('npm', 'www/npm012')
     check_port_version('node', 'www/node012', '12')
     check_port('gmake', 'devel/gmake')
+    check_port('sphinx-build', 'textproc/py-sphinx')
+    check_port_byfile('sphinx-httpdomain',
+                      'textproc/py-sphinxcontrib-httpdomain',
+                      '/usr/local/lib/python2.7/site-packages/sphinxcontrib/httpdomain.py')
+    check_port_byfile('sphinx-rtd_theme',
+                      'textproc/py-sphinx_rtd_theme',
+                      '/usr/local/lib/python2.7/site-packages/sphinx_rtd_theme/breadcrumbs.html')
 
 
 if __name__ == '__main__':
