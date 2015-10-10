@@ -67,13 +67,17 @@ def sh_spawn(*args, **kwargs):
     logfile = kwargs.pop('log', None)
     mode = kwargs.pop('mode', 'w')
     nofail = kwargs.pop('nofail', False)
+    detach = kwargs.pop('detach', False)
     cmd = e(' '.join(args), **get_caller_vars())
     if logfile:
         sh('mkdir -p', os.path.dirname(logfile))
         f = open(logfile, mode)
 
+    def preexec():
+        os.setpgrp()
+
     debug('sh: {0}', cmd)
-    return subprocess.Popen(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True)
+    return subprocess.Popen(cmd, stdout=f if logfile else None, preexec_fn=preexec if detach else None, stderr=subprocess.STDOUT, shell=True)
 
 
 def sh_str(*args, **kwargs):

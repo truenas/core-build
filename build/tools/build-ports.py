@@ -56,6 +56,7 @@ def calculate_make_jobs():
 
 
 def create_overlay():
+    sh('umount -f ${PORTS_OVERLAY} > /dev/null 2>&1', nofail=True)
     sh('rm -rf ${PORTS_OVERLAY}')
     sh('mkdir -p ${PORTS_OVERLAY}')
     sh('mount_unionfs -o below ${PORTS_ROOT} ${PORTS_OVERLAY}')
@@ -148,10 +149,15 @@ def prepare_env():
 
 
 def cleanup_env():
+    global poudriere_proc
+
     info('Cleaning up poudriere environment...')
-    if poudriere_proc.poll():
-        poudriere_proc.terminate()
-        poudriere_proc.wait()
+    if poudriere_proc and poudriere_proc.poll() is None:
+        try:
+            poudriere_proc.terminate()
+            poudriere_proc.wait()
+        except OSError:
+            info('Cannot kill poudriere, probably it already terminated')
         
     sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
@@ -161,7 +167,7 @@ def cleanup_env():
 
 def run():
     global poudriere_proc
-    poudriere_proc = sh_spawn('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p')
+    poudriere_proc = sh_spawn('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p', detach=True)
     poudriere_proc.wait()
 
 
