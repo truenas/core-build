@@ -1,5 +1,5 @@
 #!/usr/bin/env python2.7
-#+
+#
 # Copyright 2015 iXsystems, Inc.
 # All rights reserved
 #
@@ -27,13 +27,13 @@
 #####################################################################
 
 import os
-import sys
-from utils import e, info, debug, error, sh
+from utils import e, info, debug, error
 
 
 def check_build_sanity():
     if len(e('${BUILD_ROOT}')) > 38:
-        error("Current path too long ({0} characters) for nullfs mounts during build", len(os.getcwd()))
+        error("Current path too long ({0} characters) for nullfs mounts during build",
+              len(os.getcwd()))
 
 
 def check_port(name, port):
@@ -45,6 +45,14 @@ def check_port(name, port):
     error('Command {0} not found. Please run "pkg install {1}" or install from ports', name, port)
 
 
+def check_port_version(name, port, version):
+    debug('Checking for version {0} of {1}', version, name)
+    install_ver = os.popen("""pkg info -q | awk -F- '/%s/ {print $2}'
+                           | awk -F. '/%s/ {print $2}'""" % (name, version)).read().strip()
+    if version != install_ver:
+        error('Wrong version of {0} installed:', port)
+
+
 def check_build_tools():
     check_port('git', 'devel/git')
     check_port('pxz', 'archivers/pxz')
@@ -54,7 +62,8 @@ def check_build_tools():
     check_port('poudriere', 'ports-mgmt/poudriere-devel')
     check_port('grub-mkrescue', 'sysutils/grub2-pcbsd')
     check_port('xorriso', 'sysutils/xorriso')
-    check_port('npm', 'www/npm')
+    check_port('npm', 'www/npm012')
+    check_port_version('node', 'www/node012', '12')
     check_port('gmake', 'devel/gmake')
 
 
