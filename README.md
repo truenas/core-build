@@ -36,6 +36,9 @@ To build FreeNAS 10 from scratch (experts only):
   * textproc/py-sphinxcontrib-httpdomain
 
   (and all the dependencies that these ports/pkgs install, of course)
+  
+  You can also use ```make bootstrap-pkgs``` to let it install required
+  dependencies automatically.
 
 ## Building the System Quickstart Flow:
 
@@ -47,7 +50,7 @@ Note: All these commands must be run as `root`.
 ```
 
 * Update the source tree, to pull in new source code changes
-
+b
 ```
 % make update
 ```
