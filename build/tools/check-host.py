@@ -47,8 +47,8 @@ def check_port(name, port):
 
 def check_port_version(name, port, version):
     debug('Checking for version {0} of {1}', version, name)
-    install_ver = os.popen("""pkg info -q | awk -F- '/%s/ {print $2}'
-                           | awk -F. '/%s/ {print $2}'""" % (name, version)).read().strip()
+    install_ver = os.popen("""pkg info -q | awk -F- '/%s/ {print $2}'"""
+                           """| awk -F. '/%s/ {print $2}'""" % (name, version)).read().strip()
     if version != install_ver:
         error('Wrong version of {0} installed:', port)
 
