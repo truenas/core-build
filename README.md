@@ -3,9 +3,9 @@
 To update an existing FreeNAS 10 instance that you are using for development
 purposes:
 
-* make update
-* make ports
-* make reinstall-package package=freenas host=root@1.2.3.4```
+* ```make update```
+* ```make ports```
+* ```make reinstall-package package=freenas host=root@1.2.3.4```
 
 Where 1.2.3.4 is the IP address of your development platform.  SSH will be
 used to push and install the new packages onto that host.
