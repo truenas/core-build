@@ -157,8 +157,9 @@ def cleanup_env():
             poudriere_proc.terminate()
             poudriere_proc.wait()
         except OSError:
-            info('Cannot kill poudriere, probably it already terminated')
+            info('Cannot kill poudriere, probably it has already terminated')
         
+    info('Unmounting ports overlay...')
     sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
