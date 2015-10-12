@@ -157,7 +157,7 @@ def cleanup_env():
             poudriere_proc.terminate()
             poudriere_proc.wait()
         except OSError:
-            info('Cannot kill poudriere, probably it has already terminated')
+            info('Cannot kill poudriere, it has probably already terminated')
         
     info('Unmounting ports overlay...')
     sh('umount -f ${PORTS_OVERLAY}')
