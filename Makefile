@@ -81,7 +81,6 @@ bootstrap-pkgs:
 	pkg install -y ports-mgmt/poudriere-devel
 	pkg install -y sysutils/grub2-pcbsd
 	pkg install -y sysutils/xorriso
-	pkg install -y www/npm
 	pkg install -y devel/gmake
 	pkg install -y textproc/py-sphinx
 	pkg install -y textproc/py-sphinx_rtd_theme
