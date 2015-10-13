@@ -103,16 +103,23 @@ ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
 ports += "devel/tevent"
-ports += {
-    "name":"devel/talloc",
-    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
-}
+
+ports += "devel/talloc"
+#ports += {
+#    "name":"devel/talloc",
+#    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
+#}
+
 ports += "devel/libexecinfo"
 ports += "devel/popt"
-ports += {
-    "name": "databases/tdb",
-    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
-}
+
+ports += "databases/tdb"
+
+#ports += {
+#    "name": "databases/tdb",
+#    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
+#}
+
 ports += "sysutils/libsunacl"
 ports += "security/pam_mkhomedir"
 ports += "security/pam_ldap"
@@ -393,36 +400,39 @@ ports += "devel/libinotify"
 ports += "dns/samba-nsupdate"
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba41",
+    "name": "net/samba43",
     "options": [
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
+        "OPTIONS_FILE_SET+=AD_DC",
         "OPTIONS_FILE_SET+=AIO_SUPPORT",
-        "OPTIONS_FILE_UNSET+=AVAHI",
+        "OPTIONS_FILE_SET+=CLUSTER",
         "OPTIONS_FILE_UNSET+=CUPS",
         "OPTIONS_FILE_SET+=DEBUG",
         "OPTIONS_FILE_UNSET+=DEVELOPER",
         "OPTIONS_FILE_SET+=DNSUPDATE",
+        "OPTIONS_FILE_SET+=DOCS",
         "OPTIONS_FILE_SET+=EXP_MODULES",
-        "OPTIONS_FILE_SET+=FAM_SUPPORT",
+        "OPTIONS_FILE_SET+=FAM",
+        "OPTIONS_FILE_SET+=GLUSTERFS",
+        "OPTIONS_FILE_SET+=LDAP",
+        "OPTIONS_FILE_SET+=LIBZFS",
         "OPTIONS_FILE_SET+=MANPAGES",
-        "OPTIONS_FILE_SET+=MDNSRESPONDER",
         "OPTIONS_FILE_SET+=PAM_SMBPASS",
         "OPTIONS_FILE_SET+=PTHREADPOOL",
         "OPTIONS_FILE_SET+=QUOTAS",
-        "OPTIONS_FILE_UNSET+=SWAT",
+        "OPTIONS_FILE_SET+=SPOTLIGHT",
         "OPTIONS_FILE_SET+=SYSLOG",
         "OPTIONS_FILE_SET+=UTMP",
-        "OPTIONS_FILE_SET+=LIBZFS",
-        "OPTIONS_FILE_SET+=WINBIND",
         "OPTIONS_FILE_SET+=NSUPDATE",
         "OPTIONS_FILE_UNSET+=BIND99",
         "OPTIONS_FILE_UNSET+=BIND910",
+        "OPTIONS_FILE_UNSET+=AVAHI",
+        "OPTIONS_FILE_SET+=MDNSRESPONDER",
         "WITH_DEBUG=yes",
         "CRAZY=yes"
     ]
 }
-
 
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
