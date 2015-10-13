@@ -85,7 +85,6 @@ def check_build_tools():
                       '/usr/local/lib/python2.7/site-packages/sphinx_rtd_theme/breadcrumbs.html')
     check_port_byfile('sphinx_numfig',
                       '/usr/local/lib/python2.7/site-packages/sphinx/ext/numfig.py')
-                      '/usr/local/lib/python2.7/site-packages/sphinx_rtd_theme/breadcrumbs.html')
 
 
 if __name__ == '__main__':
