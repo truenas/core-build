@@ -84,6 +84,7 @@ def check_build_tools():
                       'textproc/py-sphinx_rtd_theme',
                       '/usr/local/lib/python2.7/site-packages/sphinx_rtd_theme/breadcrumbs.html')
     check_port_byfile('sphinx_numfig',
+                      'textproc/py-sphinx_numfig',
                       '/usr/local/lib/python2.7/site-packages/sphinx/ext/numfig.py')
 
 
