@@ -13,6 +13,7 @@
 /usr/local/lib/python2.7/site-packages/sysctl
 /usr/local/lib/python2.7/site-packages/libzfs
 /usr/local/lib/python2.7/site-packages/pySMART
+/usr/local/lib/python2.7/site-packages/ws4py
 /usr/local/share/datastore
 /usr/local/etc/pkg/repos/pcbsd.conf
 /usr/local/etc/pkg/fingerprints/pcbsd/revoked/.keepme

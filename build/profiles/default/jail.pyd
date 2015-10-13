@@ -81,6 +81,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-ws4py",
+    "dest": "/usr/middleware_src/py-ws4py"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-bsd",
     "dest": "/usr/middleware_src/py-bsd"
 }

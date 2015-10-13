@@ -115,6 +115,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-ws4py",
+    "path": "py-ws4py",
+    "url": "https://github.com/freenas/WebSocket-for-Python.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "iocage-devel",
     "path": "iocage-devel",
     "url": "https://github.com/freenas/iocage.git",
