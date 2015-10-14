@@ -221,7 +221,7 @@ ports += "devel/py-termcolor"
 ports += "sysutils/py-psutil"
 ports += "textproc/py-mako"
 ports += "www/py-flup"
-ports += "www/node"
+ports += "www/node012"
 ports += "devel/py-asn1"
 ports += "devel/py-asn1-modules"
 ports += "security/openssl"
@@ -309,7 +309,6 @@ ports += "devel/dbus-glib"
 ports += "devel/libdaemon"
 ports += "databases/gdbm"
 ports += "devel/py-lxml"
-ports += "textproc/py-xml"
 ports += "sysutils/dmidecode"
 ports += "sysutils/graid5"
 ports += {
@@ -489,6 +488,7 @@ ports += "x11/pixman"
 ports += {
     "name": "graphics/cairo",
     "options": [
+        "OPTIONS_FILE_UNSET+=OPENGL",
         "OPTIONS_FILE_UNSET+=X11",
         "OPTIONS_FILE_UNSET+=XCB"
     ]
