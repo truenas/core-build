@@ -56,7 +56,6 @@ ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
 ports += "sysutils/pcbsd-appweb"
 ports += "sysutils/warden"
-ports += "databases/db48"
 ports += "security/cyrus-sasl2-gssapi"
 ports += "ftp/lftp"
 ports += {
