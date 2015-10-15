@@ -417,8 +417,6 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=FASTCGI"]
 }
 
-ports += "www/py-dojango"
-ports += "www/dojo"
 ports += "databases/py-south"
 ports += "www/py-django16-tastypie"
 ports += "sysutils/syslog-ng"
