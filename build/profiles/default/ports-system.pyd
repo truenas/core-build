@@ -25,13 +25,9 @@
 
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
-ports += "textproc/libxml2"
-ports += "devel/libffi"
 ports += "archivers/liblz4"
-ports += "archivers/lzo2"
 ports += "archivers/pigz"
 ports += "archivers/plzip"
-ports += "security/easy-rsa"
 ports += {
     "name": "security/openvpn",
     "options": ["WITHOUT_CHECK=yes"]
@@ -60,8 +56,6 @@ ports += "net-mgmt/clog"
 ports += "net-mgmt/sipcalc"
 ports += "sysutils/pcbsd-appweb"
 ports += "sysutils/warden"
-ports += "security/libgpg-error"
-ports += "security/libgcrypt"
 ports += "databases/db48"
 ports += "security/cyrus-sasl2-gssapi"
 ports += "ftp/lftp"
@@ -98,29 +92,9 @@ ports += {
 }
 ports += "lang/python2"
 ports += "lang/python"
-# conflicting version of python (the below is installed as dependency of another port albeit as a different version)
-#ports += "devel/py-setuptools"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
-ports += "devel/tevent"
 
-ports += "devel/talloc"
-#ports += {
-#    "name":"devel/talloc",
-#    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
-#}
-
-ports += "devel/libexecinfo"
-ports += "devel/popt"
-
-ports += "databases/tdb"
-
-#ports += {
-#    "name": "databases/tdb",
-#    "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
-#}
-
-ports += "sysutils/libsunacl"
 ports += "security/pam_mkhomedir"
 ports += "security/pam_ldap"
 ports += {
@@ -141,11 +115,8 @@ ports += {
 }
 
 ports += "sysutils/e2fsprogs"
-ports += "sysutils/fusefs-libs"
-ports += "devel/libublio"
 ports += "sysutils/fusefs-ntfs"
 ports += "sysutils/smartmontools"
-ports += "net/libdnet"
 ports += "net/mosh"
 ports += "net/py-s3cmd"
 ports += "sysutils/fusefs-s3fs"
@@ -160,7 +131,7 @@ ports += "sysutils/restic"
 ports += "net/haproxy"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
-    "options": ["WITHOUT_ICU=y"]
+    "options": ["OPTIONS_FILE_UNSET+=ICU"]
 }
 
 if PRODUCT == "TrueNAS":
@@ -258,9 +229,6 @@ ports += {
     "options": ["OPTIONS_FILE_UNSET+=NEON"]
 }
 ports += "textproc/py-libxml2"
-ports += "textproc/expat2"
-ports += "devel/gamin"
-#ports += "devel/gio-fam-backend"
 
 if PRODUCT == "TrueNAS":
 	ports += "devel/bison"
@@ -268,24 +236,23 @@ if PRODUCT == "TrueNAS":
 
 ports += "www/py-httplib2"
 ports += "net/py-oauth2"
-ports += "sysutils/jailme"
-ports += "devel/libstatgrab"
-ports += "devel/libltdl"
-ports += "net/liboping"
+ports += {
+    "name": "devel/libstatgrab",
+    "options": [
+        "OPTIONS_FILE_UNSET+=TOOLS",
+    ]
+}
 ports += {
     "name": "net-mgmt/collectd5",
     "options": [
-        "OPTIONS_FILE_UNSET+=BIND",
         "OPTIONS_FILE_UNSET+=SNMP",
-        "OPTIONS_FILE_SET+=DISK",
+        "OPTIONS_FILE_UNSET+=VIRT",
         "OPTIONS_FILE_SET+=STATGRAB",
         "OPTIONS_FILE_SET+=PYTHON",
         "OPTIONS_FILE_SET+=RRDTOOL"
     ]
 }
 
-#FIXME: gobject now requires cairo as build dependency
-ports += "devel/gobject-introspection"
 ports += "devel/py-ipaddr"
 ports += "converters/base64"
 ports += {
@@ -300,22 +267,15 @@ if PRODUCT != "TrueNAS":
 	ports += "sysutils/hptcli"
 
 ports += "sysutils/ataidle"
-ports += "sysutils/gnome_subr"
 ports += {
     "name": "devel/dbus",
     "options": ["OPTIONS_FILE_UNSET+=X11"]
 }
-ports += "devel/dbus-glib"
 ports += "devel/libdaemon"
-ports += "databases/gdbm"
 ports += "devel/py-lxml"
 ports += "sysutils/dmidecode"
 ports += "sysutils/graid5"
-ports += {
-    "name": "sysutils/tmux",
-    "options": ["OPTIONS_FILE_SET+=LIBEVENT2"]
-}
-ports += "devel/py-dbus"
+ports += "sysutils/tmux"
 ports += {
     "name": "net/netatalk3",
     "options": [
@@ -328,7 +288,6 @@ ports += {
 }
 
 ports += "net/ladvd"
-ports += "dns/libidn"
 ports += "ftp/wget"
 ports += "benchmarks/iozone"
 ports += "benchmarks/iperf"
@@ -362,15 +321,14 @@ ports += "net/trafshow"
 #
 # These are all for SSSD
 #
-ports += "textproc/xmlcatmgr"
-ports += "textproc/libxslt"
 ports += "dns/c-ares"
-ports += "databases/ldb"
-ports += "devel/libunistring"
-ports += "devel/ding-libs"
-ports += "devel/nspr"
-ports += "security/nss"
-ports += "security/krb5"
+ports += {
+    "name": "security/krb5",
+    "options": [
+        "OPTIONS_FILE_UNSET+=KRB5_HTML",
+        "OPTIONS_FILE_UNSET+=KRB5_PDF"
+    ]
+}
 ports += "security/sssd"
 ports += {
     "name": "security/ca_root_nss",
@@ -386,17 +344,14 @@ ports += {
         "OPTIONS_FILE_UNSET+=PERL",
         "OPTIONS_FILE_UNSET+=CONTRIB",
         "OPTIONS_FILE_UNSET+=NLS"
-        "OPTIONS_FILE_SET+=MCURL"
-        "OPTIONS_FILE_SET+=MCURL_JSON"
+        "OPTIONS_FILE_SET+=CURL"
     ]
 }
 
-ports += "math/gmp"
-ports += "security/libtasn1"
-ports += "security/p11-kit"
-ports += "security/nettle"
-ports += "devel/libinotify"
-ports += "dns/samba-nsupdate"
+ports += {
+    "name": "dns/samba-nsupdate",
+    "options": ["OPTIONS_FILE_SET+=IPV6"]
+}
 ports += "security/gnutls"
 ports += {
     "name": "net/samba43",
@@ -468,23 +423,6 @@ ports += "databases/py-south"
 ports += "www/py-django16-tastypie"
 ports += "sysutils/syslog-ng"
 
-# Legacy reporting ports
-ports += "graphics/png"
-ports += "print/freetype2"
-ports += "x11/xproto"
-ports += "x11-fonts/libfontenc"
-ports += "x11-fonts/mkfontscale"
-ports += "x11-fonts/mkfontdir"
-ports += "x11-fonts/font-bh-ttf"
-ports += "x11-fonts/font-misc-meltho"
-ports += "x11-fonts/font-misc-ethiopic"
-ports += "x11-fonts/bitstream-vera"
-ports += "x11-fonts/font-util"
-ports += "x11-fonts/encodings"
-ports += "x11-fonts/dejavu"
-ports += "x11-fonts/xorg-fonts-truetype"
-ports += "x11/pixman"
-
 ports += {
     "name": "graphics/cairo",
     "options": [
@@ -495,9 +433,6 @@ ports += {
 }
 
 ports += {"name": "x11-toolkits/pango", "options": ["OPTIONS_FILE_UNSET+=X11"]}
-ports += "devel/icu"
-ports += "graphics/graphite2"
-ports += "devel/glib20"
 ports += {
     "name": "print/harfbuzz",
     "options": [
