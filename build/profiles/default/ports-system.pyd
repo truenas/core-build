@@ -177,7 +177,14 @@ ports += {
         "OPTIONS_FILE_UNSET+=TKAGGBACKEND"
     ]
 }
-ports += "math/py-networkx"
+ports += {
+    "name": "math/py-networkx",
+    "options": [
+        "OPTIONS_FILE_UNSET+=GRAPHVIZ",
+        "OPTIONS_FILE_UNSET+=MPL",
+        "OPTIONS_FILE_UNSET+=SCIPY"
+    ]
+}
 ports += "math/py-pandas"
 ports += "devel/py-tables"
 ports += "devel/py-termcolor"
