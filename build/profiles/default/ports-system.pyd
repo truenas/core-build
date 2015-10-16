@@ -158,6 +158,13 @@ ports += "devel/py-jsonpatch"
 ports += "devel/py-tzlocal"
 ports += "devel/py-country"
 ports += {
+    "name": "math/py-numpy",
+    "options": [
+        "OPTIONS_FILE_UNSET+=NETLIB",
+        "OPTIONS_FILE_UNSET+=SUITESPARSE"
+    ]
+}
+ports += {
     "name": "math/py-networkx",
     "options": [
         "OPTIONS_FILE_UNSET+=GRAPHVIZ",
