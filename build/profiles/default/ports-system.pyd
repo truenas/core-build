@@ -170,14 +170,6 @@ ports += "devel/py-tzlocal"
 ports += "devel/py-country"
 ports += "net/py-ipaddress"
 ports += {
-    "name": "math/py-matplotlib",
-    "options": [
-        "OPTIONS_FILE_UNSET+=GTKBACKEND",
-        "OPTIONS_FILE_UNSET+=GTKAGGBACKEND",
-        "OPTIONS_FILE_UNSET+=TKAGGBACKEND"
-    ]
-}
-ports += {
     "name": "math/py-networkx",
     "options": [
         "OPTIONS_FILE_UNSET+=GRAPHVIZ",
