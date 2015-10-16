@@ -101,6 +101,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/freenas-crashd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/py-fnutils",
     "options": [
         "PRODUCT_VERSION=${VERSION}",

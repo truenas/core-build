@@ -4,6 +4,7 @@
 /usr/local/lib/etcd
 /usr/local/lib/networkd
 /usr/local/lib/fnstatd
+/usr/local/lib/crashd
 /usr/local/lib/python2.7/site-packages/datastore
 /usr/local/lib/python2.7/site-packages/dispatcher
 /usr/local/lib/python2.7/site-packages/libzfs
@@ -27,6 +28,8 @@
 /usr/local/etc/middleware.conf
 /usr/local/bin/cli
 /usr/local/bin/logincli
+/usr/local/sbin/crashd
+/usr/local/sbin/crash-wrapper
 /usr/local/sbin/dsutil
 /usr/local/sbin/dsdump
 /usr/local/sbin/dsrestore
