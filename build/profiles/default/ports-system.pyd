@@ -160,7 +160,6 @@ ports += "devel/py-country"
 ports += {
     "name": "math/py-numpy",
     "options": [
-        "OPTIONS_FILE_UNSET+=NETLIB",
         "OPTIONS_FILE_UNSET+=SUITESPARSE"
     ]
 }
