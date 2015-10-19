@@ -295,7 +295,6 @@ ports += "www/wgetpaste"
 ports += "devel/py-greenlet"
 ports += "net/py-eventlet"
 ports += "sysutils/sg3_utils"
-ports += "graphics/jpeg"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
 
