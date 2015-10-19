@@ -273,6 +273,7 @@ ports += {
         "OPTIONS_FILE_UNSET+=AVAHI",
     ]
 }
+ports += "sysutils/syslog-ng"
 
 ports += "net/ladvd"
 ports += "ftp/wget"
@@ -396,5 +397,3 @@ ports += {
     "name": "www/py-django16",
     "options": ["OPTIONS_FILE_SET+=FASTCGI"]
 }
-
-ports += "sysutils/syslog-ng"
