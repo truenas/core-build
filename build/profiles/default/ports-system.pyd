@@ -221,8 +221,6 @@ if PRODUCT == "TrueNAS":
 	ports += "devel/bison"
 	ports += "devel/libffi"
 
-ports += "www/py-httplib2"
-ports += "net/py-oauth2"
 ports += {
     "name": "devel/libstatgrab",
     "options": [
