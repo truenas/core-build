@@ -238,7 +238,6 @@ ports += {
     ]
 }
 
-ports += "devel/py-ipaddr"
 ports += "converters/base64"
 ports += {
     "name": "emulators/mtools",
