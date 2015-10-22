@@ -361,6 +361,7 @@ ports += {
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
 ports += "sysutils/glusterfs"
+ports += "sysutils/megacli"
 ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
 
