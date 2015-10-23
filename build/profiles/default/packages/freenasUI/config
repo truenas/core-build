@@ -2,7 +2,7 @@
 
 name = freenasUI
 comment = "FreeNAS User Interface"
-desc = "FreeNAS UI (django-based)"
+desc = "FreeNAS UI"
 www = http://www.freenas.org/
 origin = freenas/ui
 maintainer = dev@ixsystems.com
