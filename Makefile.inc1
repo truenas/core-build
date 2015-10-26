@@ -121,12 +121,11 @@ reinstall-package:
 
 freenas: release
 release:
-	@if [ "${NANO_LABEL}" = "TrueNAS" -a "${GIT_LOCATION}" != "INTERNAL" ]; then echo "You can only run this target from an internal repository."; exit 2; fi
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
-	script -a ${RELEASE_LOGFILE} ${MK} build
-	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-release-distribution.py
-	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-upgrade-distribution.py
+	@${MK} build 2>&1 | tee ${RELEASE_LOGFILE}
+	@${BUILD_TOOLS}/create-release-distribution.py 2>&1 | tee ${RELEASE_LOGFILE}
+	@${BUILD_TOOLS}/create-upgrade-distribution.py 2>&1 | tee ${RELEASE_LOGFILE}
 
 release-push: update-push
 	@${BUILD_TOOLS}/post-to-storage.py
