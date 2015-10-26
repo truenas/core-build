@@ -85,13 +85,13 @@ ports += {
     ]
 }
 ports += {
-    "name": "lang/python27",
+    "name": "lang/python34",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
         "OPTIONS_FILE_SET+=DEBUG"
     ]
 }
-ports += "lang/python2"
+ports += "lang/python3"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
