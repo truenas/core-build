@@ -96,6 +96,17 @@ clean-ui-package:
 	${MK} clean-package p=freenas-10gui
 	rm -rf objs/os-base/*/gui-dest
 
+clean-freenas-packages: clean-ui-package
+	@${MK} clean-package p=freenas
+	@${MK} clean-package p=py27-fnutils
+	@${MK} clean-package p=py27-libzfs
+	@${MK} clean-package p=py27-bsd
+	@${MK} clean-package p=py27-netif
+	@${MK} clean-package p=py27-cam
+	@${MK} clean-package p=py27-ws4py
+	@${MK} clean-package p=py27-SMART
+	@${MK} clean-package p=iocage-devel
+
 cleandist:
 	chflags -R 0 ${BE_ROOT}
 	rm -rf ${BE_ROOT}
