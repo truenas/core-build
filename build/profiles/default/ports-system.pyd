@@ -96,6 +96,7 @@ ports += "lang/python"
 # Unused yet and do not work with python3
 #ports += "dns/py-bonjour"
 #ports += "net/py-s3cmd"
+#ports += "sysutils/glusterfs"
 ports += "dns/py-dnspython"
 
 ports += "security/pam_mkhomedir"
@@ -352,7 +353,6 @@ ports += {
 
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
-ports += "sysutils/glusterfs"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
