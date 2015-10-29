@@ -32,10 +32,6 @@ To build FreeNAS 10 from scratch (experts only):
   * www/npm012
   * www/node012
   * devel/gmake
-  * textproc/py-sphinx
-  * textproc/py-sphinx_rtd_theme
-  * textproc/py-sphinxcontrib-httpdomain
-  * textproc/py-sphinx_numfig
 
   (and all the dependencies that these ports/pkgs install, of course)
   

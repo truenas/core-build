@@ -76,16 +76,6 @@ def check_build_tools():
     check_port('npm', 'www/npm012')
     check_port_version('node', 'www/node012', '12')
     check_port('gmake', 'devel/gmake')
-    check_port('sphinx-build', 'textproc/py-sphinx')
-    check_port_byfile('sphinx-httpdomain',
-                      'textproc/py-sphinxcontrib-httpdomain',
-                      '/usr/local/lib/python2.7/site-packages/sphinxcontrib/httpdomain.py')
-    check_port_byfile('sphinx-rtd_theme',
-                      'textproc/py-sphinx_rtd_theme',
-                      '/usr/local/lib/python2.7/site-packages/sphinx_rtd_theme/breadcrumbs.html')
-    check_port_byfile('sphinx_numfig',
-                      'textproc/py-sphinx_numfig',
-                      '/usr/local/lib/python2.7/site-packages/sphinx/ext/numfig.py')
 
 
 if __name__ == '__main__':
