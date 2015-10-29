@@ -85,6 +85,7 @@ bootstrap-pkgs:
 	pkg install -y textproc/py-sphinx
 	pkg install -y textproc/py-sphinx_rtd_theme
 	pkg install -y textproc/py-sphinxcontrib-httpdomain
+	pkg install -y www/npm012
 
 
 .DEFAULT:
