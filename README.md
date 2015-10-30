@@ -49,8 +49,8 @@ Note: All these commands must be run as `root`.
 % make release
 ```
 
-* Update the source tree, to pull in new source code changes
-b
+* Update the source tree to pull in new source code changes
+
 ```
 % make update
 ```
