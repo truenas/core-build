@@ -105,7 +105,7 @@ def create_ports_list():
 def obtain_jail_name():
     global jailname
     for i in string.ascii_lowercase:
-        user = env('${SUDO_USER}')
+        user = e('${SUDO_USER}')
         if user:
             i = e('${i}-${user}')
 
