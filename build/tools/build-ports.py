@@ -27,6 +27,7 @@
 #####################################################################
 
 import os
+import signal
 import sys
 import string
 from dsl import load_file, load_profile_config
@@ -176,6 +177,16 @@ def run():
     poudriere_proc.wait()
 
 
+def siginfo(*args):
+    global poudriere_proc
+    print "here!", poudriere_proc, (poudriere_proc.pid if poudriere_proc else None)
+    if poudriere_proc and poudriere_proc.pid:
+        try:
+            os.kill(poudriere_proc.pid, signal.SIGINFO)
+        except OSError:
+            pass
+
+
 if __name__ == '__main__':
     if env('SKIP_PORTS'):
         info('Skipping ports build as instructed by setting SKIP_PORTS')
@@ -191,5 +202,6 @@ if __name__ == '__main__':
     prepare_jail()
     merge_port_trees()
     prepare_env()
+    signal.signal(signal.SIGINFO, siginfo)
     run()
     cleanup_env()
