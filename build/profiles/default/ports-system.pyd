@@ -131,7 +131,6 @@ ports += "sysutils/ipfs-go"
 ports += "sysutils/restic"
 ports += "net/haproxy"
 ports += "misc/mbuffer"
-ports += "net/cryptcat"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["OPTIONS_FILE_UNSET+=ICU"]
