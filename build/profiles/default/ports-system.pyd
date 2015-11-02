@@ -96,7 +96,7 @@ ports += "lang/python"
 # Unused yet and do not work with python3
 #ports += "dns/py-bonjour"
 #ports += "net/py-s3cmd"
-#ports += "sysutils/glusterfs"
+ports += "sysutils/glusterfs"
 ports += "databases/py-swift"
 ports += "dns/py-dnspython"
 
