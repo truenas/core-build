@@ -124,7 +124,7 @@ make_conf_build = {
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
-    "DEFAULT_VERSIONS":             "python=2.7",
+    "DEFAULT_VERSIONS":             "python=3.4",
     "NOPORTDOCS":                   "yes",
     "WANT_OPENLDAP_SASL":           "yes",
     "LOCAL_DIRS":                   ""

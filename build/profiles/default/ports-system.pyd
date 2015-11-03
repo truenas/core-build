@@ -85,15 +85,19 @@ ports += {
     ]
 }
 ports += {
-    "name": "lang/python27",
+    "name": "lang/python34",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
         "OPTIONS_FILE_SET+=DEBUG"
     ]
 }
-ports += "lang/python2"
+ports += "lang/python3"
 ports += "lang/python"
-ports += "dns/py-bonjour"
+# Unused yet and do not work with python3
+#ports += "dns/py-bonjour"
+ports += "net/py-s3cmd"
+ports += "sysutils/glusterfs"
+ports += "databases/py-swift"
 ports += "dns/py-dnspython"
 
 ports += "security/pam_mkhomedir"
@@ -119,10 +123,8 @@ ports += "sysutils/e2fsprogs"
 ports += "sysutils/fusefs-ntfs"
 ports += "sysutils/smartmontools"
 ports += "net/mosh"
-ports += "net/py-s3cmd"
 ports += "sysutils/fusefs-s3fs"
 ports += "devel/py-magic"
-ports += "databases/py-swift"
 ports += "databases/py-swiftclient"
 ports += "databases/riak2"
 ports += "sysutils/riak-cs"
@@ -351,7 +353,6 @@ ports += {
 
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
-ports += "sysutils/glusterfs"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
