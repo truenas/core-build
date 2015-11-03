@@ -30,7 +30,7 @@
 import os
 import json
 from dsl import load_file
-from utils import e, sh, sh_str, readfile, setfile, template, setup_env
+from utils import e, sh, sh_str, readfile, setfile, template, setup_env, info
 
 
 dsl = load_file('${BUILD_CONFIG}/release.pyd', os.environ)
@@ -42,8 +42,10 @@ def stage_release():
     for ext in dsl.formats:
         path = e('${OBJDIR}/${NAME}.${ext}')
         if os.path.exists(path):
+            info('Moving installation disk ISO to release directory')
             sh('mv ${path} ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/')
             sh('mv ${path}.sha256 ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/')
+            info('ISO path: ${{RELEASE_STAGEDIR}}/${{BUILD_ARCH_SHORT}}')
 
 
 def get_aux_files_desc():
