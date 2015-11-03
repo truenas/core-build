@@ -179,7 +179,6 @@ def run():
 
 def siginfo(*args):
     global poudriere_proc
-    print "here!", poudriere_proc, (poudriere_proc.pid if poudriere_proc else None)
     if poudriere_proc and poudriere_proc.pid:
         try:
             os.kill(poudriere_proc.pid, signal.SIGINFO)
