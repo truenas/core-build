@@ -113,7 +113,7 @@ def env(name, default=None):
 
 def readfile(filename):
     filename = e(filename, **get_caller_vars())
-    with open(filename, 'rb') as f:
+    with open(filename, 'r', encoding='utf8', errors='ignore') as f:
         return f.read().strip()
 
 
