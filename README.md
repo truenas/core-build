@@ -26,8 +26,7 @@ To build FreeNAS 10 from scratch (experts only):
   * devel/git
   * sysutils/cdrtools
   * archivers/pxz
-  * lang/python (2.7 or later, with THREADS support)
-  * lang/python3 (3.0 or later, must also be installed)
+  * lang/python3 (3.4 or later, must also be installed)
   * sysutils/grub2-pcbsd
   * sysutils/xorriso
   * www/npm012
