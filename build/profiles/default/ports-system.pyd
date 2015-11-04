@@ -30,7 +30,7 @@ ports += {
 # gcc48 is only a port dependency:
 # Ideally there should be a section to specify global options, to remove JAVA
 ports += {
-    "name": "lang/gcc48",
+    "name": "lang/gcc",
     "options": ["OPTIONS_FILE_UNSET+=JAVA"]
 }
 ports += "dns/mDNSResponder_nss"
