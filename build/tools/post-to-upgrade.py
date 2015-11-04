@@ -50,7 +50,7 @@ def main():
     if changelog:
         cl_file = None
         if changelog == '-':
-            print 'Enter changelog, ^D to end:'
+            print('Enter changelog, ^D to end:')
             cl_file = tempfile.NamedTemporaryFile(delete=False)
             cl_file.write(sys.stdin.read())
             cl_file.close()
