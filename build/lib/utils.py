@@ -88,7 +88,7 @@ def sh_str(*args, **kwargs):
         f = open(logfile, mode)
 
     try:
-        return subprocess.check_output(cmd, shell=True).strip()
+        return subprocess.check_output(cmd, shell=True).decode('utf8').strip()
     except subprocess.CalledProcessError:
         return ''
 
@@ -244,7 +244,7 @@ def elapsed():
 
 
 def info(fmt, *args):
-    print '[{0}] ==> '.format(elapsed()) + e(fmt.format(*args))
+    print('[{0}] ==> '.format(elapsed()) + e(fmt.format(*args)))
 
 
 def debug(fmt, *args):
@@ -253,11 +253,11 @@ def debug(fmt, *args):
 
 
 def log(fmt, *args):
-    print e(fmt.format(*args))
+    print(e(fmt.format(*args)))
 
 
 def error(fmt, *args):
-    print '[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args))
+    print('[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args)))
     abort()
     sys.exit(1)
 
