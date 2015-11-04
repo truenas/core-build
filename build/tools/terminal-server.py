@@ -40,7 +40,7 @@ class Main(object):
         self.clients = []
 
     def handle_connection(self, sock, addr):
-        print 'New connection from {0}:{1}'.format(*addr)
+        print('New connection from {0}:{1}'.format(*addr))
         self.clients.append(sock)
 
         # Disable local echo
@@ -54,7 +54,7 @@ class Main(object):
         while True:
             ch = sock.recv(1)
             if not ch:
-                print 'Connection from {0}:{1} closed'.format(*addr)
+                print('Connection from {0}:{1} closed'.format(*addr))
                 self.clients.remove(sock)
                 sock.shutdown(socket.SHUT_RDWR)
                 return
@@ -65,8 +65,8 @@ class Main(object):
         while True:
             try:
                 ch = self.console.read()
-            except serial.SerialException, e:
-                print 'Cannot read from serial port: {0}'.format(str(e))
+            except serial.SerialException as e:
+                print('Cannot read from serial port: {0}'.format(str(e)))
                 return
 
             if self.logfile:
@@ -106,8 +106,8 @@ class Main(object):
 
         try:
             self.console = serial.Serial(args.c, 9600)
-        except OSError, e:
-            print 'Cannot open serial port: {0}'.format(str(e))
+        except OSError as e:
+            print('Cannot open serial port: {0}'.format(str(e)))
             return
 
         t1 = threading.Thread(target=self.console_reader)

@@ -152,7 +152,7 @@ def ssh(command, logfile):
 def main():
     if e('${PLAYGROUND}'):
         info('Type RETURN to kill VM')
-        raw_input()
+        input()
         vm_proc.kill()
         return
 
