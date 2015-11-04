@@ -163,7 +163,7 @@ def load_file(filename, env):
     with open(filename, 'r') as f:
         tree = ast.parse(f.read(), filename)
         t2 = ast.fix_missing_locations(AstTransformer().visit(tree))
-        exec compile(t2, filename, 'exec') in g
+        exec(compile(t2, filename, 'exec'), g)
 
     return g.dict
 

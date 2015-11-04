@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 #+
 # Copyright 2015 iXsystems, Inc.
 # All rights reserved
@@ -54,7 +54,7 @@ def read_repo_manifest():
         versions.append(i.split()[1])
         o.write(i)
 
-    pkgversion = hashlib.md5('-'.join(versions)).hexdigest()
+    pkgversion = hashlib.md5('-'.join(versions).encode('ascii')).hexdigest()
     sequence = sh_str('git show -s --format=%ct')
 
 
