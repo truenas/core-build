@@ -54,7 +54,7 @@ def sh(*args, **kwargs):
         f = open(logfile, mode)
 
     debug('sh: {0}', cmd)
-    ret = subprocess.call(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True, bufsize=65536)
+    ret = subprocess.call(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True, bufsize=65536, close_fds=False)
     if ret != 0 and not nofail:
         info('Failed command: {0}', cmd)
         info('Returned value: {0}', ret)
@@ -88,7 +88,7 @@ def sh_str(*args, **kwargs):
         f = open(logfile, mode)
 
     try:
-        return subprocess.check_output(cmd, shell=True).decode('utf8').strip()
+        return subprocess.check_output(cmd, shell=True, close_fds=False).decode('utf8').strip()
     except subprocess.CalledProcessError:
         return ''
 
