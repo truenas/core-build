@@ -124,10 +124,11 @@ def setfile(filename, contents):
     if not os.path.isdir(os.path.dirname(filename)):
         sh('mkdir -p', os.path.dirname(filename))
 
-    f = open(filename, 'w')
-    f.write(contents)
-    f.write('\n')
-    f.close()
+    with open(filename, 'wb') as f:
+        if isinstance(contents, str):
+            contents = contents.encode('utf8')
+        f.write(contents)
+        f.write(b'\n')
 
 
 def appendfile(filename, contents, nl=True):
