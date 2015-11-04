@@ -24,13 +24,6 @@
 #
 
 repos += {
-    "name": "freenas",
-    "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
-    "branch": "freenas10/base"
-}
-
-repos += {
     "name": "trueos",
     "path": "trueos",
     "url": "https://github.com/trueos/trueos.git",

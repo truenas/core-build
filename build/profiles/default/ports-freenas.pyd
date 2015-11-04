@@ -24,15 +24,6 @@
 #
 
 ports += {
-    "name": "freenas/freenas-files",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/freenas-debug",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
