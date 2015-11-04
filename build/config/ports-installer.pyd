@@ -23,8 +23,7 @@
 # SUCH DAMAGE.
 #
 
-ports += "lang/python27"
-ports += "lang/python2"
+ports += "lang/python3"
 ports += "lang/python"
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
