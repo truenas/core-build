@@ -24,24 +24,6 @@
 #
 
 ports += {
-    "name": "freenas/freenas-debug",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-licenselib",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/freenas-10gui",
     "options": [
         "PRODUCT_VERSION=${VERSION}",

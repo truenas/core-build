@@ -127,9 +127,19 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "freenas/freenas-debug",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+
 dedicated_repo_ports = [
     "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py",
-    "py-bsd", "py-smbconf", "iocage-devel"
+    "py-bsd", "py-smbconf", "iocage-devel", "licenselib",
 ]
 
 for iter_port in dedicated_repo_ports:

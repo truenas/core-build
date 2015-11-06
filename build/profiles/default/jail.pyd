@@ -31,11 +31,6 @@ link += {
 }
 
 copy += {
-    "source": "${FNBASE_SRC_ROOT}",
-    "dest": "/usr/freenas_src"
-}
-
-copy += {
     "source": "${BE_ROOT}/middleware/src",
     "dest": "/usr/middleware_src"
 }
@@ -57,7 +52,7 @@ copy += {
 
 copy += {
     "source": "${BE_ROOT}/licenselib",
-    "dest": "/usr/freenas_src/licenselib"
+    "dest": "/usr/middleware_src/licenselib"
 }
 
 copy += {
