@@ -2,6 +2,7 @@
 /usr/local/lib/dispatcher
 /usr/local/lib/freenascli
 /usr/local/lib/etcd
+/usr/local/lib/migrate93
 /usr/local/lib/networkd
 /usr/local/lib/fnstatd
 /usr/local/lib/crashd
@@ -41,8 +42,5 @@
 /usr/local/sbin/etcd
 /usr/local/sbin/fnstatd
 /usr/local/sbin/networkd
+/usr/local/sbin/migrate93
 /usr/local/libexec/taskproxy
-/usr/local/etc/riak-cs
-/usr/local/etc/riak
-/usr/local/etc/stanchion
-/usr/local/etc/rc.d/riak-cs
