@@ -118,6 +118,15 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "freenas/freenas-migrate93",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
 dedicated_repo_ports = [
     "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py",
     "py-bsd", "py-smbconf", "iocage-devel"
