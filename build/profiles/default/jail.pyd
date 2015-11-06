@@ -46,11 +46,6 @@ copy += {
 }
 
 copy += {
-    "source": "${FREENAS_ROOT}/gui",
-    "dest": "/usr/freenasUI"
-}
-
-copy += {
     "source": "${BE_ROOT}/licenselib",
     "dest": "/usr/middleware_src/licenselib"
 }
