@@ -72,7 +72,9 @@ kernel_modules = [
     "usb/xhci",
     "zfs",
     "iscsi",
-    "fuse"
+    "fuse",
+    "vmm",
+    "nmdm"
 ]
 
 kernel_modules += [
