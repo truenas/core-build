@@ -30,7 +30,7 @@
 import os
 import sys
 import tempfile
-from utils import sh, sh_str, e, setup_env, objdir, info, import_function
+from utils import sh, sh_str, e, setup_env, objdir, info, error, import_function
 
 
 create_aux_files = import_function('create-release-distribution', 'create_aux_files')
@@ -44,7 +44,7 @@ def main():
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
 
     if not temp_dest or not temp_changelog:
-        fail('Failed to create temporary directories on {0}', ssh)
+        error('Failed to create temporary directories on {0}', ssh)
 
     sh('scp ${sshopts} -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
     if changelog:
