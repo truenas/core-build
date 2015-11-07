@@ -26,7 +26,6 @@ post-install =
 	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = 
-	rm -f /usr/local/lib/etcd/plugins/local/smartd.conf.mako
 	/usr/local/sbin/dsinit --check-dbdirs
 	/usr/local/sbin/dsinit --start-forked --port 60000
 	/usr/local/sbin/dsmigrate \
