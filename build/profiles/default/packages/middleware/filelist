@@ -1,5 +1,6 @@
 /usr/local/lib/datastore
 /usr/local/lib/dispatcher
+/usr/local/lib/dsd
 /usr/local/lib/freenascli
 /usr/local/lib/etcd
 /usr/local/lib/migrate93
@@ -23,6 +24,7 @@
 /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 /usr/local/etc/rc.d/datastore
 /usr/local/etc/rc.d/dispatcher
+/usr/local/etc/rc.d/dsd
 /usr/local/etc/rc.d/etcd
 /usr/local/etc/rc.d/networkd
 /usr/local/etc/rc.d/fnstatd
@@ -40,6 +42,7 @@
 /usr/local/sbin/dsinit
 /usr/local/sbin/dispatcherd
 /usr/local/sbin/dispatcherctl
+/usr/local/sbin/dsd
 /usr/local/sbin/etcd
 /usr/local/sbin/fnstatd
 /usr/local/sbin/networkd
