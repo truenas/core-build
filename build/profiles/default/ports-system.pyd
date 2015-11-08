@@ -73,7 +73,7 @@ ports += {
 }
 
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-ldap3",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 
