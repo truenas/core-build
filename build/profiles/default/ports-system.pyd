@@ -73,6 +73,11 @@ ports += {
 }
 
 ports += {
+    "name": "net/py-ldap",
+    "options": ["OPTIONS_FILE_SET+=SASL"]
+}
+
+ports += {
     "name": "net/nss_ldap",
     "options": [
         "OPTIONS_FILE_SET+=KERBEROS",
@@ -278,6 +283,7 @@ ports += "benchmarks/netperf"
 ports += {
     "name": "security/sudo",
     "options": [
+        "OPTIONS_FILE_SET+=LDAP",
         "OPTIONS_FILE_SET+=SSSD"
     ]
 }
