@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-include("${PROFILE_ROOT}/ports-freenas.pyd")
+include("${PROFILE_ROOT}/ports-gui.pyd")
 include("${PROFILE_ROOT}/ports-middleware.pyd")
 include("${PROFILE_ROOT}/ports-system.pyd")
 
