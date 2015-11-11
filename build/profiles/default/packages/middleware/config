@@ -18,10 +18,17 @@ include = @include(filelist)
 post-install = 
 	/usr/local/sbin/dsinit --init
 	/usr/local/sbin/dsinit --start-forked
-	/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
-	if [ -f "/data/freenas-v1.db" ]; then
-		/usr/local/sbin/migrate93 -f /data/freenas-v1.db
-		mv /data/freenas-v1.db /data/freenas-v1.db.old
+	if [ -f "/data/freenas.db" ]; then
+	   /usr/local/sbin/dsmigrate \
+	   			     -f /usr/local/share/datastore/factory.json \
+				     -d /usr/local/share/datastore/migrations \
+				     --alt
+	else
+		/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
+		if [ -f "/data/freenas-v1.db" ]; then
+				/usr/local/sbin/migrate93 -f /data/freenas-v1.db
+				mv /data/freenas-v1.db /data/freenas-v1.db.old
+		fi
 	fi
 	/usr/local/sbin/dsinit --stop-forked
 
