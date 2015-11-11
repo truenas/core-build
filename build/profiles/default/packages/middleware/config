@@ -21,8 +21,7 @@ post-install =
 	if [ -d "/data/freenas.db" ]; then
 	   /usr/local/sbin/dsmigrate \
 	   			     -f /usr/local/share/datastore/factory.json \
-				     -d /usr/local/share/datastore/migrations \
-				     --alt
+				     -d /usr/local/share/datastore/migrations
 	else
 		/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
 		if [ -f "/data/freenas-v1.db" ]; then
