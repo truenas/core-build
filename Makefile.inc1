@@ -115,6 +115,7 @@ save-build-env:
 	@${BUILD_TOOLS}/save-build-env.py
 
 sync:
+.if defined (dir)
 	rsync -avl \
 		--rsync-path="sudo rsync" \
 		--delete \
@@ -123,6 +124,9 @@ sync:
 		--exclude '_BE/*' \
 		--exclude '.git' \
 		--exclude '.idea' . ${host}:${dir}/
+.else
+	@echo "Error: Target directory is not defined!"
+.endif
 
 remote: sync
 	ssh -o StrictHostKeyChecking=no -t ${host} sudo make -C ${dir} ${target}
