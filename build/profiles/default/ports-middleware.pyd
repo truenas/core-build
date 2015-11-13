@@ -56,6 +56,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/py-dispatcher",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-dsd",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -101,7 +110,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-cli",
+    "name": "freenas/py-freenas.cli",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
@@ -119,7 +128,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/py-fnutils",
+    "name": "freenas/py-freenas.utils",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",

@@ -13,7 +13,8 @@
 /usr/local/lib/python3.4/site-packages/netif
 /usr/local/lib/python3.4/site-packages/cam
 /usr/local/lib/python3.4/site-packages/ctl
-/usr/local/lib/python3.4/site-packages/fnutils
+/usr/local/lib/python3.4/site-packages/cli
+/usr/local/lib/python3.4/site-packages/freenas
 /usr/local/lib/python3.4/site-packages/sysctl
 /usr/local/lib/python3.4/site-packages/libzfs
 /usr/local/lib/python3.4/site-packages/pySMART
