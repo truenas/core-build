@@ -43,6 +43,7 @@
 /usr/local/sbin/dsinit
 /usr/local/sbin/dispatcherd
 /usr/local/sbin/dispatcherctl
+/usr/local/sbin/sdsinit
 /usr/local/sbin/dsd
 /usr/local/sbin/etcd
 /usr/local/sbin/fnstatd
