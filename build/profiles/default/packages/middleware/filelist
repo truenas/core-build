@@ -1,14 +1,12 @@
 /usr/local/lib/datastore
 /usr/local/lib/dispatcher
 /usr/local/lib/dsd
-/usr/local/lib/freenascli
 /usr/local/lib/etcd
 /usr/local/lib/migrate93
 /usr/local/lib/networkd
 /usr/local/lib/fnstatd
 /usr/local/lib/crashd
 /usr/local/lib/python3.4/site-packages/datastore
-/usr/local/lib/python3.4/site-packages/dispatcher
 /usr/local/lib/python3.4/site-packages/libzfs
 /usr/local/lib/python3.4/site-packages/netif
 /usr/local/lib/python3.4/site-packages/cam
