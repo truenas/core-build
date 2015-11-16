@@ -20,21 +20,26 @@ post-install =
 	/usr/local/sbin/dsinit --start-forked
 	if [ -d "/data/freenas.db" ]; then
 		/usr/local/sbin/dsmigrate \
+		    -t persistent,config \
 		    -f /usr/local/share/datastore/factory.json \
 		    -d /usr/local/share/datastore/migrations
 	else
-		/usr/local/sbin/dsrestore -f /usr/local/share/datastore/factory.json
+		/usr/local/sbin/dsrestore \
+		    -t persistent,config \
+		    -f /usr/local/share/datastore/factory.json
 		if [ -f "/data/freenas-v1.db" ]; then
 			/usr/local/sbin/migrate93 -f /data/freenas-v1.db
 			mv /data/freenas-v1.db /data/freenas-v1.db.old
 		fi
 	fi
+	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = 
 	/usr/local/sbin/dsinit --check-dbdirs
 	/usr/local/sbin/dsinit --start-forked --port 60000
 	/usr/local/sbin/dsmigrate \
+	    -t persistent,config \
 	    -f /usr/local/share/datastore/factory.json \
 	    -d /usr/local/share/datastore/migrations \
 	    --alt
@@ -42,6 +47,7 @@ post-upgrade =
 		/usr/local/sbin/migrate93 -f /data/freenas-v1.db
 		mv /data/freenas-v1.db /data/freenas-v1.db.old
 	fi
+	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 
 [Services]
