@@ -47,7 +47,7 @@ post-upgrade =
 		/usr/local/sbin/migrate93 -f /data/freenas-v1.db
 		mv /data/freenas-v1.db /data/freenas-v1.db.old
 	fi
-	/usr/local/sbin/sdsinit
+	/usr/local/sbin/sdsinit --alt
 	/usr/local/sbin/dsinit --stop-forked
 
 [Services]
