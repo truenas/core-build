@@ -67,7 +67,6 @@ def check_port_byfile(name, port, fname):
 def check_build_tools():
     check_port('git', 'devel/git')
     check_port('pxz', 'archivers/pxz')
-    check_port('xz', 'archivers/xz')
     check_port('python3', 'lang/python3')
     check_port('poudriere', 'ports-mgmt/poudriere-devel')
     check_port('grub-mkrescue', 'sysutils/grub2-pcbsd')
