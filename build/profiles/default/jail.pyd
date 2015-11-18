@@ -71,6 +71,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-ipfs-api",
+    "dest": "/usr/middleware_src/py-ipfs-api"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-bsd",
     "dest": "/usr/middleware_src/py-bsd"
 }
