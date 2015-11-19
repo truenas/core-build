@@ -29,15 +29,13 @@ To build FreeNAS 10 from scratch (experts only):
   * lang/python3 (3.4 or later, must also be installed)
   * sysutils/grub2-pcbsd
   * sysutils/xorriso
-  * www/npm012
-  * www/node012
   * devel/gmake
 
   (and all the dependencies that these ports/pkgs install, of course)
   
   You can also use ```make bootstrap-pkgs``` to let it install required
   dependencies automatically. It will only install whats listed in the Makefile
-  you will need to install www/npm012 and www/node012 and textproc/py-sphinx_numfig 
+  you will need to install textproc/py-sphinx_numfig 
   from the ports systems as there are no packages available.
 
 ## Building the System Quickstart Flow:
