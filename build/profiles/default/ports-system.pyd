@@ -176,6 +176,7 @@ ports += "devel/py-jsonpointer"
 ports += "devel/py-jsonpatch"
 ports += "devel/py-tzlocal"
 ports += "devel/py-country"
+ports += "comms/py-serial"
 ports += {
     "name": "math/py-numpy",
     "options": [
