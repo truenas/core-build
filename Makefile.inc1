@@ -98,6 +98,7 @@ clean-ui-package:
 
 clean-freenas-packages: clean-ui-package
 	@${MK} clean-package p=freenas
+	@${MK} clean-package p=py34-freenas
 	@${MK} clean-package p=py34-fnutils
 	@${MK} clean-package p=py34-libzfs
 	@${MK} clean-package p=py34-bsd
