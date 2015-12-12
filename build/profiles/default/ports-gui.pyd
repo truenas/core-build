@@ -26,11 +26,11 @@ gui_git_rev = sh("git -C ${BE_ROOT}/gui rev-list HEAD --count") \
     if exists("${BE_ROOT}/gui") \
     else "0"
 
-#ports += {
-#    "name": "freenas/freenas-10gui",
-#    "options": [
-#        "PRODUCT_VERSION=${VERSION}",
-#        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-#        "REVISION=" + gui_git_rev
-#    ]
-#}
+ports += {
+    "name": "freenas/freenas-10gui",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + gui_git_rev
+    ]
+}
