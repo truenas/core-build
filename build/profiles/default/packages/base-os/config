@@ -40,6 +40,8 @@ exclude = @include(../middleware/filelist)
 	/conf/base/var/log/usr/log
 	/conf/base/var/db/fontconfig
 	/conf/var/db/pkg
+	/etc/resolv.conf
+	/conf/base/etc/resolv.conf
 	/dev/*
 	/data/*
 
