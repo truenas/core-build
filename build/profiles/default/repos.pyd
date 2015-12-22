@@ -87,6 +87,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-dhcp",
+    "path": "py-dhcp",
+    "url": "https://github.com/freenas/py-dhcp.git",
+    "branch": "master",
+}
+
+repos += {
     "name": "licenselib",
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",

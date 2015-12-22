@@ -165,7 +165,7 @@ ports += {
 
 
 dedicated_repo_ports = [
-    "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py",
+    "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py", "py-dhcp",
     "py-bsd", "py-smbconf", "iocage-devel", "licenselib", "py-ipfs-api"
 ]
 
