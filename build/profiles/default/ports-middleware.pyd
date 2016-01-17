@@ -65,6 +65,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/js-freenas.dispatcher",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-dsd",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
