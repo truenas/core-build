@@ -143,6 +143,7 @@ ports += "sysutils/riak-cs"
 ports += "sysutils/stanchion"
 ports += "sysutils/ipfs-go"
 ports += "sysutils/restic"
+ports += "sysutils/rclone"
 ports += "net/haproxy"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
