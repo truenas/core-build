@@ -74,7 +74,8 @@ kernel_modules = [
     "iscsi",
     "fuse",
     "vmm",
-    "nmdm"
+    "nmdm",
+    "coretemp"
 ]
 
 kernel_modules += [
