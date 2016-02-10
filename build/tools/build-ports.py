@@ -186,6 +186,15 @@ def siginfo(*args):
             pass
 
 
+def terminate(*args):
+    global poudriere_proc
+    if poudriere_proc and poudriere_proc.pid:
+        try:
+            os.kill(poudriere_proc.pid, signal.SIGTERM)
+        except OSError:
+            pass
+
+
 def cleanup_gui():
     # FIXME: This triggers a kernel panic possible because of long path names
     # with spaces and double dashes in it.
@@ -209,6 +218,8 @@ if __name__ == '__main__':
     prepare_jail()
     merge_port_trees()
     prepare_env()
+    signal.signal(signal.SIGTERM, terminate)
+    signal.signal(signal.SIGINT, terminate)
     signal.signal(signal.SIGINFO, siginfo)
     run()
     cleanup_env()
