@@ -65,7 +65,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=X11"
     ]
 }
-ports += "sysutils/pcbsd-appweb"
 ports += "security/cyrus-sasl2-gssapi"
 ports += "ftp/lftp"
 ports += {

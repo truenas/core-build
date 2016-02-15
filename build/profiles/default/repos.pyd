@@ -122,14 +122,6 @@ repos += {
 }
 
 repos += {
-    "name": "iocage-devel",
-    "path": "iocage-devel",
-    "url": "https://github.com/freenas/iocage.git",
-    "branch": "develop"
-}
-
-
-repos += {
     "name": "py-ipfs-api",
     "path": "py-ipfs-api",
     "url": "https://github.com/ipfs/python-ipfs-api",
