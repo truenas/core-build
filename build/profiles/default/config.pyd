@@ -130,8 +130,7 @@ make_conf_build = {
     "DEFAULT_VERSIONS":             "python=3.4",
     "NOPORTDOCS":                   "yes",
     "WANT_OPENLDAP_SASL":           "yes",
-    "LOCAL_DIRS":                   "",
-    "DISABLE_LICENSES":             "yes"
+    "LOCAL_DIRS":                   ""
 }
 
 early_customize_tasks = [
