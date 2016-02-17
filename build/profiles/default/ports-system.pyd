@@ -366,6 +366,11 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "devel/gdb",
+    "options": ["OPTIONS_FILE_SET+=PYTHON"]
+}
+
 ports += "sysutils/freenas-sample"
 ports += "sysutils/grub2-freenas"
 ports += "sysutils/megacli"
