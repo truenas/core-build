@@ -380,14 +380,3 @@ ports += "sysutils/grub2-bhyve"
 # This is a silly for fun thing
 # feel free to remove it if need be
 ports += "games/cowsay"
-
-if DEBUG:
-	ports += "misc/py-pexpect"
-	ports += "devel/ctags"
-	ports += "lang/gcc48"
-	ports += "devel/gmake"
-	ports += "www/npm"
-	ports += {
-	    "name": "devel/ipython",
-	    "options": ["OPTIONS_FILE_UNSET+=X11", "OPTIONS_FILE_UNSET+=ZMQ"]
-	}
