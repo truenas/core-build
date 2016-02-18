@@ -94,6 +94,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-pf",
+    "path": "py-pf",
+    "url": "https://github.com/freenas/py-pf.git",
+    "branch": "master",
+}
+
+repos += {
     "name": "licenselib",
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",

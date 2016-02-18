@@ -175,7 +175,7 @@ ports += {
 
 dedicated_repo_ports = [
     "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py", "py-dhcp",
-    "py-bsd", "py-smbconf", "licenselib", "py-ipfs-api"
+    "py-bsd", "py-smbconf", "py-pf", "licenselib", "py-ipfs-api"
 ]
 
 for iter_port in dedicated_repo_ports:

@@ -89,3 +89,8 @@ copy += {
     "source": "${BE_ROOT}/py-dhcp",
     "dest": "/usr/middleware_src/py-dhcp"
 }
+
+copy += {
+    "source": "${BE_ROOT}/py-pf",
+    "dest": "/usr/middleware_src/py-pf"
+}
