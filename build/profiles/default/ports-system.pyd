@@ -368,7 +368,10 @@ ports += {
 
 ports += {
     "name": "devel/gdb",
-    "options": ["OPTIONS_FILE_SET+=PYTHON"]
+    "options": [
+        "OPTIONS_FILE_SET+=PYTHON",
+        "MAKE_JOBS_UNSAFE=yes"
+    ]
 }
 
 ports += "sysutils/freenas-sample"
