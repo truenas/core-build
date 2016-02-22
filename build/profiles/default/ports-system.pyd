@@ -58,13 +58,6 @@ ports += "ftp/tftp-hpa"
 ports += "misc/cpuid"
 ports += "net/vblade"
 ports += "net-mgmt/clog"
-ports += {
-    "name": "graphics/php56-gd",
-    "options": [
-        "OPTIONS_FILE_UNSET+=T1LIB",
-        "OPTIONS_FILE_UNSET+=X11"
-    ]
-}
 ports += "security/cyrus-sasl2-gssapi"
 ports += "ftp/lftp"
 ports += {
