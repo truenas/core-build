@@ -77,11 +77,11 @@ ports += {
     ]
 }
 
-ports += {
-    "name": "freenas/arcsas",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
+#ports += {
+#    "name": "freenas/arcsas",
+#    "options": [
+#        "PRODUCT_VERSION=${VERSION}",
+#        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+#        "REVISION=${GIT_REVISION}"
+#    ]
+#}
