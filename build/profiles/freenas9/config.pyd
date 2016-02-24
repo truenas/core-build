@@ -62,16 +62,18 @@ kernel_modules = [
     "nfs_common",
     "nfsclient",
     "nfslock",
+    "kgssapi",
+    "kgssapi_krb5",
     "ispfw/ispfw",
     "opensolaris",
     "pf",
     "pflog",
     "smbfs",
-    "tmpfs",
     "udf",
-    "usb/xhci",
     "zfs",
     "iscsi"
+    "toecore"
+    "dummynet"
 ]
 
 if PRODUCT == "TrueNAS":
@@ -119,7 +121,6 @@ make_conf_build = {
     "WITHOUT_LIB32":                "yes",
     "WITHOUT_LIBKSE":               "yes",
     "WITHOUT_LPR":                  "yes",
-    "WITHOUT_MAN":                  "yes",
     "WITHOUT_NDIS":                 "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_NS_CACHING":           "yes",
