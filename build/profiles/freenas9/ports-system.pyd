@@ -27,7 +27,7 @@ ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
 ports += "textproc/libxml2"
 ports += "devel/libffi"
-ports += "archivers/liblz4"
+ports += "archivers/lz4"
 ports += "archivers/lzo2"
 ports += "archivers/pigz"
 ports += "archivers/plzip"
@@ -168,14 +168,14 @@ ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
 ports += "www/py-flup"
 ports += {
-    "name": "www/py-django16",
+    "name": "www/py-django",
     "options": ["OPTIONS_FILE_SET+=FASTCGI"]
 }
 ports += "www/py-dojango"
 ports += "www/dojo"
 ports += "databases/py-south"
-ports += "devel/py-pyasn1"
-ports += "devel/py-pyasn1-modules"
+ports += "devel/py-asn1"
+ports += "devel/py-asn1-modules"
 ports += "security/openssl"
 ports += "security/py-openssl"
 ports += "security/py-pycrypto"
@@ -249,7 +249,8 @@ ports += {
     "name": "graphics/cairo",
     "options": [
         "OPTIONS_FILE_UNSET+=X11",
-        "OPTIONS_FILE_UNSET+=XCB"
+        "OPTIONS_FILE_UNSET+=XCB",
+        "OPTIONS_FILE_UNSET+=OPENGL"
     ]
 }
 ports += {"name": "x11-toolkits/pango", "options": ["OPTIONS_FILE_UNSET+=X11"]}
@@ -299,7 +300,7 @@ if PRODUCT != "TrueNAS":
 	ports += "sysutils/areca-cli"
 	ports += "sysutils/hptcli"
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-ldap2",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 ports += "sysutils/ataidle"
@@ -364,7 +365,7 @@ ports += "graphics/jpeg"
 ports += "www/py-requests"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
-ports += "devel/py-pyparsing"
+ports += "devel/py-parsing"
 ports += "databases/py-sqlparse"
 ports += "devel/py-setproctitle"
 
