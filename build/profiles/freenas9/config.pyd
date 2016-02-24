@@ -71,8 +71,8 @@ kernel_modules = [
     "smbfs",
     "udf",
     "zfs",
-    "iscsi"
-    "toecore"
+    "iscsi",
+    "toecore",
     "dummynet"
 ]
 
