@@ -27,7 +27,7 @@ ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
 ports += "textproc/libxml2"
 ports += "devel/libffi"
-ports += "archivers/lz4"
+ports += "archivers/liblz4"
 ports += "archivers/lzo2"
 ports += "archivers/pigz"
 ports += "archivers/plzip"
@@ -36,20 +36,19 @@ ports += {
     "name": "security/openvpn",
     "options": ["WITHOUT_CHECK=yes"]
 }
-ports += {
-    "name": "converters/iconv",
-    "options": ["OPTIONS_FILE_UNSET+=CCSUTIL"]
-}
+ports += "security/stunnel"
 ports += "devel/gettext"
 ports += "comms/lrzsz"
 ports += "devel/pkgconf"
 ports += "devel/m4"
 ports += "sysutils/screen"
+ports += "sysutils/pciutils"
 ports += "devel/libpthread-stubs"
 ports += "devel/cdialog"
 ports += "dns/inadyn-mt"
 ports += "devel/pcre"
 ports += "editors/nano"
+ports += "editors/jed"
 ports += "ftp/proftpd"
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
@@ -64,12 +63,14 @@ if LABEL != "TrueNAS":
 
 ports += "security/libgpg-error"
 ports += "security/libgcrypt"
-
 ports += "databases/db48"
 ports += "security/cyrus-sasl2-gssapi"
 ports += {
     "name": "net/openldap24-sasl-client",
-    "options": ["WITH_OPENSSL_PORT=y"]
+    "options": [
+        "WITH_OPENSSL_PORT=y",
+        "OPTIONS_FILE_SET+=GSSAPI"
+    ]
 }
 
 ports += {
@@ -95,7 +96,7 @@ ports += {
     "name": "lang/python27",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
-        "OPTIONS_FILE_SET+=DEBUG"
+        "WITH_OPENSSL_PORT=y"
     ]
 }
 ports += "lang/python2"
@@ -116,8 +117,8 @@ ports += {
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
 }
 ports += "sysutils/libsunacl"
-ports += "security/pam_mkhomedir"
 ports += "security/pam_ldap"
+ports += "security/pam_mkhomedir"
 ports += {
     "name": "shells/bash",
     "options": ["OPTIONS_FILE_UNSET+=NLS"]
@@ -134,22 +135,16 @@ ports += {
         "OPTIONS_FILE_SET+=WINSCP"
     ]
 }
-
 ports += "sysutils/e2fsprogs"
 ports += "sysutils/fusefs-libs"
 ports += "devel/libublio"
 ports += "sysutils/fusefs-ntfs"
 ports += "sysutils/smartmontools"
 ports += "net/libdnet"
-ports += "net/mosh"
-ports += "net/py-s3cmd"
-ports += "databases/py-swift"
-ports += "databases/py-swiftclient"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["WITHOUT_ICU=y"]
 }
-
 if PRODUCT == "TrueNAS":
 	ports += {
 	    "name": "emulators/qemu",
@@ -167,52 +162,35 @@ if PRODUCT == "TrueNAS":
             "WITHOUT_SDL=y"
 	    ]
 	}
-
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
-ports += "databases/mongodb"
-ports += "databases/pymongo"
-ports += "devel/py-gevent"
-ports += "www/py-gevent-websocket"
-ports += "www/py-flask"
-ports += "www/py-flask-bootstrap"
-ports += "devel/py-argh"
-ports += "devel/py-texttable"
-ports += "devel/py-columnize"
-ports += "devel/py-pip"
-ports += "devel/py-pyee"
-ports += "devel/py-watchdog"
-ports += "devel/py-setproctitle"
-ports += "devel/py-jsonschema"
-ports += "devel/py-jsonpointer"
-ports += "devel/py-natural"
-ports += "devel/py-enum34"
-ports += "net/py-ipaddress"
-ports += "math/py-networkx"
-ports += "math/py-pandas"
-ports += "devel/py-tables"
-ports += "devel/py-termcolor"
-ports += "sysutils/py-psutil"
-ports += "textproc/py-mako"
-ports += "www/py-ws4py"
+ports += "databases/py-bsddb3"
+ports += "devel/py-sysctl"
 ports += "www/py-flup"
-ports += "www/node"
-ports += "devel/py-asn1"
-ports += "devel/py-asn1-modules"
+ports += {
+    "name": "www/py-django16",
+    "options": ["OPTIONS_FILE_SET+=FASTCGI"]
+}
+ports += "www/py-dojango"
+ports += "www/dojo"
+ports += "databases/py-south"
+ports += "devel/py-pyasn1"
+ports += "devel/py-pyasn1-modules"
 ports += "security/openssl"
 ports += "security/py-openssl"
+ports += "security/py-pycrypto"
 ports += "security/py-htpasswd"
 ports += {
     "name": "www/apache24",
     "options": ["WITH_OPENSSL_PORT=yes"]
 }
 ports += "www/mod_mpm_itk"
+ports += "devel/py-tabulate"
+ports += "sysutils/syslog-ng"
 ports += {
     "name": "www/nginx",
     "options": [
         "WITH_OPENSSL_PORT=yes",
-        "OPTIONS_FILE_SET+=DEBUG",
-        "OPTIONS_FILE_SET+=DEBUGLOG",
         "OPTIONS_FILE_SET+=HTTP_SSL",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD_PROGRESS",
@@ -236,16 +214,63 @@ ports += "textproc/py-libxml2"
 ports += "textproc/expat2"
 ports += "devel/gamin"
 #ports += "devel/gio-fam-backend"
-
 if PRODUCT == "TrueNAS":
 	ports += "devel/bison"
 	ports += "devel/libffi"
-
 ports += "www/py-httplib2"
 ports += "net/py-oauth2"
 ports += "sysutils/jailme"
+
+# For vcenter plugin
+ports += "devel/py-six"
+ports += "www/py-requests"
+ports += "net/py-pyvmomi"
+
+# Reporting ports
+ports += "graphics/png"
 ports += "devel/libstatgrab"
 ports += "devel/libltdl"
+ports += "print/freetype2"
+ports += "x11/xproto"
+ports += "x11-fonts/fontconfig"
+ports += "x11-fonts/libfontenc"
+ports += "x11-fonts/mkfontscale"
+ports += "x11-fonts/mkfontdir"
+ports += "x11-fonts/font-bh-ttf"
+ports += "x11-fonts/font-misc-meltho"
+ports += "x11-fonts/font-misc-ethiopic"
+ports += "x11-fonts/bitstream-vera"
+ports += "x11-fonts/font-util"
+ports += "x11-fonts/encodings"
+ports += "x11-fonts/dejavu"
+ports += "x11-fonts/xorg-fonts-truetype"
+ports += "x11/pixman"
+ports += {
+    "name": "graphics/cairo",
+    "options": [
+        "OPTIONS_FILE_UNSET+=X11",
+        "OPTIONS_FILE_UNSET+=XCB"
+    ]
+}
+ports += {"name": "x11-toolkits/pango", "options": ["OPTIONS_FILE_UNSET+=X11"]}
+ports += "devel/icu"
+ports += "graphics/graphite2"
+ports += "devel/glib20"
+ports += {
+    "name": "print/harfbuzz",
+    "options": [
+        "OPTIONS_FILE_UNSET+=X11",
+        "OPTIONS_FILE_UNSET+=XCB"
+    ]
+}
+ports += {
+    "name": "databases/rrdtool",
+    "options": [
+        "OPTIONS_FILE_UNSET+=PERL_MODULE"
+        "OPTIONS_FILE_SET+=PYTHON_MODULE",
+        "OPTIONS_FILE_SET+=JSON"
+    ]
+}
 ports += "net/liboping"
 ports += {
     "name": "net-mgmt/collectd5",
@@ -253,9 +278,9 @@ ports += {
         "OPTIONS_FILE_UNSET+=BIND",
         "OPTIONS_FILE_UNSET+=SNMP",
         "OPTIONS_FILE_SET+=DISK",
-        "OPTIONS_FILE_SET+=STATGRAB",
         "OPTIONS_FILE_SET+=PYTHON",
-        "OPTIONS_FILE_SET+=RRDTOOL"
+        "OPTIONS_FILE_SET+=RRDTOOL",
+        "OPTIONS_FILE_SET+=STATGRAB"
     ]
 }
 
@@ -269,11 +294,14 @@ ports += {
 }
 ports += "sysutils/arcconf"
 ports += "sysutils/tw_cli"
-
+ports += "sysutils/megacli"
 if PRODUCT != "TrueNAS":
 	ports += "sysutils/areca-cli"
 	ports += "sysutils/hptcli"
-
+ports += {
+    "name": "net/py-ldap",
+    "options": ["OPTIONS_FILE_SET+=SASL"]
+}
 ports += "sysutils/ataidle"
 ports += "sysutils/gnome_subr"
 ports += {
@@ -284,7 +312,6 @@ ports += "devel/dbus-glib"
 ports += "devel/libdaemon"
 ports += "databases/gdbm"
 ports += "devel/py-lxml"
-ports += "textproc/py-xml"
 ports += "sysutils/dmidecode"
 ports += "sysutils/graid5"
 ports += {
@@ -302,8 +329,8 @@ ports += {
         "OPTIONS_FILE_UNSET+=AVAHI",
     ]
 }
-
 ports += "net/ladvd"
+
 ports += "dns/libidn"
 ports += "ftp/wget"
 ports += "benchmarks/iozone"
@@ -312,14 +339,17 @@ ports += "benchmarks/netperf"
 ports += {
     "name": "security/sudo",
     "options": [
+        "OPTIONS_FILE_SET+=LDAP",
         "OPTIONS_FILE_SET+=SSSD"
     ]
 }
 ports += "sysutils/ipmitool"
+ports += "www/py-django-json-rpc"
 ports += "devel/py-mimeparse"
 ports += "devel/py-six"
 ports += "devel/py-dateutil"
 ports += "devel/py-rose"
+ports += "www/py-django-tastypie"
 ports += "devel/py-lockfile"
 ports += "devel/py-daemon"
 ports += "devel/py-polib"
@@ -334,6 +364,9 @@ ports += "graphics/jpeg"
 ports += "www/py-requests"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
+ports += "devel/py-pyparsing"
+ports += "databases/py-sqlparse"
+ports += "devel/py-setproctitle"
 
 #
 # These are all for SSSD
@@ -347,7 +380,13 @@ ports += "devel/ding-libs"
 ports += "devel/nspr"
 ports += "security/nss"
 ports += "security/krb5"
-ports += "security/sssd"
+ports += {
+    "name": "security/sssd",
+    "options": [
+        "OPTIONS_FILE_SET+=SMB",
+        "OPTIONS_FILE_UNSET+=DOCS"
+    ]
+}
 ports += {
     "name": "security/ca_root_nss",
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
@@ -371,12 +410,16 @@ ports += "security/p11-kit"
 ports += "security/nettle"
 ports += "devel/libinotify"
 ports += "dns/samba-nsupdate"
-ports += "security/gnutls"
+ports += {
+    "name": "security/gnutls",
+    "options": [ "OPTIONS_FILE_UNSET+=TPM" ]
+}
 ports += {
     "name": "net/samba41",
     "options": [
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
+        "OPTIONS_FILE_SET+=AC_DC",
         "OPTIONS_FILE_SET+=AIO_SUPPORT",
         "OPTIONS_FILE_UNSET+=AVAHI",
         "OPTIONS_FILE_UNSET+=CUPS",
@@ -384,7 +427,9 @@ ports += {
         "OPTIONS_FILE_UNSET+=DEVELOPER",
         "OPTIONS_FILE_SET+=DNSUPDATE",
         "OPTIONS_FILE_SET+=EXP_MODULES",
-        "OPTIONS_FILE_SET+=FAM_SUPPORT",
+        "OPTIONS_FILE_SET+=FAM",
+        "OPTIONS_FILE_SET+=LDAP",
+        "OPTIONS_FILE_SET+=LINZFS",
         "OPTIONS_FILE_SET+=MANPAGES",
         "OPTIONS_FILE_SET+=MDNSRESPONDER",
         "OPTIONS_FILE_SET+=PAM_SMBPASS",
@@ -402,88 +447,22 @@ ports += {
     ]
 }
 
-
+ports += "sysutils/lsof"
 ports += "sysutils/grub2-pcbsd"
-ports += "sysutils/beadm-devel"
-#ports += "net/glusterfs"
+ports += "sysutils/beadm"
 ports += "net/py-pysphere"
-ports += {
-    "name": "mail/nullmailer",
-    "options": ["OPTIONS_FILE_SET+=GNUTLS"]
-}
-
-# This is a silly for fun thing
-# feel free to remove it if need be
-ports += "games/cowsay"
+ports += "net/py-pyvmomi"
+ports += "sysutils/throttle"
+ports += "misc/xtail"
+ports += "security/pam_google_authenticator"
+ports += "benchmarks/fio"
+ports += "sysutils/htop"
 
 if DEBUG:
-	ports += "editors/vim-lite"
 	ports += "misc/py-pexpect"
-	ports += "devel/ctags"
-	ports += "lang/gcc48"
-	ports += "devel/gmake"
-	ports += "www/npm"
 	ports += {
 	    "name": "devel/ipython",
 	    "options": ["OPTIONS_FILE_UNSET+=X11", "OPTIONS_FILE_UNSET+=ZMQ"]
 	}
-
-# Here 9.3 legacy starts
-# which will be removed at some point
-ports += {
-    "name": "www/py-django16",
-    "options": ["OPTIONS_FILE_SET+=FASTCGI"]
-}
-
-ports += "www/py-dojango"
-ports += "www/dojo"
-ports += "databases/py-south"
-ports += "www/py-django16-tastypie"
-ports += "www/py-django-json-rpc"
-ports += "sysutils/syslog-ng"
-
-# Legacy reporting ports
-ports += "graphics/png"
-ports += "print/freetype2"
-ports += "x11/xproto"
-ports += "x11-fonts/libfontenc"
-ports += "x11-fonts/mkfontscale"
-ports += "x11-fonts/mkfontdir"
-ports += "x11-fonts/font-bh-ttf"
-ports += "x11-fonts/font-misc-meltho"
-ports += "x11-fonts/font-misc-ethiopic"
-ports += "x11-fonts/bitstream-vera"
-ports += "x11-fonts/font-util"
-ports += "x11-fonts/encodings"
-ports += "x11-fonts/dejavu"
-ports += "x11-fonts/xorg-fonts-truetype"
-ports += "x11/pixman"
-
-ports += {
-    "name": "graphics/cairo",
-    "options": [
-        "OPTIONS_FILE_UNSET+=X11",
-        "OPTIONS_FILE_UNSET+=XCB"
-    ]
-}
-
-ports += {"name": "x11-toolkits/pango", "options": ["OPTIONS_FILE_UNSET+=X11"]}
-ports += "devel/icu"
-ports += "graphics/graphite2"
-ports += "devel/glib20"
-ports += {
-    "name": "print/harfbuzz",
-    "options": [
-        "OPTIONS_FILE_UNSET+=X11",
-        "OPTIONS_FILE_UNSET+=XCB"
-    ]
-}
-
-ports += {
-    "name": "databases/rrdtool",
-    "options": [
-        "OPTIONS_FILE_UNSET+=PERL_MODULE"
-        "OPTIONS_FILE_SET+=PYTHON_MODULE",
-        "OPTIONS_FILE_SET+=JSON"
-    ]
-}
+	ports += "devel/ctags"
+	ports += "devel/py-pyflakes"

@@ -33,15 +33,6 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-debug",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/freenas-ui",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -60,6 +51,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/py-libzfs",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
+    ]
+}
+
+ports += {
     "name": "freenas/pcbsd-warden",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -70,6 +70,15 @@ ports += {
 
 ports += {
     "name": "freenas/pcbsd-pbi",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=${GIT_REVISION}"
+    ]
+}
+
+ports += {
+    "name": "freenas/arcsas",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
