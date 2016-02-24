@@ -31,12 +31,12 @@ link += {
 }
 
 copy += {
-    "source": FNBASE_SRC_ROOT,
+    "source": "${BE_ROOT}/freenas",
     "dest": "/usr/freenas_src"
 }
 
 copy += {
-    "source": "${FREENAS_ROOT}/gui",
+    "source": "${BE_ROOT}/freenas/gui",
     "dest": "/usr/freenasUI"
 }
 
