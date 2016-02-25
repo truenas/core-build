@@ -77,8 +77,10 @@ def create_poudriere_config():
 
 
 def create_make_conf():
-    makeconf = e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf')
-    setfile(makeconf, template('${BUILD_CONFIG}/templates/poudriere-make.conf'))
+    conf = open(e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf'), 'w')
+    for k, v in config['make_conf_pkg'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    conf.close()
 
 
 def create_ports_list():
