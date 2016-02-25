@@ -49,7 +49,14 @@ repos += {
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",
     "branch": "master"
-}   
+}
+
+repos += {
+    "name": "py-libzfs",
+    "path": "py-libzfs",
+    "url": "https://github.com/freenas/py-libzfs.git",
+    "branch": "master"
+}
 
 if LABEL == "TrueNAS":
     repos += {

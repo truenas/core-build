@@ -32,7 +32,7 @@ link += {
 
 copy += {
     "source": "${BE_ROOT}/freenas",
-    "dest": "/usr/freenas_src"
+    "dest": "/usr/nas_source"
 }
 
 copy += {
@@ -42,5 +42,15 @@ copy += {
 
 copy += {
     "source": "${BE_ROOT}/licenselib",
-    "dest": "/usr/freenas_src/licenselib"
+    "dest": "/usr/nas_source/licenselib"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-libzfs",
+    "dest": "/usr/nas_source/py-libzfs"
+}
+
+copy += {
+    "source": "${BE_ROOT}/freenas/src",
+    "dest": "/usr/nas_source2"
 }
