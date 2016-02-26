@@ -23,12 +23,18 @@
 # SUCH DAMAGE.
 #
 
+
+freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
+    if exists("${BE_ROOT}/freenas") \
+    else "0"
+
+
 ports += {
     "name": "freenas/freenas-files",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + freenas_git_rev
     ]
 }
 
@@ -37,7 +43,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + freenas_git_rev
     ]
 }
 
