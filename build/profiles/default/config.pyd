@@ -23,6 +23,9 @@
 # SUCH DAMAGE.
 #
 
+MILESTONE = "MASTER"
+VERSION = "10.2-ALPHA-${BUILD_TIMESTAMP}"
+
 include("repos.pyd")
 include("ports.pyd")
 include("packages.pyd")
@@ -33,9 +36,6 @@ profile = {
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
-
-MILESTONE = "MASTER"
-VERSION = "10.2-ALPHA-${BUILD_TIMESTAMP}"
 
 kernel_config = ["${DEFAULT_PROFILE}/kernel/FREENAS.amd64"]
 if DEBUG:
