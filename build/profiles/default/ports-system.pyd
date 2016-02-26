@@ -236,6 +236,7 @@ ports += {
         "OPTIONS_FILE_UNSET+=VIRT",
         "OPTIONS_FILE_SET+=STATGRAB",
         "OPTIONS_FILE_SET+=PYTHON",
+        "OPTIONS_FILE_SET+=XML",
         "OPTIONS_FILE_UNSET+=RRDTOOL"
     ]
 }
