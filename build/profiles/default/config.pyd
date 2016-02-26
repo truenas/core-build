@@ -34,6 +34,9 @@ profile = {
     "status": "active"
 }
 
+MILESTONE = "MASTER"
+VERSION = "10.2-ALPHA-${BUILD_TIMESTAMP}"
+
 kernel_config = ["${DEFAULT_PROFILE}/kernel/FREENAS.amd64"]
 if DEBUG:
     kernel_config += "kernel/DEBUG"

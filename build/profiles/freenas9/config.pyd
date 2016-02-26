@@ -28,6 +28,8 @@ include("ports.pyd")
 include("packages.pyd")
 
 SRC_ROOT = "${BE_ROOT}/freenas/src/"
+MILESTONE = "MASTER"
+VERSION = "9.3.1-MASTER-${BUILD_TIMESTAMP}"
 
 profile = {
     "name": "freenas9",
