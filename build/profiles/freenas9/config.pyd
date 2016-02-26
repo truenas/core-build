@@ -27,6 +27,8 @@ include("repos.pyd")
 include("ports.pyd")
 include("packages.pyd")
 
+SRC_ROOT = "${BE_ROOT}/freenas/src/"
+
 profile = {
     "name": "freenas9",
     "description": "FreeNAS 9.3 with FreeBSD 10 kernel",
@@ -70,10 +72,12 @@ kernel_modules = [
     "pflog",
     "smbfs",
     "udf",
+    "usb/xhci",
     "zfs",
     "iscsi",
     "toecore",
-    "dummynet"
+    "dummynet",
+    "coretemp"
 ]
 
 if PRODUCT == "TrueNAS":
