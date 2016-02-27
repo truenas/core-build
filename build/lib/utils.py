@@ -101,17 +101,16 @@ def chroot(root, *args, **kwargs):
 
 def setup_env():
     signal.signal(signal.SIGINT, interrupt)
+    dsl = load_file('${BUILD_CONFIG}/env.pyd', os.environ)
+    for k, v in dsl.items():
+        if k.isupper():
+            os.environ[k] = v
 
     if os.path.exists(e('${PROFILE_ROOT}/env.pyd')):
         dsl = load_file('${PROFILE_ROOT}/env.pyd', os.environ)
         for k, v in dsl.items():
             if k.isupper():
                 os.environ[k] = v
-
-    dsl = load_file('${BUILD_CONFIG}/env.pyd', os.environ)
-    for k, v in dsl.items():
-        if k.isupper():
-            os.environ[k] = v
 
 
 def env(name, default=None):
