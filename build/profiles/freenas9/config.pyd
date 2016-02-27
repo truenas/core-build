@@ -23,10 +23,6 @@
 # SUCH DAMAGE.
 #
 
-MILESTONE = "MASTER"
-VERSION = "9.3.2-MASTER-${BUILD_TIMESTAMP}"
-SRC_ROOT = "${BE_ROOT}/freenas/src/"
-
 include("repos.pyd")
 include("ports.pyd")
 include("packages.pyd")

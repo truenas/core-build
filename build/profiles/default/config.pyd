@@ -23,9 +23,6 @@
 # SUCH DAMAGE.
 #
 
-MILESTONE = "MASTER"
-VERSION = "10.2-ALPHA-${BUILD_TIMESTAMP}"
-
 include("repos.pyd")
 include("ports.pyd")
 include("packages.pyd")
