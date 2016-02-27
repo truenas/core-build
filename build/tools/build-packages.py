@@ -55,7 +55,7 @@ def read_repo_manifest():
         o.write(i)
 
     pkgversion = hashlib.md5('-'.join(versions).encode('ascii')).hexdigest()
-    sequence = sh_str('git show -s --format=%ct')
+    sequence = pkgversion
 
 
 def build_pkgtools():
