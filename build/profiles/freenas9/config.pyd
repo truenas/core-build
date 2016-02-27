@@ -24,7 +24,7 @@
 #
 
 MILESTONE = "MASTER"
-VERSION = "9.3.1-MASTER-${BUILD_TIMESTAMP}"
+VERSION = "9.3.2-MASTER-${BUILD_TIMESTAMP}"
 
 include("repos.pyd")
 include("ports.pyd")
