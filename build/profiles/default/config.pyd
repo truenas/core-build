@@ -65,6 +65,8 @@ kernel_modules = [
     "nfs_common",
     "nfsclient",
     "nfslock",
+    "kgssapi",
+    "kgssapi_krb5",
     "ispfw/ispfw",
     "opensolaris",
     "pf",
