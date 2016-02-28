@@ -158,5 +158,5 @@ customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
     "strip-binaries",
-    "conf-base"
+    "conf-base9"
 ]
