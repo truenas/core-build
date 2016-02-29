@@ -145,7 +145,7 @@ ports += "sysutils/smartmontools"
 ports += "net/libdnet"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
-    "options": ["WITHOUT_ICU=y"]
+    "options": ["OPTIONS_FILE_UNSET+=ICU"]
 }
 if PRODUCT == "TrueNAS":
 	ports += {
