@@ -437,7 +437,7 @@ ports += {
 
 ports += "sysutils/lsof"
 ports += "sysutils/grub2-pcbsd"
-ports += "sysutils/beadm"
+ports += "sysutils/beadm-devel"
 ports += "net/py-pysphere"
 ports += "net/py-pyvmomi"
 ports += "sysutils/throttle"
