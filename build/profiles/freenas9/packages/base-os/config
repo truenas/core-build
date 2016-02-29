@@ -48,6 +48,7 @@ exclude = /usr/local/www/freenasUI
 	/var/db/pkg
 	/conf/var/db/pkg
 	/dev/*
+	/data/*
 
 [Services]
 
