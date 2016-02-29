@@ -27,6 +27,15 @@ ports += {
     "name": "ports-mgmt/pkg",
     "options": ["WITH_DEBUG=yes"]
 }
+# gcc is only a port dependency for numpy & friends
+# It is only listed here to remove the JAVA option which saves
+# several megabytes in the image
+# Ideally there should be a section to specify global options
+ports += {
+    "name": "lang/gcc",
+    "options": ["OPTIONS_FILE_UNSET+=JAVA"]
+}
+
 ports += "devel/ds2"
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
