@@ -353,7 +353,8 @@ ports += {
         "OPTIONS_FILE_UNSET+=AVAHI",
         "OPTIONS_FILE_SET+=MDNSRESPONDER",
         "WITH_DEBUG=yes",
-        "CRAZY=yes"
+        "CRAZY=yes",
+        "FREENAS_PY3k=yes"
     ]
 }
 
