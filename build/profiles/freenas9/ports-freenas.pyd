@@ -48,29 +48,11 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/py-licenselib",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
-    "name": "freenas/py-libzfs",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/pcbsd-warden",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + freenas_git_rev
     ]
 }
 
@@ -79,7 +61,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + freenas_git_rev
     ]
 }
 
@@ -91,3 +73,21 @@ ports += {
 #        "REVISION=${GIT_REVISION}"
 #    ]
 #}
+
+dedicated_repo_ports = [
+    "py-libzfs", "py-licenselib",
+]
+
+for iter_port in dedicated_repo_ports:
+    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port)) \
+        if exists("${BE_ROOT}/{0}".format(iter_port)) \
+        else "0"
+
+    ports += {
+        "name": "freenas/"+iter_port,
+        "options": [
+            "PRODUCT_VERSION=${VERSION}",
+            "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+            "REVISION="+ iter_port_git_rev
+        ]
+    }
