@@ -39,20 +39,13 @@ if DEBUG:
     kernel_config += "kernel/DEBUG"
 
 kernel_modules = [
-    "cc/cc_chd",
-    "cc/cc_cubic",
-    "cc/cc_hd",
-    "cc/cc_htcp",
-    "cc/cc_vegas",
-    "cxgb",
-    "cxgbe",
+    "cc",
     "dtrace",
     "ext2fs",
     "fdescfs",
     "geom",
     "ipmi",
     "khelp/h_ertt",
-    "krpc",
     "libiconv",
     "libmchain",
     "lindev",
@@ -61,21 +54,11 @@ kernel_modules = [
     "linux",
     "linux64",
     "linux_common",
-    "nfs_common",
-    "nfsclient",
-    "nfslock",
-    "kgssapi",
-    "kgssapi_krb5",
     "ispfw/ispfw",
-    "opensolaris",
     "pf",
     "pflog",
     "smbfs",
-    "tmpfs",
     "udf",
-    "usb/xhci",
-    "zfs",
-    "iscsi",
     "fuse",
     "vmm",
     "nmdm",
@@ -83,9 +66,6 @@ kernel_modules = [
 ]
 
 kernel_modules += [
-    "ctl",
-#	    "cxgbe/t4_firmware",
-#	    "cxgbe/t5_firmware",
     "syscons",
     "netgraph/ether",
     "netgraph/socket"
