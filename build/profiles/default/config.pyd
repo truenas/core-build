@@ -59,6 +59,8 @@ kernel_modules = [
     "linprocfs",
     "linsysfs",
     "linux",
+    "linux64",
+    "linux_common",
     "nfs_common",
     "nfsclient",
     "nfslock",
