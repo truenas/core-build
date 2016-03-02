@@ -29,18 +29,35 @@ else:
     url = e("http://download.freenas.org/nightlies/${VERSION_SHORT}")
 
 formats = ["iso", "GUI_Upgrade.txz"]
-aux_files = [
-    {
-        "name": "ReleaseNotes",
-        "source": "${BUILD_ROOT}/ReleaseNotes"
-    },
-    {
-        "name": "MANIFEST",
-        "source": "${BE_ROOT}/repo-manifest"
-    },
-    {
-        "name": "README",
-        "source": "${BUILD_ROOT}/README.md",
-        "template": True
+if PROFILE == "freenas9":
+    aux_files = [
+            {
+                "name": "ReleaseNotes",
+                "source": "${BE_ROOT}/freenas/ReleaseNotes"
+            },
+            {
+                "name": "MANIFEST",
+                "source": "${BE_ROOT}/repo-manifest"
+            },
+            {
+                "name": "README",
+                "source": "${BE_ROOT}/freenas/README.md",
+                "template": True
     }
+]
+else:
+    aux_files = [
+            {
+                "name": "ReleaseNotes",
+                "source": "${BUILD_ROOT}/ReleaseNotes"
+            },
+            {
+                "name": "MANIFEST",
+                "source": "${BE_ROOT}/repo-manifest"
+            },
+            {
+                "name": "README",
+                "source": "${BUILD_ROOT}/README.md",
+                "template": True
+            }
 ]
