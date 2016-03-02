@@ -27,7 +27,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "feature/9.10_2016q1ports"
+    "branch": "master"
 }
 
 repos += {
