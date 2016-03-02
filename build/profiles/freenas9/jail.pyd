@@ -41,8 +41,8 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/licenselib",
-    "dest": "/usr/nas_source/licenselib"
+    "source": "${BE_ROOT}/py-licenselib",
+    "dest": "/usr/nas_source/py-licenselib"
 }
 
 copy += {
