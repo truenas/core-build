@@ -44,6 +44,6 @@ packages += {
 }
 
 packages += {
-    "name": "freenasUI",
+    "name": "FreeNASUI",
     "template": "${PROFILE_ROOT}/packages/freenasUI"
 }
