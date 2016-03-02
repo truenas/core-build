@@ -345,7 +345,7 @@ if __name__ == '__main__':
     info("Creating ISO image")
     cleandirs()
     installworld(e('${INSTUFS_DESTDIR}'), installworldlog, distributionlog)
-    installkernel(e('${ISO_DESTDIR}'), installkernellog)
+    installkernel(e('${KERNCONF}'), e('${ISO_DESTDIR}'), installkernellog)
     create_ufs_dirs()
     mount_packages()
     install_ports()

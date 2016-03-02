@@ -36,7 +36,9 @@ config = load_profile_config()
 arch = env('TARGET_ARCH', 'amd64')
 makeconfbuild = objdir('make-build.conf')
 kernconf = objdir(e('${KERNCONF}'))
+kernconf_debug = objdir(e('${KERNCONF}-DEBUG'))
 kernlog = objdir('logs/buildkernel')
+kerndebuglog = objdir('logs/buildkernel-debug')
 worldlog = objdir('logs/buildworld')
 makejobs = None
 
@@ -61,20 +63,26 @@ def create_make_conf_build():
 
 
 def create_kernel_config():
-    conf = open(kernconf, 'w')
-    for i in config['kernel_config']:
-        f = open(pathjoin('${PROFILE_ROOT}', i), 'r')
-        conf.write(f.read())
-        f.close()
+    with open(kernconf, 'w') as f:
+        with open(pathjoin('${PROFILE_ROOT}', config['kernel_config']), 'r') as f2:
+            f.write(f2.read())
 
-    conf.close()
+    with open(kernconf_debug, 'w') as f:
+        with open(pathjoin('${PROFILE_ROOT}', config['kernel_config']), 'r') as f2:
+            f.write(f2.read())
+
+        with open(os.path.join(
+            os.path.dirname(pathjoin('${PROFILE_ROOT}', config['kernel_config'])),
+            'DEBUG'
+        ), 'r') as f2:
+            f.write(f2.read())
 
 
-def buildkernel(kconf, modules):
+def buildkernel(kconf, modules, log):
     modules = ' '.join(modules)
-    info('Building kernel ${{KERNCONF}} from ${{TRUEOS_ROOT}}')
-    info('Log file: {0}', kernlog)
-    debug('Kernel configuration file: {0}', kconf)
+    info('Building kernel {0} from {1}', kconf, e('${TRUEOS_ROOT}'))
+    info('Log file: {0}', log)
+    debug('Kernel configuration file: {0}', kernconf)
     debug('Selected modules: {0}', modules)
 
     sh(
@@ -83,10 +91,11 @@ def buildkernel(kconf, modules):
         "-j {0}".format(makejobs),
         "-C ${TRUEOS_ROOT}",
         "NO_KERNELCLEAN=YES",
+        "KERNCONF={0}".format(kconf),
         "__MAKE_CONF={0}".format(makeconfbuild),
         "MODULES_OVERRIDE='{0}'".format(modules),
         "buildkernel",
-        log=kernlog
+        log=kerndebuglog
     )
 
 
@@ -133,13 +142,16 @@ def installworld(destdir, worldlog, distriblog):
     )
 
 
-def installkernel(destdir, log, modules=None):
+def installkernel(kconf, destdir, log, kodir=None, modules=None):
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
 
     if not modules:
         modules = config['kernel_modules']
-        
+
+    if kodir is None:
+        kodir = "/boot/kernel"
+
     modules = ' '.join(modules)
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
@@ -147,6 +159,8 @@ def installkernel(destdir, log, modules=None):
         "-C ${TRUEOS_ROOT}",
         "installkernel",
         "DESTDIR=${destdir}",
+        "KERNCONF={0}".format(kconf),
+        "KODIR={0}".format(kodir),
         "__MAKE_CONF=${makeconfbuild}",
         "MODULES_OVERRIDE='{0}'".format(modules),
         log=log
@@ -164,4 +178,5 @@ if __name__ == '__main__':
     create_make_conf_build()
     create_kernel_config()
     buildworld()
-    buildkernel(kernconf, config['kernel_modules'])
+    buildkernel(e('${KERNCONF}'), config['kernel_modules'], kernlog)
+    buildkernel(e('${KERNCONF}-DEBUG'), config['kernel_modules'], kerndebuglog)

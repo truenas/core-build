@@ -49,4 +49,4 @@ if __name__ == '__main__':
 
     sh('mkdir -p ${JAIL_DESTDIR}')
     installworld(e('${JAIL_DESTDIR}'), installworldlog, distributionlog)
-    installkernel(e('${JAIL_DESTDIR}'), installkernellog)
+    installkernel(e('${KERNCONF}'), e('${JAIL_DESTDIR}'), installkernellog)

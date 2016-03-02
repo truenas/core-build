@@ -34,6 +34,7 @@ from utils import sh, sh_str, e, setup_env, objdir, info, debug, error, import_f
 installworldlog = objdir('logs/dest-installworld')
 distributionlog = objdir('logs/dest-distribution')
 installkernellog = objdir('logs/dest-installkernel')
+installkerneldebuglog = objdir('logs/dest-installkerneldebug')
 installworld = import_function('build-os', 'installworld')
 installkernel = import_function('build-os', 'installkernel')
 
@@ -49,4 +50,5 @@ if __name__ == '__main__':
 
     sh('mkdir -p ${WORLD_DESTDIR}')
     installworld(e('${WORLD_DESTDIR}'), installworldlog, distributionlog)
-    installkernel(e('${WORLD_DESTDIR}'), installkernellog)
+    installkernel(e('${KERNCONF}'), e('${WORLD_DESTDIR}'), installkernellog)
+    installkernel(e('${KERNCONF}-DEBUG'), e('${WORLD_DESTDIR}'), installkerneldebuglog, kodir="/boot/kernel-debug")

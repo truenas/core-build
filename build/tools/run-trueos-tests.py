@@ -37,6 +37,7 @@ from utils import sh, sh_str, sh_spawn, e, glob, objdir, info, debug, error, loa
 load_file('${BUILD_CONFIG}/tests/bhyve.pyd', os.environ)
 installworldlog = objdir('logs/test-installworld')
 distributionlog = objdir('logs/test-distribution')
+buildkernellog = objdir('logs/test-buildkernel')
 installkernellog = objdir('logs/test-installkernel')
 buildkernel = import_function('build-os', 'buildkernel')
 installworld = import_function('build-os', 'installworld')
@@ -69,9 +70,9 @@ def setup_network():
 
 
 def setup_rootfs():
-    buildkernel(e('${KERNCONF}'), ['mach'])
+    buildkernel(e('${KERNCONF}-DEBUG'), ['mach'], buildkernellog)
     installworld('${OBJDIR}/test-root', installworldlog, distributionlog)
-    installkernel('${OBJDIR}/test-root', installkernellog, modules=['mach'])
+    installkernel(e('${KERNCONF}'), '${OBJDIR}/test-root', installkernellog, modules=['mach'])
     info('Installing overlay files')
     sh('rsync -ah ${TESTS_ROOT}/trueos/overlay/ ${OBJDIR}/test-root')
     sh('makefs -M ${IMAGE_SIZE} ${OBJDIR}/test-root.ufs ${OBJDIR}/test-root')
