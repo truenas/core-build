@@ -115,7 +115,6 @@ make_conf_build = {
     "WITHOUT_LIB32":                "yes",
     "WITHOUT_LIBKSE":               "yes",
     "WITHOUT_LPR":                  "yes",
-    "WITHOUT_MAN":                  "yes",
     "WITHOUT_NDIS":                 "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_NS_CACHING":           "yes",
