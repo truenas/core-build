@@ -51,14 +51,9 @@ def main(destdir):
     # Kill info
     sh('rm -rf ${destdir}/usr/local/info')
 
-    # Kill man pages
-    sh('rm -rf ${destdir}/usr/local/man')
-
     # Kill examples
     sh('rm -rf ${destdir}/usr/local/share/examples')
 
-    # Kill groff_fonts junk
-    sh('rm -rf ${destdir}/usr/share/groff_font')
     sh('rm -rf ${destdir}/usr/share/tmac')
     sh('rm -rf ${destdir}/usr/share/me')
 
