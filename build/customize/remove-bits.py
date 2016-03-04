@@ -54,7 +54,6 @@ def main(destdir):
     # Kill examples
     sh('rm -rf ${destdir}/usr/local/share/examples')
 
-    sh('rm -rf ${destdir}/usr/share/tmac')
     sh('rm -rf ${destdir}/usr/share/me')
 
     # Kill static libraries
