@@ -57,6 +57,9 @@ kernel_modules = [
     "pflog",
     "smbfs",
     "udf",
+    "fuse",
+    "vmm",
+    "nmdm",
     "toecore",
     "dummynet",
     "coretemp"
