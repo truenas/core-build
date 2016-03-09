@@ -31,7 +31,7 @@ import signal
 import sys
 import string
 from dsl import load_file, load_profile_config
-from utils import sh, sh_str, sh_spawn, env, e, objdir, pathjoin, setfile, setup_env, template, debug, error, on_abort, info
+from utils import sh, sh_str, sh_spawn, env, e, glob, objdir, pathjoin, setfile, setup_env, template, debug, error, on_abort, info
 
 
 makejobs = 1
@@ -57,10 +57,10 @@ def calculate_make_jobs():
 
 
 def create_overlay():
-    sh('umount -f ${PORTS_OVERLAY} > /dev/null 2>&1', nofail=True)
+    info('Creating ports overlay...')
     sh('rm -rf ${PORTS_OVERLAY}')
     sh('mkdir -p ${PORTS_OVERLAY}')
-    sh('mount_unionfs -o below ${PORTS_ROOT} ${PORTS_OVERLAY}')
+    sh('cp -lr ${PORTS_ROOT}/ ${PORTS_OVERLAY}')
 
 
 def create_poudriere_config():
@@ -134,7 +134,12 @@ def prepare_jail():
 
 def merge_port_trees():
     for i in config['port_trees']:
-        sh('cp -a ${i}/* ${PORTS_OVERLAY}/')
+        info(e('Merging ports tree ${i}'))
+        for p in glob('${i}/*/*'):
+            portpath = '/'.join(p.split('/')[-2:])
+            sh('rm -rf ${PORTS_OVERLAY}/${portpath}')
+            sh('mkdir -p ${PORTS_OVERLAY}/${portpath}')
+            sh('cp -lr ${p}/ ${PORTS_OVERLAY}/${portpath}')
 
 
 def prepare_env():
@@ -167,7 +172,6 @@ def cleanup_env():
             info('Cannot kill poudriere, it has probably already terminated')
         
     info('Unmounting ports overlay...')
-    sh('umount -f ${PORTS_OVERLAY}')
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
         sh('umount -f', cmd['source'])
