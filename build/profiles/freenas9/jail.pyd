@@ -54,3 +54,9 @@ copy += {
     "source": "${BE_ROOT}/freenas/src",
     "dest": "/usr/nas_source2"
 }
+
+if PRODUCT == "TrueNAS":
+    copy += {
+        "source": "${BE_ROOT}/truenas",
+        "dest": "/usr/truenas"
+    }
