@@ -58,9 +58,10 @@ repos += {
     "branch": "master"
 }
 
-if LABEL == "TrueNAS":
+if PRODUCT == "TrueNAS":
     repos += {
-        "name": "truenas-components",
-        "path": "src/truenas",
+        "name": "truenas",
+        "path": "truenas",
+        "url": "https://github.com/iXsystems/truenas.git",
         "branch": "master"
     }
