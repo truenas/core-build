@@ -32,6 +32,7 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
 ports += {
     "name": "freenas/freenas-files",
     "options": [
+        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
