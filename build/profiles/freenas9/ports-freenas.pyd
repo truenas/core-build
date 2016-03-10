@@ -38,6 +38,19 @@ ports += {
     ]
 }
 
+if PRODUCT == "TrueNAS":
+    truenas_git_rev = sh("git -C ${BE_ROOT}/truenas rev-list HEAD --count") \
+        if exists("${BE_ROOT}/truenas") \
+        else "0"
+    ports += {
+        "name": "truenas/truenas-files",
+        "options": [
+            "PRODUCT_VERSION=${VERSION}",
+            "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+            "REVISION=" + truenas_git_rev
+        ]
+    }
+
 ports += {
     "name": "freenas/freenas-ui",
     "options": [
