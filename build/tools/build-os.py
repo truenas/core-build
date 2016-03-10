@@ -95,7 +95,7 @@ def buildkernel(kconf, modules, log):
         "__MAKE_CONF={0}".format(makeconfbuild),
         "MODULES_OVERRIDE='{0}'".format(modules),
         "buildkernel",
-        log=kerndebuglog
+        log=log
     )
 
 
