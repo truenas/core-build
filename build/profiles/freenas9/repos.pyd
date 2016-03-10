@@ -62,6 +62,6 @@ if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",
         "path": "truenas",
-        "url": "https://github.com/iXsystems/truenas.git",
+        "url": "git@github.com:iXsystems/truenas.git",
         "branch": "master"
     }
