@@ -55,6 +55,7 @@ if PRODUCT == "TrueNAS":
 ports += {
     "name": "freenas/freenas-ui",
     "options": [
+        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
