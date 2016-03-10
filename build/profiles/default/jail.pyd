@@ -94,3 +94,8 @@ copy += {
     "source": "${BE_ROOT}/py-pf",
     "dest": "/usr/middleware_src/py-pf"
 }
+
+copy += {
+    "source": "${BE_ROOT}/samba",
+    "dest": "/usr/samba_src"
+}

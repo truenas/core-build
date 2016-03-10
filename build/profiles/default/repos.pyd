@@ -134,3 +134,11 @@ repos += {
     "url": "https://github.com/ipfs/python-ipfs-api",
     "branch": "master"
 }
+
+repos += {
+    "name": "samba",
+    "path": "samba",
+    "url": "https://github.com/freenas/samba.git",
+    "branch": "v4-3-stable"
+}
+
