@@ -41,6 +41,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-installer",
     "options": [
+        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=${GIT_REVISION}"
