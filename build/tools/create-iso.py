@@ -68,9 +68,12 @@ files_to_preserve = [
     '/usr/bin/uname',
     '/usr/bin/xargs',
     '/usr/sbin/diskinfo',
-    '/usr/sbin/vidcontrol'
+    '/usr/sbin/swapinfo',
+    '/usr/sbin/vidcontrol',
     '/sbin/geom',
     '/sbin/gmirror',
+    '/sbin/swapoff',
+    '/sbin/swapon',
     '/bin/install_worker.sh',
     '/bin/install_worker2.sh'
 ]
