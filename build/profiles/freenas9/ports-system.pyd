@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-if exists("${BE_ROOT/samba"):
+if exists("${BE_ROOT}/samba"):
     samba_git_rev = sh("git -C ${BE_ROOT}/samba rev-list HEAD --count")
 
 ports += {
