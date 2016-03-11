@@ -73,7 +73,6 @@ files_to_preserve = [
     '/sbin/geom',
     '/sbin/gmirror',
     '/sbin/swapoff',
-    '/sbin/swapon',
     '/bin/install_worker.sh',
     '/bin/install_worker2.sh'
 ]
