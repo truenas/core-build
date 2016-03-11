@@ -30,15 +30,6 @@ ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
 
 ports += {
-    "name": "freenas/pc-sysinstall",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
-    ]
-}
-
-ports += {
     "name": "freenas/freenas-installer",
     "options": [
         "PRODUCT=${PRODUCT}",
