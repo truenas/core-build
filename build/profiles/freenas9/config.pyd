@@ -120,6 +120,9 @@ make_conf_build = {
     "LOCAL_DIRS":                   ""
 }
 
+if PRODUCT == "TrueNAS":
+    make_conf_build["LOCAL_DIRS"] = "share/examples/ses"
+
 # Packages configuration
 make_conf_pkg = {
     "DEFAULT_VERSIONS":             "python=2.7",
