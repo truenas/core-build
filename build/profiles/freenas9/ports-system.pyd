@@ -23,6 +23,8 @@
 # SUCH DAMAGE.
 #
 
+samba_git_rev = sh("git -C ${BE_ROOT}/samba rev-list HEAD --count")
+
 ports += {
     "name": "ports-mgmt/pkg",
     "options": ["WITH_DEBUG=yes"]
@@ -384,6 +386,7 @@ ports += "security/gnutls"
 ports += {
     "name": "net/samba43",
     "options": [
+        "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
         "OPTIONS_FILE_SET+=AD_DC",
