@@ -129,7 +129,7 @@ if PRODUCT == "TrueNAS":
 # Packages configuration
 make_conf_pkg = {
     "DEFAULT_VERSIONS":             "python=2.7",
-    "NOPORTDOCS":                   "yes",
+    "OPTIONS_UNSET":                "DOCS",
     "WANT_OPENLDAP_SASL":           "yes",
     "USE_PACKAGE_DEPENDS":          "yes",
     "BATCH":                        "yes",
