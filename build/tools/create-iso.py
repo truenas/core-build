@@ -70,6 +70,7 @@ files_to_preserve = [
     '/usr/sbin/diskinfo',
     '/usr/sbin/vidcontrol'
     '/sbin/geom',
+    '/sbin/gmirror',
     '/bin/install_worker.sh',
     '/bin/install_worker2.sh'
 ]
