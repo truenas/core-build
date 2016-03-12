@@ -310,7 +310,6 @@ device		vmx			# VMware VMXNET3 Ethernet
 ## FreeNAS shared modifications
 options		GEOM_UZIP
 options		GEOM_ELI
-options		GEOM_MIRROR
 options		NULLFS
 options		UNIONFS
 options		TMPFS			#Efficient memory filesystem
