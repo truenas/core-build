@@ -72,6 +72,7 @@ files_to_preserve = [
     '/usr/sbin/vidcontrol',
     '/sbin/geom',
     '/sbin/gmirror',
+    '/sbin/graid',
     '/sbin/swapoff',
     '/bin/install_worker.sh',
     '/bin/install_worker2.sh'
@@ -123,6 +124,8 @@ symlinks = {
     'fsirand': '/sbin/fsirand',
     'gbde': '/sbin/gbde',
     'getfacl': '/bin/getfacl',
+    'glabel': '/sbin/label',
+    'gpart': '/sbin/gpart',
     'groups': '/usr/bin/groups',
     'gunzip': '/usr/bin/gunzip',
     'gzcat': '/usr/bin/gzcat',
