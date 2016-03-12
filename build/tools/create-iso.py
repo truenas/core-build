@@ -124,7 +124,7 @@ symlinks = {
     'fsirand': '/sbin/fsirand',
     'gbde': '/sbin/gbde',
     'getfacl': '/bin/getfacl',
-    'glabel': '/sbin/label',
+    'glabel': '/sbin/glabel',
     'gpart': '/sbin/gpart',
     'groups': '/usr/bin/groups',
     'gunzip': '/usr/bin/gunzip',
