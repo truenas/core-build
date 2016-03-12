@@ -65,13 +65,14 @@ kernel_modules = [
     "vmm",
     "nmdm",
     "toecore",
+    "cxgb",
+    "cxgbe",
     "dummynet",
-    "coretemp"
+    "hwpmc",
 ]
 
 if PRODUCT == "TrueNAS":
     kernel_modules += [
-        "hwpmc",
         "syscons/blank"
     ]
 else:

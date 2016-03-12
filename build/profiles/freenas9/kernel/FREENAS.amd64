@@ -87,18 +87,8 @@ options 	KDB_TRACE		# Print a stack trace for a panic.
 # Make an SMP-capable kernel by default
 options 	SMP			# Symmetric MultiProcessor Kernel
 
-device		zfs
-
 # CPU frequency control
-device		amdtemp
-device		coretemp
 device		cpufreq
-
-#
-# CPU control pseudo-device. Provides access to MSRs, CPUID info and
-# microcode update feature.
-#
-device		cpuctl
 
 # Bus support.
 device		acpi
@@ -125,7 +115,6 @@ options 	AHD_REG_PRETTY_PRINT	# Print register bitfields in debug
 #device		esp			# AMD 53C974 (Tekram DC-390(T))
 device		hptiop			# Highpoint RocketRaid 3xxx series
 device		isp			# Qlogic family
-options		ISP_TARGET_MODE		# Qlogic FC target mode
 #device		ispfw			# Firmware for QLogic HBAs- normally a module
 device		mpt			# LSI-Logic MPT-Fusion
 device		mps			# LSI-Logic MPT-Fusion 2
@@ -273,16 +262,12 @@ device		random			# Entropy device
 device		padlock_rng		# VIA Padlock RNG
 device		rdrand_rng		# Intel Bull Mountain RNG
 device		ether			# Ethernet support
-device		lagg			# Link aggregation
 device		vlan			# 802.1Q VLAN support
 device		tun			# Packet tunnel.
-device		pty			# BSD-style compatibility pseudo ttys
 device		md			# Memory "disks"
 device		gif			# IPv6 and IPv4 tunneling
 device		faith			# IPv6-to-IPv4 relaying (translation)
 device		firmware		# firmware assist module
-device		crypto			# core crypto support
-device		cryptodev		# /dev/crypto for access to h/w
 
 # The `bpf' device enables the Berkeley Packet Filter.
 # Be aware of the administrative consequences of enabling this!
@@ -296,11 +281,8 @@ device		ohci			# OHCI PCI->USB interface
 device		ehci			# EHCI PCI->USB interface (USB 2.0)
 device		xhci			# XHCI PCI->USB interface (USB 3.0)
 device		usb			# USB Bus (required)
-device		uhid			# "Human Interface Devices"
 device		ukbd			# Keyboard
-device		ulpt			# Printer
 device		umass			# Disks/Mass storage - Requires scbus and da
-device		ums			# Mouse
 
 # VirtIO support
 device		virtio			# Generic VirtIO bus (required)
@@ -323,12 +305,28 @@ device		xenpci			# Xen HVM Hypervisor services driver
 # VMware support
 device		vmx			# VMware VMXNET3 Ethernet
 
-# Needed for ipmi(4)
-device		smbus
+## FreeNAS shared modifications
+options		GEOM_UZIP
+options		GEOM_ELI
+options		GEOM_MIRROR
+options		NULLFS
+options		UNIONFS
+options		TMPFS			#Efficient memory filesystem
+options		VFS_AIO
+options		ISP_TARGET_MODE		# Qlogic FC target mode
+device		zfs
+device		amdtemp
+device		coretemp
+device		cpuctl
+device		crypto			# core crypto support
+device		cryptodev		# /dev/crypto for access to h/w
+device		aesni
+device		lagg			# Link aggregation
+device		carp
+device		pty			# BSD-style compatibility pseudo ttys
+device		iscsi
+device		smbus			# Needed for ipmi(4)
 
-## This is FreeNAS specific but leaving it here because I'm unsure
-## if putting it after PF will change the order that packets are handled
-## by the system, and everything works nicely now
 # ipfw and nat for jails
 options		IPDIVERT
 options		IPFIREWALL
@@ -337,32 +335,18 @@ options		IPFIREWALL_DEFAULT_TO_ACCEPT
 options		IPFIREWALL_NAT
 #options		DUMMYNET
 options		LIBALIAS
-## End FreeNAS specific section
-
-# FreeNAS shared modifications
-options		GEOM_UZIP
-options		GEOM_ELI
-options		NULLFS
-options		UNIONFS
-options		VFS_AIO
-device		aesni
-device		carp
 
 ## FreeNAS specific modifications
 # misc
-device  	padlock
+device		padlock
 options		VIMAGE
 options		NETGRAPH
 device		snp
-device		iscsi
 device		epair		# A pair of virtual back-to-back connected Ethernet interfaces
 device		if_bridge	# network bridge device
 #  The `tap' device is a pty-like virtual Ethernet interface
 device		tap
-options		GEOM_MIRROR
 device		ucom
-
-options 	TMPFS			#Efficient memory filesystem
 
 # Watchdog support
 device		ichwd
@@ -377,22 +361,4 @@ device		sbp		# SCSI over FireWire (Requires scbus and da)
 #device		fwip		# IP over FireWire (RFC 2734,3146)
 #device		dcons		# Dumb console driver
 #device		dcons_crom	# Configuration ROM for dcons
-
-# USB Serial devices
-device		u3g		# USB-based 3G modems (Option, Huawei, Sierra)
-device		uark		# Technologies ARK3116 based serial adapters
-device		ubsa		# Belkin F5U103 and compatible serial adapters
-device		uftdi		# For FTDI usb serial adapters
-device		uplcom		# Prolific PL-2303 serial adapters
-device		uslcom		# SI Labs CP2101/CP2102 serial adapters
-device		umodem
-
-# USB Ethernet, requires miibus
-device		aue		# ADMtek USB Ethernet
-device		axe		# ASIX Electronics USB Ethernet
-device		cdce		# Generic USB over Ethernet
-device		cue		# CATC USB Ethernet
-device		kue		# Kawasaki LSI USB Ethernet
-device		rue		# RealTek RTL8150 USB Ethernet
-device		udav		# Davicom DM9601E USB
 ## End FreeNAS specific section

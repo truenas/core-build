@@ -61,7 +61,11 @@ kernel_modules = [
     "fuse",
     "vmm",
     "nmdm",
-    "coretemp"
+    "toecore",
+    "cxgb",
+    "cxgbe",
+    "dummynet",
+    "hwpmc",
 ]
 
 kernel_modules += [
