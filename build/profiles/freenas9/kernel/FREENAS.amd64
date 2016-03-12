@@ -219,7 +219,7 @@ device		txp			# 3Com 3cR990 (``Typhoon'')
 device		vx			# 3Com 3c590, 3c595 (``Vortex'')
 device		qlxgb			# QLogic 10Gb 3200/8200 Ethernet
 device		qlxge			# QLogic 10Gb 8100 Ethernet
-device		qlxgbe			# QLogic 10Gb 8300 Ethernet
+#device		qlxgbe			# QLogic 10Gb 8300 Ethernet
 device		oce			# Emulex 10Gbe Ethernet
 device		sfxge			# Solarflare SFC9000 family 10Gb Ethernet adapters
 
