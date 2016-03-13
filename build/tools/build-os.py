@@ -35,6 +35,7 @@ from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error, pat
 config = load_profile_config()
 arch = env('TARGET_ARCH', 'amd64')
 makeconfbuild = objdir('make-build.conf')
+makeconfimage = objdir('make-image.conf')
 kernconf = objdir(e('${KERNCONF}'))
 kernconf_debug = objdir(e('${KERNCONF}-DEBUG'))
 kernlog = objdir('logs/buildkernel')
@@ -58,7 +59,12 @@ def create_make_conf_build():
     conf = open(makeconfbuild, 'w')
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
-
+    conf.close()
+    conf = open(makeconfimage, 'w')
+    for k, v in config['make_conf_build'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    for k, v in config['make_conf_image'].items():
+        conf.write('{0}={1}\n'.format(k, v))
     conf.close()
 
 
@@ -116,16 +122,20 @@ def buildworld():
     )
 
 
-def installworld(destdir, worldlog, distriblog):
+def installworld(destdir, worldlog, distriblog, image=False):
     info('Installing world in {0}', destdir)
     info('Log file: {0}', worldlog)
+    if image:
+        conf=makeconfimage
+    else:
+        conf=makeconfbuild
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-C ${TRUEOS_ROOT}",
         "installworld",
         "DESTDIR=${destdir}",
-        "__MAKE_CONF=${makeconfbuild}",
+        "__MAKE_CONF=${conf}",
         log=worldlog
     )
 
@@ -137,21 +147,22 @@ def installworld(destdir, worldlog, distriblog):
         "-C ${TRUEOS_ROOT}",
         "distribution",
         "DESTDIR=${destdir}",
-        "__MAKE_CONF=${makeconfbuild}",
+        "__MAKE_CONF=${conf}",
         log=distriblog
     )
 
 
-def installkernel(kconf, destdir, log, kodir=None, modules=None):
+def installkernel(kconf, destdir, log, kodir=None, modules=None, image=False):
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
-
-    if not modules:
+    if modules is None:
         modules = config['kernel_modules']
-
     if kodir is None:
         kodir = "/boot/kernel"
-
+    if image:
+        conf=makeconfimage
+    else:
+        conf=makeconfbuild
     modules = ' '.join(modules)
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
@@ -161,7 +172,7 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None):
         "DESTDIR=${destdir}",
         "KERNCONF={0}".format(kconf),
         "KODIR={0}".format(kodir),
-        "__MAKE_CONF=${makeconfbuild}",
+        "__MAKE_CONF=${conf}",
         "MODULES_OVERRIDE='{0}'".format(modules),
         log=log
     )

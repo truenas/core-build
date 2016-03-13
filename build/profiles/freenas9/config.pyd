@@ -103,6 +103,7 @@ make_conf_build = {
     "WITHOUT_IPX":                  "yes",
     "WITHOUT_LIB32":                "yes",
     "WITHOUT_LIBKSE":               "yes",
+    "WITHOUT_LOCATE":               "yes",
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_NDIS":                 "yes",
     "WITHOUT_NLS":                  "yes",
@@ -134,6 +135,11 @@ make_conf_pkg = {
     "BATCH":                        "yes",
     "WRKDIRPREFIX":                 "/wrkdirs",
     "DISABLE_LICENSES":             "yes"
+}
+
+make_conf_image = {
+    "WITHOUT_RCS":                  "yes",
+    "WITHOUT_TOOLCHAIN":            "yes",
 }
 
 early_customize_tasks = [
