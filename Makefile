@@ -85,4 +85,4 @@ bootstrap-pkgs:
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
-	@${BUILD_TOOLS}/buildenv.py ${MK} ${.TARGETS}
+	@${BUILD_TOOLS}/buildenv.py ${MK} ${.TARGET}
