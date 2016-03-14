@@ -138,6 +138,7 @@ make_conf_pkg = {
 }
 
 make_conf_image = {
+    "WITHOUT_KERNEL_SYMBOLS":       "yes",
     "WITHOUT_RCS":                  "yes",
     "WITHOUT_TOOLCHAIN":            "yes",
 }
