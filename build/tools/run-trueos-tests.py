@@ -71,8 +71,8 @@ def setup_network():
 
 def setup_rootfs():
     buildkernel(e('${KERNCONF}-DEBUG'), ['mach'], buildkernellog)
-    installworld('${OBJDIR}/test-root', installworldlog, distributionlog, image=True)
-    installkernel(e('${KERNCONF}'), '${OBJDIR}/test-root', installkernellog, modules=['mach'], image=True)
+    installworld('${OBJDIR}/test-root', installworldlog, distributionlog, conf="run")
+    installkernel(e('${KERNCONF}'), '${OBJDIR}/test-root', installkernellog, modules=['mach'], , conf="run")
     info('Installing overlay files')
     sh('rsync -ah ${TESTS_ROOT}/trueos/overlay/ ${OBJDIR}/test-root')
     sh('makefs -M ${IMAGE_SIZE} ${OBJDIR}/test-root.ufs ${OBJDIR}/test-root')

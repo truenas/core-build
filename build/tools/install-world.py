@@ -49,6 +49,6 @@ if __name__ == '__main__':
         sh('rm -rf ${WORLD_DESTDIR}')
 
     sh('mkdir -p ${WORLD_DESTDIR}')
-    installworld(e('${WORLD_DESTDIR}'), installworldlog, distributionlog, image=True)
-    installkernel(e('${KERNCONF}'), e('${WORLD_DESTDIR}'), installkernellog, image=True)
-    installkernel(e('${KERNCONF}-DEBUG'), e('${WORLD_DESTDIR}'), installkerneldebuglog, kodir="/boot/kernel-debug", image=True)
+    installworld(e('${WORLD_DESTDIR}'), installworldlog, distributionlog, conf="run")
+    installkernel(e('${KERNCONF}'), e('${WORLD_DESTDIR}'), installkernellog, conf="run")
+    installkernel(e('${KERNCONF}-DEBUG'), e('${WORLD_DESTDIR}'), installkerneldebuglog, kodir="/boot/kernel-debug", conf="run")

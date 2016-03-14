@@ -350,8 +350,8 @@ def make_iso_image():
 if __name__ == '__main__':
     info("Creating ISO image")
     cleandirs()
-    installworld(e('${INSTUFS_DESTDIR}'), installworldlog, distributionlog, image=True)
-    installkernel(e('${KERNCONF}'), e('${ISO_DESTDIR}'), installkernellog, modules="", image=True)
+    installworld(e('${INSTUFS_DESTDIR}'), installworldlog, distributionlog, conf="boot")
+    installkernel(e('${KERNCONF}'), e('${ISO_DESTDIR}'), installkernellog, modules="", conf="boot")
     create_ufs_dirs()
     mount_packages()
     install_ports()

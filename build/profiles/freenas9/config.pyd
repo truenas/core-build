@@ -91,6 +91,7 @@ make_conf_build = {
     "WITHOUT_CALENDAR":             "yes",
     "WITHOUT_CLANG_FULL":           "yes",
     "WITHOUT_CTM":                  "yes",
+    "WITHOUT_CUSE":                 "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_EXAMPLES":             "yes",
     "WITHOUT_FORTRAN":              "yes",
@@ -137,10 +138,32 @@ make_conf_pkg = {
     "DISABLE_LICENSES":             "yes"
 }
 
-make_conf_image = {
+make_conf_run = {
     "WITHOUT_KERNEL_SYMBOLS":       "yes",
     "WITHOUT_RCS":                  "yes",
     "WITHOUT_TOOLCHAIN":            "yes",
+}
+
+make_conf_boot = {
+    "WITHOUT_BHYVE":                "yes",
+    "WITHOUT_CALENDAR":             "yes",
+    "WITHOUT_DICT":                 "yes",
+    "WITHOUT_GROFF":                "yes",
+    "WITHOUT_ICONV":                "yes",
+    "WITHOUT_INETD":                "yes",
+    "WITHOUT_JAIL":                 "yes",
+    "WITHOUT_KDUMP":                "yes",
+    "WITHOUT_LOCALES":              "yes",
+    "WITHOUT_LPR":                  "yes",
+    "WITHOUT_MAIL":                 "yes",
+    "WITHOUT_MAKE":                 "yes",
+    "WITHOUT_MAN":                  "yes",
+    "WITHOUT_NIS":                  "yes",
+    "WITHOUT_NLS":                  "yes",
+    "WITHOUT_PMC":                  "yes",
+    "WITHOUT_PROFILE":              "yes",
+    "WITHOUT_SYSCONS":              "yes",
+    "WITHOUT_VT":                   "yes",
 }
 
 early_customize_tasks = [

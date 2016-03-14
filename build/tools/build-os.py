@@ -35,7 +35,6 @@ from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error, pat
 config = load_profile_config()
 arch = env('TARGET_ARCH', 'amd64')
 makeconfbuild = objdir('make-build.conf')
-makeconfimage = objdir('make-image.conf')
 kernconf = objdir(e('${KERNCONF}'))
 kernconf_debug = objdir(e('${KERNCONF}-DEBUG'))
 kernlog = objdir('logs/buildkernel')
@@ -60,10 +59,18 @@ def create_make_conf_build():
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
     conf.close()
-    conf = open(makeconfimage, 'w')
+    conf = open(objdir('make-run.conf'), 'w')
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
-    for k, v in config['make_conf_image'].items():
+    for k, v in config['make_conf_run'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    conf.close()
+    conf = open(objdir('make-boot.conf'), 'w')
+    for k, v in config['make_conf_build'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    for k, v in config['make_conf_run'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    for k, v in config['make_conf_boot'].items():
         conf.write('{0}={1}\n'.format(k, v))
     conf.close()
 
@@ -122,20 +129,17 @@ def buildworld():
     )
 
 
-def installworld(destdir, worldlog, distriblog, image=False):
+def installworld(destdir, worldlog, distriblog, conf="build"):
     info('Installing world in {0}', destdir)
     info('Log file: {0}', worldlog)
-    if image:
-        conf=makeconfimage
-    else:
-        conf=makeconfbuild
+    makeconf = objdir("make-${conf}.conf")
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-C ${TRUEOS_ROOT}",
         "installworld",
         "DESTDIR=${destdir}",
-        "__MAKE_CONF=${conf}",
+        "__MAKE_CONF=${makeconf}",
         log=worldlog
     )
 
@@ -147,22 +151,19 @@ def installworld(destdir, worldlog, distriblog, image=False):
         "-C ${TRUEOS_ROOT}",
         "distribution",
         "DESTDIR=${destdir}",
-        "__MAKE_CONF=${conf}",
+        "__MAKE_CONF=${makeconf}",
         log=distriblog
     )
 
 
-def installkernel(kconf, destdir, log, kodir=None, modules=None, image=False):
+def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
     if modules is None:
         modules = config['kernel_modules']
     if kodir is None:
         kodir = "/boot/kernel"
-    if image:
-        conf=makeconfimage
-    else:
-        conf=makeconfbuild
+    makeconf = objdir("make-${conf}.conf")
     modules = ' '.join(modules)
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
@@ -172,7 +173,7 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None, image=False):
         "DESTDIR=${destdir}",
         "KERNCONF={0}".format(kconf),
         "KODIR={0}".format(kodir),
-        "__MAKE_CONF=${conf}",
+        "__MAKE_CONF=${makeconf}",
         "MODULES_OVERRIDE='{0}'".format(modules),
         log=log
     )
