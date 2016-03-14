@@ -59,6 +59,9 @@ def main(destdir):
     # Kill static libraries
     sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
 
+    # Kill sources of locale files
+    sh("find ${destdir}/usr/local -type f -name '*.po' -delete")
+
     # magic.mgc is just a speed optimization
     sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
 
