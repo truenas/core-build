@@ -378,7 +378,7 @@ ports += {
     ]
 }
 
-ports += "sysutils/freenas-sample"
+ports += "sysutils/sample"
 ports += "sysutils/grub2-freenas"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm-devel"
