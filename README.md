@@ -30,7 +30,6 @@ To build FreeNAS 10 from scratch (experts only):
   * sysutils/grub2-pcbsd
   * sysutils/xorriso
   * devel/gmake
-  * www/npm012
 
   (and all the dependencies that these ports/pkgs install, of course)
   
