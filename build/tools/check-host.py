@@ -71,8 +71,6 @@ def check_build_tools():
     check_port('poudriere', 'ports-mgmt/poudriere-devel')
     check_port('grub-mkrescue', 'sysutils/grub2-pcbsd')
     check_port('xorriso', 'sysutils/xorriso')
-    check_port('npm', 'www/npm012')
-    check_port_version('node', 'www/node012', '12')
     check_port('gmake', 'devel/gmake')
 
 
