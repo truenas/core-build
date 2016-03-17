@@ -45,7 +45,7 @@ def main():
     setfile('${WORLD_DESTDIR}/conf/base/mnt/md_size', '8192')
 
     # Symlink /tmp to /var/tmp
-    sh('rmdir ${WORLD_DESTDIR}/tmp')
+    sh('rm -rf ${WORLD_DESTDIR}/tmp')
     sh('ln -s /var/tmp ${WORLD_DESTDIR}/tmp')
 
 
