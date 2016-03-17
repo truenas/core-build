@@ -65,6 +65,13 @@ repos += {
     "branch": "v4-3-stable"
 }
 
+repos += {
+    "name": "zfsd",
+    "path": "zfsd",
+    "url": "https://github.com/freenas/zfsd.git",
+    "branch": "master"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",
