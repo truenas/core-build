@@ -51,6 +51,5 @@ def main():
     sh('ln -s /var/tmp ${WORLD_DESTDIR}/tmp')
 
 
-
 if __name__ == '__main__':
     main()
