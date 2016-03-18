@@ -133,6 +133,9 @@ sync:
 remote: sync
 	ssh -o StrictHostKeyChecking=no -t ${host} sudo make -C ${dir} ${target}
 
+reinstall-latest:
+	@${BUILD_TOOLS}/reinstall-package.py install_latest ${host}
+
 reinstall-package:
 	@${BUILD_TOOLS}/reinstall-package.py ${host} ${p}
 
