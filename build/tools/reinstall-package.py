@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #+
-# Copyright 2015 iXsystems, Inc.
+# Copyright 2016 iXsystems, Inc.
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -28,15 +28,25 @@
 
 
 import os
+import sys
 from utils import glob, sh, setup_env
 
 
 def main():
     pkg_paths = []
     pkg_names = []
-    for i in glob('${OBJDIR}/ports/packages/*/All/${package}*.txz'):
-        pkg_paths.append(i)
-        pkg_names.append(os.path.basename(i))
+
+    def append_packages(name):
+        for i in glob('${OBJDIR}/ports/packages/*/All/'+'{0}*.txz'.format(name)):
+            pkg_paths.append(i)
+            pkg_names.append(os.path.basename(i))
+
+    if 'install_latest' in sys.argv:
+        for i in glob('${OBJDIR}/ports/logs/bulk/*/latest/logs/*.log'):
+            current_pkg = os.path.basename(i).rsplit('.log')[0]
+            append_packages(current_pkg)
+    else:
+        append_packages('${package}')
 
     pkg_dest_paths = ' '.join([os.path.join('/tmp', i) for i in pkg_names])
     pkg_paths = ' '.join(pkg_paths)
