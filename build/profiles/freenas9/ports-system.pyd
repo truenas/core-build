@@ -112,6 +112,7 @@ ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
+ports += "net/py-s3cmd"
 ports += "devel/tevent"
 ports += {
     "name":"devel/talloc",
