@@ -30,11 +30,11 @@ if PROFILE == "freenas9":
             },
             {
                 "name": "ReleaseNotes",
-                "source": "${BE_ROOT}/freenas/ReleaseNotes"
+                "source": "${BUILD_ROOT}/release/${VERSION_NUMBER}/${PRODUCT}/RELEASE/ReleaseNotes"
             },
             {
                 "name": "ChangeLog",
-                "source": "${BE_ROOT}/freenas/ChangeLog"
+                "source": "${BUILD_ROOT}/release/${VERSION_NUMBER}/${PRODUCT}/RELEASE/ChangeLog"
             },
             {
                 "name": "NOTICE",
