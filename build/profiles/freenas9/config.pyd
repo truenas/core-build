@@ -147,6 +147,7 @@ make_conf_boot = {
     "WITHOUT_BHYVE":                "yes",
     "WITHOUT_CALENDAR":             "yes",
     "WITHOUT_DICT":                 "yes",
+    "WITHOUT_EXAMPLES":             "yes",
     "WITHOUT_GROFF":                "yes",
     "WITHOUT_ICONV":                "yes",
     "WITHOUT_INETD":                "yes",
