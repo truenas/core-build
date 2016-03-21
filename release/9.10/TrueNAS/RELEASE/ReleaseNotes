@@ -1,0 +1,35 @@
+Release Notes for FreeNAS 10-ALPHA
+
+FreeNAS 10 ALPHA Release Notes
+
+Welcome to the first ALPHA Release of FreeNAS 10, a major upgrade from FreeNAS 9.3 and a new chapter in the project’s history which offers a significant number of new technologies!
+
+These technologies include, but are not limited to:
+
+A new underlying OS based on FreeBSD 10.2
+
+A completely new pluggable and extensible “middleware” server that mediates all access to FreeNAS and allows concurrent multi-user (and soon multi-role) access to the system.
+
+A structured Command Line Interpreter with tab-completion, inline help, and high-level access to all FreeNAS functions and event information (See “cli” command)
+
+Two different GUI front-ends to the new middleware:  The “old-style” UI which should be familiar to anyone who has used FreeNAS 9.x, and a completely new UI based on modern web technologies and featuring far more interactive access to FreeNAS features (the new UI sub-project is more fully described here: http://freenas.github.io/gui/)
+
+While not present in this ALPHA release, the Jail/Plugin interfaces have been completely replaced with a new combined Application Container and VM management system (utilizing the new bhyve VM hosting mechanism in FreeBSD 10).  The UI for this will be surfaced in the BETA release.
+
+A number of new file sharing methods, complementing the traditional NFS / SMB / iSCSI file sharing methods always offered by FreeNAS:
+IPFS - The Inter-Planetary Filesystem (https://ipfs.io) - offering a global namespace and torrent-style file distribution method for content you choose to share with others (or vice-versa).
+Riak CS (http://docs.basho.com/riakcs/latest/) - a distributed (clustering) database offering an Amazon S3-compatible Cloud storage API.
+Swift and Gluster are NOT YET SUPPORTED in the ALPHA (but are coming)
+
+Cumulatively speaking, the new file sharing methods allow FreeNAS to scale well beyond the role of “local file server” and into the realm of clustered and horizontally scalable storage, where the total data under management exceeds that provided by any single filer, yet can still be administered from a common point (“single pane of glass” management).  That management UI is still under development and not entirely present for this ALPHA release, but will continue to evolve over the next couple of months as FreeNAS 10 heads for full release status.
+
+
+Notes for installing this -ALPHA release:
+
+Upgrades from FreeNAS 9.3 and earlier are not yet officially supported.  Such upgrades will be a FreeNAS 10-BETA feature.  That said, such upgrades might work, but we are not prepared to officially commit to that feature yet.
+
+It should go without saying but we will say it anyway:  This is an ALPHA release.  Using it for anything other than testing and evaluation is a really bad idea and we do not recommend it for production use at all.
+
+As noted, Jails / Plugins have been replaced by AppCafe in FreeNAS 10, but AppCafe has not yet been fully integrated as of this time and is lurking on a secret port (bonus points if you manage to find it).  This will be fully revealed in BETA, so for ALPHA, no official jails / plugins support are available.
+
+Encrypted drives / pools are not yet supported (we are redesigning this feature for FreeNAS 10).  Do not even attempt to import an encrypted pool into FreeNAS 10-ALPHA.
