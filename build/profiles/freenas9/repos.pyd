@@ -22,13 +22,20 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-
-repos += {
-    "name": "freenas",
-    "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
-}
+if PRODUCTION == "YES":
+    repos += {
+        "name": "freenas",
+        "path": "freenas",
+        "url": "http://github.com/freenas/freenas.git",
+        "branch": "9.10-STABLE"
+    }
+else:
+    repos += {
+        "name": "freenas",
+        "path": "freenas",
+        "url": "http://github.com/freenas/freenas.git",
+        "branch": "master"
+    }
 
 repos += {
     "name": "trueos",
@@ -65,7 +72,14 @@ repos += {
     "branch": "v4-3-stable"
 }
 
-if PRODUCT == "TrueNAS":
+if PRODUCT == "TrueNAS" and PRODUCTION == "YES":
+    repos += {
+        "name": "truenas",
+        "path": "truenas",
+        "url": "git@github.com:iXsystems/truenas.git",
+        "branch": "TN-9.10-STABLE"
+    }
+else:
     repos += {
         "name": "truenas",
         "path": "truenas",
