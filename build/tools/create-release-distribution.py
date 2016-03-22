@@ -51,10 +51,16 @@ def stage_release():
 def get_aux_files_desc():
     for aux in dsl.aux_files:
         name = aux.name
-        yield {
-            'filename': name,
-            'hash': sh_str("sha256 -q ${RELEASE_STAGEDIR}/${name}"),
-        }
+        # Please note that the aux.source is not the one in the
+        # release stagedir but if it did not exist in the first place
+        # then create_aux_files function would not have copied it over.
+        if os.path.exists(aux.source):
+            yield {
+                'filename': name,
+                'hash': sh_str("sha256 -q ${RELEASE_STAGEDIR}/${name}"),
+            }
+        else:
+            continue
 
 
 def get_image_files_desc():

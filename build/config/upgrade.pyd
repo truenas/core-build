@@ -22,41 +22,21 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-if PROFILE == "freenas9":
-    aux_files = [
-            {
-                "name": "${PRODUCT}-MANIFEST",
-                "source": "${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"
-            },
-            {
-                "name": "ReleaseNotes",
-                "source": "${BUILD_ROOT}/release/${VERSION_NUMBER}/${PRODUCT}/RELEASE/ReleaseNotes"
-            },
-            {
-                "name": "ChangeLog",
-                "source": "${BUILD_ROOT}/release/${VERSION_NUMBER}/${PRODUCT}/RELEASE/ChangeLog"
-            },
-            {
-                "name": "NOTICE",
-                "source": "${BUILD_ROOT}/NOTICE"
-            }
-]
-else:
-    aux_files = [
-            {
-                "name": "${PRODUCT}-MANIFEST",
-                "source": "${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"
-            },
-            {
-                "name": "ReleaseNotes",
-                "source": "${BUILD_ROOT}/ReleaseNotes"
-            },
-            {
-                "name": "ChangeLog",
-                "source": "${BUILD_ROOT}/ChangeLog"
-            },
-            {
-                "name": "NOTICE",
-                "source": "${BUILD_ROOT}/NOTICE"
-            }
+aux_files = [
+    {
+        "name": "${PRODUCT}-MANIFEST",
+        "source": "${PACKAGES_DESTDIR}/${PRODUCT}-MANIFEST"
+    },
+    {
+        "name": "ReleaseNotes",
+        "source": "${RELEASE_DOCS_PATH}/ReleaseNotes"
+    },
+    {
+        "name": "ChangeLog",
+        "source": "${RELEASE_DOCS_PATH}/ChangeLog"
+    },
+    {
+        "name": "NOTICE",
+        "source": "${BUILD_ROOT}/NOTICE"
+    }
 ]
