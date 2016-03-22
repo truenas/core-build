@@ -55,11 +55,14 @@ def main():
     if not rel_dir:
         error('Release not found')
 
-    buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
-    downlodtargetdir = e('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
-    sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downlodtargetdir}')
-    sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downlodtargetdir}')
-    sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downlodtargetdir}/')
+    if e('${BUILD_TYPE}').lower() in ["master", "stable"]:
+        buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
+        downloadtargetdir = ('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
+    else:
+        downloadtargetdir = e('${DOWNLOAD_TARGETDIR}')
+    sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
+    sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
+    sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
     info('Synchronizing download server to CDN')
     sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
 
