@@ -41,7 +41,6 @@ exclude = /usr/local/www/freenasUI
 	/usr/local/share/gtk-doc
 	/usr/local/share/gir-1.0
 	/usr/local/info
-	/usr/local/man
 	/usr/local/share/examples
 	/var/log
 	/conf/base/var/log/usr/log
