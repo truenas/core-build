@@ -92,11 +92,10 @@ def create_aux_files(dsl, dest):
 
 def create_json():
     version = e('${VERSION}').split('-')[0]
-    build_type = e('${VERSION}').split('-')[1]
     json_file = {
         'name': e('${PRODUCT}'),
         'version': e('${version}'),
-        'type': e('${build_type}'),
+        'type': e('${BUILD_TYPE}'),
         'date': e('${BUILD_TIMESTAMP}'),
         'aux_files': list(get_aux_files_desc()),
         'arch': {
