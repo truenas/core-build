@@ -33,7 +33,7 @@ if PROFILE == "freenas9":
     aux_files = [
             {
                 "name": "ReleaseNotes",
-                "source": "${BE_ROOT}/freenas/ReleaseNotes"
+                "source": "${BUILD_ROOT}/release/${VERSION_NUMBER}/${PRODUCT}/RELEASE/ReleaseNotes"
             },
             {
                 "name": "MANIFEST",
@@ -43,8 +43,8 @@ if PROFILE == "freenas9":
                 "name": "README",
                 "source": "${BE_ROOT}/freenas/README.md",
                 "template": True
-    }
-]
+            }
+    ]
 else:
     aux_files = [
             {
@@ -60,4 +60,4 @@ else:
                 "source": "${BUILD_ROOT}/README.md",
                 "template": True
             }
-]
+    ]
