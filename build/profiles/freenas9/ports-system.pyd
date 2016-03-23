@@ -267,8 +267,8 @@ ports += "sysutils/arcconf"
 ports += "sysutils/tw_cli"
 ports += "sysutils/megacli"
 if PRODUCT != "TrueNAS":
-	ports += "sysutils/areca-cli"
-	ports += "sysutils/hptcli"
+    ports += "sysutils/areca-cli"
+    ports += "sysutils/hptcli"
 ports += {
     "name": "net/py-ldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
@@ -429,6 +429,8 @@ ports += "misc/xtail"
 ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
 ports += "sysutils/htop"
+if PRODUCT == "TrueNAS":
+    ports += "www/grafana2"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
