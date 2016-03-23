@@ -29,6 +29,7 @@ ports += {
     "name": "ports-mgmt/pkg",
     "options": ["WITH_DEBUG=yes"]
 }
+ports += "dns/bind-tools"
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
 ports += "textproc/libxml2"

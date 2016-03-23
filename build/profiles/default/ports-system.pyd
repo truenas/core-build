@@ -39,6 +39,7 @@ ports += {
 }
 
 ports += "devel/ds2"
+ports += "dns/bind-tools"
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
 ports += "archivers/liblz4"
