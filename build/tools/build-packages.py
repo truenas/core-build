@@ -68,12 +68,6 @@ def build_pkgtools():
         log=pkgtoolslog
     )
 
-    sh(
-        "env MAKEOBJDIRPREFIX=${OBJDIR}",
-        "make -C ${SRC_ROOT}/freenas-pkgtools obj all install DESTDIR=${WORLD_DESTDIR} PREFIX=/usr/local",
-        log=pkgtoolslog
-    )
-
 
 def build_packages():
     retval = []
