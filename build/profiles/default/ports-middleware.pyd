@@ -38,6 +38,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/freenas-pkgtools",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-datastore",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
