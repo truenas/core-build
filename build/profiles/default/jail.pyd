@@ -96,6 +96,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-wbclient",
+    "dest": "/usr/middleware_src/py-wbclient"
+}
+
+copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }

@@ -101,6 +101,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-wbclient",
+    "path": "py-wbclient",
+    "url": "https://github.com/freenas/py-wbclient.git",
+    "branch": "master",
+}
+
+repos += {
     "name": "licenselib",
     "path": "licenselib",
     "url": "https://github.com/freenas/licenselib.git",
