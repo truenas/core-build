@@ -28,6 +28,7 @@
 
 
 import os
+import multiprocessing
 from dsl import load_profile_config
 from utils import sh, sh_str, info, debug, e, setfile, appendfile
 
@@ -69,6 +70,7 @@ def generate_manifest():
 
 if __name__ == '__main__':
     if not e('${SKIP_CHECKOUT}'):
+        jobs = []
         for i in dsl['repos']:
             if e('${CHECKOUT_ONLY}'):
                 if i['name'] not in e('${CHECKOUT_ONLY}').split(','):
@@ -77,7 +79,9 @@ if __name__ == '__main__':
             info('Checkout: {0} -> {1}', i['name'], i['path'])
             debug('Repository URL: {0}', i['url'])
             debug('Local branch: {0}', i['branch'])
-            checkout_repo(i)
+            p = multiprocessing.Process(target=checkout_repo, args=(i,))
+            jobs.append(p)
+            p.start()
 
     generate_manifest()
     setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
