@@ -27,15 +27,12 @@
 #####################################################################
 
 
-import os
-import sys
-from dsl import load_file
-from utils import sh, sh_str, info, error, env
+from utils import sh
 
 
 def save_build_env():
     sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
-    sh('cp ${BE_ROOT}/* ${SAVED_BUILD_ENV_DESTDIR}/')
+    sh('cp -a ${BE_ROOT}/objs/* ${SAVED_BUILD_ENV_DESTDIR}/')
 
 if __name__ == '__main__':
     save_build_env()
