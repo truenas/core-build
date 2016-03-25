@@ -40,30 +40,84 @@ dsl = load_profile_config()
 manifest = {sh_str("git config --get remote.origin.url"): get_git_rev()}
 
 
-def checkout_repo(repo):
-    os.chdir(e('${BE_ROOT}'))
-    if os.path.isdir(os.path.join(repo['path'], '.git')):
-        os.chdir(repo['path'])
-        branch = sh_str('git rev-parse --abbrev-ref HEAD')
-        if branch != repo['branch']:
-            sh('git remote set-url origin', repo['url'])
+def is_git_repo(path):
+    """Determine whether given path names a git repository."""
+    # This is how git itself does it
+    return os.path.exists(os.path.join(path, '.git', 'HEAD'))
+
+def find_ref_clone(repo_name):
+    """See if there's an existing clone to use as a reference."""
+    git_ref_path = e('${GIT_REF_PATH}')
+    if git_ref_path:
+        for path in git_ref_path.split(':'):
+            candidate = os.path.join(path, repo_name)
+            if is_git_repo(candidate):
+                return candidate
+    return None
+
+def checkout_repo(cwd, repo):
+    """Check out the given repository.
+
+    Arguments:
+        cwd -- start in this directory.
+        repo -- gives 'name', 'path', 'branch', and 'url'
+                (and optionally 'commit')
+
+    We check out the given branch, unless ${CHECKOUT_TAG} is
+    set (then we check out that value), or unless a 'commit'
+    key is set (then we check out repo['commit']).
+
+    If ${CHECKOUT_SHALLOW} is set, new clones are made with
+    depth 1.
+
+    If ${GIT_REF_PATH} is set, we can check for reference clones
+    that may be available in that path (colon separated path
+    as for normal Unix conventions).
+    """
+
+    buildenv_root = e('${BE_ROOT}')
+    repo_name = repo['name']
+    repo_path = repo['path']
+    repo_url = repo['url']
+    branch = repo['branch']
+
+    # Search for a reference clone before changing directories
+    # in case it's a relative path.
+    os.chdir(cwd)
+    refclone = find_ref_clone(repo_name)
+    if refclone:
+        refclone = os.path.abspath(refclone)
+
+    os.chdir(buildenv_root)
+    if is_git_repo(repo_path):
+        os.chdir(repo_path)
+        current_branch = sh_str('git rev-parse --abbrev-ref HEAD')
+        if current_branch != branch:
+            # (re)setting origin is a bit rude if someone had
+            # carefully set their own variant, but oh well.
+            sh('git remote set-url origin', repo_url)
             sh('git fetch origin')
-            sh('git checkout', repo['branch'])
+            sh('git checkout', branch)
 
         sh('git pull --rebase')
     else:
         if e('${CHECKOUT_SHALLOW}'):
-            sh('git clone', '-b', repo['branch'], '--depth', '1', repo['url'], repo['path'])
+            sh('git clone -b', branch, '--depth 1', repo_url, repo_path)
         else:
-            sh('git clone', '-b', repo['branch'], repo['url'], repo['path'])
-        os.chdir(repo['path'])
+            # Should we have an option to add --dissociate?
+            if refclone:
+                sh('git clone --reference', refclone,
+                   '-b', branch, repo_url, repo_path)
+            else:
+                sh('git clone -b', branch, repo_url, repo_path)
+        os.chdir(repo_path)
 
     if e('${CHECKOUT_TAG}'):
         sh('git checkout ${CHECKOUT_TAG}')
     elif 'commit' in repo:
         sh('git checkout', repo['commit'])
 
-    manifest[repo['url']] = get_git_rev()
+    manifest[repo_url] = get_git_rev()
 
 
 def generate_manifest():
@@ -73,6 +127,7 @@ def generate_manifest():
 
 def main():
     if not e('${SKIP_CHECKOUT}'):
+        cwd = os.getcwd()
         for i in dsl['repos']:
             if e('${CHECKOUT_ONLY}'):
                 if i['name'] not in e('${CHECKOUT_ONLY}').split(','):
@@ -81,7 +136,7 @@ def main():
             info('Checkout: {0} -> {1}', i['name'], i['path'])
             debug('Repository URL: {0}', i['url'])
             debug('Local branch: {0}', i['branch'])
-            checkout_repo(i)
+            checkout_repo(cwd, i)
 
     generate_manifest()
     setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
