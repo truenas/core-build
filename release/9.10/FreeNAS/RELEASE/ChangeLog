@@ -1,50 +1,13 @@
-#3812	Feature	Nice to have	include htop
-#3879	Feature	Expected	Translate RRD data from collectd into something that we could be sent to a graphite server
-#5271	Bug	Nice to have	Need to review rc.d script sleep commands
-#6724	Bug	Nice to have	dmesg said to report this message
-#6871	Bug	Nice to have	GUI and GRUB use different time zones
-#9117	Bug	Important	10GbE SFP+ network card giving error ixl0: ixl_set_flowcntl: Error retrieving link info from aq, -56
-#9358	Bug	Important	network problem with intel x710 	FreeNAS-9.3-STABLE-201504152200
-#10050	Bug	Nice to have	Hang on ARC-1160/JBOD looking for device serial numbers
-#10181	Bug	Important	Can not delete "active on reboot" boot environment
-#11293	Bug	Nice to have	crash on receiving dataset + changing primarycache on it
-#12399	Feature	Expected	Support for Intel I219-V & I219-LM Gigabit Ethernet Chipset
-#12400	Feature	Expected	Support for Intel Skylake architecture, which has removed legacy EHCI support
-#12947	Bug	No priority	FTP masquerade address will not accept hostname
-#13017	Bug	Nice to have	Create API call for building the ixdiagnose.tgz file
-#13026	Bug	Nice to have	LAGG Members undefined, while LAGG is Working
-#13056	Feature	Important	domain account password retention
-#13071	Bug	Important	Cannot change Active Directory Credentials
-#13225	Feature	Important	add checkbox to WebGUI to allow nfsv3-like ownership when using nfsv4
-#13249	Bug	Nice to have	samba syslog logging control
-#13293	Bug	No priority	Unable to load /api/v1.0/storage/replication: 401
-#13297	Bug	Nice to have	Drivers for USB Network adapters
-#13312	Bug	Nice to have	uam error
-#13361	Bug	Nice to have	Wizard creates broken CIFS shares
-#13384	Bug	Important	Improves speed of ListClones
-#13388	Bug	Nice to have	vlan parent interfaces can't be vlan interfaces
-#13389	Bug	Important	Enforce the lower bound of vlan tags
-#13450	Bug	Important	disabled replication job set target readon
-#13468	Bug	Nice to have	Scheduled scrubs try to run during drive resilver
-#13485	Feature	Nice to have	Backport 10.2 ixgbe driver for Intel X550 support
-#13577	Bug	Expected	iSCSI won't allow a client to login in if the CmdSN is > 31 bits
-#13589	Bug	Nice to have	Add jed to the build
-#13592	Bug	Blocks Until Resolved	Samba with LDAP will not start when rebooting. bind password gone!
-#13639	Bug	Nice to have	API Documentation Error "repl_followdelete" & "repl_userepl"
-#13663	Bug	Nice to have	Intel C608 SAS controller
-#13849	Bug	Important	Update server could not be reached
-#13876	Bug	Important	freenas-update should use stable cache directory by default and also support the notion of a "frozen cache directory" file, maybe a .tar or .zip or whatever's easiest.
-#13967	Bug	Important	Cannot create NFS share with unicode character in path
-#13970	Bug	Nice to have	FreeNAS VMware-snapshot integration doesn't handle few edge cases
-#13976	Bug	No priority	Need to set default kerberos realm during boot for Active Directory
-#13990	Bug	Nice to have	Active Directory Verbose logging doesn't work
-#13992	Bug	Nice to have	Fixes an upgrade issue if the original BE was deleted.
-#13997	Bug	Nice to have	Intel i350-T4 interface
-#14009	Bug	Nice to have	Strange Samba errors
-#14018	Bug	Expected	Bring forward the custom hacks from samba41 to samba43
-#14067	Bug	Important	Startup is a bit mysterious
-#14082	Bug	Expected	Possible data corruption of incremental backups "ZFS send fails to transmit some holes" OpenZFS Bug
-#14090	Feature	Nice to have	Allow disabling Active Directory user/group cache
-#14108	Bug	Expected	avatar.conf is gone, change the installer
-#14136	Feature	Important	No REST API for extending zvol
-#14155	Bug	Important	Fixes an error for updates not requiring a reboot.
+#8439   Feature Important       Volume Will not Create
+#12731  Bug     Nice to have    Make freenas-update more pretty
+#13225  Feature Important       add checkbox to WebGUI to allow nfsv3-like ownership when using nfsv4
+#13378  Bug     Important       ipmi KCS error ff
+#13696  Bug     Nice to have    System Boot Status 500
+#14178  Bug     Important       watchdogd constant load of ~7-10% according to top
+#14223  Bug     Important       "Verify Install" is finding lots of false positives
+#14224  Bug     Important       ZFS WARNING: Unable to create ZVOL
+#14229  Bug     Nice to have    Cyrillic filenames broken, proftpd in 9.10
+#14231  Bug     No priority     Samba spamming log.smbd
+#14233  Bug     Nice to have    Error in "daily security run output"
+#14257  Bug     Critical        Shadow Copy Previous Versions Broke with 9.10 upgrade                                                                  
+#14269  Bug     Expected        Build environment isn't saved for 9.10 and 10
