@@ -36,6 +36,8 @@ $RECYCLE.BIN/
 
 ### PROJECT SETTINGS ###
 _BE/
+.profile-setting
+.git-ref-path
 
 # Exlude compiled Sphinx docs
 /docs/*/_build/

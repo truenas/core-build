@@ -42,6 +42,12 @@ MK := ${MAKE} -f ${BUILD_ROOT}/Makefile.inc1
 GIT_LOCATION != cat ${GIT_REPO_SETTING}
 .endif
 
+.if exists(${BUILD_ROOT}/.git-ref-path)
+GIT_REF_PATH != cat ${BUILD_ROOT}/.git-ref-path
+.elif exists(/build/gitrefs)
+GIT_REF_PATH ?= /build/gitrefs
+.endif
+
 .if exists(${PROFILE_SETTING})
 PROFILE != cat ${PROFILE_SETTING}
 .endif
@@ -58,6 +64,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .export OBJDIR
 .export BUILD_STARTED
 .export GIT_REPO_SETTING
+.export GIT_REF_PATH
 .export PROFILE
 
 .BEGIN:
