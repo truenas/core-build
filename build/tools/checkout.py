@@ -28,12 +28,16 @@
 
 
 import os
+import sys
 from dsl import load_profile_config
 from utils import sh, sh_str, info, debug, e, setfile, appendfile
 
+def get_git_rev():
+    """Return git revision.  Assumes $cwd is within the repository."""
+    return sh_str("git rev-parse --short HEAD")
 
 dsl = load_profile_config()
-manifest = {sh_str("git config --get remote.origin.url"): sh_str("git rev-parse --short HEAD")}
+manifest = {sh_str("git config --get remote.origin.url"): get_git_rev()}
 
 
 def checkout_repo(repo):
@@ -59,7 +63,7 @@ def checkout_repo(repo):
     elif 'commit' in repo:
         sh('git checkout', repo['commit'])
 
-    manifest[repo['url']] = sh_str("git rev-parse --short HEAD")
+    manifest[repo['url']] = get_git_rev()
 
 
 def generate_manifest():
@@ -67,7 +71,7 @@ def generate_manifest():
     for k, v in manifest.items():
         appendfile('${BE_ROOT}/repo-manifest', e('${k} ${v}'))
 
-if __name__ == '__main__':
+def main():
     if not e('${SKIP_CHECKOUT}'):
         for i in dsl['repos']:
             if e('${CHECKOUT_ONLY}'):
@@ -81,3 +85,7 @@ if __name__ == '__main__':
 
     generate_manifest()
     setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
