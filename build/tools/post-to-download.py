@@ -57,7 +57,7 @@ def main():
 
     if e('${BUILD_TYPE}').lower() in ["master", "stable"]:
         buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
-        downloadtargetdir = ('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
+        downloadtargetdir = e('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
     else:
         downloadtargetdir = e('${DOWNLOAD_TARGETDIR}')
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
