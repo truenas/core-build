@@ -74,6 +74,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/libdispatcherclient",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/js-freenas.dispatcher",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -138,6 +147,15 @@ ports += {
 
 ports += {
     "name": "freenas/freenas-schedulerd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
+    "name": "freenas/freenas-dscached",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
