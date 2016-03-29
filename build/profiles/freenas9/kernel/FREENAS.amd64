@@ -351,7 +351,7 @@ device		ucom
 
 # Watchdog support
 device		ichwd
-#device		amdsbwd			# #7094: driver must not set watchdog if requested value is too high
+device		amdsbwd
 device		viawd
 device		wbwd
 
