@@ -78,7 +78,8 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + middleware_git_rev
+        "REVISION=" + middleware_git_rev,
+        "WITH_DEBUG=yes"
     ]
 }
 
@@ -87,7 +88,8 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + middleware_git_rev
+        "REVISION=" + middleware_git_rev,
+        "WITH_DEBUG=yes"
     ]
 }
 
