@@ -141,7 +141,6 @@ reinstall-package:
 
 freenas: release
 release:
-	@if [ "${PRODUCT}" = "TrueNAS" -a "${GIT_LOCATION}" != "INTERNAL" ]; then echo "You can only run this target from an internal repository."; exit 2; fi
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
 	script -a ${RELEASE_LOGFILE} ${MK} build
