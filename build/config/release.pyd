@@ -39,6 +39,10 @@ aux_files = [
         "source": "${BE_ROOT}/repo-manifest"
     },
     {
+        "name": "ChangeLog",
+        "source": "${RELEASE_DOCS_PATH}/ChangeLog"
+    },
+    {
         "name": "README",
         "source": "${BE_ROOT}/freenas/README.md",
         "template": True
