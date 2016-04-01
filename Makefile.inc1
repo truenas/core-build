@@ -107,6 +107,8 @@ clean-freenas-packages: clean-ui-package
 	@${MK} clean-package p=py34-ws4py
 	@${MK} clean-package p=py34-SMART
 	@${MK} clean-package p=py34-ipfs-api
+	@${MK} clean-package p=nss-freenas
+	@${MK} clean-package p=pam-freenas
 	@${MK} clean-package p=iocage-devel
 
 cleandist:
