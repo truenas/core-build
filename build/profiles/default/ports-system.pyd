@@ -145,25 +145,7 @@ ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["OPTIONS_FILE_UNSET+=ICU"]
 }
-
-if PRODUCT == "TrueNAS":
-	ports += {
-	    "name": "emulators/qemu",
-	    "options": [
-            "WITHOUT_ADD_AUDIO=y",
-            "WITHOUT_ALL_TARGETS=y",
-            "WITHOUT_CDROM_DMA=y",
-            "WITHOUT_CURL=y",
-            "WITHOUT_GNS3=y",
-            "WITHOUT_GNUTLS=y",
-            "WITHOUT_KQEMU=y",
-            "WITHOUT_BPF=y",
-            "WITHOUT_RTL8139_TIMER=y",
-            "WITHOUT_SAMBA=y",
-            "WITHOUT_SDL=y"
-	    ]
-	}
-
+ports += "sysutils/xe-guest-utilities"
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
 ports += "databases/mongodb"
