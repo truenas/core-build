@@ -361,6 +361,7 @@ ports += "sysutils/grub2-freenas"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm"
 ports += "sysutils/grub2-bhyve"
+ports += "sysutils/mcelog"
 
 # This is a silly for fun thing
 # feel free to remove it if need be

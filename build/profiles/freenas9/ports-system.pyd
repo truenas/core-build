@@ -432,6 +432,7 @@ ports += "misc/xtail"
 ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
 ports += "sysutils/htop"
+ports += "sysutils/mcelog"
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
 
