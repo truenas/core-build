@@ -161,6 +161,20 @@ release-push: update-push
 update-push:
 	@${BUILD_TOOLS}/post-to-upgrade.py
 
+archive:	release
+.if !defined(ARCHIVE)
+	@echo "ARCHIVE location must be defined" 1>&2
+	false
+.endif
+.if !defined(RELEASEDB)
+	@echo "RELEASEDB must be defined" 1>&2
+	false
+.endif
+	/usr/local/bin/freenas-release -P ${PRODUCT} \
+		-D ${RELEASEDB} --archive ${ARCHIVE} \
+		-K ${FREENAS_KEYFILE} \
+		add ${BE_ROOT}/release/LATEST
+
 rebuild: checkout all
 	@${BUILD_TOOLS}/create-release-distribution.py
 
