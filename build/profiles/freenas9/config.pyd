@@ -175,5 +175,6 @@ customize_tasks = [
     "remove-var-cache-pkg",
     "strip-binaries",
     "conf-base9",
+    "link-bash",
     "install-avatar-conf"
 ]
