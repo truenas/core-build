@@ -42,6 +42,7 @@ kernel_modules = [
     "ext2fs",
     "fdescfs",
     "geom",
+    "smbus",
     "ipmi",
     "khelp/h_ertt",
     "libiconv",
