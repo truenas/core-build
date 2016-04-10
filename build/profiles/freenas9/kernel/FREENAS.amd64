@@ -326,7 +326,6 @@ device		lagg			# Link aggregation
 device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
-device		smbus			# Needed for ipmi(4)
 
 # ipfw and nat for jails
 options		IPDIVERT

@@ -45,6 +45,7 @@ kernel_modules = [
     "ext2fs",
     "fdescfs",
     "geom",
+    "i2c",
     "ipmi",
     "khelp/h_ertt",
     "libiconv",
