@@ -52,6 +52,9 @@ def main():
     sh('rm -rf ${WORLD_DESTDIR}/tmp')
     sh('ln -s /var/tmp ${WORLD_DESTDIR}/tmp')
 
+    sh('ln -s -f /data/zfs/zpool.cache ${WORLD_DESTDIR}/boot/zfs/zpool.cache')
+    sh('ln -s -f /usr/local/bin/ntfs-3g ${WORLD_DESTDIR}/sbin/mount_ntfs')
+
 
 if __name__ == '__main__':
     main()
