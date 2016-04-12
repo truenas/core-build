@@ -24,7 +24,7 @@ Various bug fixes related to FreeBSD 10. For more in-depth information,
 see the ChangeLog file.
 
 Ports:
-FreeBSD ports updated to follow the FreeBSD 2016Q1 branch.
+FreeBSD ports updated to follow the FreeBSD 2016Q2 branch.
 
 Jails:
 FreeBSD Jails now default to a FreeBSD 10.3-RC2 based template.
