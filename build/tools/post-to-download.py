@@ -38,9 +38,6 @@ def main():
     if user == 'root':
         user = 'jkh'
 
-    # sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${DOWNLOAD_TARGETDIR}')
-    # sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${DOWNLOAD_TARGETDIR}')
-    # sh('scp -pr ${RELEASE_STAGEDIR}/* ${user}@${DOWNLOAD_HOST}:${DOWNLOAD_TARGETDIR}/')
     ref_date = 0
     rel_dir = ''
     dirstring = e('${BE_ROOT}/release/${PRODUCT}')
@@ -59,7 +56,7 @@ def main():
         buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
         downloadtargetdir = e('${DOWNLOAD_BASEDIR}/${MILESTONE}/${buildtimestamp}')
     else:
-        downloadtargetdir = e('${DOWNLOAD_TARGETDIR}')
+        downloadtargetdir = e('${DOWNLOAD_BASEDIR}/${BUILD_TYPE}')
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
     sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
     sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
