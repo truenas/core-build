@@ -34,8 +34,6 @@ from utils import sh, sh_str, e, setup_env, info, error
 
 
 def main():
-    # name = os.path.basename(e('${RELEASE_STAGEDIR}'))
-    # sh('cp -r ${RELEASE_STAGEDIR} ${IX_INTERNAL_PATH}/${name}')
     ref_date = 0
     rel_dir = ''
     dirstring = e('${BE_ROOT}/release/${PRODUCT}')
@@ -50,8 +48,14 @@ def main():
     if not rel_dir:
         error('Release not found')
 
-    name = os.path.basename(rel_dir)
-    sh('if [ -d ${IX_INTERNAL_PATH} ]; then cp -r ${rel_dir} ${IX_INTERNAL_PATH}/${name}; fi')
+    appending_path = e('${VERSION_NUMBER}')
+    if e('${BUILD_TYPE}').lower() == "master":
+        appending_path = e('nightlies/${VERSION_NUMBER}')
+    elif e('${BUILD_TYPE}').lower() == 'stable':
+        appending_path = e('${VERSION_NUMBER}/STABLE')
+    internal_path = os.path.join(e('${IX_INTERNAL_PATH_PREFIX}'), appending_path)
+    if os.path.exists(internal_path):
+        sh('cp -r ${rel_dir} ${internal_path}/{0}'.format(os.path.basename(rel_dir)))
 
 
 if __name__ == '__main__':
