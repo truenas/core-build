@@ -101,6 +101,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-krb5",
+    "dest": "/usr/middleware_src/py-krb5"
+}
+
+copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }
