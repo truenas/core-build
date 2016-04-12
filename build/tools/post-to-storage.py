@@ -28,7 +28,6 @@
 
 
 import os
-import sys
 import glob
 from utils import sh, sh_str, e, setup_env, info, error
 
@@ -48,11 +47,10 @@ def main():
     if not rel_dir:
         error('Release not found')
 
-    appending_path = e('${VERSION_NUMBER}')
-    if e('${BUILD_TYPE}').lower() == "master":
-        appending_path = e('nightlies/${VERSION_NUMBER}')
-    elif e('${BUILD_TYPE}').lower() == 'stable':
-        appending_path = e('${VERSION_NUMBER}/STABLE')
+    if e('${BUILD_TYPE}').lower() in ["master", "stable"]:
+        appending_path = e('${VERSION_NUMBER}/${BUILD_TYPE}')
+    else:
+        appending_path = e('${VERSION_NUMBER}')
     internal_path = os.path.join(e('${IX_INTERNAL_PATH_PREFIX}'), appending_path)
     if os.path.exists(internal_path):
         sh('cp -r ${rel_dir} ${internal_path}/{0}'.format(os.path.basename(rel_dir)))
