@@ -53,7 +53,8 @@ def main():
         appending_path = e('${VERSION_NUMBER}')
     internal_path = os.path.join(e('${IX_INTERNAL_PATH_PREFIX}'), appending_path)
     if os.path.exists(internal_path):
-        sh('cp -r ${rel_dir} ${internal_path}/{0}'.format(os.path.basename(rel_dir)))
+        internal_path = os.path.join(internal_path, os.path.basename(rel_dir))
+        sh('cp -r ${rel_dir} ${internal_path}')
 
 
 if __name__ == '__main__':
