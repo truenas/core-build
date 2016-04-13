@@ -154,7 +154,7 @@ release:
 
 release-push: update-push
 	@${BUILD_TOOLS}/post-to-storage.py
-	@if [ "${PRODUCT}" == "FreeNAS" ]; then \
+	@if [ "${PRODUCT}" == "FreeNAS" -a "${INTERNAL_UPDATE}" != "YES" -a "${INTERNAL_UPDATE}" != "yes" ]; then \
 		${BUILD_TOOLS}/post-to-download.py; \
 	fi
 
