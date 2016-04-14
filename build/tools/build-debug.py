@@ -52,9 +52,6 @@ def main():
             relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
             destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
 
-            if os.path.dirname(relpath) in ('rescue', 'boot/kernel'):
-                continue
-
             if not is_elf(filename):
                 continue
 
@@ -69,9 +66,10 @@ def main():
             flags = os.stat(filename).st_flags
             os.chflags(filename, 0)
 
-            sh('objcopy --only-keep-debug ${filename} ${destpath}.debug')
-            sh('strip ${filename}', nofail=True)
+            if os.path.dirname(relpath) not in ('rescue', 'boot/kernel'):
+                sh('objcopy --only-keep-debug ${filename} ${destpath}.debug')
 
+            sh('strip ${filename}', nofail=True)
             os.chflags(filename, flags)
 
 
