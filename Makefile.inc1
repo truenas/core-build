@@ -221,3 +221,7 @@ profiles:
 
 select-profile:
 	@${BUILD_TOOLS}/select-profile.py ${name}
+
+debug:
+	@${BUILD_TOOLS}/build-debug.py
+

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2.7
 #+
 # Copyright 2015 iXsystems, Inc.
 # All rights reserved
@@ -26,6 +26,51 @@
 #
 #####################################################################
 
+import os
+import errno
+from utils import sh, e, info
+
+
+def is_elf(filename):
+    if os.path.islink(filename):
+        return False
+
+    with open(filename, 'rb') as f:
+        header = f.read(4)
+        return header == b'\x7fELF'
+
+
+def main():
+    sh('rm -rf ${DEBUG_WORLD}')
+    sh('mkdir -p ${DEBUG_WORLD}')
+
+    info('Saving debug information in ${{DEBUG_WORLD}}')
+
+    for root, dirs, files in os.walk(e('${WORLD_DESTDIR}/')):
+        for name in files:
+            filename = os.path.join(root, name)
+            relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
+            destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
+            if not is_elf(filename):
+                continue
+
+            try:
+                os.makedirs(os.path.dirname(destpath))
+            except OSError as err:
+                if err.errno != errno.EEXIST:
+                    raise
+
+            # We need to remove any flags on protected files and restore
+            # them after stripping
+            flags = os.stat(filename).st_flags
+            os.chflags(filename, 0)
+
+            sh('objcopy --only-keep-debug ${filename} ${destpath}.debug')
+            sh('strip ${filename}', nofail=True)
+
+            os.chflags(filename, flags)
+
+
 
 if __name__ == '__main__':
-    pass
+    main()
