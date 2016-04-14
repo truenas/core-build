@@ -51,6 +51,10 @@ def main():
             filename = os.path.join(root, name)
             relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
             destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
+
+            if os.path.dirname(relpath) in ('rescue', 'boot/kernel'):
+                continue
+
             if not is_elf(filename):
                 continue
 
