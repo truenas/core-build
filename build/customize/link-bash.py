@@ -28,15 +28,13 @@
 
 
 import sys
-from utils import setup_env, sh
-
-
-setup_env()
+from utils import sh
 
 
 def main(destdir):
     # symlink /usr/local/bin/bash to /bin/bash
     sh("ln -sf /usr/local/bin/bash ${destdir}/bin/bash")
-    
+
+
 if __name__ == '__main__':
     main(sys.argv[1])

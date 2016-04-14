@@ -27,13 +27,13 @@
 #####################################################################
 
 import os
-from utils import e, info, setup_env
+from utils import e, info
 
 
 def main():
     info('Build environment:')
     for key, value in os.environ.items():
-        print e('${key}: ${value}')
+        print(e('${key}: ${value}'))
 
 
 if __name__ == '__main__':

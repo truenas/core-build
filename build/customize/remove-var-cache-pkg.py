@@ -26,10 +26,7 @@
 #
 #####################################################################
 
-from utils import setup_env, chroot
-
-
-setup_env()
+from utils import chroot
 
 
 def main():

@@ -30,7 +30,7 @@
 import os
 import json
 from dsl import load_file
-from utils import e, sh, sh_str, readfile, setfile, template, setup_env, info
+from utils import e, sh, sh_str, readfile, setfile, template, info
 
 
 dsl = load_file('${BUILD_CONFIG}/release.pyd', os.environ)

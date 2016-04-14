@@ -29,7 +29,7 @@
 import os
 import sys
 from dsl import load_profile_config
-from utils import sh, sh_str, env, e, setup_env, objdir, info, debug, error, pathjoin
+from utils import sh, sh_str, env, e, objdir, info, debug, pathjoin
 
 
 config = load_profile_config()

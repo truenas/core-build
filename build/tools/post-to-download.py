@@ -29,7 +29,7 @@
 
 import os
 import glob
-from utils import sh, sh_str, e, setup_env, info, error
+from utils import sh, sh_str, e, info, error
 
 
 def main():

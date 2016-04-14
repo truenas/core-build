@@ -27,10 +27,7 @@
 #####################################################################
 
 
-from utils import setup_env, sh, chroot
-
-
-setup_env()
+from utils import sh, chroot
 
 
 files_to_save = [

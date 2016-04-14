@@ -28,7 +28,7 @@
 
 import os
 from dsl import load_profile_config
-from utils import sh, sh_str, info, debug, error, setup_env, e
+from utils import info, debug, error, e
 
 
 config = load_profile_config()

@@ -28,10 +28,7 @@
 
 
 import sys
-from utils import setup_env, sh
-
-
-setup_env()
+from utils import sh
 
 
 def main(destdir):

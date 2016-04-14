@@ -26,10 +26,7 @@
 #
 #####################################################################
 
-from utils import setup_env, sh, setfile
-
-
-setup_env()
+from utils import sh, setfile
 
 
 def main():

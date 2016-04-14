@@ -27,10 +27,7 @@
 #####################################################################
 
 
-from utils import sh, info, setup_env
-
-
-setup_env()
+from utils import info
 
 
 def main():

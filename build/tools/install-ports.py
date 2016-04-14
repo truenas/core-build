@@ -31,7 +31,10 @@ import os
 import sys
 import glob
 from dsl import load_profile_config
-from utils import sh, setup_env, objdir, info, debug, error, setfile, e, on_abort, chroot, get_port_names, readfile
+from utils import (
+    sh, objdir, info, error, e, on_abort,
+    chroot, get_port_names, readfile
+)
 
 
 config = load_profile_config()
@@ -81,13 +84,12 @@ def install_ports():
         error('Packages installation failed, see log file {0}', logfile)
 
 
-
 def install_binary_packages():
     for i in config.binary_packages:
         _, name = os.path.split(i)
         path = e('/usr/ports/packages/${name}')
         chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -f ${path}', log=logfile)
-    
+
 
 if __name__ == '__main__':
     if e('${SKIP_PORTS_INSTALL}'):

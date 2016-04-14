@@ -31,7 +31,10 @@ import signal
 import sys
 import string
 from dsl import load_file, load_profile_config
-from utils import sh, sh_str, sh_spawn, env, e, glob, objdir, pathjoin, setfile, setup_env, template, debug, error, on_abort, info
+from utils import (
+    sh, sh_str, sh_spawn, env, e, glob, pathjoin,
+    setfile, template, debug, error, on_abort, info
+)
 
 
 makejobs = 1

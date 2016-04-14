@@ -26,9 +26,8 @@
 #
 #####################################################################
 
-import os
 from dsl import load_profile_config
-from utils import sh, glob, objdir, info, setup_env
+from utils import sh, objdir, info
 
 
 dsl = load_profile_config()

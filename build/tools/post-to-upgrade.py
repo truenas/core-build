@@ -31,7 +31,7 @@ import os
 import sys
 import tempfile
 import getpass
-from utils import sh, sh_str, e, setup_env, objdir, info, error, import_function
+from utils import sh, sh_str, e, info, error, import_function
 
 
 create_aux_files = import_function('create-release-distribution', 'create_aux_files')
@@ -46,7 +46,7 @@ def main():
         KEY_PASSWORD = ""
     changelog = e('${CHANGELOG}')
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    sshopts='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
 
@@ -59,7 +59,7 @@ def main():
         if changelog == '-':
             print('Enter changelog, ^D to end:')
             cl_file = tempfile.NamedTemporaryFile(delete=False)
-            cl_file.write(bytes(sys.stdin.read(),'UTF-8'))
+            cl_file.write(bytes(sys.stdin.read(), 'UTF-8'))
             cl_file.close()
             changelog = cl_file.name
 

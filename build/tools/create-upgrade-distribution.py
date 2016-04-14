@@ -29,7 +29,7 @@
 
 import os
 from dsl import load_file
-from utils import e, sh, setup_env, import_function, env
+from utils import e, sh, import_function, env
 
 
 dsl = load_file('${BUILD_CONFIG}/upgrade.pyd', os.environ)

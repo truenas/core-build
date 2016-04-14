@@ -27,8 +27,7 @@
 #####################################################################
 
 import os
-from dsl import load_file
-from utils import e, sh, info, setup_env
+from utils import e, sh, info
 
 
 def main():

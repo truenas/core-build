@@ -28,7 +28,7 @@
 
 import os
 import sys
-from utils import sh, e, setup_env, objdir, info, import_function
+from utils import sh, e, objdir, info, import_function
 
 
 installworldlog = objdir('logs/jail-installworld')

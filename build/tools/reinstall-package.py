@@ -29,7 +29,7 @@
 
 import os
 import sys
-from utils import glob, sh, setup_env
+from utils import glob, sh
 
 
 def main():
