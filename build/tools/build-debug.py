@@ -52,6 +52,9 @@ def main():
             relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
             destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
 
+            if os.path.splitext(name)[1] == '.ko':
+                continue
+
             if relpath.startswith(('boot', 'usr/local/lib/grub')):
                 continue
 
