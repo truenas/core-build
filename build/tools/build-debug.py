@@ -83,7 +83,7 @@ def main():
 
 
 def create_package():
-    sh('tar -C ${OBJDIR} -cvJf ${output} ${DEBUG_ROOT}', logfile='/dev/null')
+    sh('tar -C ${DEBUG_ROOT} -cvJf ${output} .', log='/dev/null')
     sha256(output)
 
 
