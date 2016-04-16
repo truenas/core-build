@@ -28,7 +28,10 @@
 
 import os
 import errno
-from utils import sh, e, info
+from utils import sh, e, info, objdir, sha256
+
+
+output = objdir('${NAME}.debug.txz')
 
 
 def is_elf(filename):
@@ -79,6 +82,11 @@ def main():
             os.chflags(filename, flags)
 
 
+def create_package():
+    sh('tar -C ${OBJDIR} -cvJf ${output} ${DEBUG_ROOT}', logfile='/dev/null')
+    sha256(output)
+
 
 if __name__ == '__main__':
     main()
+    create_package()

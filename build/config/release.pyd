@@ -28,7 +28,7 @@ if BUILD_TYPE == "RELEASE":
 else:
     url = e("http://download.freenas.org/nightlies/${VERSION_SHORT}")
 
-formats = ["iso", "GUI_Upgrade.txz"]
+formats = ["iso", "debug.txz"]
 aux_files = [
     {
         "name": "ReleaseNotes",
