@@ -1,15 +1,16 @@
-#10493  Feature Nice to have    Add timestamps to alert window
-#14275  Bug     Nice to have    9.10 Wizard loops if importable pools exist
-#14409  Bug     Important       Don't list vfs objects that are already used automagically
-#14537  Bug     Important       FreeNAS 9.10 takes a lot of time to shut down
-#14600  Bug     Expected        loader tunables don't work
-#14602  Bug     Critical        Upgrade from 9.3 to 9.10 failed
-#14643  Bug     Nice to have    Prevent setting a UID outside the valid range at the GUI
-#14654  Bug     Nice to have    PUT and POST for jail templates not working
-#14655  Bug     Nice to have    Freenas 9.3 to 9.10 upgrade breaks ASUS P5Q (Marvell AHCI SATA controller)
-#14678  Bug     Important       Replication failed emails, replication still succeeds
-#14681  Bug     Nice to have    The help text for "Bind IP Addresses" in NFS settings still refers to it as a comma-delimited list
-#14686  Bug     Nice to have    Returning wrong jail ID on POST
-#14693  Bug     No priority     No error on special characters for new jail name
-#14722  Bug     No priority     smartd.conf 256 character limit fix in 9.3-stable has regressed in 9.10-stable (bug 9708)
-#14749  Feature Nice to have    upgrade iohyve to 0.7.5
+#10493	Feature	Nice to have	Add timestamps to alert window
+#14275	Bug	Nice to have	9.10 Wizard loops if importable pools exist
+#14409	Bug	Important	Don't list vfs objects that are already used automagically
+#14537	Bug	Important	FreeNAS 9.10 takes a lot of time to shut down
+#14600	Bug	Expected	loader tunables don't work
+#14602	Bug	Critical	Upgrade from 9.3 to 9.10 failed
+#14643	Bug	Nice to have	Prevent setting a UID outside the valid range at the GUI
+#14654	Bug	Nice to have	PUT and POST for jail templates not working
+#14655	Bug	Nice to have	Freenas 9.3 to 9.10 upgrade breaks ASUS P5Q (Marvell AHCI SATA controller)
+#14678	Bug	Important	Replication failed emails, replication still succeeds
+#14681	Bug	Nice to have	The help text for "Bind IP Addresses" in NFS settings still refers to it as a comma-delimited list
+#14686	Bug	Nice to have	Returning wrong jail ID on POST
+#14693	Bug	Nice to have	No error on special characters for new jail name
+#14722	Bug	Nice to have	smartd.conf 256 character limit fix in 9.3-stable has regressed in 9.10-stable (bug 9708)
+#14749	Feature	Nice to have	upgrade iohyve to 0.7.5
+#14751	Bug	Nice to have	Update API Docs reflecting changes in disk resource
