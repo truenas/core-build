@@ -1,37 +1,15 @@
-#3869   Bug     Important       Watchdog Timer not Patted (Winbond NCT5573 wbwd0 on AsRock E3C226D2I) Causing Soft Reset
-#7092   Bug     Important       Write errors on encrypted SSD cache drives after upgrade from 9.2 to 9.3
-#7491   Bug     Nice to have    Cannot unmount devfs if it is mounted inside a chrooted environment
-#9389   Bug     Important       wbwd watchdog on Supermicro X7DVL
-#10571  Feature Nice to have    Add support for importing encrypted volumes that use GPT labels
-#10870  Bug     Nice to have    Month checkbox selection in forms issue
-#13538  Bug     Nice to have    Rsync - Domain usernames exceed 17 characters
-#14072  Bug     Important       Update FreeNAS 9.10 logo with new flattened shark logo
-#14183  Bug     Important       DHCP to static IP does not enable Netmask selection
-#14194  Bug     Nice to have    Service Status incorrect after upgrade to 9.10
-#14214  Bug     Expected        SSL Errors in /var/log/messages after updating to 9.10
-#14221  Bug     Nice to have    sas2flash (and others) missing executable permission
-#14250  Bug     Important       Internal CA + Cert requires second cert to be created in FF
-#14278  Bug     Nice to have    Fixes a small logic error in the freenas-update command
-#14290  Bug     Nice to have    Upgrade to latest iohyve
-#14293  Bug     No priority     pluginjail contains wrong pkg config
-#14298  Bug     Important       Timezone does not set correctly
-#14300  Bug     Important       AFP Kerberos missing UAM - Reopening BUG #11800
-#14302  Bug     Nice to have    Snapshot error messages in console
-#14314  Bug     Expected        Can't create encrypted volume on new install
-#14317  Bug     Expected        zpool upgrade of freenas-boot pool breaks bootloader
-#14332  Bug     Important       zvol or its snapshot rename while being accessed results in dataset remaining busy
-#14333  Bug     Nice to have    Updates syslog-ng configuration file version
-#14358  Feature Important       FreeNAS 9.10 extend cifs Maximum Server Protocol list
-#14363  Bug     Important       FreeBSD 10.3 is RELEASE - time to update jail template / mtree file paths
-#14375  Bug     Expected        After devctl converted to XML devd can not parse location and pnp strings
-#14378  Bug     No priority     Resolves an issue where a missing package file would result in a failure to update.
-#14379  Bug     Important       devd needs some additional fixups
-#14396  Bug     Important       WebDAV not working after update from 9.3 to 9.10
-#14405  Bug     Nice to have    Send out version number in the update available email
-#14410  Bug     No priority     database column name mismatch for disk filtering
-#14411  Bug     Important       Write errors on encrypted SSD cache drives after upgrade from 9.2 to 9.3
-#14437  Feature Important       Add sysutils/mcelog to the build
-#14449  Bug     No priority     NFS share - unknown user of Active Directory
-#14460  Bug     Critical        FreeNAS GPT Error
-#14470  Bug     No priority     Users with AD does not autocomplete when there is a user with utf-8
-#14473  Feature Nice to have    add sockstat to fndebug/network (patch)
+#10493  Feature Nice to have    Add timestamps to alert window
+#14275  Bug     Nice to have    9.10 Wizard loops if importable pools exist
+#14409  Bug     Important       Don't list vfs objects that are already used automagically
+#14537  Bug     Important       FreeNAS 9.10 takes a lot of time to shut down
+#14600  Bug     Expected        loader tunables don't work
+#14602  Bug     Critical        Upgrade from 9.3 to 9.10 failed
+#14643  Bug     Nice to have    Prevent setting a UID outside the valid range at the GUI
+#14654  Bug     Nice to have    PUT and POST for jail templates not working
+#14655  Bug     Nice to have    Freenas 9.3 to 9.10 upgrade breaks ASUS P5Q (Marvell AHCI SATA controller)
+#14678  Bug     Important       Replication failed emails, replication still succeeds
+#14681  Bug     Nice to have    The help text for "Bind IP Addresses" in NFS settings still refers to it as a comma-delimited list
+#14686  Bug     Nice to have    Returning wrong jail ID on POST
+#14693  Bug     No priority     No error on special characters for new jail name
+#14722  Bug     No priority     smartd.conf 256 character limit fix in 9.3-stable has regressed in 9.10-stable (bug 9708)
+#14749  Feature Nice to have    upgrade iohyve to 0.7.5
