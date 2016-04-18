@@ -127,7 +127,8 @@ make_conf_pkg = {
     "WRKDIRPREFIX":                 "/wrkdirs",
     "DISABLE_LICENSES":             "yes",
     "WITH_DEBUG":                   "yes",
-    "STRIP":                        ""
+    "STRIP":                        "",
+    "PYTHONHASHSEED":               "0"
 }
 
 make_conf_run = {
