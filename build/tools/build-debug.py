@@ -79,7 +79,6 @@ def main():
                 sh('objcopy --only-keep-debug ${filename} ${destpath}.debug')
 
             sh('strip ${filename}', nofail=True)
-            sh('objcopy --add-gnu-debuglink=${name}.debug ${filename}')
             os.chflags(filename, flags)
 
 
