@@ -178,6 +178,7 @@ early_customize_tasks = [
 customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
+    "remove-pyc-timestamps",
     "strip-binaries",
     "conf-base9",
     "link-bash",
