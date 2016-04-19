@@ -270,3 +270,12 @@ def get_port_names(ports):
             continue
 
         yield i
+
+
+def is_elf(filename):
+    if os.path.islink(filename):
+        return False
+
+    with open(filename, 'rb') as f:
+        header = f.read(4)
+        return header == b'\x7fELF'

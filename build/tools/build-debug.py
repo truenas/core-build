@@ -28,19 +28,10 @@
 
 import os
 import errno
-from utils import sh, e, info, objdir, sha256
+from utils import sh, e, info, objdir, sha256, is_elf
 
 
 output = objdir('${NAME}.debug.txz')
-
-
-def is_elf(filename):
-    if os.path.islink(filename):
-        return False
-
-    with open(filename, 'rb') as f:
-        header = f.read(4)
-        return header == b'\x7fELF'
 
 
 def main():
