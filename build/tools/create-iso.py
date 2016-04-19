@@ -29,7 +29,7 @@
 
 import os
 from dsl import load_file, load_profile_config
-from utils import sh, info, objdir, e, chroot, glob, readfile, setfile, template, sha256, import_function, get_port_names, on_abort
+from utils import sh, info, objdir, e, chroot, glob, readfile, setfile, template, sha256, import_function, get_port_names, on_abort, is_elf
 
 
 ports = load_file('${BUILD_CONFIG}/ports-installer.pyd', os.environ)
@@ -326,6 +326,23 @@ def copy_data():
 
 def clean_ufs_image():
     sh('${BUILD_ROOT}/build/customize/remove-bits.py ${INSTUFS_DESTDIR}')
+
+    # Strip binaries
+    for root, dirs, files in os.walk(e('${INSTUFS_DESTDIR}/')):
+        for name in files:
+            filename = os.path.join(root, name)
+            if os.path.splitext(name)[1] == '.ko':
+                continue
+
+            if not is_elf(filename):
+                continue
+
+            # We need to remove any flags on protected files and restore
+            # them after stripping
+            flags = os.stat(filename).st_flags
+            os.chflags(filename, 0)
+            sh('strip ${filename}')
+            os.chflags(filename, flags)
 
 
 def clean_iso_image():
