@@ -17,4 +17,3 @@
 #14881  Bug     Important       Jail name can't contain capital letters anymore
 #14934  Bug     Nice to have    Minor error in API documentation
 #14935  Bug     Nice to have    libstdc++.so.6" not found, required by "arcconf
-#14947  Bug     Important       SSH bind to an interface should include vlan parents
