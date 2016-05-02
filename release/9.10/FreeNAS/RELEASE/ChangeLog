@@ -1,19 +1,11 @@
-#10042  Feature Nice to have    alert email when failing to create automatic snapshots
-#11691  Bug     Nice to have    Wizard creates datasets over existing directories
-#12967  Bug     Nice to have    afp service restarting continously, can't bind network address
-#13409  Bug     Nice to have    Alert the user in case encryption rekey fails
-#14356  Feature Nice to have    Add status field to zvols/datasets showing if they are readonly or not.
-#14752  Bug     Nice to have    PUT for disks not working as expected
-#14766  Bug     Nice to have    some SMB protocols are obsolete
-#14789  Bug     Critical        Failed to restart services when unlocking locked ZFS pool
-#14799  Bug     Important       Database updating every minute inducing wearout to flash storage
-#14800  Bug     Expected        SSL Errors regression from #14214
-#14814  Bug     Nice to have    Starting/stopping plugins using API on FreeNAS 9.10 doesn't work
-#14815  Feature Nice to have    Getting status of plugin using API
-#14838  Bug     Important       Misleading "vfs.nfsd.enable_stringtouid:: not found" message in console log
-#14860  Bug     Nice to have    Post-init script is not working under FreeNAS 9.10
-#14876  Bug     Important       Can't Disable Alert
-#14879  Bug     Nice to have    Excessive security warnings since 9.10
-#14881  Bug     Important       Jail name can't contain capital letters anymore
-#14934  Bug     Nice to have    Minor error in API documentation
-#14935  Bug     Nice to have    libstdc++.so.6" not found, required by "arcconf
+#10799  Bug     Important       Resilver try to taste the new drive during replacement process
+#14061  Bug     No priority     Make sshd start early for debugging purposes
+#14490  Bug     Expected        ldap server non standard port
+#14904  Bug     Important       zpool import -T doesn't work on 9.10
+#14947  Bug     Important       SSH bind to an interface should include vlan parents
+#14968  Bug     No priority     samba 4.3.6/talloc 2.1.6 appears in freenas 9.10.STABLE-201604181743
+#14970  Bug     Critical        Error after upgrading from 9.3 to 9.10: table "_south_new_storage_encrypteddisk" already exists
+#15006  Bug     Nice to have    Show Active Directory password as dots to give visual indicator that it is saved
+#15015  Bug     Nice to have    Capital letters in jail name are converted to lowercase upon creation of jail
+#15028  Bug     Expected        Update APIs either broken, or mis-documented
+#15037  Bug     Nice to have    API to rename boot environment does not work
