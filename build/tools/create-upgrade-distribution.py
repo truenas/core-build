@@ -40,6 +40,26 @@ def stage_upgrade():
     sh('rm -rf ${UPGRADE_STAGEDIR}')
     sh('mkdir -p ${UPGRADE_STAGEDIR}')
     sh('cp -R ${OBJDIR}/packages/Packages ${UPGRADE_STAGEDIR}/')
+
+    # If an update validation script is given, copy that
+    if os.path.exists(e('${PROFILE_ROOT}/ValidateUpdate')):
+        sh('cp ${PROFILE_ROOT}/ValidateUpdate ${UPGRADE_STAGEDIR}/ValidateUpdate')
+    if os.path.exists(e('${PROFILE_ROOT}/ValidateInstall')):
+        sh('cp ${PROFILE_ROOT}/ValidateUpdate ${UPGRADE_STAGEDIR}/ValidateInstall')
+        
+    # Allow the environment to over-ride it -- /dev/null or empty string means
+    # don't have one
+    if env('VALIDATE_UPDATE'):
+        if env('VALIDATE_UPDATE') not in ("/dev/null", ""):
+            sh('cp ${VALIDATE_UPDATE} ${UPGRADE_STAGEDIR}/ValidateUpdate')
+        else:
+            sh('rm -f ${UPGRADE_STAGEDIR}/ValidateUpdate')
+    if env('VALIDATE_INSTALL'):
+        if env('VALIDATE_INSTALL') not in ("/dev/null", ""):
+            sh('cp ${VALIDATE_INSTALL} ${UPGRADE_STAGEDIR}/ValidateInstall')
+        else:
+            sh('rm -f ${UPGRADE_STAGEDIR}/ValidateInstall')
+
     # If RESTART is given, save that
     if env('RESTART'):
        sh('echo ${RESTART} > ${UPGRADE_STAGEDIR}/RESTART')
