@@ -111,7 +111,7 @@ ports += {
 
 dedicated_repo_ports = [
     "py-libzfs", "py-licenselib",
-    "zfsd",
+    "zfsd", "py-bsd"
 ]
 
 for iter_port in dedicated_repo_ports:

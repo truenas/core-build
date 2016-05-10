@@ -56,6 +56,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-bsd",
+    "dest": "/usr/nas_source/py-bsd"
+}
+
+copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }

@@ -59,6 +59,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-bsd",
+    "path": "py-bsd",
+    "url": "https://github.com/freenas/py-bsd.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
