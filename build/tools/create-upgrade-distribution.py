@@ -46,15 +46,15 @@ def stage_upgrade():
         sh('cp ${PROFILE_ROOT}/ValidateUpdate ${UPGRADE_STAGEDIR}/ValidateUpdate')
     if os.path.exists(e('${PROFILE_ROOT}/ValidateInstall')):
         sh('cp ${PROFILE_ROOT}/ValidateUpdate ${UPGRADE_STAGEDIR}/ValidateInstall')
-        
+
     # Allow the environment to over-ride it -- /dev/null or empty string means
     # don't have one
-    if env('VALIDATE_UPDATE'):
+    if env('VALIDATE_UPDATE') is not None:
         if env('VALIDATE_UPDATE') not in ("/dev/null", ""):
             sh('cp ${VALIDATE_UPDATE} ${UPGRADE_STAGEDIR}/ValidateUpdate')
         else:
             sh('rm -f ${UPGRADE_STAGEDIR}/ValidateUpdate')
-    if env('VALIDATE_INSTALL'):
+    if env('VALIDATE_INSTALL') is not None:
         if env('VALIDATE_INSTALL') not in ("/dev/null", ""):
             sh('cp ${VALIDATE_INSTALL} ${UPGRADE_STAGEDIR}/ValidateInstall')
         else:
