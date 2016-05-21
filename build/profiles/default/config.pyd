@@ -62,6 +62,7 @@ kernel_modules = [
     "fuse",
     "vmm",
     "nmdm",
+    "ntb",
     "toecore",
     "cxgb",
     "cxgbe",
