@@ -23,19 +23,45 @@
 # SUCH DAMAGE.
 #
 
-repos += {
-    "name": "freenas",
-    "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
-}
+if MILESTONE == "STABLE" and PRODUCT == "TrueNAS":
+    repos += {
+       "name": "freenas",
+       "path": "freenas",
+       "url": "http://github.com/freenas/freenas.git",
+       "branch": "TN-9.10-STABLE"
+    }
 
-repos += {
-    "name": "trueos",
-    "path": "trueos",
-    "url": "https://github.com/trueos/trueos.git",
-    "branch": "freebsd10"
-}
+elif MILESTONE == "STABLE":
+    repos += {
+       "name": "freenas",
+       "path": "freenas",
+       "url": "http://github.com/freenas/freenas.git",
+       "branch": "9.10-STABLE"
+    }
+
+else:
+    repos += {
+        "name": "freenas",
+        "path": "freenas",
+        "url": "http://github.com/freenas/freenas.git",
+        "branch": "master"
+    }
+
+if MILESTONE == "STABLE":
+    repos += {
+        "name": "trueos",
+        "path": "trueos",
+        "url": "https://github.com/trueos/trueos.git",
+        "branch": "9.10-STABLE"
+    }
+
+else:
+    repos += {
+        "name": "trueos",
+        "path": "trueos",
+        "url": "https://github.com/trueos/trueos.git",
+        "branch": "freebsd10"
+    }
 
 repos += {
     "name": "ports",
@@ -65,12 +91,20 @@ repos += {
     "branch": "master"
 }
 
-repos += {
-    "name": "samba",
-    "path": "samba",
-    "url": "https://github.com/freenas/samba.git",
-    "branch": "v4-3-stable"
-}
+if MILESTONE == "STABLE":
+    repos += {
+        "name": "samba",
+        "path": "samba",
+        "url": "https://github.com/freenas/samba.git",
+        "branch": "9.10-STABLE"
+    }
+else:
+    repos += {
+        "name": "samba",
+        "path": "samba",
+        "url": "https://github.com/freenas/samba.git",
+        "branch": "v4-3-stable"
+    }
 
 repos += {
     "name": "zfsd",
@@ -79,10 +113,19 @@ repos += {
     "branch": "master"
 }
 
-if PRODUCT == "TrueNAS":
+if PRODUCT == "TrueNAS" and MILESTONE == "STABLE":
+    repos += {
+        "name": "truenas",
+        "path": "truenas",
+        "url": "git@github.com:iXsystems/truenas.git",
+        "branch": "TN-9.10-STABLE"
+    }
+
+elif PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
         "branch": "master"
     }
+
