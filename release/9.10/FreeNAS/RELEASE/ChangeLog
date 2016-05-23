@@ -1,11 +1,35 @@
-#10799  Bug     Important       Resilver try to taste the new drive during replacement process
-#14061  Bug     No priority     Make sshd start early for debugging purposes
-#14490  Bug     Expected        ldap server non standard port
-#14904  Bug     Important       zpool import -T doesn't work on 9.10
-#14947  Bug     Important       SSH bind to an interface should include vlan parents
-#14968  Bug     No priority     samba 4.3.6/talloc 2.1.6 appears in freenas 9.10.STABLE-201604181743
-#14970  Bug     Critical        Error after upgrading from 9.3 to 9.10: table "_south_new_storage_encrypteddisk" already exists
-#15006  Bug     Nice to have    Show Active Directory password as dots to give visual indicator that it is saved
-#15015  Bug     Nice to have    Capital letters in jail name are converted to lowercase upon creation of jail
-#15028  Bug     Expected        Update APIs either broken, or mis-documented
-#15037  Bug     Nice to have    API to rename boot environment does not work
+#15462	Feature	Expected	Add alert to let the user know if AD was unable to bind
+#15438	Bug	Nice to have	Need to properly format AD/LDAP connection errors
+#15429	Bug	Important	Bring in FreeBSD SAs 16:18-19
+#15400	Bug	Nice to have	When deleting a User Account that is the only member of a Group; the Group gets deleted
+#15373	Bug	Nice to have	Plural-Forms issue in Pootle
+#15372	Bug	Important	FreeNAS 9.10 Crash during Boot (Dell T20)
+#15371	Bug	Nice to have	Log error in case deleting a jail fails while deleting associated plugin
+#15347	Bug	Nice to have	SSH with certificates
+#15331	Bug	Nice to have	DynDNS Password not saved/loaded correctly
+#15294	Bug	Critical	Hide LDAP password from GUI since it can be grabbed in plain text
+#15270	Bug	Expected	Prevent train downgrades from UI
+#15267	Feature	Nice to have	Upgrade Smartmontools to 6.5 for added NVMe support
+#15251	Bug	Important	Can't Import NTFS Disk
+#15248	Bug	Nice to have	freenas-update traceback
+#15216	Bug	Nice to have	Some Replication Settings Won't Update With API
+#15183	Bug	Expected	Bring in latest FreeBSD ENs and SAs
+#15136	Feature	Nice to have	Create API Storage Resource to Import ZFS Volumes
+#15129	Bug	Expected	LDAP with TLS is not binding on bootup
+#15119	Bug	Nice to have	Unable to create authentificated samba share with wizzard
+#15097	Feature	Nice to have	Factory reset API call request
+#15060	Bug	Nice to have	Remote Graphite Server Hostname entry isn't updating collectd graphite plugin
+#14957	Bug	Expected	NFS bind addresses don't work for lockd
+#14947	Bug	Important	SSH bind to an interface should include vlan parents
+#14937	Bug	Nice to have	WakeOnLan fails after Upgrade from 9.3 to 9.10
+#14851	Bug	Nice to have	locate is missing from FreeNAS 9.10
+#14745	Bug	Expected	Special characters not handled in webdav password
+#14477	Bug	Nice to have	Rsync command fails on importing certain media with permission errors
+#12047	Bug	Nice to have	Updater needs more verbose output for error conditions
+#11535	Bug	Nice to have	Cant import FAT32 Drive
+#11212	Feature	Nice to have	We've grown up enough that we can set the vendor string of iSCSI disks to FreeNAS/TrueNAS
+#11028	Bug	Nice to have	Import disk utility displaying django object instead of actual error.
+#10284	Bug	Critical	From Mac OS, files appear corrupt over AFP share, but fine on CIFS share
+#8967	Bug	Nice to have	Mail needs to be able to deal with temporary sending errors by enqueuing mail
+#8163	Feature	Nice to have	Add auxiliary parameters for upsd.conf to services->UPS
+#7307	Feature	Nice to have	Better message with Import Disk results in case of read error
