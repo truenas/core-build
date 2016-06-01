@@ -1,35 +1,6 @@
-#15462	Feature	Expected	Add alert to let the user know if AD was unable to bind
-#15438	Bug	Nice to have	Need to properly format AD/LDAP connection errors
-#15429	Bug	Important	Bring in FreeBSD SAs 16:18-19
-#15400	Bug	Nice to have	When deleting a User Account that is the only member of a Group; the Group gets deleted
-#15373	Bug	Nice to have	Plural-Forms issue in Pootle
-#15372	Bug	Important	FreeNAS 9.10 Crash during Boot (Dell T20)
-#15371	Bug	Nice to have	Log error in case deleting a jail fails while deleting associated plugin
-#15347	Bug	Nice to have	SSH with certificates
-#15331	Bug	Nice to have	DynDNS Password not saved/loaded correctly
-#15294	Bug	Critical	Hide LDAP password from GUI since it can be grabbed in plain text
-#15270	Bug	Expected	Prevent train downgrades from UI
-#15267	Feature	Nice to have	Upgrade Smartmontools to 6.5 for added NVMe support
-#15251	Bug	Important	Can't Import NTFS Disk
-#15248	Bug	Nice to have	freenas-update traceback
-#15216	Bug	Nice to have	Some Replication Settings Won't Update With API
-#15183	Bug	Expected	Bring in latest FreeBSD ENs and SAs
-#15136	Feature	Nice to have	Create API Storage Resource to Import ZFS Volumes
-#15129	Bug	Expected	LDAP with TLS is not binding on bootup
-#15119	Bug	Nice to have	Unable to create authentificated samba share with wizzard
-#15097	Feature	Nice to have	Factory reset API call request
-#15060	Bug	Nice to have	Remote Graphite Server Hostname entry isn't updating collectd graphite plugin
-#14957	Bug	Expected	NFS bind addresses don't work for lockd
-#14947	Bug	Important	SSH bind to an interface should include vlan parents
-#14937	Bug	Nice to have	WakeOnLan fails after Upgrade from 9.3 to 9.10
-#14851	Bug	Nice to have	locate is missing from FreeNAS 9.10
-#14745	Bug	Expected	Special characters not handled in webdav password
-#14477	Bug	Nice to have	Rsync command fails on importing certain media with permission errors
-#12047	Bug	Nice to have	Updater needs more verbose output for error conditions
-#11535	Bug	Nice to have	Cant import FAT32 Drive
-#11212	Feature	Nice to have	We've grown up enough that we can set the vendor string of iSCSI disks to FreeNAS/TrueNAS
-#11028	Bug	Nice to have	Import disk utility displaying django object instead of actual error.
-#10284	Bug	Critical	From Mac OS, files appear corrupt over AFP share, but fine on CIFS share
-#8967	Bug	Nice to have	Mail needs to be able to deal with temporary sending errors by enqueuing mail
-#8163	Feature	Nice to have	Add auxiliary parameters for upsd.conf to services->UPS
-#7307	Feature	Nice to have	Better message with Import Disk results in case of read error
+#15582	Feature	Nice to have	add vmstat -z to fndebug (patch)
+#15543	Bug	Expected	freenas-update does not return exit status indicating whether or not to reboot
+#15535	Bug	Expected	Left pane is not visible
+#15531	Bug	Important	Latest FreeNAS 9.10 SU mpr Firmware/Driver Mismatch Error
+#14985	Bug	Important	Latest 9.10-STABLE update fails
+#14465	Bug	Important	Seeing a bunch of these shutdown panics
