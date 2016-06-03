@@ -1,4 +1,3 @@
-#!/bin/sh
 [Package]
 
 name = base-os

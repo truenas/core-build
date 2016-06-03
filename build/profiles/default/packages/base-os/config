@@ -21,7 +21,14 @@ post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
 	     /usr/bin/touch /boot/modules/linker.hints
 	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
 	   for disk in $(sysctl -n kern.disks); do
-	       gpart show ${disk} | grep -q bios-boot && /usr/local/sbin/grub-install --modules="zfs part_gpt" /dev/${disk}
+	       if gpart show ${disk} | grep -q bios-boot; then
+	       	   /usr/local/sbin/grub-install --modules="zfs part_gpt" /dev/${disk}
+	       elif /bin/kenv | fgrep -q 'grub.platform="efi"' && gpart show ${disk} | grep -q efi; then
+		   if mount -t msdos /dev/${disk}p1 /boot/efi; then
+		       /usr/local/sbin/grub-install --efi-directory=/boot/efi --removable --target=x86_64-efi /dev/${disk}
+		       umount -f /boot/efi
+		   fi
+	       fi
 	   done
 	fi
 
