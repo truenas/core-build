@@ -346,10 +346,11 @@ ports += {
 }
 
 ports += "sysutils/sample"
-ports += "sysutils/grub2-freenas"
+ports += "sysutils/grub2-pcbsd"
+ports += "sysutils/grub2-efi"
+ports += "sysutils/grub2-bhyve"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm"
-ports += "sysutils/grub2-bhyve"
 ports += "sysutils/mcelog"
 
 # This is a silly for fun thing
