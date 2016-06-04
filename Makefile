@@ -91,6 +91,7 @@ bootstrap-pkgs:
 	pkg install -y sysutils/grub2-pcbsd
 	pkg install -y sysutils/xorriso
 	pkg install -y sysutils/grub2-efi
+	pkg install -y devel/gmake
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
