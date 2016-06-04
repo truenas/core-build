@@ -22,11 +22,7 @@ Note: All these commands must be run as `root`.
 
 Install the dependencies:
 
-```
-# pkg install ports-mgmt/poudriere-devel devel/git sysutils/cdrtools archivers/pxz lang/python \
-  lang/python27 lang/python3 lang/python34 sysutils/grub2-pcbsd sysutils/xorriso devel/gmake \
-  www/npm012 textproc/py-sphinx_numfig
-```
+    # make bootstrap-pkgs
 
 Download and assemble the source code:
 
