@@ -1,6 +1,19 @@
-#15582	Feature	Nice to have	add vmstat -z to fndebug (patch)
+#15764	Bug	Blocks Until Resolved	Syslog-ng unhappy in today's nightly
+#15525	Bug	Critical	Password for WebDAV shares set to basic authentication is truncated to 8 characters
+#15446	Bug	Critical	Edit zvol Size Destroys Data without Warning
 #15543	Bug	Expected	freenas-update does not return exit status indicating whether or not to reboot
 #15535	Bug	Expected	Left pane is not visible
+#15779	Bug	Important	UEFI support for replacing disk in boot pool
+#15707	Bug	Important	after reboot or shutdown forgets prevois reporting history
+#15691	Bug	Important	missing directory
 #15531	Bug	Important	Latest FreeNAS 9.10 SU mpr Firmware/Driver Mismatch Error
+#15461	Bug	Important	Add a sqlite3 wrapper to add a timeout
 #14985	Bug	Important	Latest 9.10-STABLE update fails
 #14465	Bug	Important	Seeing a bunch of these shutdown panics
+#15737	Bug	Nice to have	Cannot create ZVOL using more than 80% but can edit existing
+#15582	Feature	Nice to have	add vmstat -z to fndebug (patch)
+#15578	Bug	Nice to have	IPMI GUI does not work on Supermicro board
+#15567	Bug	Nice to have	View Disks Status 500 error
+#15564	Bug	Nice to have	Chrome 51, promoted to stable today, breaks MANY areas of the FreeNAS UI
+#11648	Bug	Nice to have	HDD replaced, GUI Alert System window still showing critical errors for replaced drive despite SMART showing drive healthy.
+#4247	Feature	Nice to have	Syslog level
