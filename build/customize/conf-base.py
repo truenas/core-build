@@ -37,6 +37,7 @@ def main():
     sh('cp -a ${WORLD_DESTDIR}/etc/ ${WORLD_DESTDIR}/conf/base/etc')
     sh('cp -a ${WORLD_DESTDIR}/usr/local/etc/ ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('rm -rf ${WORLD_DESTDIR}/usr/local/etc')
+    sh('ln -s /conf/base/etc/local ${WORLD_DESTDIR}/etc/local')
     sh('ln -s /etc/local ${WORLD_DESTDIR}/usr/local/etc')
     sh('cp -a ${WORLD_DESTDIR}/var/ ${WORLD_DESTDIR}/conf/base/var')
 
