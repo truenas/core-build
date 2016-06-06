@@ -61,6 +61,9 @@ checkout:
 	@${BUILD_TOOLS}/checkout.py
 
 update:
+	@if [ "$(POINT_RELEASE)" == "yes" -a "$(VERSION)" == "" ]; then \
+	( echo "Please specify VERSION when doing a point release"; exit 1 ) \
+	fi
 	@git pull
 	@${BUILD_TOOLS}/checkout.py
 
@@ -143,6 +146,9 @@ reinstall-package:
 
 freenas: release
 release:
+	@if [ "$(POINT_RELEASE)" == "yes" -a "$(VERSION)" == "" ]; then \
+	( echo "Please specify VERSION when doing a point release"; exit 1 ) \
+	fi
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
 	script -a ${RELEASE_LOGFILE} ${MK} build
