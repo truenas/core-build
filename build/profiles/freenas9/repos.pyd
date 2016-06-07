@@ -113,7 +113,7 @@ repos += {
     "branch": "master"
 }
 
-if PRODUCT == "TrueNAS" and ( MILESTONE == "STABLE" and MILESTONE == "RELEASE") :
+if PRODUCT == "TrueNAS" and ( MILESTONE == "STABLE" or  MILESTONE == "RELEASE") :
     repos += {
         "name": "truenas",
         "path": "truenas",
