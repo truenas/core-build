@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-if MILESTONE == "STABLE" and PRODUCT == "TrueNAS":
+if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) and PRODUCT == "TrueNAS":
     repos += {
        "name": "freenas",
        "path": "freenas",
@@ -31,7 +31,7 @@ if MILESTONE == "STABLE" and PRODUCT == "TrueNAS":
        "branch": "TN-9.10-STABLE"
     }
 
-elif MILESTONE == "STABLE":
+elif ( MILESTONE == "STABLE" or MILESONE =="RELEASE" ) :
     repos += {
        "name": "freenas",
        "path": "freenas",
@@ -47,7 +47,7 @@ else:
         "branch": "master"
     }
 
-if MILESTONE == "STABLE":
+if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) :
     repos += {
         "name": "trueos",
         "path": "trueos",
@@ -91,7 +91,7 @@ repos += {
     "branch": "master"
 }
 
-if MILESTONE == "STABLE":
+if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ):
     repos += {
         "name": "samba",
         "path": "samba",
@@ -113,7 +113,7 @@ repos += {
     "branch": "master"
 }
 
-if PRODUCT == "TrueNAS" and MILESTONE == "STABLE":
+if PRODUCT == "TrueNAS" and ( MILESTONE == "STABLE" MILESTONE == "RELEASE") :
     repos += {
         "name": "truenas",
         "path": "truenas",
