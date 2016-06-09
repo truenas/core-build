@@ -31,7 +31,7 @@ include = /usr/local/www/freenasUI
 
 post-upgrade = 
 	     touch /tmp/.sqlite3_ha_skip
-	     yes | /usr/local/bin/python /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+	     yes | /usr/local/bin/python /usr/local/www/freenasUI/manage.py migrate --all --merge > "/data/update.failed" 2>&1 && rm -f /data/update.failed
 	     rm -f /tmp/.sqlite3_ha_skip
 
 [Services]
