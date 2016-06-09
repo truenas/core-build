@@ -26,7 +26,8 @@ include = /usr/local/lib/freenasOS/Configuration.py
 	/usr/local/bin/manifest_util
 	/usr/local/bin/freenas-update
 	/usr/local/bin/freenas-verify
-	/usr/local/share/certs/freenas-update.pem
+	/usr/local/share/certs/Production.pem
+	/usr/local/share/certs/Nightlies.pem
 	/usr/local/share/certs/iX-CA.pem
 
 [Scripts]
