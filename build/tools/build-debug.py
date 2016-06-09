@@ -86,5 +86,6 @@ def create_package():
 
 
 if __name__ == '__main__':
-    main()
-    create_package()
+    if e("${BUILD_DEBUG_PACKAGE}") not in ("no", "NO"):
+        main()
+        create_package()
