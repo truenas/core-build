@@ -46,6 +46,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-freenas-utils",
+    "dest": "/usr/middleware_src/py-freenas.utils"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-libzfs",
     "dest": "/usr/middleware_src/py-libzfs"
 }
