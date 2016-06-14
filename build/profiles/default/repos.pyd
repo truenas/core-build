@@ -52,6 +52,13 @@ repos += {
 }
 
 repos += {
+    "name": "cli",
+    "path": "cli",
+    "url": "https://github.com/freenas/cli.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-freenas-utils",
     "path": "py-freenas-utils",
     "url": "https://github.com/freenas/py-freenas-utils.git",
