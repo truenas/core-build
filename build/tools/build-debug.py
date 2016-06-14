@@ -28,6 +28,7 @@
 
 import os
 import errno
+import shutil
 from utils import sh, e, info, objdir, sha256, is_elf
 
 
@@ -52,14 +53,14 @@ def main():
             if relpath.startswith(('boot', 'usr/local/lib/grub')):
                 continue
 
+            if os.path.splitext(name)[1] in ['.html', '.c']:
+                make_dir(destpath)
+                shutil.copy(filename, destpath)
+
             if not is_elf(filename):
                 continue
 
-            try:
-                os.makedirs(os.path.dirname(destpath))
-            except OSError as err:
-                if err.errno != errno.EEXIST:
-                    raise
+            make_dir(destpath)
 
             # We need to remove any flags on protected files and restore
             # them after stripping
@@ -83,6 +84,14 @@ def create_package():
         sh('tar -C ${DEBUG_ROOT} -cvJf ${output} .', log='/dev/null')
 
     sha256(output)
+
+
+def make_dir(path):
+    try:
+        os.makedirs(os.path.dirname(path))
+    except OSError as err:
+        if err.errno != errno.EEXIST:
+            raise
 
 
 if __name__ == '__main__':
