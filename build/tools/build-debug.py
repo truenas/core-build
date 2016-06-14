@@ -55,7 +55,7 @@ def main():
 
             if os.path.splitext(name)[1] in ['.html', '.c']:
                 make_dir(destpath)
-                shutil.copy(filename, destpath)
+                shutil.move(filename, destpath)
 
             if not is_elf(filename):
                 continue
