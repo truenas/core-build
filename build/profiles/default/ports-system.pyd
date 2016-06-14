@@ -102,6 +102,7 @@ ports += "lang/python"
 #ports += "dns/py-bonjour"
 ports += "net/py-s3cmd"
 ports += "sysutils/glusterfs"
+ports += "databases/py-swift"
 ports += "dns/py-dnspython"
 
 ports += "security/pam_mkhomedir"
