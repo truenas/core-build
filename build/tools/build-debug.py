@@ -47,7 +47,8 @@ def main():
             relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
             destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
 
-            ext = os.path.splitext(name)[1]
+            raw_name, ext = os.path.splitext(name)
+            
             if ext == '.ko':
                 continue
 
@@ -57,6 +58,9 @@ def main():
             if ext == '.c':
                 make_dir(destpath)
                 shutil.move(filename, destpath)
+                annotations = os.path.join(root, raw_name + '.html')
+                if os.path.isfile(annotations):
+                    shutil.move(annotations, os.path.splitext(destpath)[0] + '.html')
                 continue
 
             if not is_elf(filename):
