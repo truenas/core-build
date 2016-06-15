@@ -52,6 +52,13 @@ repos += {
 }
 
 repos += {
+    "name": "dispatcher-client",
+    "path": "dispatcher-client",
+    "url": "https://github.com/freenas/dispatcher-client.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-freenas.cli",
     "path": "py-freenas.cli",
     "url": "https://github.com/freenas/cli.git",
