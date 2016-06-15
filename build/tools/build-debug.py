@@ -62,6 +62,9 @@ def main():
                 if os.path.isfile(annotations):
                     shutil.move(annotations, os.path.splitext(destpath)[0] + '.html')
                 continue
+            
+            if ext == '.html':
+                continue
 
             if not is_elf(filename):
                 continue
