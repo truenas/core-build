@@ -46,12 +46,12 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/cli",
+    "source": "${BE_ROOT}/py-freenas.cli",
     "dest": "/usr/middleware_src/py-freenas.cli"
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-freenas-utils",
+    "source": "${BE_ROOT}/py-freenas.utils",
     "dest": "/usr/middleware_src/py-freenas.utils"
 }
 
