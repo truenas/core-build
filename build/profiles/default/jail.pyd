@@ -46,11 +46,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/dispatcher-client",
-    "dest": "/usr/middleware_src/py-freenas.dispatcher"
-}
-
-copy += {
     "source": "${BE_ROOT}/cli",
     "dest": "/usr/middleware_src/py-freenas.cli"
 }
