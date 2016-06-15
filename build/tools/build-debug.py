@@ -47,13 +47,14 @@ def main():
             relpath = os.path.relpath(filename, e('${WORLD_DESTDIR}'))
             destpath = os.path.join(e('${DEBUG_WORLD}'), relpath)
 
-            if os.path.splitext(name)[1] == '.ko':
+            ext = os.path.splitext(name)[1]
+            if ext == '.ko':
                 continue
 
             if relpath.startswith(('boot', 'usr/local/lib/grub')):
                 continue
 
-            if os.path.splitext(name)[1] in ['.html', '.c']:
+            if ext == '.c':
                 make_dir(destpath)
                 shutil.move(filename, destpath)
                 continue
