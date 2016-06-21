@@ -112,6 +112,7 @@ def obtain_jail_name():
     global jailname
     for i in string.ascii_lowercase:
         user = e('${SUDO_USER}')
+        user = os.environ.get("POUDRIERE_JAILNAME", user)
         if user:
             i = e('${i}-${user}')
 
