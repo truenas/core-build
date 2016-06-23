@@ -22,8 +22,8 @@
 
 
 	Filesharing:
-	Samba (SMB filesharing) updated from version 4.1 to 4.3.4
-	Added GUI feature to allow nfsv3-like ownership when using nfsv4
+	Samba (SMB filesharing) updated from version 4.1 to 4.3.6
+	Added GUI feature to allow NFSv3-like ownership when using NFSv4
 	Various bug fixes related to FreeBSD 10. For more in-depth information,
 	see the ChangeLog file.
 
