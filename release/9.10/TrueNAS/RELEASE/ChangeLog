@@ -38,4 +38,4 @@ o Fixed handling of disk descriptions in HA nodes where the two nodes may not
 o Don't warn that an action will cause a failover of an HA pair if failover is
   admistratively disabled.
   
-o Added an alert to let user know if Active Directory bind was unsuccessful
+o Added an alert to let user know if Active Directory bind was unsuccessful.
