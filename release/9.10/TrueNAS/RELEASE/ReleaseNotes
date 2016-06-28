@@ -12,6 +12,7 @@
 
 	Reporting:
 	Add the ability to send collectd data to a remote graphite server.
+        support ticket is created when there is a system alert.
 
 
 	Hardware Support:
@@ -35,3 +36,7 @@
 	Trains:
 	This release, and all future updates to it, are on the TrueNAS-9.10-STABLE
 	train.
+       
+       
+        API:
+        New API endpoints were added and quite a few bugs were addressed to improve existing endpoints.
