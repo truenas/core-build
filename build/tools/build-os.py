@@ -93,7 +93,7 @@ def create_kernel_config():
 
 def buildkernel(kconf, modules, log):
     modules = ' '.join(modules)
-    info('Building kernel {0} from {1}', kconf, e('${TRUEOS_ROOT}'))
+    info('Building kernel {0} from {1}', kconf, e('${HUEVOS_ROOT}'))
     info('Log file: {0}', log)
     debug('Kernel configuration file: {0}', kernconf)
     debug('Selected modules: {0}', modules)
@@ -102,7 +102,7 @@ def buildkernel(kconf, modules, log):
         "env -u DEBUG -u MAKEFLAGS MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-j {0}".format(makejobs),
-        "-C ${TRUEOS_ROOT}",
+        "-C ${HUEVOS_ROOT}",
         "NO_KERNELCLEAN=YES",
         "KERNCONF={0}".format(kconf),
         "__MAKE_CONF={0}".format(makeconfbuild),
@@ -113,7 +113,7 @@ def buildkernel(kconf, modules, log):
 
 
 def buildworld():
-    info('Building world from ${{TRUEOS_ROOT}}')
+    info('Building world from ${{HUEVOS_ROOT}}')
     info('Log file: {0}', worldlog)
     debug('World make.conf: {0}', makeconfbuild)
 
@@ -121,7 +121,7 @@ def buildworld():
         "env -u DEBUG -u MAKEFLAGS MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
         "-j {0}".format(makejobs),
-        "-C ${TRUEOS_ROOT}",
+        "-C ${HUEVOS_ROOT}",
         "__MAKE_CONF={0}".format(makeconfbuild),
         "NOCLEAN=YES",
         "buildworld",
@@ -136,7 +136,7 @@ def installworld(destdir, worldlog, distriblog, conf="build"):
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
-        "-C ${TRUEOS_ROOT}",
+        "-C ${HUEVOS_ROOT}",
         "installworld",
         "DESTDIR=${destdir}",
         "__MAKE_CONF=${makeconf}",
@@ -148,7 +148,7 @@ def installworld(destdir, worldlog, distriblog, conf="build"):
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
-        "-C ${TRUEOS_ROOT}",
+        "-C ${HUEVOS_ROOT}",
         "distribution",
         "DESTDIR=${destdir}",
         "__MAKE_CONF=${makeconf}",
@@ -168,7 +168,7 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
         "make",
-        "-C ${TRUEOS_ROOT}",
+        "-C ${HUEVOS_ROOT}",
         "installkernel",
         "DESTDIR=${destdir}",
         "KERNCONF={0}".format(kconf),
