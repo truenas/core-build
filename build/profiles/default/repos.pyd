@@ -24,9 +24,9 @@
 #
 
 repos += {
-    "name": "trueos",
-    "path": "trueos",
-    "url": "https://github.com/trueos/trueos.git",
+    "name": "huevos",
+    "path": "huevos",
+    "url": "https://github.com/freenas/heuvos.git",
     "branch": "freebsd10"
 }
 
