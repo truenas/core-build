@@ -24,6 +24,8 @@ o Several bugs in encrypted HA addressed.
 
 o Fix several bugs in the behavior of an HA pair when failover is
   administratively disabled and one or both heads are cold started.
+  
+o Fixed LDAP bind issues using SSL /TLS.
 
 Non-Critical Fixes:
 
@@ -35,3 +37,5 @@ o Fixed handling of disk descriptions in HA nodes where the two nodes may not
 
 o Don't warn that an action will cause a failover of an HA pair if failover is
   admistratively disabled.
+  
+o Added an alert to let user know if Active Directory bind was unsuccessful
