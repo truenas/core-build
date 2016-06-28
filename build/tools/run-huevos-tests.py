@@ -55,7 +55,7 @@ ssh_args =  ['ssh',
     '-o', 'ServerAliveInterval=10',
     '-o', 'StrictHostKeyChecking=no',
     '-o', 'UserKnownHostsFile=/dev/null',
-    '-i', e('${TESTS_ROOT}/trueos/overlay/root/.ssh/id_rsa'),
+    '-i', e('${TESTS_ROOT}/huevos/overlay/root/.ssh/id_rsa'),
     e('root@${VM_IP}')
 ]
 
@@ -74,7 +74,7 @@ def setup_rootfs():
     installworld('${OBJDIR}/test-root', installworldlog, distributionlog, conf="run")
     installkernel(e('${KERNCONF}'), '${OBJDIR}/test-root', installkernellog, modules=['mach'], conf="run")
     info('Installing overlay files')
-    sh('rsync -ah ${TESTS_ROOT}/trueos/overlay/ ${OBJDIR}/test-root')
+    sh('rsync -ah ${TESTS_ROOT}/huevos/overlay/ ${OBJDIR}/test-root')
     sh('makefs -M ${IMAGE_SIZE} ${OBJDIR}/test-root.ufs ${OBJDIR}/test-root')
 
 
@@ -157,11 +157,11 @@ def main():
         vm_proc.kill()
         return
 
-    tests_total = len(glob('${TESTS_ROOT}/trueos/*.py'))
+    tests_total = len(glob('${TESTS_ROOT}/huevos/*.py'))
     tests_success = []
     tests_failure = []
 
-    for t in sorted(glob('${TESTS_ROOT}/trueos/*.py')):
+    for t in sorted(glob('${TESTS_ROOT}/huevos/*.py')):
         testname = os.path.splitext(os.path.basename(t))[0]
         logfile = objdir('logs/test-${testname}.log')
         info('Running test {0} (logfile {1})', testname, logfile)

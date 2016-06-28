@@ -204,22 +204,22 @@ tag:
 ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
 
-trueos:
+huevos:
 	@${BUILD_TOOLS}/build-os.py
 
-trueos-tests:
-	@${BUILD_TOOLS}/run-trueos-tests.py
+huevos-tests:
+	@${BUILD_TOOLS}/run-huevos-tests.py
 
-trueos-playground:
-	@PLAYGROUND=yes ${BUILD_TOOLS}/run-trueos-tests.py
+huevos-playground:
+	@PLAYGROUND=yes ${BUILD_TOOLS}/run-huevos-tests.py
 
-trueos-ssh:
-	@START_SSH=yes ${BUILD_TOOLS}/run-trueos-tests.py
+huevos-ssh:
+	@START_SSH=yes ${BUILD_TOOLS}/run-huevos-tests.py
 
-trueos-telnet:
-	@START_TELNET=yes ${BUILD_TOOLS}/run-trueos-tests.py
+huevos-telnet:
+	@START_TELNET=yes ${BUILD_TOOLS}/run-huevos-tests.py
 
-portsjail: trueos
+portsjail: huevos
 	@${BUILD_TOOLS}/install-jail.py
 
 profiles:

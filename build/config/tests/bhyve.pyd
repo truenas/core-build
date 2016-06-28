@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-VM_NAME = "trueos0"
+VM_NAME = "huevos0"
 VM_IP = "192.168.240.2"
 HOST_IP = "192.168.240.1"
 NETMASK = "255.255.255.0"
