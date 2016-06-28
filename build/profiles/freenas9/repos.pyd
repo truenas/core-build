@@ -51,7 +51,7 @@ if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) :
     repos += {
         "name": "trueos",
         "path": "trueos",
-        "url": "https://github.com/trueos/trueos.git",
+        "url": "https://github.com/trueos/huevos.git",
         "branch": "9.10-STABLE"
     }
 
@@ -59,7 +59,7 @@ else:
     repos += {
         "name": "trueos",
         "path": "trueos",
-        "url": "https://github.com/trueos/trueos.git",
+        "url": "https://github.com/trueos/huevos.git",
         "branch": "freebsd10"
     }
 
