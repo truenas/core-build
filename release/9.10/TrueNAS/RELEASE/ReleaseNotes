@@ -2,8 +2,7 @@
 	The base OS version for TrueNAS 9.10 is now FreeBSD-10.3-STABLE,
 	bringing in a huge number of OS-related bug fixes, performance
 	improvements and new features (new drivers, new CPU chipset support,
-	USB 3.0, etc) and basic support for hosting virtual machines with
-	bhyve.
+	USB 3.0, etc).
 
 
 	Directory Services:
