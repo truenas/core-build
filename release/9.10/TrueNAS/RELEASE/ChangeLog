@@ -13,7 +13,7 @@ o FreeBSD 10 under the hood, bringing with it hundreds of
 
 o Autotuning values refresh.  Autotuner enabled by default on new installs.
   These changes provide for stability and performance improvements in
-  environments with 10Gbe or greater networking configurations.
+  environments with 10Gbe or faster networking configurations.
 
 o Hardware faults result in automatic ticket creation in the iXsystems support
   portal if TrueNAS has access to the internet.
