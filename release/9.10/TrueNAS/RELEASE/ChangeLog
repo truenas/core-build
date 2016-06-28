@@ -13,7 +13,7 @@ o FreeBSD 10 under the hood, bringing with it hundreds of
 
 o Autotuning values refresh.  Autotuner enabled by default on new installs.
   These changes provide for stability and performance improvements in
-  environments with 10Gbe or greater networking configurations.
+  environments with 10Gbe or faster networking configurations.
 
 o Hardware faults result in automatic ticket creation in the iXsystems support
   portal if TrueNAS has access to the internet.
@@ -24,6 +24,8 @@ o Several bugs in encrypted HA addressed.
 
 o Fix several bugs in the behavior of an HA pair when failover is
   administratively disabled and one or both heads are cold started.
+  
+o Fixed LDAP bind issues using SSL /TLS.
 
 Non-Critical Fixes:
 
@@ -35,3 +37,5 @@ o Fixed handling of disk descriptions in HA nodes where the two nodes may not
 
 o Don't warn that an action will cause a failover of an HA pair if failover is
   admistratively disabled.
+  
+o Added an alert to let user know if Active Directory bind was unsuccessful.
