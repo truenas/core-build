@@ -11,19 +11,19 @@
 
 	Reporting:
 	Add the ability to send collectd data to a remote graphite server.
-        support ticket is created when there is a system alert.
+        Support ticket is automatically created when there is a hardware system alert.
 
 
 	Hardware Support:
-	Added Support for Intel I219-V & I219-LM Gigabit Ethernet Chipset
-	Added Support for Intel Skylake architecture
-	Improved support for USB devices (like network adapters)
+	Added support for Intel I219-V & I219-LM Gigabit Ethernet Chipset.
+	Added support for Intel Skylake architecture.
+	Improved support for USB devices (like network adapters).
 	USB 3.0 devices now supported.
 
 
 	Filesharing:
-	Samba (SMB filesharing) updated from version 4.1 to 4.3.6
-	Added GUI feature to allow NFSv3-like ownership when using NFSv4
+	Samba (SMB filesharing) updated from version 4.1 to 4.3.6.
+	Added GUI feature to allow NFSv3-like ownership when using NFSv4.
 	Various bug fixes related to FreeBSD 10. For more in-depth information,
 	see the ChangeLog file.
 
