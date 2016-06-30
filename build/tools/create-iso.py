@@ -275,7 +275,7 @@ def install_pkgtools():
     info('Installing freenas-pkgtools')
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
-        "make -C ${SRC_ROOT}/freenas-pkgtools obj all install DESTDIR=${INSTUFS_DESTDIR} PREFIX=/usr/local",
+        "make -C ${BE_ROOT}/freenas-pkgtools obj all install DESTDIR=${INSTUFS_DESTDIR} PREFIX=/usr/local",
     )
 
 

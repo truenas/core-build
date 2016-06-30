@@ -61,6 +61,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/freenas-pkgtools",
+    "dest": "/usr/middleware_src/freenas-pkgtools"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-libzfs",
     "dest": "/usr/middleware_src/py-libzfs"
 }

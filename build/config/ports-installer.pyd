@@ -28,6 +28,7 @@ ports += "lang/python"
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
+ports += "devel/py-six"
 
 ports += {
     "name": "freenas/freenas-installer",

@@ -73,6 +73,13 @@ repos += {
 }
 
 repos += {
+    "name": "freenas-pkgtools",
+    "path": "freenas-pkgtools",
+    "url": "https://github.com/freenas/freenas-pkgtools.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-libzfs",
     "path": "py-libzfs",
     "url": "https://github.com/freenas/py-libzfs.git",

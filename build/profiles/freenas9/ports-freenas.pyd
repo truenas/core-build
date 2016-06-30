@@ -63,16 +63,6 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/freenas-pkgtools",
-    "options": [
-        "PRODUCT=${PRODUCT}",
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + freenas_git_rev
-    ]
-}
-
-ports += {
     "name": "freenas/freenas-docs",
     "options": [
         "PRODUCT=${PRODUCT}",
@@ -111,7 +101,7 @@ ports += {
 
 dedicated_repo_ports = [
     "py-libzfs", "py-licenselib",
-    "zfsd", "py-bsd"
+    "zfsd", "py-bsd", "freenas-pkgtools",
 ]
 
 for iter_port in dedicated_repo_ports:
