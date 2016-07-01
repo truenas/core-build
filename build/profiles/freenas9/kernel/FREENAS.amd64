@@ -206,7 +206,6 @@ device		uart			# Generic UART driver
 device		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
 device		cxgb			# Chelsio T3 10 Gigabit Ethernet adapter driver
 device		cxgbe			# Chelsio T4 and T5 based 1GbE/10GbE/40GbE PCIe Ethernet adapters.
-device		de			# DEC/Intel DC21x4x (``Tulip'')
 device		em			# Intel PRO/1000 Gigabit Ethernet Family
 device		igb			# Intel PRO/1000 PCIE Server Gigabit Family
 device		ix			# Intel PRO/10GbE PCIE PF Ethernet
@@ -219,8 +218,6 @@ device		mlx5			# Mellanox ConnectX-4 common code
 device		mlx5en			# Mellanox ConnectX-4 Series
 device		mxge			# Myricom Myri10GE 10 Gigabit Ethernet adapter driver
 device		ti			# Alteon Networks Tigon I/II gigabit Ethernet
-device		txp			# 3Com 3cR990 (``Typhoon'')
-device		vx			# 3Com 3c590, 3c595 (``Vortex'')
 device		qlxgb			# QLogic 10Gb 3200/8200 Ethernet
 device		qlxge			# QLogic 10Gb 8100 Ethernet
 #device		qlxgbe			# QLogic 10Gb 8300 Ethernet
@@ -230,37 +227,23 @@ device		sfxge			# Solarflare SFC9000 family 10Gb Ethernet adapters
 # PCI Ethernet NICs that use the common MII bus controller code.
 # NOTE: Be sure to keep the 'device miibus' line in order to use these NICs!
 device		miibus			# MII bus support
-device		ae			# Attansic/Atheros L2 FastEthernet
 device		age			# Attansic/Atheros L1 Gigabit Ethernet
 device		alc			# Atheros AR8131/AR8132 Ethernet
 device		ale			# Atheros AR8121/AR8113/AR8114 Ethernet
 device		bce			# Broadcom BCM5706/BCM5708 Gigabit Ethernet
-device		bfe			# Broadcom BCM440x 10/100 Ethernet
 device		bge			# Broadcom BCM570xx Gigabit Ethernet
-device		dc			# DEC/Intel 21143 and various workalikes
 device		et			# Agere ET1310 10/100/Gigabit Ethernet
-device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
 device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
-device		lge			# Level 1 LXT1001 gigabit Ethernet
 device		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
 device		nfe			# nVidia nForce MCP on-board Ethernet
 device		nge			# NatSemi DP83820 gigabit Ethernet
 device		nve			# nVidia nForce MCP on-board Ethernet Networking
-device		pcn			# AMD Am79C97x PCI 10/100 (precedence over 'le')
 device		re			# RealTek 8139C+/8169/8169S/8110S
 device		rl			# RealTek 8129/8139
-device		sf			# Adaptec AIC-6915 (``Starfire'')
 device		sge			# Silicon Integrated Systems SiS190/191
-device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
 device		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
-device		ste			# Sundance ST201 (D-Link DFE-550TX)
 device		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
-device		tl			# Texas Instruments ThunderLAN
-device		tx			# SMC EtherPower II (83c170 ``EPIC'')
 device		vge			# VIA VT612x gigabit Ethernet
-device		vr			# VIA Rhine, Rhine II
-device		wb			# Winbond W89C840F
-device		xl			# 3Com 3c90x (``Boomerang'', ``Cyclone'')
 
 # Pseudo devices.
 device		loop			# Network loopback
