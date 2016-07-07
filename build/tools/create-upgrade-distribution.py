@@ -28,8 +28,9 @@
 
 
 import os
+import tempfile, shutil
 from dsl import load_file
-from utils import e, sh, import_function, env
+from utils import e, sh, import_function, env, info
 
 
 dsl = load_file('${BUILD_CONFIG}/upgrade.pyd', os.environ)
@@ -70,7 +71,31 @@ def stage_upgrade():
     sh('rm -f ${BE_ROOT}/release/LATEST')
     sh('ln -sf ${UPGRADE_STAGEDIR} ${BE_ROOT}/release/LATEST')
 
+def create_upgradefile():
+    """
+    Copy the manifest, and all other files, into a temp directory,
+    then create a tarball from that.  We need to rename ${PRODUCT}-MANIFEST
+    to simply MANIFEST, and all the Pakages files go into the base directory.
+    We'll name the resulting file ${PRODUCT}-${VERSION}.tar
+    """
+    info("Creating update tar-file")
+    temp_dir = tempfile.mkdtemp()
+    source_dir = e("${UPGRADE_STAGEDIR}")
+    for entry in os.listdir(source_dir):
+        if entry == e("${PRODUCT}-MANIFEST"):
+            shutil.copyfile(os.path.join(source_dir, entry),
+                            os.path.join(temp_dir, "MANIFEST"))
+        elif entry == "Packages":
+            for pkgfile in os.listdir(os.path.join(source_dir, entry)):
+                shutil.copyfile(os.path.join(source_dir, entry, pkgfile),
+                                os.path.join(temp_dir, pkgfile))
+        else:
+            shutil.copyfile(os.path.join(source_dir, entry),
+                            os.path.join(temp_dir, entry))
+    sh("tar -C {0} -cf {1} .".format(temp_dir, e("${BE_ROOT}/release/${PRODUCT}-${VERSION}-unsigned.tar")))
+    shutil.rmtree(temp_dir)
 
 if __name__ == '__main__':
     stage_upgrade()
     create_aux_files(dsl, e('${UPGRADE_STAGEDIR}'))
+    create_upgradefile()
