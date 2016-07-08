@@ -41,10 +41,7 @@ def main():
     rel_dir = ''
     dirstring = e('${BE_ROOT}/release/${PRODUCT}')
     for x in glob.glob("{0}*".format(dirstring)):
-        if e('${BUILD_ARCH_SHORT}') not in os.listdir(x):
-            continue
-
-        if os.lstat(x).st_ctime > ref_date:
+        if os.path.isdir(e('${x}/${BUILD_ARCH_SHORT}')) and os.lstat(x).st_ctime > ref_date:
             ref_date = os.lstat(x).st_ctime
             rel_dir = x
 
