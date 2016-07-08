@@ -27,6 +27,8 @@
 
 import os
 import ast
+import json
+DSL_PREFIX = 'dsl.config.'
 
 
 class ConfigDict(dict):
@@ -167,5 +169,41 @@ def load_file(filename, env):
 
     return g.dict
 
+
+def override_profile_config(config):
+    # local import may be needed to avoid circular import issues
+    from utils import info
+    override = {k.replace(DSL_PREFIX, ''): v for k, v in os.environ.items() if k.startswith(DSL_PREFIX)}
+    for k, v in override.items():
+        dest = None
+        split_keys = k.split('.')
+        try:
+            for subkey in split_keys[:-1]:
+                dest = dest or config
+                if isinstance(dest, dict):
+                    dest = dest[subkey]
+                elif isinstance(dest, list):
+                    for dictitem in dest:
+                        if dictitem['name'] == subkey:
+                            dest = dictitem
+                            break
+                    else:
+                        raise KeyError(subkey)
+            if dest and isinstance(dest, dict):
+                dest[split_keys[-1]] = v
+            else:
+                # means that the split resulted in a single element
+                # thus we can just use the original key
+                config[k] = v
+            info('Overriding {0}{1} build config var to: {2}'.format(DSL_PREFIX, k, v))
+        except KeyError as e:
+            # this key does not exist in the build config
+            # moving on post logging this
+            info('{0}{1} is not a proper build config key! KeyError for {2}'.format(DSL_PREFIX, k, e))
+    return config
+
+
 def load_profile_config():
-    return load_file('${BUILD_PROFILES}/${PROFILE}/config.pyd', os.environ)
+    return override_profile_config(load_file(
+        '${BUILD_PROFILES}/${PROFILE}/config.pyd', os.environ
+    ))
