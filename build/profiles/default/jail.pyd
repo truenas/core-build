@@ -129,3 +129,8 @@ copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }
+
+copy += {
+    "source": "${BE_ROOT}/uefi-edk2",
+    "dest": "/usr/uefi_edk2_src"
+}

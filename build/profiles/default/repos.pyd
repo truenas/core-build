@@ -183,3 +183,10 @@ repos += {
     "url": "https://github.com/freenas/samba.git",
     "branch": "v4-3-stable"
 }
+
+repos += {
+    "name": "uefi-edk2",
+    "path": "uefi-edk2",
+    "url": "https://github.com/freenas/uefi-edk2.git",
+    "branch": "bhyve/UDK2014.SP1"
+}
