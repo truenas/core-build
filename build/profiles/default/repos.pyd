@@ -24,9 +24,9 @@
 #
 
 repos += {
-    "name": "huevos",
-    "path": "huevos",
-    "url": "https://github.com/freenas/huevos.git",
+    "name": "os",
+    "path": "os",
+    "url": "https://github.com/freenas/os.git",
     "branch": "freebsd10"
 }
 

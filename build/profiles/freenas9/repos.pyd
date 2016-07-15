@@ -49,17 +49,17 @@ else:
 
 if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) :
     repos += {
-        "name": "huevos",
-        "path": "huevos",
-        "url": "https://github.com/freenas/huevos.git",
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
         "branch": "9.10-STABLE"
     }
 
 else:
     repos += {
-        "name": "huevos",
-        "path": "huevos",
-        "url": "https://github.com/freenas/huevos.git",
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
         "branch": "freebsd10"
     }
 

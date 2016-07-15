@@ -25,7 +25,7 @@
 
 
 link += {
-    "source": HUEVOS_ROOT,
+    "source": OS_ROOT,
     "dest": "/usr/src",
     "flags": "ro",
 }
