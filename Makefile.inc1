@@ -225,5 +225,5 @@ select-profile:
 debug:
 	@${BUILD_TOOLS}/build-debug.py
 
-docs: update
-	make -C ${DOC_PATH} html
+docs:
+	make -C ${DOC_PATH}/userguide html
