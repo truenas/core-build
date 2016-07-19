@@ -171,6 +171,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-dockerhub",
+    "path": "py-dockerhub",
+    "url": "https://github.com/freenas/py-dockerhub.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-ipfs-api",
     "path": "py-ipfs-api",
     "url": "https://github.com/ipfs/python-ipfs-api",
