@@ -226,4 +226,8 @@ debug:
 	@${BUILD_TOOLS}/build-debug.py
 
 docs:
-	make -C ${DOC_PATH}/userguide html
+.if ${PRODUCT} == "TrueNAS"
+	(make SPHINXOPTS="-t truenas" -C ${DOC_PATH}/userguide html)
+.else
+	(make -C ${DOC_PATH}/userguide html)
+.endif
