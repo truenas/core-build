@@ -231,3 +231,10 @@ docs:
 .else
 	(make -C ${DOC_PATH}/userguide html)
 .endif
+
+api-docs:
+.if ${PRODUCT} == "TrueNAS"
+	(make SPHINXOPTS="-t truenas" -C ${DOC_PATH}/api html)
+.else
+	(make -C ${DOC_PATH}/api html)
+.endif
