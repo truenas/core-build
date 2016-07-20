@@ -31,7 +31,7 @@ link += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/freenas/docs",
+    "source": "${BE_ROOT}/freenas-docs",
     "dest": "/usr/freenas_docs"
 }
 

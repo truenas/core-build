@@ -41,7 +41,7 @@ RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 
 all: check-root build
 
-.PHONY: world build packages checkout update dumpenv clean release ports
+.PHONY: world build packages checkout update dumpenv clean release ports docs
 
 check-root:
 	@[ `id -u` -eq 0 ] || ( echo "Sorry, you must be running as root to build this."; exit 1 )
@@ -225,3 +225,5 @@ select-profile:
 debug:
 	@${BUILD_TOOLS}/build-debug.py
 
+docs:
+	make -C ${DOC_PATH}/userguide html

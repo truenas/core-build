@@ -37,6 +37,7 @@ PROFILE ?= default
 GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
 PROFILE_SETTING = ${BUILD_ROOT}/.profile-setting
 MK := ${MAKE} -f ${BUILD_ROOT}/Makefile.inc1
+DOC_PATH := ${BUILD_ROOT}/_BE/freenas-docs
 
 .if exists(${GIT_REPO_SETTING})
 GIT_LOCATION != cat ${GIT_REPO_SETTING}
@@ -66,6 +67,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .export GIT_REPO_SETTING
 .export GIT_REF_PATH
 .export PROFILE
+.export DOC_PATH
 
 .BEGIN:
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
