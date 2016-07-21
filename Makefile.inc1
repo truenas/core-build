@@ -241,6 +241,4 @@ api-docs:
 
 clean-docs:
 	make -C ${DOC_PATH}/userguide clean
-
-clean-api-docs:
 	make -C ${DOC_PATH}/api clean
