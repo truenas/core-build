@@ -139,3 +139,8 @@ copy += {
     "source": "${BE_ROOT}/uefi-edk2",
     "dest": "/usr/uefi_edk2_src"
 }
+
+copy += {
+    "source": "${BE_ROOT}/ds2",
+    "dest": "/usr/ds2_src"
+}

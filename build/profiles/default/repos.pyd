@@ -197,3 +197,10 @@ repos += {
     "url": "https://github.com/freenas/uefi-edk2.git",
     "branch": "bhyve/UDK2014.SP1"
 }
+
+repos += {
+    "name": "ds2",
+    "path": "ds2",
+    "url": "https://github.com/jceel/ds2.git",
+    "branch": "master"
+}
