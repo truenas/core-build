@@ -24,6 +24,7 @@
 #
 
 samba_git_rev = sh("git -C ${BE_ROOT}/samba rev-list HEAD --count") if exists("${BE_ROOT}/samba") else "0"
+ds2_git_rev = sh("git -C ${BE_ROOT}/ds2 rev-list HEAD --count") if exists("${BE_ROOT}/ds2") else "0"
 
 ports += {
     "name": "ports-mgmt/pkg",
@@ -38,7 +39,10 @@ ports += {
     "options": ["OPTIONS_FILE_UNSET+=JAVA"]
 }
 
-ports += "devel/ds2"
+ports += {
+    "name": "devel/ds2",
+    "options": ["REVISION=" + ds2_git_rev]
+}
 ports += "dns/bind-tools"
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
