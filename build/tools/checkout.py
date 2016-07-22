@@ -125,13 +125,16 @@ def generate_manifest():
     for k, v in manifest.items():
         appendfile('${BE_ROOT}/repo-manifest', e('${k} ${v}'))
 
+
 def main():
     if not e('${SKIP_CHECKOUT}'):
         cwd = os.getcwd()
+        checkout_only = e('${CHECKOUT_ONLY}')
+        if checkout_only:
+            checkout_only = checkout_only.split(',')
         for i in dsl['repos']:
-            if e('${CHECKOUT_ONLY}'):
-                if i['name'] not in e('${CHECKOUT_ONLY}').split(','):
-                    continue
+            if checkout_only and i['name'] not in checkout_only:
+                continue
 
             info('Checkout: {0} -> {1}', i['name'], i['path'])
             debug('Repository URL: {0}', i['url'])

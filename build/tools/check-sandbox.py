@@ -38,7 +38,12 @@ def check_sandbox():
     if not os.path.exists(e('${BE_ROOT}/.pulled')):
         error('Sandbox is not fully checked out')
 
+    checkout_only = e('${CHECKOUT_ONLY}')
+    if checkout_only:
+            checkout_only = checkout_only.split(',')
     for i in config['repos']:
+        if checkout_only and i['name'] not in checkout_only:
+            continue
         if not os.path.isdir(os.path.join(e('${BE_ROOT}'), i['path'], '.git')):
             error('Sandbox is not fully checked out, {0} is missing', i['name'])
 
