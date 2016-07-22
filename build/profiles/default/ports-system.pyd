@@ -302,7 +302,7 @@ ports += {
 }
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba43",
+    "name": "net/samba44",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
@@ -321,7 +321,6 @@ ports += {
         "OPTIONS_FILE_SET+=LDAP",
         "OPTIONS_FILE_SET+=LIBZFS",
         "OPTIONS_FILE_SET+=MANPAGES",
-        "OPTIONS_FILE_SET+=PAM_SMBPASS",
         "OPTIONS_FILE_SET+=PTHREADPOOL",
         "OPTIONS_FILE_SET+=QUOTAS",
         "OPTIONS_FILE_UNSET+=SPOTLIGHT",
