@@ -226,6 +226,7 @@ debug:
 	@${BUILD_TOOLS}/build-debug.py
 
 docs:
+	@env CHECKOUT_ONLY="freenas-docs" ${BUILD_TOOLS}/checkout.py
 .if ${PRODUCT} == "TrueNAS"
 	(make SPHINXOPTS="-t truenas" -C ${DOC_PATH}/userguide html)
 .else
@@ -233,6 +234,7 @@ docs:
 .endif
 
 api-docs:
+	@env CHECKOUT_ONLY="freenas" ${BUILD_TOOLS}/checkout.py
 .if ${PRODUCT} == "TrueNAS"
 	(make SPHINXOPTS="-t truenas" -C ${DOC_PATH}/api html)
 .else
