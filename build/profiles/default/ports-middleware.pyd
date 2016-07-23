@@ -165,6 +165,15 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "freenas/freenas-debugd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
 dispatcher_client_git_rev = sh("git -C ${BE_ROOT}/dispatcher-client rev-list HEAD --count") \
     if exists("${BE_ROOT}/dispatcher-client") \
     else "0"
@@ -200,7 +209,7 @@ ports += {
 dedicated_repo_ports = [
     "py-freenas.cli", "py-freenas.utils", "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py", "py-dhcp",
     "py-bsd", "py-smbconf", "py-pf", "py-wbclient", "py-krb5", "py-dockerhub", "licenselib", "py-ipfs-api",
-    "freenas-pkgtools"
+    "py-msock", "freenas-pkgtools"
 ]
 
 for iter_port in dedicated_repo_ports:
