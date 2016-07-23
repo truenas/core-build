@@ -31,7 +31,7 @@ if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) and PRODUCT == "TrueNAS":
        "branch": "TN-9.10-STABLE"
     }
 
-elif ( MILESTONE == "STABLE" or MILESONE =="RELEASE" ) :
+elif ( MILESTONE == "STABLE" or MILESTONE =="RELEASE" ) :
     repos += {
        "name": "freenas",
        "path": "freenas",
