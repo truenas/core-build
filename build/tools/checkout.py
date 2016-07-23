@@ -99,7 +99,11 @@ def checkout_repo(cwd, repo):
             sh('git fetch origin')
             sh('git checkout', branch)
 
-        sh('git pull --rebase')
+        # git pull --rebase exhibits bad behavior in git 2.8.x and
+        # early 2.9.x, leaving dead lock files.  This is an attempted
+        # work-around - it should behave the same, perhaps minus
+        # internal git bugs.
+        sh('git fetch && git rebase')
     else:
         if e('${CHECKOUT_SHALLOW}'):
             sh('git clone -b', branch, '--depth 1', repo_url, repo_path)
