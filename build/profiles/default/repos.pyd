@@ -178,6 +178,13 @@ repos += {
 }
 
 repos += {
+    "name": "py-msock",
+    "path": "py-msock",
+    "url": "https://github.com/freenas/py-msock.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-ipfs-api",
     "path": "py-ipfs-api",
     "url": "https://github.com/ipfs/python-ipfs-api",

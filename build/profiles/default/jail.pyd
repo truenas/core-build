@@ -131,6 +131,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-msock",
+    "dest": "/usr/middleware_src/py-msock"
+}
+
+copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }
