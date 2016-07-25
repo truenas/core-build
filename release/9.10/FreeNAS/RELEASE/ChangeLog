@@ -1,11 +1,27 @@
-#15920	Bug	Nice to have	Turn delayed ack back on
+#16246	Feature	Expected	Update for updater URL
+#16243	Bug	Expected	Hook up offline update script creator to the build (STABLE version)
+#16218	Bug	Expected	Hook up offline update script creator to the build
+#16046	Bug	Expected	Allowing a user to shut off CIFS breaks AD
+#15817	Bug	Expected	Plugins not obtaining an IP from DHCP
+#16410	Bug	Important	freenas-update command spews a lot of extraneous output
+#16321	Bug	Important	Build docs from new FreeNAS Docs repo
+#16292	Bug	Important	malformed syslog server GUI entry breaks syslog
+#16213	Bug	Important	freenas-update command has totally regressed and now returns 0 instead of non-zero status for lack of update
+#16202	Bug	Important	GUI: Edit Jail dialog is not working correct, when DHCP is ticked in Jails -> Configuration
+#16184	Bug	Important	Cannot disable AD or LDAP when the server is not reachable
+#16156	Bug	Important	Boot process not readeable from HP ILO console
+#15972	Bug	Important	Error deleting Jail Template
 #15898	Bug	Important	smart_alert.py throwing unrecognized argument error.
-#15886	Bug	Important	Password mismatch when changing LDAP servers
-#15850	Bug	Expected	no GUI after the very last update 
-#15778	Bug	Important	UEFI support for upgrades
-#15700	Bug	Important	Fix error message: Failed to setlocalsid with the following error: Can't load /usr/local/etc/smb4.conf
-#15533	Bug	Blocks Until Resolved	LDAP integration over SSL
-#15475	Bug	Expected	Plugin will not update with mountpoint umounted
-#15135	Bug	Important	Fiber Channel issues with 9.10
-#13453	Bug	Nice to have	UPS Service - Email Sending
-#7659	Feature	Nice to have	Mellanox ConnectX-4 support
+#15808	Bug	Important	smbd exited on signal 4 when rm from Linux client using mount.cifs
+#15697	Bug	Important	Update Key Verification
+#15016	Bug	Important	Jails: MAC addresses are used multiple times when jails don't have fixed MAC addresses set
+#16445	Bug	Nice to have	ISCSI-The service could not be started
+#16435	Bug	Nice to have	Message about characters allowed in jail names needs update
+#16421	Bug	Nice to have	API documentation on GET NFS resource is incorrect
+#16157	Bug	Nice to have	Spelling error in zvol edit dialog
+#16135	Bug	Nice to have	A float is required
+#16045	Bug	Nice to have	Accessing plugins without ZFS causes plain message instead of alert box
+#16011	Bug	Nice to have	Dataset nesting only three levels deep
+#16009	Feature	Nice to have	Please allow dashes in jail names
+#15087	Bug	Nice to have	FreeNAS VMXNet 3 Driver
+#6605	Feature	Nice to have	When generating local cert or SSH key, log the fingerprint to syslog and console
