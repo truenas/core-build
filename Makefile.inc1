@@ -236,11 +236,11 @@ docs:
 api-docs:
 	@env CHECKOUT_ONLY="freenas" ${BUILD_TOOLS}/checkout.py
 .if ${PRODUCT} == "TrueNAS"
-	(make SPHINXOPTS="-t truenas" -C ${DOC_PATH}/api html)
+	(make SPHINXOPTS="-t truenas" -C ${API_PATH}/api html)
 .else
-	(make -C ${DOC_PATH}/api html)
+	(make -C ${API_PATH}/api html)
 .endif
 
 clean-docs:
 	make -C ${DOC_PATH}/userguide clean
-	make -C ${DOC_PATH}/api clean
+	make -C ${API_PATH}/api clean
