@@ -35,9 +35,8 @@ RELEASE_LOGFILE?=${SCRIPT}
 RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 .endif
 
-.if defined(CHANGELOG)
+CHANGELOG := ${BUILD_ROOT}/release/9.10/FreeNAS/RELEASE/ChangeLog
 .export CHANGELOG
-.endif
 
 all: check-root build
 
