@@ -401,7 +401,7 @@ ports += {
 }
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba44",
+    "name": "net/samba43" if (MILESTONE == "STABLE" or MILESTONE == "RELEASE") else "net/samba44",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
