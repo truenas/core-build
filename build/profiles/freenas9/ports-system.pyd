@@ -401,7 +401,7 @@ ports += {
 }
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba43",
+    "name": "net/samba44",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
