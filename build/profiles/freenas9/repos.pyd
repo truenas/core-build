@@ -23,29 +23,12 @@
 # SUCH DAMAGE.
 #
 
-if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) and PRODUCT == "TrueNAS":
-    repos += {
-       "name": "freenas",
-       "path": "freenas",
-       "url": "http://github.com/freenas/freenas.git",
-       "branch": "TN-9.10-STABLE"
-    }
-
-elif ( MILESTONE == "STABLE" or MILESTONE =="RELEASE" ) :
-    repos += {
-       "name": "freenas",
-       "path": "freenas",
-       "url": "http://github.com/freenas/freenas.git",
-       "branch": "9.10-STABLE"
-    }
-
-else:
-    repos += {
-        "name": "freenas",
-        "path": "freenas",
-        "url": "http://github.com/freenas/freenas.git",
-        "branch": "master"
-    }
+repos += {
+    "name": "freenas",
+    "path": "freenas",
+    "url": "http://github.com/freenas/freenas.git",
+    "branch": "TN-9.10-STABLE" if PRODUCT == "TrueNAS" else "9.10-STABLE"
+}
 
 repos += {
     "name": "freenas-docs",
@@ -54,21 +37,12 @@ repos += {
     "branch": "master"
 }
 
-if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ) :
-    repos += {
-        "name": "os",
-        "path": "os",
-        "url": "https://github.com/freenas/os.git",
-        "branch": "9.10-STABLE"
-    }
-
-else:
-    repos += {
-        "name": "os",
-        "path": "os",
-        "url": "https://github.com/freenas/os.git",
-        "branch": "freebsd10"
-    }
+repos += {
+    "name": "os",
+    "path": "os",
+    "url": "https://github.com/freenas/os.git",
+    "branch": "9.10-STABLE"
+}
 
 repos += {
     "name": "ports",
@@ -105,20 +79,12 @@ repos += {
     "branch": "master"
 }
 
-if ( MILESTONE == "STABLE" or MILESTONE == "RELEASE" ):
-    repos += {
-        "name": "samba",
-        "path": "samba",
-        "url": "https://github.com/freenas/samba.git",
-        "branch": "9.10-STABLE"
-    }
-else:
-    repos += {
-        "name": "samba",
-        "path": "samba",
-        "url": "https://github.com/freenas/samba.git",
-        "branch": "v4-3-stable"
-    }
+repos += {
+    "name": "samba",
+    "path": "samba",
+    "url": "https://github.com/freenas/samba.git",
+    "branch": "9.10-STABLE"
+}
 
 repos += {
     "name": "zfsd",
@@ -127,19 +93,10 @@ repos += {
     "branch": "master"
 }
 
-if PRODUCT == "TrueNAS" and ( MILESTONE == "STABLE" or  MILESTONE == "RELEASE") :
+if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
         "branch": "TN-9.10-STABLE"
     }
-
-elif PRODUCT == "TrueNAS":
-    repos += {
-        "name": "truenas",
-        "path": "truenas",
-        "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "master"
-    }
-
