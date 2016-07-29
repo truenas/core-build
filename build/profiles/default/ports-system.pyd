@@ -59,7 +59,6 @@ ports += {
 }
 ports += "comms/lrzsz"
 ports += "sysutils/screen"
-ports += "sysutils/pciutils"
 ports += "devel/cdialog"
 ports += "dns/inadyn-mt"
 ports += "editors/nano"
