@@ -59,6 +59,7 @@ ports += {
 }
 ports += "comms/lrzsz"
 ports += "sysutils/screen"
+ports += "sysutils/pciutils"
 ports += "devel/cdialog"
 ports += "dns/inadyn-mt"
 ports += "editors/nano"
@@ -69,6 +70,7 @@ ports += {
 ports += "ftp/proftpd"
 ports += "ftp/tftp-hpa"
 ports += "misc/cpuid"
+ports += "misc/mc"
 ports += "net/vblade"
 ports += "net-mgmt/clog"
 ports += "security/cyrus-sasl2-gssapi"
@@ -357,6 +359,10 @@ ports += "sysutils/grub2-bhyve"
 ports += "sysutils/megacli"
 ports += "sysutils/beadm"
 ports += "sysutils/mcelog"
+ports += "sysutils/restic"
+ports += "sysutils/rclone"
+ports += "sysutils/consul"
+ports += "sysutils/consul-alerts"
 
 # This is a silly for fun thing
 # feel free to remove it if need be
