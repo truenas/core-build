@@ -96,9 +96,6 @@ device		acpi
 options 	ACPI_DMAR
 device		pci
 
-# Floppy drives
-device		fdc
-
 # ATA controllers
 device		ahci			# AHCI-compatible SATA controllers
 device		ata			# Legacy ATA/SATA controllers
@@ -233,6 +230,7 @@ device		ale			# Atheros AR8121/AR8113/AR8114 Ethernet
 device		bce			# Broadcom BCM5706/BCM5708 Gigabit Ethernet
 device		bge			# Broadcom BCM570xx Gigabit Ethernet
 device		et			# Agere ET1310 10/100/Gigabit Ethernet
+device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
 device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
 device		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
 device		nfe			# nVidia nForce MCP on-board Ethernet
@@ -241,6 +239,7 @@ device		nve			# nVidia nForce MCP on-board Ethernet Networking
 device		re			# RealTek 8139C+/8169/8169S/8110S
 device		rl			# RealTek 8129/8139
 device		sge			# Silicon Integrated Systems SiS190/191
+device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
 device		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
 device		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
 device		vge			# VIA VT612x gigabit Ethernet
