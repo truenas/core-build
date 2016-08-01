@@ -48,7 +48,7 @@ repos += {
     "name": "middleware",
     "path": "middleware",
     "url": "https://github.com/freenas/middleware.git",
-    "branch": "master"
+    "branch": "feature/rest"
 }
 
 repos += {
