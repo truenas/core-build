@@ -142,6 +142,11 @@ reinstall-package:
 
 freenas: release
 release:
+
+.if !defined(VERSION)
+	@echo "VERSION must be defined for STABLE builds" 1>&2
+	false
+.endif
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
 	script -a ${RELEASE_LOGFILE} ${MK} build
@@ -152,6 +157,10 @@ release:
 	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-upgrade-distribution.py
 
 release-push: update-push
+.if !defined(VERSION)
+	@echo "VERSION must be defined for STABLE builds" 1>&2
+	false
+.endif
 	@${BUILD_TOOLS}/post-to-storage.py
 	@if [ "${PRODUCT}" == "FreeNAS" -a "${INTERNAL_UPDATE}" != "YES" -a "${INTERNAL_UPDATE}" != "yes" ]; then \
 		${BUILD_TOOLS}/post-to-download.py; \
