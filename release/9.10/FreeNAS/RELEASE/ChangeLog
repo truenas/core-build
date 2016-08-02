@@ -26,3 +26,6 @@
 #16009	Feature	Nice to have	Please allow dashes in jail names
 #15087	Bug	Nice to have	FreeNAS VMXNet 3 Driver
 #6605	Feature	Nice to have	When generating local cert or SSH key, log the fingerprint to syslog and console
+#16546  Bug Expected Kernel panic with the intel 710x4 CNA
+#15805  Bug Importnat FreeNAS does not boot without GPU
+#16241  Bug Blocks Until Resolved extending zfs volume restarts samba
