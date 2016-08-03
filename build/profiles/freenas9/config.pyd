@@ -66,6 +66,7 @@ kernel_modules = [
     "vmm",
     "nmdm",
     "ntb",
+    "nvdimm",
     "toecore",
     "cxgb",
     "cxgbe",
