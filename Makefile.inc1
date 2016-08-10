@@ -146,7 +146,7 @@ release:
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
 	script -a ${RELEASE_LOGFILE} ${MK} build
-	@if [ "${PRODUCTION}" == "yes" ]; then \
+	@if [ "${PRODUCTION}" == "yes" -o "${SAVE_DEBUG}" == "yes" ]; then \
 		${BUILD_TOOLS}/save-build-env.py; \
 	fi
 	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-release-distribution.py
