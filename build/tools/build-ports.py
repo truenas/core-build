@@ -146,6 +146,13 @@ def merge_port_trees():
             sh('cp -lr ${p}/ ${PORTS_OVERLAY}/${portpath}')
 
 
+def keep_wrkdirs():
+    if e('${SAVE_DEBUG}'):
+        for p in glob('${PORTS_OVERLAY}/*/*'):
+            if os.path.isdir(p):
+                setfile('${p}/.keep', '')
+
+
 def prepare_env():
     for cmd in jailconf.get('copy', []):
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
@@ -227,6 +234,7 @@ if __name__ == '__main__':
     create_ports_list()
     prepare_jail()
     merge_port_trees()
+    keep_wrkdirs()
     prepare_env()
     signal.signal(signal.SIGTERM, terminate)
     signal.signal(signal.SIGINT, terminate)
