@@ -31,8 +31,9 @@ from utils import sh
 
 
 def save_build_env():
-    sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
-    sh('tar -C ${BUILD_ROOT} -cf - . | tar -C ${SAVED_BUILD_ENV_DESTDIR} --no-same-permissions --no-same-owner -xf -')
+    # sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
+    # sh('tar -C ${BUILD_ROOT} -cf - . | tar -C ${SAVED_BUILD_ENV_DESTDIR} --no-same-permissions --no-same-owner -xf -')
+    pass
 
 if __name__ == '__main__':
     save_build_env()
