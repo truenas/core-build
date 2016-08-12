@@ -27,13 +27,17 @@
 #####################################################################
 
 
-from utils import sh
+from utils import sh, readfile
 
 
 def save_build_env():
-    # sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
-    # sh('tar -C ${BUILD_ROOT} -cf - . | tar -C ${SAVED_BUILD_ENV_DESTDIR} --no-same-permissions --no-same-owner -xf -')
-    pass
+    jailname = readfile(e('${OBJDIR}/jailname'))
+    sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
+    sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs")
+    sh("cp -a ${WORLD_DESTDIR} ${SAVED_BUILD_ENV_DESTDIR}/")
+    sh("cp -a ${DEBUG_ROOT} ${SAVED_BUILD_ENV_DESTDIR}/")
+    sh("cp -a ${OBJDIR}/ports/wrkdirs/${jailname}-p/p/*.tbz ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs/")
+
 
 if __name__ == '__main__':
     save_build_env()
