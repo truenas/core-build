@@ -34,9 +34,9 @@ def save_build_env():
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
     sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs")
-    sh("cp -a ${WORLD_DESTDIR} ${SAVED_BUILD_ENV_DESTDIR}/")
-    sh("cp -a ${DEBUG_ROOT} ${SAVED_BUILD_ENV_DESTDIR}/")
-    sh("cp -a ${OBJDIR}/ports/wrkdirs/${jailname}-p/p/*.tbz ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs/")
+    sh("cp -R ${WORLD_DESTDIR} ${SAVED_BUILD_ENV_DESTDIR}/")
+    sh("cp -R ${DEBUG_ROOT} ${SAVED_BUILD_ENV_DESTDIR}/")
+    sh("cp -R ${OBJDIR}/ports/wrkdirs/${jailname}-p/p/*.tbz ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs/")
 
 
 if __name__ == '__main__':
