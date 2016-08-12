@@ -27,7 +27,7 @@
 #####################################################################
 
 
-from utils import sh, readfile
+from utils import sh, e, readfile
 
 
 def save_build_env():
