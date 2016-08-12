@@ -41,7 +41,11 @@ ports += {
 
 ports += {
     "name": "devel/ds2",
-    "options": ["REVISION=" + ds2_git_rev]
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + ds2_git_rev
+    ]
 }
 ports += "dns/bind-tools"
 ports += "dns/mDNSResponder_nss"
