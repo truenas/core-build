@@ -60,6 +60,7 @@ class Main(object):
         for s in self.test_suites:
             start_time = time.time()
             manifest = self.load_manifest(s)
+            os.chdir(s)
             args = ['python3.4', os.path.join(s, 'run.py')]
             test = None
             if manifest['pass_target']:
