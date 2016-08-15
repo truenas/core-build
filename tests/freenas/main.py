@@ -64,10 +64,10 @@ class Main(object):
             test = None
             if manifest['pass_target']:
                 args.extend([
+                    '-a', self.address,
                     '-u', self.username,
                     '-p', self.password,
-                    '-x',
-                    self.address
+                    '-x'
                 ])
             try:
                 test = subprocess.Popen(
