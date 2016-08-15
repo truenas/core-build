@@ -31,6 +31,7 @@ import argparse
 import shutil
 import subprocess
 from xml.etree.ElementTree import Element, SubElement, tostring, parse
+from distutils.core import run_setup
 from xml.dom import minidom
 
 
@@ -143,6 +144,22 @@ class Main(object):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
+    def build_utils(self):
+        lib_path = os.path.join(self.output_path, 'lib')
+        utils_src = os.path.join(self.be_path, 'py-freenas.utils')
+        os.chdir(utils_src)
+        run_setup(
+            os.path.join(utils_src, 'setup.py'),
+            script_args=['bdist_egg', '-d', lib_path]
+        )
+
+        client_src = os.path.join(self.be_path, 'dispatcher-client/python')
+        os.chdir(client_src)
+        run_setup(
+            os.path.join(client_src, 'setup.py'),
+            script_args=['bdist_egg', '-d', lib_path]
+        )
+
     def main(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('-a', metavar='ADDRESS', required=True, help='FreeNAS box address')
@@ -157,6 +174,8 @@ class Main(object):
         self.username = args.u
         self.password = args.p
         self.output_path = args.r
+
+        self.build_utils()
 
         self.find_tests()
 
