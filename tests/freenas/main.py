@@ -65,7 +65,7 @@ class Main(object):
                 args.extend([
                     '-u', self.username,
                     '-p', self.password,
-                    '-x', self.output_path,
+                    '-x',
                     self.address
                 ])
             try:
