@@ -61,6 +61,7 @@ class Main(object):
             start_time = time.time()
             manifest = self.load_manifest(s)
             args = ['python3.4', os.path.join(s, 'run.py')]
+            test = None
             if manifest['pass_target']:
                 args.extend([
                     '-u', self.username,
@@ -89,8 +90,16 @@ class Main(object):
                     os.path.join(s, 'results.xml'),
                     manifest['name'],
                     time.time() - start_time,
-                    'Test process has returned an error',
+                    'Test could not be started',
                     e
+                )
+            if test and test.returncode:
+                self.generate_suite_error(
+                    os.path.join(s, 'results.xml'),
+                    manifest['name'],
+                    time.time() - start_time,
+                    'Test process has returned an error',
+                    test.stdout.read() + test.stderr.read()
                 )
 
     def aggregate_results(self):
