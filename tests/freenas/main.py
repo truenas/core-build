@@ -116,16 +116,16 @@ class Main(object):
                 single_result = parse(os.path.join(self.output_path, r))
                 results.append(single_result.getroot())
 
-        with open(os.path.join(self.output_path, 'aggregated_results.xml'), 'wb') as output_file:
+        with open(os.path.join(self.output_path, 'aggregated_results.xml'), 'w') as output_file:
             output_file.write(self.print_xml(results))
 
     def generate_suite_error(self, out_path, name, test_time, text, err):
-        top = Element('testsuite', errors="1", failures="0", name=name, skipped="0", tests=0, time=test_time)
-        case = SubElement(top, 'testcase', classname="UNDEFINED", name="UNDEFINED", time=test_time)
+        top = Element('testsuite', errors="1", failures="0", name=name, skipped="0", tests='0', time=str(test_time))
+        case = SubElement(top, 'testcase', classname="UNDEFINED", name="UNDEFINED", time=str(test_time))
         error = SubElement(case, 'error', message=text)
-        error.text = err
+        error.text = str(err)
         SubElement(case, 'system-err')
-        with open(out_path, 'wb') as output_file:
+        with open(out_path, 'w') as output_file:
             output_file.write(self.print_xml(top))
 
     def print_xml(self, elem):
