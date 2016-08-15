@@ -108,8 +108,9 @@ class Main(object):
 
         results = Element('testsuites')
         for r in os.listdir(self.output_path):
-            single_result = parse(os.path.join(self.output_path, r))
-            results.append(single_result.getroot())
+            if r.endswith('results.xml'):
+                single_result = parse(os.path.join(self.output_path, r))
+                results.append(single_result.getroot())
 
         with open(os.path.join(self.output_path, 'aggregated_results.xml'), 'wb') as output_file:
             output_file.write(self.print_xml(results))
