@@ -293,6 +293,7 @@ def umount_packages():
 
 def install_files():
     info('Copying installer files')
+    setfile('${INSTUFS_DESTDIR}/etc/rc', template('${BUILD_CONFIG}/templates/installer/rc'))
     setfile('${INSTUFS_DESTDIR}/etc/avatar.conf', template('${BUILD_CONFIG}/templates/avatar.conf'))
 
 
