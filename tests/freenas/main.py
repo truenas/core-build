@@ -42,11 +42,15 @@ class Main(object):
         self.password = None
         self.test_suites = []
         self.output_path = None
+        self.excluded = ['os', 'objs', 'ports', 'release']
 
     def find_tests(self):
-        for root, _, files in os.walk(self.be_path):
-            if os.path.split(root)[1] == 'tests' and 'MANIFEST.json' in files:
-                self.test_suites.append(root)
+        _, dirs_list, _ = next(os.walk(self.be_path))
+        for dir in dirs_list:
+            if dir not in self.excluded:
+                for root, _, files in os.walk(os.path.join(self.be_path, dir)):
+                    if os.path.split(root)[1] == 'tests' and 'MANIFEST.json' in files:
+                        self.test_suites.append(root)
 
     def load_manifest(self, path):
         with open(os.path.join(path, 'MANIFEST.json'), 'r') as manifest_file:
