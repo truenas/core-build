@@ -41,7 +41,7 @@ RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 
 all: check-root build
 
-.PHONY: world build packages checkout update dumpenv clean release ports docs
+.PHONY: world build packages checkout update dumpenv clean release ports docs tests
 
 check-root:
 	@[ `id -u` -eq 0 ] || ( echo "Sorry, you must be running as root to build this."; exit 1 )
@@ -194,6 +194,9 @@ build-bug-report:
 
 tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
+
+tests:
+	@env PYTHONPATH=${BUILD_ROOT}/build/lib python3.4 ${BUILD_ROOT}/tests/freenas/main.py -a ${TEST_HOST} -u ${TEST_USER} -p ${TEST_PASSWORD}
 
 ports: check-root
 	@${BUILD_TOOLS}/build-ports.py

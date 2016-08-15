@@ -83,7 +83,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .endif
 .endif
 
-.PHONY: release ports
+.PHONY: release ports tests
 
 buildenv:
 	@${BUILD_TOOLS}/buildenv.py sh

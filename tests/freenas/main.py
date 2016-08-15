@@ -30,14 +30,30 @@ import time
 import argparse
 import shutil
 import subprocess
+from utils import e, sh, objdir, info
 from xml.etree.ElementTree import Element, SubElement, tostring, parse
 from distutils.core import run_setup
 from xml.dom import minidom
 
 
+PYTHON_DEPS = [
+    'Cython',
+    'paramiko',
+    'nose2',
+    e('${BE_ROOT}/py-freenas.utils'),
+    e('${BE_ROOT}/dispatcher-client/python')
+]
+
+
+EXCLUDES = ['os', 'objs', 'ports', 'release', 'release.build.log', 'repo-manifest']
+
+
+venv_root = objdir('test-venv')
+output_root = objdir('test-output')
+
+
 class Main(object):
     def __init__(self):
-        self.be_path = None
         self.address = None
         self.username = None
         self.password = None
@@ -46,11 +62,12 @@ class Main(object):
         self.excluded = ['os', 'objs', 'ports', 'release']
 
     def find_tests(self):
-        _, dirs_list, _ = next(os.walk(self.be_path))
-        for dir in dirs_list:
+        info('Looking for test manifests in ${{BE_ROOT}}')
+        for dir in os.listdir(e('${BE_ROOT}')):
             if dir not in self.excluded:
-                for root, _, files in os.walk(os.path.join(self.be_path, dir)):
+                for root, _, files in os.walk(os.path.join(e('${BE_ROOT}'), dir)):
                     if os.path.split(root)[1] == 'tests' and 'MANIFEST.json' in files:
+                        info('Found test manifest at {0}', root)
                         self.test_suites.append(root)
 
     def load_manifest(self, path):
@@ -62,7 +79,7 @@ class Main(object):
             start_time = time.time()
             manifest = self.load_manifest(s)
             os.chdir(s)
-            args = ['python3.4', os.path.join(s, 'run.py')]
+            args = [e('${venv_root}/bin/python3.4'), os.path.join(s, 'run.py')]
             test = None
             if manifest['pass_target']:
                 args.extend([
@@ -79,21 +96,21 @@ class Main(object):
                     close_fds=True
                 )
                 test.wait(timeout=manifest['timeout'])
-            except subprocess.TimeoutExpired as e:
+            except subprocess.TimeoutExpired as err:
                 self.generate_suite_error(
                     os.path.join(s, 'results.xml'),
                     manifest['name'],
                     time.time() - start_time,
                     'Test timeout reached',
-                    e
+                    err
                 )
-            except subprocess.SubprocessError as e:
+            except subprocess.SubprocessError as err:
                 self.generate_suite_error(
                     os.path.join(s, 'results.xml'),
                     manifest['name'],
                     time.time() - start_time,
                     'Test could not be started',
-                    e
+                    err
                 )
             if test and test.returncode:
                 self.generate_suite_error(
@@ -105,16 +122,17 @@ class Main(object):
                 )
 
     def aggregate_results(self):
+        sh('mkdir -p ${output_root}')
         for s in self.test_suites:
             manifest = self.load_manifest(s)
             try:
                 shutil.move(
                     os.path.join(s, 'results.xml'),
-                    os.path.join(self.output_path, '{}-results.xml'.format(manifest['name']))
+                    os.path.join(output_root, '{}-results.xml'.format(manifest['name']))
                 )
             except FileNotFoundError as e:
                 self.generate_suite_error(
-                    os.path.join(self.output_path, '{}-results.xml'.format(manifest['name'])),
+                    os.path.join(output_root, '{}-results.xml'.format(manifest['name'])),
                     manifest['name'],
                     0,
                     'Results file not found',
@@ -122,12 +140,12 @@ class Main(object):
                 )
 
         results = Element('testsuites')
-        for r in os.listdir(self.output_path):
+        for r in os.listdir(output_root):
             if r.endswith('results.xml'):
-                single_result = parse(os.path.join(self.output_path, r))
+                single_result = parse(os.path.join(output_root, r))
                 results.append(single_result.getroot())
 
-        with open(os.path.join(self.output_path, 'aggregated_results.xml'), 'w') as output_file:
+        with open(os.path.join(output_root, 'aggregated_results.xml'), 'w') as output_file:
             output_file.write(self.print_xml(results))
 
     def generate_suite_error(self, out_path, name, test_time, text, err):
@@ -144,38 +162,24 @@ class Main(object):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
-    def build_utils(self):
-        lib_path = os.path.join(self.output_path, 'lib')
-        utils_src = os.path.join(self.be_path, 'py-freenas.utils')
-        os.chdir(utils_src)
-        run_setup(
-            os.path.join(utils_src, 'setup.py'),
-            script_args=['bdist_egg', '-d', lib_path]
-        )
-
-        client_src = os.path.join(self.be_path, 'dispatcher-client/python')
-        os.chdir(client_src)
-        run_setup(
-            os.path.join(client_src, 'setup.py'),
-            script_args=['bdist_egg', '-d', lib_path]
-        )
+    def build_virtualenv(self):
+        info('Preparing test runtime environment')
+        sh('virtualenv ${venv_root}')
+        for i in PYTHON_DEPS:
+            sh('${venv_root}/bin/pip install ${i}')
 
     def main(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('-a', metavar='ADDRESS', required=True, help='FreeNAS box address')
         parser.add_argument('-u', metavar='USERNAME', required=True, help='Username')
         parser.add_argument('-p', metavar='PASSWORD', required=True, help='Password')
-        parser.add_argument('-e', metavar='BE', default=os.path.dirname(os.getcwd()), help="Build environment path")
-        parser.add_argument('-r', metavar='RESULTS', default=os.path.dirname(os.getcwd()), help="Results path")
         args = parser.parse_args()
 
-        self.be_path = args.e
         self.address = args.a
         self.username = args.u
         self.password = args.p
-        self.output_path = args.r
 
-        self.build_utils()
+        self.build_virtualenv()
 
         self.find_tests()
 
