@@ -35,8 +35,6 @@ $RECYCLE.BIN/
 *.pyc
 
 ### PROJECT SETTINGS ###
-# update keyfile password file
-release_password
 
 _BE/
 .profile-setting
