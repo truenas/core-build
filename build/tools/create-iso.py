@@ -294,6 +294,8 @@ def umount_packages():
 def install_files():
     info('Copying installer files')
     setfile('${INSTUFS_DESTDIR}/etc/avatar.conf', template('${BUILD_CONFIG}/templates/avatar.conf'))
+    if e("${UNATTENDED_CONFIG}"):
+        sh('cp ${UNATTENDED_CONFIG} ${INSTUFS_DESTDIR}/etc/install.conf')
 
 
 def populate_ufsroot():
