@@ -35,6 +35,7 @@ $RECYCLE.BIN/
 *.pyc
 
 ### PROJECT SETTINGS ###
+
 _BE/
 .profile-setting
 .git-ref-path
