@@ -38,16 +38,12 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 
 def main():
-    prod = e("${PRODUCTION}")
-    if prod and prod.lower() == "yes":
-        if os.path.exists(e("${BUILD_ROOT}}/release_password")):
-            with open(e("${BUILD_ROOT}}/release_password"), 'rb') as f:
-                KEY_PASSWORD = f.decode('utf8').strip()
-        else:
-            KEY_PASSWORD = getpass.getpass("Enter Password: ")
-        print("Hey Release Engineer this is the password you entered: {0}".format(KEY_PASSWORD))
+    if os.path.exists(e("${BUILD_ROOT}}/release_password")):
+        with open(e("${BUILD_ROOT}}/release_password"), 'rb') as f:
+            KEY_PASSWORD = f.decode('utf8').strip()
     else:
-        KEY_PASSWORD = ""
+        KEY_PASSWORD = getpass.getpass("Enter Password: ")
+    print("Hey Release Engineer this is the password you entered: {0}".format(KEY_PASSWORD))
     changelog = e('${CHANGELOG}')
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
     sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
