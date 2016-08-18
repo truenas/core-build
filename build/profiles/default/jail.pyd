@@ -149,3 +149,9 @@ copy += {
     "source": "${BE_ROOT}/ds2",
     "dest": "/usr/ds2_src"
 }
+
+copy += {
+    "source": "${BE_ROOT}/pwatch",
+    "dest": "/usr/pwatch_src"
+}
+

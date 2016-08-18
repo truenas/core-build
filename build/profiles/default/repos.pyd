@@ -211,3 +211,10 @@ repos += {
     "url": "https://github.com/jceel/ds2.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "pwatch",
+    "path": "pwatch",
+    "url": "https://github.com/jceel/pwatch.git",
+    "branch": "master"
+}
