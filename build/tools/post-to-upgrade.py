@@ -38,10 +38,10 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 
 def main():
-    KEY_PASSWORD = e("${RELENG_PASSWORD}") or getpass.getpass("Enter Password: ")
+    IX_KEY_PASSWORD = e("${IX_KEY_PASSWORD}") or getpass.getpass("Enter Password: ")
     changelog = e('${CHANGELOG}')
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    sshopts = '-o SendEnv=IX_KEY_PASSWORD -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
 
@@ -63,7 +63,6 @@ def main():
             os.remove(cl_file.name)
 
     sh(
-        "echo ${KEY_PASSWORD} |",
         "ssh ${sshopts} ${ssh}",
         "/usr/local/bin/freenas-release",
         "-P ${PRODUCT}",
