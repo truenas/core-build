@@ -39,7 +39,6 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 def main():
     KEY_PASSWORD = e("${RELENG_PASSWORD}") or getpass.getpass("Enter Password: ")
-    print("Hey Release Engineer this is the password you entered: {0}".format(KEY_PASSWORD))
     changelog = e('${CHANGELOG}')
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
     sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
