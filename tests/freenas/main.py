@@ -79,14 +79,13 @@ class Main(object):
             start_time = time.time()
             manifest = self.load_manifest(s)
             os.chdir(s)
-            args = [e('${venv_root}/bin/python3.4'), os.path.join(s, 'run.py')]
+            args = [e('${venv_root}/bin/python3.4'), os.path.join(s, 'run.py'), '-x']
             test = None
             if manifest['pass_target']:
                 args.extend([
                     '-a', self.address,
                     '-u', self.username,
-                    '-p', self.password,
-                    '-x'
+                    '-p', self.password
                 ])
             try:
                 test = subprocess.Popen(
