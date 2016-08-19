@@ -41,7 +41,6 @@ def main():
     prod = e("${PRODUCTION}")
     if prod and prod.lower() == "yes":
         KEY_PASSWORD = getpass.getpass("Enter Password: ")
-        print("Hey Release Engineer this is the password you entered: {0}".format(KEY_PASSWORD))
     else:
         KEY_PASSWORD = ""
     changelog = e('${CHANGELOG}')
