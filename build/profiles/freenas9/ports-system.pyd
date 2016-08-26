@@ -403,7 +403,7 @@ ports += {
 }
 ports += "security/gnutls"
 ports += {
-    "name": "net/samba43",
+    "name": "net/samba43" if (MILESTONE == "STABLE" or MILESTONE == "RELEASE") else "net/samba44",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
@@ -448,6 +448,7 @@ ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
 ports += "sysutils/htop"
 ports += "sysutils/mcelog"
+ports += "misc/mc"
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
 
