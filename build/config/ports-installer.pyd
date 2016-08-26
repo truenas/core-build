@@ -23,6 +23,10 @@
 # SUCH DAMAGE.
 #
 
+middleware_git_rev = sh("git -C ${BE_ROOT}/middleware rev-list HEAD --count") \
+    if exists("${BE_ROOT}/middleware") \
+    else "0"
+
 ports += "lang/python3"
 ports += "lang/python"
 ports += "databases/sqlite3"
@@ -36,6 +40,6 @@ ports += {
         "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=${GIT_REVISION}"
+        "REVISION=" + middleware_git_rev
     ]
 }
