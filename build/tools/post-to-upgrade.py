@@ -44,7 +44,8 @@ def main():
     sshopts = '-o SendEnv=IX_KEY_PASSWORD -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
-
+    delta_count = e('${DELTAS}')
+    
     if not temp_dest or not temp_changelog:
         error('Failed to create temporary directories on {0}', ssh)
 
@@ -70,6 +71,7 @@ def main():
         "--archive ${UPDATE_DEST}",
         "-K ${FREENAS_KEYFILE}",
         "-C ${temp_changelog}" if changelog else "",
+        "--deltas ${delta_count}" if delta_count else "",
         "add ${temp_dest}"
     )
 
