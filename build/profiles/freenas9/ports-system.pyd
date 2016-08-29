@@ -452,6 +452,7 @@ ports += "sysutils/throttle"
 ports += "misc/xtail"
 ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
+ports += "sysutils/cmdwatch"
 ports += "sysutils/htop"
 ports += "sysutils/mcelog"
 ports += {
