@@ -145,12 +145,12 @@ freenas: release
 release:
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
-	script -a ${RELEASE_LOGFILE} ${MK} build
+	@${MK} build
 	@if [ "${PRODUCTION}" == "yes" -o "${SAVE_DEBUG}" == "yes" ]; then \
 		${BUILD_TOOLS}/save-build-env.py; \
 	fi
-	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-release-distribution.py
-	script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-upgrade-distribution.py
+	@${BUILD_TOOLS}/create-release-distribution.py
+	@${BUILD_TOOLS}/create-upgrade-distribution.py
 
 release-push: update-push
 	@${BUILD_TOOLS}/post-to-storage.py
