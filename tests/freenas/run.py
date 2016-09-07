@@ -25,80 +25,29 @@
 #
 
 import os
-import subprocess
 from dsl import load_file, load_profile_config
 from utils import sh, sh_str, sh_spawn, info, objdir, e
 
 
 load_profile_config()
 load_file(e('${BUILD_ROOT}/tests/freenas/config.pyd'), os.environ)
-destdir = objdir('tests')
-isopath = objdir('${NAME}.iso')
-tapdev = None
+testdir = objdir('tests')
+venvdir = objdir('tests/venv')
 
 
 def cleanup():
     sh('bhyvectl --destroy --vm=${VM_NAME}', nofail=True)
 
 
-def setup_files():
-    sh('mkdir -p ${destdir}')
-    sh('truncate -s 8G ${destdir}/boot.img')
-    sh('truncate -s 20G ${destdir}/hd1.img')
-    sh('truncate -s 20G ${destdir}/hd2.img')
-
-
-def setup_network():
-    global tapdev
-
-    info('Configuring VM networking')
-    tapdev = sh_str('ifconfig tap create')
-    info('Using tap device {0}', tapdev)
-    sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
-
-
-def do_install():
-    info('Starting up VM for unattended install')
-    vm_proc = sh_spawn(
-        'bhyve -m ${MEMSIZE} -c ${CORES} -A -H -P',
-        '-s 3:0,ahci-hd,${destdir}/boot.img',
-        '-s 4:0,ahci-hd,${destdir}/hd1.img',
-        '-s 5:0,ahci-hd,${destdir}/hd2.img',
-        '-s 6:0,ahci-cd,${isopath}',
-        '-s 7:0,virtio-net,${tapdev}',
-        '-s 8:0,fbuf,tcp=5900,w=1024,h=768',
-        '-s 31,lpc',
-        '-l bootrom,/usr/local/share/uefi-firmware/BHYVE_UEFI.fd',
-        '${VM_NAME}'
-    )
-
-    try:
-        vm_proc.wait(timeout=3600)
-    except subprocess.TimeoutExpired:
-        fail('Install timed out after 1 hour')
-
-
-def do_run():
-    info('Starting up VM for testing')
-    vm_proc = sh_spawn(
-        'bhyve -m ${MEMSIZE} -c ${CORES} -A -H -P',
-        '-s 3:0,ahci-hd,${destdir}/boot.img',
-        '-s 4:0,ahci-hd,${destdir}/hd1.img',
-        '-s 5:0,ahci-hd,${destdir}/hd2.img',
-        '-s 6:0,virtio-net,${tapdev}',
-        '-s 7:0,fbuf,tcp=5900,w=1024,h=768',
-        '-s 31,lpc',
-        '-l bootrom,/usr/local/share/uefi-firmware/BHYVE_UEFI.fd',
-        '${VM_NAME}'
-    )
-
-    vm_proc.wait()
+def setup_venv():
+    sh('virtualenv ${venvdir}')
+    sh('${venvdir}/bin/pip install -U cython six')
+    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-bsd')
+    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-netif')
+    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-dhcp')
+    sh('${venvdir}/bin/python ${BUILD_ROOT}/tests/freenas/vm.py')
 
 
 if __name__ == '__main__':
-    info('Starting up test schedule')
-    cleanup()
-    setup_files()
-    setup_network()
-    do_install()
-    do_run()
+    info('Setting up test environment')
+    setup_venv()
