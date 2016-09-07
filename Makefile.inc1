@@ -196,7 +196,8 @@ tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
 
 tests:
-	@env PYTHONPATH=${BUILD_ROOT}/build/lib python3.4 ${BUILD_ROOT}/tests/freenas/main.py -a ${TEST_HOST} -u ${TEST_USER} -p ${TEST_PASSWORD}
+	@${MK} cdrom UNATTENDED_CONFIG=tests/freenas/install.conf
+	@env PYTHONPATH=${BUILD_ROOT}/build/lib python3.4 ${BUILD_ROOT}/tests/freenas/run.py
 
 ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
