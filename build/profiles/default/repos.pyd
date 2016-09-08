@@ -222,6 +222,6 @@ repos += {
 repos += {
     "name": "mDNSResponder",
     "path": "mDNSResponder",
-    "url": "https://github.com/jceel/mDNSResponder.git",
+    "url": "https://github.com/freenas/mDNSResponder.git",
     "branch": "master"
 }
