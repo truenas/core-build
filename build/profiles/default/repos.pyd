@@ -218,3 +218,10 @@ repos += {
     "url": "https://github.com/jceel/pwatch.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "mDNSResponder",
+    "path": "mDNSResponder",
+    "url": "https://github.com/jceel/mDNSResponder.git",
+    "branch": "master"
+}

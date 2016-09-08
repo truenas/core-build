@@ -155,3 +155,8 @@ copy += {
     "dest": "/usr/pwatch_src"
 }
 
+copy += {
+    "source": "${BE_ROOT}/mDNSResponder",
+    "dest": "/usr/mDNSResponder_src"
+}
+
