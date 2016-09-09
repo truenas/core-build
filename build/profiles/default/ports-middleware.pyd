@@ -183,6 +183,15 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "freenas/freenas-locate",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
 dispatcher_client_git_rev = sh("git -C ${BE_ROOT}/dispatcher-client rev-list HEAD --count") \
     if exists("${BE_ROOT}/dispatcher-client") \
     else "0"
