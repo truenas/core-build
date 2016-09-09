@@ -39,6 +39,16 @@ ports += {
     ]
 }
 
+ports += {
+    "name": "freenas/pipewatcher",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + freenas_git_rev
+    ]
+}
+
 if PRODUCT == "TrueNAS":
     truenas_git_rev = sh("git -C ${BE_ROOT}/truenas rev-list HEAD --count") \
         if exists("${BE_ROOT}/truenas") \
