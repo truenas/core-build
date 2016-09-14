@@ -82,7 +82,7 @@ def main():
 
             if not relpath.startswith('rescue'):
                 sh('objcopy --only-keep-debug ${filename} ${destpath}.debug')
-                sh('objcopy --strip-unneeded ${filename}')
+                sh('objcopy --strip-unneeded ${filename}', nofail=True)
                 sh('objcopy --add-gnu-debuglink="${destpath}.debug" ${filename}', log='/dev/null', nofail=True)
             else:
                 sh('strip ${filename}')
