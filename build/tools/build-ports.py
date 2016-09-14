@@ -151,9 +151,11 @@ def merge_port_trees():
             sh('cp -lr ${p}/ ${PORTS_OVERLAY}/${portpath}')
 
         if os.path.exists(uids):
-            sh('cp ${uids} ${PORTS_OVERLAY}/UIDs')
+            sh('rm -f ${PORTS_OVERLAY}/UIDs')
+            sh('cp -l ${uids} ${PORTS_OVERLAY}/UIDs')
         if os.path.exists(gids):
-            sh('cp ${gids} ${PORTS_OVERLAY}/GIDs')
+            sh('rm -rf ${PORTS_OVERLAY}/GIDs')
+            sh('cp -l ${gids} ${PORTS_OVERLAY}/GIDs')
 
 def keep_wrkdirs():
     if e('${SAVE_DEBUG}'):
