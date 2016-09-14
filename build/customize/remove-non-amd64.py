@@ -26,7 +26,7 @@
 #
 #####################################################################
 
-
+import os
 import sys
 from utils import sh, sh_str, is_elf
 
