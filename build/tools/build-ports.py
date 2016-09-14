@@ -141,10 +141,17 @@ def merge_port_trees():
         info(e('Merging ports tree ${i}'))
         for p in glob('${i}/*/*'):
             portpath = '/'.join(p.split('/')[-2:])
+            uids = "%s/%s" % (i, "UIDs")
+            gids = "%s/%s" % (i, "GIDs")
+
             sh('rm -rf ${PORTS_OVERLAY}/${portpath}')
             sh('mkdir -p ${PORTS_OVERLAY}/${portpath}')
             sh('cp -lr ${p}/ ${PORTS_OVERLAY}/${portpath}')
 
+            if os.path.exists(uids):
+                sh('cp ${uids} ${PORTS_OVERLAY}/UIDs')
+            if os.path.exists(gids):
+                sh('cp ${gids} ${PORTS_OVERLAY}/GIDs')
 
 def keep_wrkdirs():
     if e('${SAVE_DEBUG}'):
