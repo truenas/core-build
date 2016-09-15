@@ -41,7 +41,7 @@ def main(destdir):
                 continue
 
             ret = sh_str('file ${filename}')
-            if 'x86-64' not in ret:
+            if 'x86-64' not in ret and '80386' not in ret:
                 os.unlink(filename)
 
 
