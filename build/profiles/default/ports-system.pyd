@@ -366,6 +366,7 @@ ports += "sysutils/megacli"
 ports += "sysutils/beadm"
 ports += "sysutils/mcelog"
 ports += "sysutils/restic"
+ports += "sysutils/consul"
 
 # This is a silly for fun thing
 # feel free to remove it if need be
