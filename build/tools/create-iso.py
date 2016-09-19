@@ -297,6 +297,7 @@ def install_files():
     setfile('${INSTUFS_DESTDIR}/etc/avatar.conf', template('${BUILD_CONFIG}/templates/avatar.conf'))
     if e("${UNATTENDED_CONFIG}"):
         sh('cp ${UNATTENDED_CONFIG} ${INSTUFS_DESTDIR}/etc/install.conf')
+    sh('cp ${BUILD_CONFIG}/templates/cdrom/rc.conf ${INSTUFS_DESTDIR}/etc/')
 
 
 def populate_ufsroot():
@@ -362,7 +363,6 @@ def make_iso_image():
     setfile('${ISO_DESTDIR}/boot/loader.conf', template('${BUILD_CONFIG}/templates/cdrom/loader.conf'))
     setfile('${ISO_DESTDIR}/boot/grub/grub.cfg', template('${BUILD_CONFIG}/templates/cdrom/grub.cfg'))
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
-    setfile('${ISO_DESTDIR}/etc/rc.conf', '${BUILD_CONFIG}/templates/cdrom/rc.conf')
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
     sh('grub-mkrescue -o ${output} ${ISO_DESTDIR} -- -volid ${CDROM_LABEL}')
     sha256(output)
