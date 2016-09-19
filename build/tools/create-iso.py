@@ -70,6 +70,7 @@ files_to_preserve = [
     '/usr/sbin/diskinfo',
     '/usr/sbin/swapinfo',
     '/usr/sbin/vidcontrol',
+    '/usr/sbin/watchdogd',
     '/sbin/geom',
     '/sbin/gmirror',
     '/sbin/graid',
@@ -361,6 +362,7 @@ def make_iso_image():
     setfile('${ISO_DESTDIR}/boot/loader.conf', template('${BUILD_CONFIG}/templates/cdrom/loader.conf'))
     setfile('${ISO_DESTDIR}/boot/grub/grub.cfg', template('${BUILD_CONFIG}/templates/cdrom/grub.cfg'))
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
+    setfile('${ISO_DESTDIR}/etc/rc.conf', '${BUILD_CONFIG}/templates/cdrom/rc.conf')
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
     sh('grub-mkrescue -o ${output} ${ISO_DESTDIR} -- -volid ${CDROM_LABEL}')
     sha256(output)
