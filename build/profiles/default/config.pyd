@@ -168,6 +168,7 @@ early_customize_tasks = [
 customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
+    "remove-rc-scripts",
     "strip-binaries",
     "install-avatar-conf",
     "link-bash",
