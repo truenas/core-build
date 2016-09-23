@@ -74,6 +74,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .BEGIN:
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
+	@echo "[0:00:00] ==> NOTICE: Build timestamp: ${BUILD_TIMESTAMP}"
 .endif
 
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
