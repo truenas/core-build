@@ -53,12 +53,15 @@ def setup_files():
     sh('truncate -s 20G ${destdir}/hd2.img')
 
 
-def setup_network():
+def alloc_network():
     global tapdev
 
-    info('Configuring VM networking')
     tapdev = sh_str('ifconfig tap create')
     info('Using tap device {0}', tapdev)
+
+
+def setup_network():
+    info('Configuring VM networking')
     sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
@@ -66,7 +69,7 @@ def setup_dhcp_server():
     global dhcp_server
 
     def dhcp_request(mac, hostname):
-        info('DHCP request from ${hostname} (${mac})')
+        info('DHCP request from {0} ({1})'.format(hostname, mac))
         lease = Lease()
         lease.client_mac = mac
         lease.client_ip = ipaddress.ip_address(e('${FREENAS_IP}'))
@@ -121,8 +124,10 @@ def do_run():
 if __name__ == '__main__':
     info('Starting up test schedule')
     cleanup()
+    alloc_network()
     setup_files()
     setup_network()
     setup_dhcp_server()
     do_install()
+    setup_network()
     do_run()
