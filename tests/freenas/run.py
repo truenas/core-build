@@ -41,12 +41,14 @@ def cleanup():
 
 def setup_venv():
     sh('virtualenv ${venvdir}')
-    sh('${venvdir}/bin/pip install -U cython six')
+    sh('${venvdir}/bin/pip install -U cython six paramiko nose2')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-bsd')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-netif')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-dhcp')
+    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-freenas.utils')
+    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/dispatcher-client/python')
     sh('${venvdir}/bin/python ${BUILD_ROOT}/tests/freenas/vm.py')
-
+    
 
 if __name__ == '__main__':
     info('Setting up test environment')

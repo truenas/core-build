@@ -36,19 +36,10 @@ from distutils.core import run_setup
 from xml.dom import minidom
 
 
-PYTHON_DEPS = [
-    'Cython',
-    'paramiko',
-    'nose2',
-    e('${BE_ROOT}/py-freenas.utils'),
-    e('${BE_ROOT}/dispatcher-client/python')
-]
-
-
 EXCLUDES = ['os', 'objs', 'ports', 'release', 'release.build.log', 'repo-manifest']
 
 
-venv_root = objdir('test-venv')
+venvdir = objdir('tests/venv')
 output_root = objdir('test-output')
 
 
@@ -79,7 +70,7 @@ class Main(object):
             start_time = time.time()
             manifest = self.load_manifest(s)
             os.chdir(s)
-            args = [e('${venv_root}/bin/python3.4'), os.path.join(s, 'run.py'), '-x']
+            args = [e('${venvdir}/bin/python'), os.path.join(s, 'run.py'), '-x']
             test = None
             if manifest['pass_target']:
                 args.extend([
@@ -161,12 +152,6 @@ class Main(object):
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
-    def build_virtualenv(self):
-        info('Preparing test runtime environment')
-        sh('virtualenv ${venv_root}')
-        for i in PYTHON_DEPS:
-            sh('${venv_root}/bin/pip install ${i}')
-
     def main(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('-a', metavar='ADDRESS', required=True, help='FreeNAS box address')
@@ -178,7 +163,6 @@ class Main(object):
         self.username = args.u
         self.password = args.p
 
-        self.build_virtualenv()
 
         self.find_tests()
 

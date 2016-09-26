@@ -28,6 +28,7 @@ import os
 import ipaddress
 import subprocess
 import threading
+import time
 from dhcp.server import Server
 from dhcp.lease import Lease
 from dsl import load_file, load_profile_config
@@ -37,9 +38,11 @@ from utils import sh, sh_str, sh_spawn, info, objdir, e
 load_profile_config()
 load_file(e('${BUILD_ROOT}/tests/freenas/config.pyd'), os.environ)
 destdir = objdir('tests')
+venvdir = objdir('tests/venv')
 isopath = objdir('${NAME}.iso')
 tapdev = None
 dhcp_server = None
+ready = threading.Event()
 
 
 def cleanup():
@@ -65,6 +68,10 @@ def setup_network():
     sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
+def cleanup_network():
+    sh('ifconfig ${tapdev} destroy')
+
+
 def setup_dhcp_server():
     global dhcp_server
 
@@ -74,6 +81,7 @@ def setup_dhcp_server():
         lease.client_mac = mac
         lease.client_ip = ipaddress.ip_address(e('${FREENAS_IP}'))
         lease.client_mask = ipaddress.ip_address(e('${NETMASK}'))
+        ready.set()
         return lease
 
     dhcp_server = Server()
@@ -118,6 +126,20 @@ def do_run():
         '${VM_NAME}'
     )
 
+    ready.wait()
+    time.sleep(60)
+    info('VM middleware is ready')
+
+    output = sh_str(
+        '${venvdir}/bin/python ${BUILD_ROOT}/tests/freenas/main.py '
+        '-a ${FREENAS_IP} '
+        '-u root '
+        '-p abcd1234'
+    )
+
+    info('Test results:\n {0}'.format(output))
+
+    vm_proc.terminate()
     vm_proc.wait()
 
 
@@ -131,3 +153,4 @@ if __name__ == '__main__':
     do_install()
     setup_network()
     do_run()
+    cleanup_network()
