@@ -1,31 +1,64 @@
-#16538  Bug  Critical bring CVE-2016-2119 to freenas9.10.1 release
-#16246	Feature	Expected	Update for updater URL
-#16243	Bug	Expected	Hook up offline update script creator to the build (STABLE version)
-#16218	Bug	Expected	Hook up offline update script creator to the build
-#16046	Bug	Expected	Allowing a user to shut off CIFS breaks AD
-#15817	Bug	Expected	Plugins not obtaining an IP from DHCP
-#16410	Bug	Important	freenas-update command spews a lot of extraneous output
-#16321	Bug	Important	Build docs from new FreeNAS Docs repo
-#16292	Bug	Important	malformed syslog server GUI entry breaks syslog
-#16213	Bug	Important	freenas-update command has totally regressed and now returns 0 instead of non-zero status for lack of update
-#16202	Bug	Important	GUI: Edit Jail dialog is not working correct, when DHCP is ticked in Jails -> Configuration
-#16184	Bug	Important	Cannot disable AD or LDAP when the server is not reachable
-#16156	Bug	Important	Boot process not readeable from HP ILO console
-#15972	Bug	Important	Error deleting Jail Template
-#15898	Bug	Important	smart_alert.py throwing unrecognized argument error.
-#15808	Bug	Important	smbd exited on signal 4 when rm from Linux client using mount.cifs
-#15697	Bug	Important	Update Key Verification
-#15016	Bug	Important	Jails: MAC addresses are used multiple times when jails don't have fixed MAC addresses set
-#16445	Bug	Nice to have	ISCSI-The service could not be started
-#16435	Bug	Nice to have	Message about characters allowed in jail names needs update
-#16421	Bug	Nice to have	API documentation on GET NFS resource is incorrect
-#16157	Bug	Nice to have	Spelling error in zvol edit dialog
-#16135	Bug	Nice to have	A float is required
-#16045	Bug	Nice to have	Accessing plugins without ZFS causes plain message instead of alert box
-#16011	Bug	Nice to have	Dataset nesting only three levels deep
-#16009	Feature	Nice to have	Please allow dashes in jail names
-#15087	Bug	Nice to have	FreeNAS VMXNet 3 Driver
-#6605	Feature	Nice to have	When generating local cert or SSH key, log the fingerprint to syslog and console
-#16546  Bug Expected Kernel panic with the intel 710x4 CNA
-#15805  Bug Importnat FreeNAS does not boot without GPU
-#16241  Bug Blocks Until Resolved extending zfs volume restarts samba
+#17653    Bug        Ready For Release    Critical    System dataset warning change broke UI
+#17153    Bug        Ready For Release    Critical    VMware Snapshots not deleted if multiple ESXi Servers configured
+#16630    Bug        Ready For Release    Critical    Unable to save Adobe Indesign documents to CIFS from OS X
+#17369    Bug        Ready For Release    Critical    iscsi lun delete causes  automatic renumbering; lun mapping abruptly broken
+#16023    Bug        Ready For Release    Critical    replication getting "stuck" on 9.3.1-201602032047.
+#16596    Bug        Ready For Release    Expected    Debug file script does not appear to like datasets with spaces in their names
+#17482    Bug        Ready For Release    Expected    Critical Stability Issue in AFP - Solved in Netatalk 3.1.10
+#16760    Bug        Ready For Release    Expected    LICENSE_FILE import is missing in the new update code
+#16963    Bug        Ready For Release    Expected    Change "CIFS" to "SMB" in the UI
+#17249    Bug        Ready For Release    Expected    GUI console window suddenly stops working
+#17484    Bug        Ready For Release    Expected    Services screen has CIFS changes to SMB, but options are now not sorted
+#17028    Bug        Ready For Release    Expected    Replication when the sending dataset is a top level dataset doesn't work
+#17476    Bug        Ready For Release    Important    Translation issues in python strings
+#16717    Bug        Ready For Release    Important    webdav https not up
+#16101    Bug        Ready For Release    Important    Reporting history gone after reboot
+#16974    Bug        Ready For Release    Important    ZILSTAT OID not reporting stats
+#17155    Bug        Ready For Release    Important    Errant files created in / when installing plugins - v9.10.1
+#16672    Bug        Ready For Release    Important    No Configured Interfaces Were Found
+#17579    Bug        Ready For Release    Important    vlan/lagg panic on network change
+#17308    Bug        Ready For Release    Important    wbwd causes reboots even with watchdog disabled in bios
+#16381    Bug        Ready For Release    Important    Unify update code logging
+#16667    Bug        Ready For Release    Important    error after update
+#16909    Bug        Ready For Release    Important    Attemping to destroy a dataset does not always prompt to user to confirm deletion in a timely manner
+#16439    Bug        Ready For Release    Important    'Import Disk' with background import running results in a stacktrace
+#16475    Feature    Ready For Release    Important    new favicon for FreeNAS UI
+#17073    Bug        Ready For Release    Important    Memory corruption with port multipliers on FBS-capable AHCI controllers (Marvell)
+#16729    Bug        Ready For Release    Important    error message
+#16178    Bug        Ready For Release    Important    Remove kernel support for 10/100 ethernet hardware
+#16565    Bug        Ready For Release    Important    AD does not alert about NETBIOS name character limitation.
+#16068    Bug        Ready For Release    Important    Duplicate user/group from LDAP can make the permission drop down not appear
+#17145    Bug        Ready For Release    Important    idmap backend that generates id's the same way OS X does
+#9879     Bug        Ready For Release    Important    Importing a Certificate that includes the full chain causes the wrong certificate to be saved
+#16649    Bug        Ready For Release    Important    9.10-STABLE UPDATE Please flash controller to P21 IT firmware.
+#17622    Bug        Ready For Release    Important    Need to change originating email for support auto tickets from dev@ixsystems.com
+#13343    Bug        Ready For Release    Important    AFP Binding Error
+#16474    Bug        Ready For Release    Nice to have    InsecureRequestWarning: Unverified HTTPS request is being made.
+#17373    Bug        Ready For Release    Nice to have    iXsystems logo additions/changes
+#16335    Bug        Ready For Release    Nice to have    Jails screen does not update if a jail is modified
+#17370    Feature    Ready For Release    Nice to have    clarify maproot/map all documentation
+#13135    Bug        Ready For Release    Nice to have    URL to update dynamic dns at he.net wrong
+#6721     Bug        Ready For Release    Nice to have    warn when deleting LUNs that are in use
+#16645    Bug        Ready For Release    Nice to have    UI logic swaps hostnames in debug (patch)
+#17204    Bug        Ready For Release    Nice to have    Upload Config - "reseted" isn't a word
+#16267    Bug        Ready For Release    Nice to have    Cam errors
+#17471    Bug        Ready For Release    Nice to have    WebDAV will fail, if directory to be served contains an index.html file
+#17340    Bug        Ready For Release    Nice to have    Don't build grub2-efi with GCC
+#17074    Feature    Ready For Release    Nice to have    Include package sysutils/cmdwatch in base OS
+#16263    Bug        Ready For Release    Nice to have    Media Plugin Integration
+#17422    Bug        Ready For Release    Nice to have    add sas2flash -listall to fndebug (patch)
+#14432    Bug        Ready For Release    Nice to have    Jail Security - /dev/adaX disks are readable from inside a jail
+#16334    Bug        Ready For Release    Nice to have    Periodic snapshot task associated to just-deleted jail is *not* deleted.
+#14512    Feature    Ready For Release    Nice to have    Include Midnight Commander in FreeNAS
+#16564    Bug        Ready For Release    Nice to have    Red warning when moving .system dataset
+#16908    Bug        Ready For Release    Nice to have    "Disk is not clear, partitions or ZFS labels were found." When attempting to replace disk
+#17638    Bug        Ready For Release    Nice to have    Strip gratuitous newlines from freenas-update
+#16597    Bug        Ready For Release    Nice to have    SNMP community string validation is over-zealous
+#17335    Bug        Ready For Release    Nice to have    Datasets don't next properly past three levels
+#16948    Bug        Ready For Release    Nice to have    add fndebug for fc info (diff inline)
+#16806    Bug        Ready For Release    Nice to have    Auto populate login username
+#17441    Bug        Ready For Release    Nice to have    fndbug += impi infos (patch)
+#15705    Bug        Ready For Release    Nice to have    Create seat-belt to prevent creating jail dataset on share
+#16700    Bug        Ready For Release    No priority    kern.vty is forced to "sc" in grub.cfg
+#16326    Bug        Ready For Release    No priority    mailog is empty (patch)
+#14832    Bug        Ready For Release    No priority    Couchpotato breaks Tree View
