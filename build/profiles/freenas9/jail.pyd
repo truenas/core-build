@@ -71,6 +71,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-snmp_passpersist",
+    "dest": "/usr/nas_source/py-snmp_passpersist"
+}
+
+copy += {
     "source": "${BE_ROOT}/samba",
     "dest": "/usr/samba_src"
 }
