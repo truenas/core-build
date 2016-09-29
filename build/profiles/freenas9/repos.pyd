@@ -73,13 +73,6 @@ repos += {
 }
 
 repos += {
-    "name": "py-snmp_passpersist",
-    "path": "py-snmp_passpersist",
-    "url": "https://github.com/nagius/snmp_passpersist",
-    "branch": "master"
-}
-
-repos += {
     "name": "py-bsd",
     "path": "py-bsd",
     "url": "https://github.com/freenas/py-bsd.git",

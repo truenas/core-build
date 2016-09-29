@@ -217,7 +217,6 @@ ports += {
         "NET_SNMP_WITHOUT_MIB_MODULE_LIST=sctp-mib"
     ]
 }
-ports += "net-mgmt/py-snmp_passpersist"
 ports += {
     "name": "sysutils/nut",
     "options": ["OPTIONS_FILE_UNSET+=NEON"]
