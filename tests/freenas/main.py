@@ -64,16 +64,20 @@ class Main(object):
 
     def run(self):
         for s in self.test_suites:
+            script = os.path.join(s, 'run.py')
             start_time = time.time()
             manifest = self.load_manifest(s)
             os.chdir(s)
-            args = [e('${venvdir}/bin/python'), os.path.join(s, 'run.py')]
+
+            print("Running tests from {0}".format(s))
+
+            args = [e('${venvdir}/bin/python'), script]
             test = None
             try:
                 test = subprocess.Popen(
                     args,
                     stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
                     close_fds=True
                 )
                 test.wait(timeout=manifest['timeout'])
@@ -93,14 +97,20 @@ class Main(object):
                     'Test could not be started',
                     err
                 )
+
+            out, err = test.communicate()
+
             if test and test.returncode:
                 self.generate_suite_error(
                     os.path.join(s, 'results.xml'),
                     manifest['name'],
                     time.time() - start_time,
                     'Test process has returned an error',
-                    test.stdout.read() + test.stderr.read()
+                    out
                 )
+
+            print("{0} error:".format(script))
+            print(out.decode('utf-8'))
 
     def aggregate_results(self):
         sh('mkdir -p ${output_root}')
@@ -155,6 +165,10 @@ class Main(object):
         os.environ['TEST_PASSWORD'] = args.p
         os.environ['TEST_XML'] = 'yes'
 
+        print('Test VM address: {0}'.format(args.a))
+        print('Test VM username: {0}'.format(args.u))
+        print('Test VM password: {0}'.format(args.p))
+        
         self.find_tests()
         self.run()
         self.aggregate_results()

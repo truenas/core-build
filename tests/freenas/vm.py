@@ -130,14 +130,17 @@ def do_run():
     time.sleep(60)
     info('VM middleware is ready')
 
-    output = sh_str(
-        '${venvdir}/bin/python ${BUILD_ROOT}/tests/freenas/main.py '
-        '-a ${FREENAS_IP} '
-        '-u root '
-        '-p abcd1234'
+    proc = subprocess.Popen(
+        [
+            e('${venvdir}/bin/python'),
+            e('${BUILD_ROOT}/tests/freenas/main.py'),
+            '-a', e('${FREENAS_IP}'),
+            '-u', 'root',
+            '-p', 'abcd1234'
+        ]
     )
 
-    info('Test results:\n {0}'.format(output))
+    proc.wait()
 
     vm_proc.terminate()
     vm_proc.wait()
