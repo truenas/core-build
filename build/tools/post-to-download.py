@@ -54,6 +54,7 @@ def main():
         download_suffix = e('${BUILD_TYPE}/${buildtimestamp}')
     else:
         download_suffix = e('${BUILD_TYPE}')
+
     downloadtargetdir = e('${DOWNLOAD_PREFIX}/${download_suffix}')
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
     sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
@@ -65,7 +66,8 @@ def main():
         sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
 
     info('Creating MILESTONE level downloads symlink')
-    sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${download_suffix} ${DOWNLOAD_PREFIX}/latest')
+    sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${download_suffix} ${DOWNLOAD_PREFIX}/${BUILD_TYPE}/latest')
+
     info('Synchronizing download server to CDN')
     sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
 
