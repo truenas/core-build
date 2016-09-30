@@ -150,10 +150,10 @@ class Main(object):
         parser.add_argument('-p', metavar='PASSWORD', required=True, help='Password')
         args = parser.parse_args()
 
-        os.setenv('TEST_ADDRESS', args.a)
-        os.setenv('TEST_USERNAME', args.u)
-        os.setenv('TEST_PASSWORD', args.p)
-        os.setenv('TEST_XML', 'yes')
+        os.environ['TEST_ADDRESS'] = args.a
+        os.environ['TEST_USERNAME'] = args.u
+        os.environ['TEST_PASSWORD'] = args.p
+        os.environ['TEST_XML'] = 'yes'
 
         self.find_tests()
         self.run()
