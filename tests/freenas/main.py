@@ -45,9 +45,6 @@ output_root = objdir('test-output')
 
 class Main(object):
     def __init__(self):
-        self.address = None
-        self.username = None
-        self.password = None
         self.test_suites = []
         self.output_path = None
         self.excluded = ['os', 'objs', 'ports', 'release']
@@ -70,14 +67,8 @@ class Main(object):
             start_time = time.time()
             manifest = self.load_manifest(s)
             os.chdir(s)
-            args = [e('${venvdir}/bin/python'), os.path.join(s, 'run.py'), '-x']
+            args = [e('${venvdir}/bin/python'), os.path.join(s, 'run.py')]
             test = None
-            if manifest['pass_target']:
-                args.extend([
-                    '-a', self.address,
-                    '-u', self.username,
-                    '-p', self.password
-                ])
             try:
                 test = subprocess.Popen(
                     args,
@@ -159,15 +150,13 @@ class Main(object):
         parser.add_argument('-p', metavar='PASSWORD', required=True, help='Password')
         args = parser.parse_args()
 
-        self.address = args.a
-        self.username = args.u
-        self.password = args.p
-
+        os.setenv('TEST_ADDRESS', args.a)
+        os.setenv('TEST_USERNAME', args.u)
+        os.setenv('TEST_PASSWORD', args.p)
+        os.setenv('TEST_XML', 'yes')
 
         self.find_tests()
-
         self.run()
-
         self.aggregate_results()
 
 
