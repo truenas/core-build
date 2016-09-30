@@ -69,7 +69,7 @@ class Main(object):
             manifest = self.load_manifest(s)
             os.chdir(s)
 
-            print("Running tests from {0}".format(s))
+            info("Running tests from {0}".format(s))
 
             args = [e('${venvdir}/bin/python'), script]
             test = None
@@ -109,7 +109,7 @@ class Main(object):
                     out
                 )
 
-            print("{0} error:".format(script))
+            info("{0} error:".format(script))
             print(out.decode('utf-8'))
 
     def aggregate_results(self):
@@ -160,7 +160,7 @@ class Main(object):
         parser.add_argument('-p', metavar='PASSWORD', required=True, help='Password')
         args = parser.parse_args()
 
-        os.environ['TEST_ADDRESS'] = args.a
+        os.environ['TEST_HOST'] = args.a
         os.environ['TEST_USERNAME'] = args.u
         os.environ['TEST_PASSWORD'] = args.p
         os.environ['TEST_XML'] = 'yes'
