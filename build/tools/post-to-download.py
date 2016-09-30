@@ -58,12 +58,14 @@ def main():
     sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
     sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
     sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
+
     # For all non-nightly builds create latest symlinks
     if e('${BUILD_TYPE}').lower() != "master":
         info('Creating top level downloads symlink')
         sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
-        info('Creating MILESTONE level downloads symlink')
-        sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${download_suffix} ${DOWNLOAD_PREFIX}/latest')
+
+    info('Creating MILESTONE level downloads symlink')
+    sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${download_suffix} ${DOWNLOAD_PREFIX}/latest')
     info('Synchronizing download server to CDN')
     sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
 

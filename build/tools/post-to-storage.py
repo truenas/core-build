@@ -48,6 +48,7 @@ def main():
         appending_path = e('${VERSION_NUMBER}/${BUILD_TYPE}')
     else:
         appending_path = e('${VERSION_NUMBER}')
+
     internal_path = os.path.join(e('${IX_INTERNAL_PATH_PREFIX}'), appending_path)
     if os.path.exists(internal_path):
         internal_path = os.path.join(internal_path, os.path.basename(rel_dir))
