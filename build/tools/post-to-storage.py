@@ -52,8 +52,8 @@ def main():
     internal_path = os.path.join(e('${IX_INTERNAL_PATH_PREFIX}'), appending_path)
     if os.path.exists(internal_path):
         rel_dir_base = os.path.basename(rel_dir)
-        internal_path = os.path.join(internal_path, os.path.basename(rel_dir))
-        sh('cp -r ${rel_dir} ${internal_path}')
+        target_path = os.path.join(internal_path, rel_dir_base)
+        sh('cp -r ${rel_dir} ${target_path}')
         sh('ln -shf ${rel_dir_base} ${internal_path}/latest')
 
 
