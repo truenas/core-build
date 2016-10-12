@@ -118,7 +118,6 @@ ports += "databases/py-swift"
 ports += "dns/py-dnspython"
 
 ports += "security/pam_mkhomedir"
-ports += "security/pam_ldap"
 ports += {
     "name": "shells/bash",
     "options": ["OPTIONS_FILE_UNSET+=NLS"]
@@ -289,7 +288,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=KRB5_PDF"
     ]
 }
-ports += "security/sssd"
 ports += {
     "name": "security/ca_root_nss",
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
