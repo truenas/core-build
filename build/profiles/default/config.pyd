@@ -119,6 +119,8 @@ make_conf_build = {
     "LOCAL_DIRS":                   ""
 }
 
+make_conf_build["LOCAL_DIRS"] = "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
+
 # Packages configuration
 make_conf_pkg = {
     "DEFAULT_VERSIONS":             "python=3.4",
