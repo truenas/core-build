@@ -25,6 +25,8 @@
 
 samba_git_rev = sh("git -C ${BE_ROOT}/samba rev-list HEAD --count") if exists("${BE_ROOT}/samba") else "0"
 ds2_git_rev = sh("git -C ${BE_ROOT}/ds2 rev-list HEAD --count") if exists("${BE_ROOT}/ds2") else "0"
+mdns_git_rev = sh("git -C ${BE_ROOT}/mDNSResponder rev-list HEAD --count") if exists("${BE_ROOT}/mDNSResponder") else "0"
+
 
 ports += {
     "name": "ports-mgmt/pkg",
@@ -47,6 +49,21 @@ ports += {
         "REVISION=" + ds2_git_rev
     ]
 }
+
+ports += {
+    "name": "net/mDNSResponder",
+    "options": [
+        "REVISION=" + mdns_git_rev
+    ]
+}
+
+ports += {
+    "name": "dns/mDNSResponder_nss",
+    "options": [
+        "REVISION=" + mdns_git_rev
+    ]
+}
+
 ports += "dns/bind-tools"
 ports += "archivers/liblz4"
 ports += "archivers/pigz"
