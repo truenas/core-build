@@ -251,9 +251,9 @@ ports += {
 ports += {
     "name": "databases/rrdtool",
     "options": [
-        "OPTIONS_FILE_UNSET+=PERL_MODULE"
-        "OPTIONS_FILE_SET+=PYTHON_MODULE",
-        "OPTIONS_FILE_SET+=JSON"
+        "OPTIONS_FILE_UNSET+=PERL"
+        "OPTIONS_FILE_UNSET+=DEJAVU"
+        "OPTIONS_FILE_SET+=PYTHON",
     ]
 }
 ports += {
