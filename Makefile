@@ -97,6 +97,7 @@ bootstrap-pkgs:
 	pkg install -y sysutils/xorriso
 	pkg install -y sysutils/grub2-efi
 	pkg install -y devel/gmake
+	pkg install -y archivers/pigz
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
