@@ -1,27 +1,44 @@
 Security Fixes:
 
-o Address possible MITM attacks that can downgrade SMB connections.
-  https://www.samba.org/samba/security/CVE-2016-2119.html
+o Fix multiple OpenSSL vulnerabilities.
+  https://www.freebsd.org/security/advisories/FreeBSD-SA-16:26.openssl.asc
 
 Enhancements:
 
-o Improve HA failover speed when the mailserver TrueNAS is configured
-  to send alerts to is down.
+o Remove auto LUN numbering from the block configuration.  This
+  could cause issues when an auto numbered LUN was deleted by
+  renumbering the remaining LUNs.
+
+o Warn when deleting LUNs that are in use.
+
+o Update the serial port choices for serial console on the
+  Z-series hardware to list the correct serial port(s)
+
+o Warn about a potential service interruption  when moving
+  the system dataset.
 
 Critical Fixes:
 
-o Fix an issue where extending a volume would restart SMB services.
+o Fix a bug that could cause an HA failover to not occur when
+  networking fails to the active node of an HA pair.
 
-o Fix an issue where deleting an IP that NFS was bound to would
-  cause NFS not to start.
+o Fix a kernel panic that could occur when adding vlan or lagg
+  interfaces.
 
-o Fix an issue that could cause a member of an HA pair to boot with
-  an incomplete configuration.
+o Fix some replication issues when the source or target is a
+  top level dataset.
 
 Non-Critical Fixes:
 
-o Fix a bug that made it impossible to disable AD/LDAP if the AD/LDAP
-  server was unreachable.
+o Fix the GUI display of datasets with more than three levels
+  of nesting.
 
-o Don't allow a user to shut off CIFS when AD integration is enabled.
-  The CIFS service is an integral part of the AD integration.
+o Fix a bug preventing SNMP from exporting zilstat values.
+
+o Fix a bug that prevented alerts from being generated when
+  the support license is expired.
+
+o Suppress the STANDBY node of an HA pair from sending "Assuming
+  "Backup" emails when there's network glitches.
+
+o Cut down on the verbosity of some overly chatty logging.
