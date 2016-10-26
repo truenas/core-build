@@ -37,12 +37,11 @@ directory. :smile:
 
 ### FreeNAS 9.10
 
-To build FreeNAS 9.10, simply add the argument `PROFILE=freenas9` to the `checkout` and
-`release` commands, or if you are using a custom profile (see build/profiles directory,
-copy to new profile) then edit to suit. eg:
+To build FreeNAS 9.10, simply add the argument `VERSION=<some string>` to the `release` 
+command.
 
-    # make checkout PROFILE=freenas9
-    # make release PROFILE=freenas9
+    # make checkout 
+    # make release VERSION=<specify a version string>
 
 ## Updating an existing installation
 
