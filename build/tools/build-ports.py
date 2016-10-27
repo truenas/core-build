@@ -147,7 +147,7 @@ def merge_port_trees():
             portpath = '/'.join(p.split('/')[-2:])
             if portpath.startswith('Mk'):
                 if os.path.isdir(e('${PORTS_OVERLAY}/${portpath}')):
-                    sh('cp -l ${p}/* ${PORTS_OVERLAY}/${portpath}/')
+                    sh('cp -lf ${p}/* ${PORTS_OVERLAY}/${portpath}/')
                 else:
                     sh('cp -l ${p} ${PORTS_OVERLAY}/${portpath}')
             else:
