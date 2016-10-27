@@ -36,7 +36,6 @@ post-install =
 			mv /data/freenas-v1.db /data/freenas-v1.db.old
 		fi
 	fi
-	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 
 post-upgrade = 
