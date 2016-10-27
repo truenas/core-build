@@ -111,6 +111,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/py-filewrap",
+    "dest": "/usr/middleware_src/py-filewrap"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-pf",
     "dest": "/usr/middleware_src/py-pf"
 }

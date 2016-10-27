@@ -225,3 +225,10 @@ repos += {
     "url": "https://github.com/freenas/mDNSResponder.git",
     "branch": "master"
 }
+
+repos += {
+    "name": "py-filewrap",
+    "path": "py-filewrap",
+    "url": "https://github.com/freenas/py-filewrap.git",
+    "branch": "master",
+}
