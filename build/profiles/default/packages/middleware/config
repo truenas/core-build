@@ -27,6 +27,10 @@ post-install =
 		/usr/local/sbin/dsrestore \
 		    -t persistent,config \
 		    -f /usr/local/share/datastore/factory.json
+		/usr/local/sbin/dsmigrate \
+		    -t persistent,config \
+		    -f /usr/local/share/datastore/factory.json \
+		    -d /usr/local/share/datastore/migrations
 		if [ -f "/data/freenas-v1.db" ]; then
 			/usr/local/sbin/migrate93 -f /data/freenas-v1.db
 			mv /data/freenas-v1.db /data/freenas-v1.db.old
