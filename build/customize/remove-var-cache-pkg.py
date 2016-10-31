@@ -26,10 +26,13 @@
 #
 #####################################################################
 
-from utils import chroot
+import os
+from utils import chroot,e
 
 
 def main():
+    if not os.path.exists(e('${WORLD_DESTDIR}/var/cache/pkg')):
+        os.makedirs(e('${WORLD_DESTDIR}/var/cache/pkg'))
     chroot('${WORLD_DESTDIR}', 'pkg clean -a -y')
 
 
