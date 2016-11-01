@@ -256,8 +256,8 @@ ports += {
 ports += {
     "name": "databases/rrdtool",
     "options": [
-        "OPTIONS_FILE_UNSET+=PERL"
-        "OPTIONS_FILE_UNSET+=DEJAVU"
+        "OPTIONS_FILE_UNSET+=PERL",
+        "OPTIONS_FILE_UNSET+=DEJAVU",
         "OPTIONS_FILE_SET+=PYTHON",
     ]
 }
