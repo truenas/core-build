@@ -232,3 +232,19 @@ repos += {
     "url": "https://github.com/freenas/py-filewrap.git",
     "branch": "master",
 }
+
+if PRODUCT == "TrueNAS":
+    repos += {
+        "name": "truenas-middleware",
+        "path": "truenas-middleware",
+        "url": "https://github.com/iXsystems/truenas-middleware.git",
+        "branch": "master"
+    }
+
+    repos += {
+        "name": "truenas-cli",
+        "path": "truenas-cli",
+        "url": "https://github.com/iXsystems/truenas-cli.git",
+        "branch": "master"
+    }
+

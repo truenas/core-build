@@ -23,18 +23,33 @@
 # SUCH DAMAGE.
 #
 
-include("${PROFILE_ROOT}/ports-gui.pyd")
-include("${PROFILE_ROOT}/ports-middleware.pyd")
-include("${PROFILE_ROOT}/ports-system.pyd")
+middleware_git_rev = sh("git -C ${BE_ROOT}/truenas-middleware rev-list HEAD --count") \
+    if exists("${BE_ROOT}/truenas-middleware") \
+    else "0"
 
-port_trees = [
-	"${MIDDLEWARE_ROOT}/nas_ports",
-	"${BE_ROOT}/gui/nas_ports"
-]
+ports += {
+    "name": "truenas/truenas-dispatcher",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
 
-binary_packages = [
-]
+ports += {
+    "name": "truenas/truenas-etcd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
 
-if PRODUCT == "TrueNAS":
-	include("${PROFILE_ROOT}/ports-truenas.pyd")
-	port_trees += ["${BE_ROOT}/truenas-middleware/nas_ports"]
+#ports += {
+#    "name": "truenas/truenas-cli",
+#    "options": [
+#        "PRODUCT_VERSION=${VERSION}",
+#        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+#        "REVISION=" + middleware_git_rev
+#    ]
+#}
