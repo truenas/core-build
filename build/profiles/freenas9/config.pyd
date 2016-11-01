@@ -128,8 +128,7 @@ make_conf_build = {
     "LOCAL_DIRS":                   ""
 }
 
-if PRODUCT == "TrueNAS":
-    make_conf_build["LOCAL_DIRS"] = "share/examples/ses"
+make_conf_build["LOCAL_DIRS"] = "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
 
 # Packages configuration
 make_conf_pkg = {
