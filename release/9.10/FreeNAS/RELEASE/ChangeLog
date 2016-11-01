@@ -1,8 +1,60 @@
-#17908    Bug    Ready For Release    Expected    EFI install fails with complaint about more than one boot device
-#17904    Bug    Ready For Release    Expected    Failed to report when snapshot failed to create
-#17869    Bug    Ready For Release    Critical    Virtualbox cannot run any VMachine after upgrade to 9.10.1-U1
-#17826    Bug    Ready For Release    Critical    Errors reported during replication
-#17819    Bug    Ready For Release    Critical    iSCSI LUN ID's all set to 0
-#17809    Bug    Ready For Release    Important    GRUB needs modules specified for improved reliability
-#17789    Bug    Ready For Release    Critical    Bug from latest updates for 9.10.1 on 09/27/2016
-#17787    Bug    Ready For Release    Expected    OpenSSL Fix Use After Free for large message sizes (CVE-2016-6309)
+#18304    Bug    Critical    Big replication fail
+#16190    Bug    Critical    watchdogd makes IPMI/BMC flash Wearout in FreeNAS Mini , possibly others.
+#14337    Bug    Critical    zpool detach hangs
+#14171    Bug    Critical    Possible data corruption of incremental backups OpenZFS #6513 and ZFS on Linux #4023
+#18434    Bug    Expected    update code doesn't care if your boot pool fills up
+#18018    Bug    Expected    Snapshot failed emails occurring every single minute and don't seem to stop
+#10487    Bug    Expected    POSSIBLE DATA LOSS: Reusing disks of locked volume
+#18478    Bug    Important    Traceback on sync_disks method
+#18261    Feature    Important    UNMAP on ZFS can block I/O
+#18243    Bug    Important    UEFI installation in a pure UEFI environment fails to boot.
+#18151    Bug    Important    Periodic "Page fault in kernel mode" panics in ctld
+#18078    Bug    Important    "Snapshot failed" messages whenever replication runs
+#17847    Bug    Important    Incompatible CAM ABI of jails/plugins causes kernel crash after upgrade to 9.10
+#17797    Bug    Important    Traceback on volume import screen with encrypted devices
+#17737    Bug    Important    NFS Allow connection from bottom to upper level over the root of the share, it also doesn't works with extra path
+#17696    Bug    Important    Readd cxgbtool and cxgbetool to the image
+#17626    Bug    Important    system never uses the hardware UUID
+#17274    Bug    Important    Kernel panic after ZVOL rename to "bad" name
+#16807    Bug    Important    Hyper-V unable to run VM's hosted in CIFS share in 9.10
+#16567    Bug    Important    vmware snapshots not working with periodic snapshots when dealing with recursive datasets
+#15975    Bug    Important    zfs send progress indicator (replication)
+#14843    Bug    Important    HDD integration unclear
+#11356    Bug    Important    Hot swap on encrypted pools failing during key operations
+#18186    Bug    Nice to have    http://doc.freenas.org/9.10/jails.html#using-iohyve
+#18060    Bug    Nice to have    Most settings lost after reboot
+#16922    Bug    Nice to have    Private Key field is optional when importing CA
+#18537    Bug    Nice to have    Traceback on plugin status of deleted plugin
+#18441    Bug    Nice to have    after a drive replacement and resilver, a CRITICAL alert has not cleared; alert = "unable to open device"
+#18361    Bug    Nice to have    AD joins with rid do not work when using API
+#18360    Bug    Nice to have    [Regression] zpool offline disk cannot get ONLINE from GUI
+#18323    Bug    Nice to have    Catch up options changes in rrdtool
+#18322    Bug    Nice to have    In-place disk replacement allows replacing in-use device with itself
+#18303    Bug    Nice to have    Creating zvol extent via API takes a long time
+#18301    Bug    Nice to have    Bad API example for zvol
+#18260    Bug    Nice to have    cannot destroy zvol with snapshots in 9.10.1-U2
+#18226    Bug    Nice to have    Increase max MTU allowed by the chelsio T4/T5 to the hardware limit
+#18212    Bug    Nice to have    The string that could not be encoded/decoded
+#18152    Bug    Nice to have    SAME AS #13036 - Can't edit user home directory mode from GUI
+#18144    Bug    Nice to have    Silence silence devd's extra chattiness
+#18093    Bug    Nice to have    Can't set "keep" flag for boot environment
+#18030    Bug    Nice to have    error message says iSCSI service cannot be stopped when it can
+#18026    Bug    Nice to have    Don't run autorepl.py if there are no replication tasks
+#18024    Bug    Nice to have    9.10 Error/Warning messages
+#18008    Bug    Nice to have    Syslog server validation fails if there is a hyphen in the hostname
+#18002    Bug    Nice to have    NotLocked: /tmp/.alertrun is not locked
+#17994    Bug    Nice to have    ZFS dataset list is inconsistant
+#17976    Bug    Nice to have    AttributeError: 'NoneType' object has no attribute 'message'
+#17799    Bug    Nice to have    Bad usage of obj.save in form init
+#17798    Bug    Nice to have    Traceback when using already existing jail template
+#17752    Bug    Nice to have    pull request 199 remove extranious ping
+#17750    Bug    Nice to have    remove unused update mechanism
+#17730    Bug    Nice to have    Traceback when connection to plugin fails (jail offline or bad service)
+#17729    Bug    Nice to have    Silent/unharmful traceback checking license status on freenas without license
+#17667    Bug    Nice to have    Add current chelsio firmware to the image
+#17383    Bug    Nice to have    Feature #3361 regression: daily run output email sent with empty information
+#17121    Bug    Nice to have    zfs recv of replication stream containing zvol results in kernel panic
+#16472    Bug    Nice to have    CIFS share: full_audit VFS Module & Windows 10 compatibility issue (inssuficient system resources)
+#15927    Bug    Nice to have    CIFS Sharing will not show periodic snapshot tasks if there is a space in the name. (Version 9.10-STABLE-201606072003)
+#15274    Bug    Nice to have    SNMP service writes programming code to log file
+#15236    Bug    Nice to have    Ftp with TLS version
