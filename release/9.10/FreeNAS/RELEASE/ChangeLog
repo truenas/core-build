@@ -1,3 +1,4 @@
+#18677    Bug    Critical    "list index out of range" when attempting to remove iSCSI Extent
 #18304    Bug    Critical    Big replication fail
 #16190    Bug    Critical    watchdogd makes IPMI/BMC flash Wearout in FreeNAS Mini , possibly others.
 #14337    Bug    Critical    zpool detach hangs
