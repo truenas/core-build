@@ -26,6 +26,7 @@
 repos += {
     "name": "freenas",
     "path": "freenas",
+    "commit": "2cdb3ec",
     "url": "http://github.com/freenas/freenas.git",
     "branch": "TN-9.10-STABLE" if PRODUCT == "TrueNAS" else "9.10-STABLE"
 }
@@ -33,6 +34,7 @@ repos += {
 repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
+    "commit": "f7dc818",
     "url": "http://github.com/freenas/freenas-docs.git",
     "branch": "master"
 }
@@ -40,6 +42,7 @@ repos += {
 repos += {
     "name": "os",
     "path": "os",
+    "commit": "1ebe09b",
     "url": "https://github.com/freenas/os.git",
     "branch": "9.10-STABLE"
 }
@@ -47,6 +50,7 @@ repos += {
 repos += {
     "name": "ports",
     "path": "ports",
+    "commit": "eabade3",
     "url": "https://github.com/freebsd/freebsd-ports.git",
     "branch": "branches/2016Q2"
 }
@@ -54,6 +58,7 @@ repos += {
 repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
+    "commit": "8c0c25d",
     "url": "https://github.com/freenas/licenselib.git",
     "branch": "master"
 }
@@ -61,6 +66,7 @@ repos += {
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
+    "commit": "852e71c",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
     "branch": "9.10-STABLE"
 }
@@ -68,6 +74,7 @@ repos += {
 repos += {
     "name": "py-libzfs",
     "path": "py-libzfs",
+    "commit": "b264835",
     "url": "https://github.com/freenas/py-libzfs.git",
     "branch": "master"
 }
@@ -75,6 +82,7 @@ repos += {
 repos += {
     "name": "py-bsd",
     "path": "py-bsd",
+    "commit": "dbf66ee",
     "url": "https://github.com/freenas/py-bsd.git",
     "branch": "master"
 }
@@ -82,6 +90,7 @@ repos += {
 repos += {
     "name": "samba",
     "path": "samba",
+    "commit": "6cf7d6a",
     "url": "https://github.com/freenas/samba.git",
     "branch": "9.10-STABLE"
 }
@@ -89,6 +98,7 @@ repos += {
 repos += {
     "name": "zfsd",
     "path": "zfsd",
+    "commit": "a5f1df3",
     "url": "https://github.com/freenas/zfsd.git",
     "branch": "master"
 }
@@ -98,5 +108,5 @@ if PRODUCT == "TrueNAS":
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "TN-9.10-STABLE"
+        "branch": "TN-9.10.1-U2.1"
     }
