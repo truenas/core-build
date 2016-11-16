@@ -1,44 +1,8 @@
-Security Fixes:
-
-o Fix multiple OpenSSL vulnerabilities.
-  https://www.freebsd.org/security/advisories/FreeBSD-SA-16:26.openssl.asc
-
-Enhancements:
-
-o Remove auto LUN numbering from the block configuration.  This
-  could cause issues when an auto numbered LUN was deleted by
-  renumbering the remaining LUNs.
-
-o Warn when deleting LUNs that are in use.
-
-o Update the serial port choices for serial console on the
-  Z-series hardware to list the correct serial port(s)
-
-o Warn about a potential service interruption  when moving
-  the system dataset.
-
 Critical Fixes:
 
-o Fix a bug that could cause an HA failover to not occur when
-  networking fails to the active node of an HA pair.
+o Fix a bug that could prevent HA from working properly in
+  TrueNAS 9.10.1-U2 with certain encrypted pool configurations.
 
-o Fix a kernel panic that could occur when adding vlan or lagg
-  interfaces.
-
-o Fix some replication issues when the source or target is a
-  top level dataset.
-
-Non-Critical Fixes:
-
-o Fix the GUI display of datasets with more than three levels
-  of nesting.
-
-o Fix a bug preventing SNMP from exporting zilstat values.
-
-o Fix a bug that prevented alerts from being generated when
-  the support license is expired.
-
-o Suppress the STANDBY node of an HA pair from sending "Assuming
-  "Backup" emails when there's network glitches.
-
-o Cut down on the verbosity of some overly chatty logging.
+o Fix a bug that could render the updater in TrueNAS 9.10.1-U2
+  inoperative.  Please contact http://support.ixsystems.com for
+  assistance updating if you are affected by this bug.
