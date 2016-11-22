@@ -32,3 +32,7 @@ o	All directory services fully supported (Active Directory, LDAP,
 	NIS, FreeIPA) and integrated from the Unix-layer upwards (so even
 	shell commands will respect directory service bindings and search
 	order preferences).
+
+o	Firefox and Microsoft Edge added to "list of browsers to try to use
+	with FreeNAS 10" - please try these (in addition to Chrome) and file
+	tickets if anything looks or acts oddly.
