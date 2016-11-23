@@ -26,10 +26,11 @@
 #
 #####################################################################
 
+import os
 import time
 import hashlib
 from dsl import load_profile_config
-from utils import sh, e, objdir, info
+from utils import sh, e, objdir, info, env
 
 
 config = load_profile_config()
@@ -38,7 +39,7 @@ pkgdir = objdir('packages')
 pkgtoolslog = objdir('logs/build-pkgtools')
 pkgversion = ''
 sequence = ''
-
+validators = []
 
 def read_repo_manifest():
     global pkgversion
@@ -66,6 +67,30 @@ def build_pkgtools():
         log=pkgtoolslog
     )
 
+
+def copy_validators():
+    # If an update validation script is given, copy that
+    if os.path.exists(e('${PROFILE_ROOT}/ValidateUpdate')):
+        sh('cp ${PROFILE_ROOT}/ValidateUpdate ${pkgdir}/Packages/ValidateUpdate')
+    if os.path.exists(e('${PROFILE_ROOT}/ValidateInstall')):
+        sh('cp ${PROFILE_ROOT}/ValidateUpdate ${pkgdir}/Packages/ValidateInstall')
+        
+    # Allow the environment to over-ride it -- /dev/null or empty string means
+    # don't have one
+    if env('VALIDATE_UPDATE') is not None:
+        if env('VALIDATE_UPDATE') not in ("/dev/null", ""):
+            sh('cp ${VALIDATE_UPDATE} ${pkgdir}/Packages/ValidateUpdate')
+        else:
+            sh('rm -f ${pkgdir}/Packages/ValidateUpdate')
+    if env('VALIDATE_INSTALL') is not None:
+        if env('VALIDATE_INSTALL') not in ("/dev/null", ""):
+            sh('cp ${VALIDATE_INSTALL} ${pkgdir}/Packages/ValidateInstall')
+        else:
+            sh('rm -f ${pkgdir}/Pckages/ValidateInstall')
+
+    for p in "ValidateUpdate", "ValidateInstall":
+        if os.path.exists(os.path.join(e('${pkgdir}'), "Packages", p)):
+            validators.append(e('-V ${pkgdir}/Packages/' + p))
 
 def build_packages():
     retval = []
@@ -101,6 +126,7 @@ def create_manifest(pkgs):
         "-R ${PRODUCT}-${VERSION}",
         "-T ${train}",
         "-t ${date}",
+        " ".join(validators) if validators else "",
         *pkgs
     )
 
@@ -112,4 +138,5 @@ if __name__ == '__main__':
     read_repo_manifest()
     build_pkgtools()
     pkg_list = build_packages()
+    copy_validators()
     create_manifest(pkg_list)
