@@ -35,9 +35,6 @@ RELEASE_LOGFILE?=${SCRIPT}
 RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 .endif
 
-CHANGELOG := ${BUILD_ROOT}/release/9.10/${PRODUCT}/RELEASE/ChangeLog
-.export CHANGELOG
-
 all: check-root build
 
 .PHONY: world build packages checkout update dumpenv clean release ports docs
@@ -83,7 +80,7 @@ clean-package:
 	find ${OBJDIR}/ports -name "${p}*" | xargs rm -fr
 .else
 	@echo "Clean a single package from object tree"
-	@echo "" 
+	@echo ""
 	@echo "Usage:  ${MAKE} ${.TARGET} p=[package name]"
 	@echo ""
 	@echo "Examples:"

@@ -25,7 +25,7 @@
 #
 #####################################################################
 
-BUILD_TIMESTAMP != date -u '+%Y%m%d%H%M' 
+BUILD_TIMESTAMP != date -u '+%Y%m%d%H%M'
 BUILD_STARTED != date '+%s'
 BUILD_ROOT ?= ${.CURDIR}
 BUILD_CONFIG := ${BUILD_ROOT}/build/config
@@ -33,12 +33,13 @@ BUILD_TOOLS := ${BUILD_ROOT}/build/tools
 PYTHONPATH := ${BUILD_ROOT}/build/lib
 BE_ROOT := ${BUILD_ROOT}/_BE
 OBJDIR := ${BE_ROOT}/objs
-PROFILE ?= freenas9
 GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
-PROFILE_SETTING = ${BUILD_ROOT}/.profile-setting
+PROFILE_SETTING = ${BUILD_ROOT}/build/profiles/profile-setting
 MK := ${MAKE} -f ${BUILD_ROOT}/Makefile.inc1
 DOC_PATH := ${BUILD_ROOT}/_BE/freenas-docs
 API_PATH := ${BUILD_ROOT}/_BE/freenas/docs
+
+PROFILE != cat ${PROFILE_SETTING}
 
 .if exists(${GIT_REPO_SETTING})
 GIT_LOCATION != cat ${GIT_REPO_SETTING}
@@ -48,10 +49,6 @@ GIT_LOCATION != cat ${GIT_REPO_SETTING}
 GIT_REF_PATH != cat ${BUILD_ROOT}/.git-ref-path
 .elif exists(/build/gitrefs)
 GIT_REF_PATH ?= /build/gitrefs
-.endif
-
-.if exists(${PROFILE_SETTING})
-PROFILE != cat ${PROFILE_SETTING}
 .endif
 
 .export MK
@@ -74,9 +71,7 @@ PROFILE != cat ${PROFILE_SETTING}
 .BEGIN:
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
-.endif
 
-.if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
 .if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(profiles) && !make(select-profile) && !make(docs) && !make(api-docs)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-sandbox.py
