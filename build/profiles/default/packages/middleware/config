@@ -18,7 +18,7 @@ include = @include(filelist)
 post-install = 
 	/usr/local/sbin/dsinit --init
 	/usr/local/sbin/dsinit --start-forked
-	if [ -d "/data/freenas.db" ]; then
+	if [ -d "/data/freenas.db/freenas" ]; then
 		/usr/local/sbin/dsmigrate \
 		    -t persistent,config \
 		    -f /usr/local/share/datastore/factory.json \
