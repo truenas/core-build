@@ -34,7 +34,7 @@ profile = {
     "status": "active"
 }
 
-kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
+kernel_config = "${DEFAULT_PROFILE}/kernel/FREENAS.amd64"
 
 kernel_modules = [
     "cc",
