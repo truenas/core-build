@@ -35,13 +35,11 @@ RELEASE_LOGFILE?=${SCRIPT}
 RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 .endif
 
-.if defined(CHANGELOG)
-.export CHANGELOG
-.endif
+CHANGELOG := ${BUILD_ROOT}/release/9.10/${PRODUCT}/RELEASE/ChangeLog
 
 all: check-root build
 
-.PHONY: world build packages checkout update dumpenv clean release ports docs tests
+.PHONY: world build packages checkout update dumpenv clean release ports docs
 
 check-root:
 	@[ `id -u` -eq 0 ] || ( echo "Sorry, you must be running as root to build this."; exit 1 )
@@ -143,14 +141,18 @@ reinstall-package:
 
 freenas: release
 release:
+.if !defined(VERSION)
+       @echo "VERSION must be defined for STABLE builds" 1>&2
+       false
+.endif
 	@echo "Doing executing target $@ on host: `hostname`"
 	@echo "Build directory: `pwd`"
 	@${MK} build
-	@if [ "${PRODUCTION}" == "yes" -o "${SAVE_DEBUG}" == "yes" ]; then \
+	@if [ "${PRODUCTION}" == "yes" ]; then \
 		${BUILD_TOOLS}/save-build-env.py; \
 	fi
-	@${BUILD_TOOLS}/create-release-distribution.py
-	@${BUILD_TOOLS}/create-upgrade-distribution.py
+       script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-release-distribution.py
+       script -a ${RELEASE_LOGFILE} ${BUILD_TOOLS}/create-upgrade-distribution.py
 
 release-push: update-push
 	@${BUILD_TOOLS}/post-to-storage.py
@@ -159,6 +161,10 @@ release-push: update-push
 	fi
 
 update-push:
+.if !defined(VERSION)
+       @echo "VERSION must be defined for STABLE builds" 1>&2
+       false
+.endif
 	@${BUILD_TOOLS}/post-to-upgrade.py
 
 archive:	release
@@ -195,9 +201,6 @@ build-bug-report:
 tag:
 	@${BUILD_TOOLS}/apply-tag.py ${tag}
 
-tests:
-	@${MK} cdrom UNATTENDED_CONFIG=tests/freenas/install.conf
-	@env PYTHONPATH=${BUILD_ROOT}/build/lib python3.4 ${BUILD_ROOT}/tests/freenas/run.py
 
 ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
