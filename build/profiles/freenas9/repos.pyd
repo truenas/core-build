@@ -27,7 +27,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "branch": "TN-9.10.2-STABLE" if PRODUCT == "TrueNAS" else "9.10.2-STABLE"
 }
 
 repos += {
@@ -41,7 +41,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freebsd10"
+    "branch": "9.10.2-STABLE"
 }
 
 repos += {
@@ -62,7 +62,7 @@ repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "branch": "master"
+    "branch": "9.10.2-STABLE"
 }
 
 repos += {
@@ -83,7 +83,7 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "v4-4-stable"
+    "branch": "9.10.2-STABLE"
 }
 
 repos += {
@@ -98,5 +98,5 @@ if PRODUCT == "TrueNAS":
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "master"
+        "branch": "TN-9.10.2-STABLE"
     }
