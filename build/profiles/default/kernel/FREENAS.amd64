@@ -343,7 +343,6 @@ options		LIBALIAS
 ## FreeNAS specific modifications
 # misc
 device		padlock
-options		VIMAGE
 options		NETGRAPH
 device		snp
 device		epair		# A pair of virtual back-to-back connected Ethernet interfaces
