@@ -31,6 +31,13 @@ repos += {
 }
 
 repos += {
+    "name": "lib9p",
+    "path": "os/contrib/lib9p",
+    "url": "https://github.com/freenas/lib9p.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freebsd/freebsd-ports.git",
