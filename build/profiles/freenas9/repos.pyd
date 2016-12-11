@@ -24,10 +24,10 @@
 #
 
 repos += {
-    "name": "freenas",
-    "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "name": "os",
+    "path": "os",
+    "url": "https://github.com/freenas/os.git",
+    "branch": "freebsd10"
 }
 
 repos += {
@@ -38,17 +38,17 @@ repos += {
 }
 
 repos += {
-    "name": "freenas-docs",
-    "path": "freenas-docs",
-    "url": "http://github.com/freenas/freenas-docs.git",
+    "name": "freenas",
+    "path": "freenas",
+    "url": "http://github.com/freenas/freenas.git",
     "branch": "master"
 }
 
 repos += {
-    "name": "os",
-    "path": "os",
-    "url": "https://github.com/freenas/os.git",
-    "branch": "freebsd10"
+    "name": "freenas-docs",
+    "path": "freenas-docs",
+    "url": "http://github.com/freenas/freenas-docs.git",
+    "branch": "master"
 }
 
 repos += {
