@@ -98,6 +98,8 @@ bootstrap-pkgs:
 	pkg install -y sysutils/grub2-efi
 	pkg install -y devel/gmake
 	pkg install -y archivers/pigz
+	python3 -m ensurepip
+	python3 -m pip install six
 
 .DEFAULT:
 	@mkdir -p ${OBJDIR}
