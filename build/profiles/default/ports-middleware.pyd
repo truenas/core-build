@@ -139,6 +139,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/freenas-serviced",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-restd",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -203,6 +212,24 @@ ports += {
 
 ports += {
     "name": "freenas/freenas-locate",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
+    "name": "freenas/freenas-splash",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
+    "name": "freenas/py-serviced",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
