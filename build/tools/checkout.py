@@ -134,10 +134,19 @@ def main():
     if not e('${SKIP_CHECKOUT}'):
         cwd = os.getcwd()
         checkout_only = e('${CHECKOUT_ONLY}')
+        checkout_exclude = e('${CHECKOUT_EXCLUDE}')
+
         if checkout_only:
             checkout_only = checkout_only.split(',')
+
+        if checkout_exclude:
+            checkout_exclude = checkout_exclude.split(',')
+
         for i in dsl['repos']:
             if checkout_only and i['name'] not in checkout_only:
+                continue
+
+            if checkout_exclude and i['name'] in checkout_exclude:
                 continue
 
             info('Checkout: {0} -> {1}', i['name'], i['path'])
