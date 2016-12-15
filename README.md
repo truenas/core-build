@@ -26,23 +26,19 @@ Install the dependencies:
 
 Download and assemble the source code:
 
-    # make checkout
+    # make checkout PROFILE=profile_type
 
 Compile the source, then generate the .ISO:
 
-    # make release
+    # make release PROFILE=profile_type
+
+The vaid profile types are "freenas9" and "freenas10" (see
+the build/profiles directory).  Instead of specifying PROFILE=profile_type,
+you can set the profile type in the file build/profiles/profile-setting
+(e.g. ```echo freenas9 > build/profiles/profile-setting```).
 
 Once the build completes successfully, you'll have release bits in the _BE
 directory. :smile:
-
-### FreeNAS 9.10
-
-To build FreeNAS 9.10, simply add the argument `PROFILE=freenas9` to the `checkout` and
-`release` commands, or if you are using a custom profile (see build/profiles directory,
-copy to new profile) then edit to suit. eg:
-
-    # make checkout PROFILE=freenas9
-    # make release PROFILE=freenas9
 
 ## Updating an existing installation
 
@@ -54,4 +50,5 @@ purposes:
 * ```make reinstall-package package=freenas host=root@1.2.3.4```
 
 Where 1.2.3.4 is the IP address of your development platform.  SSH will be
-used to push and install the new packages onto that host.
+used to push and install the new packages onto that host.  (Note previous
+comment about setting the profile.)
