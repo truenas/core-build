@@ -38,7 +38,13 @@ PYTHONPATH := ${BUILD_ROOT}/build/lib
 MK := ${MAKE} -f ${BUILD_ROOT}/Makefile.inc1
 
 PROFILE_SETTING = ${BUILD_ROOT}/build/profiles/profile-setting
-PROFILE ?= cat ${PROFILE_SETTING}
+.ifndef PROFILE
+. if exists(${PROFILE_SETTING})
+PROFILE != cat ${PROFILE_SETTING}
+. else
+PROFILE := freenas10
+. endif
+.endif
 
 GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
 .if exists(${GIT_REPO_SETTING})
