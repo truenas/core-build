@@ -68,7 +68,6 @@ options 	HWPMC_HOOKS		# Necessary kernel hooks for hwpmc(4)
 options 	AUDIT			# Security event auditing
 options 	CAPABILITY_MODE		# Capsicum capability mode
 options 	CAPABILITIES		# Capsicum capabilities
-options 	PROCDESC		# Support for process descriptors
 options 	MAC			# TrustedBSD MAC Framework
 options 	KDTRACE_FRAME		# Ensure frames are compiled in
 options 	KDTRACE_HOOKS		# Kernel DTrace hooks
@@ -95,6 +94,7 @@ device		cpufreq
 device		acpi
 options 	ACPI_DMAR
 device		pci
+device		pci_iov
 
 # Floppy drives
 device		fdc
@@ -330,6 +330,7 @@ device		lagg			# Link aggregation
 device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
+device		compat_linuxkpi
 
 # ipfw and nat for jails
 options		IPDIVERT

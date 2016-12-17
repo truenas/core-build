@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freebsd10"
+    "branch": "freebsd11"
 }
 
 repos += {
@@ -41,7 +41,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freebsd/freebsd-ports.git",
-    "branch": "branches/2016Q2"
+    "branch": "branches/2016Q4"
 }
 
 repos += {
