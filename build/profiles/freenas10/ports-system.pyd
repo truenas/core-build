@@ -72,10 +72,6 @@ ports += {
     "name": "security/openvpn",
     "options": ["WITHOUT_CHECK=yes"]
 }
-ports += {
-    "name": "converters/iconv",
-    "options": ["OPTIONS_FILE_UNSET+=CCSUTIL"]
-}
 ports += "comms/lrzsz"
 ports += "sysutils/screen"
 ports += "devel/cdialog"
@@ -290,10 +286,6 @@ ports += "www/wgetpaste"
 ports += "sysutils/sg3_utils"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
-
-#
-# These are all for SSSD
-#
 ports += "dns/c-ares"
 ports += {
     "name": "security/krb5",
@@ -307,19 +299,6 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
 }
 ports += "ftp/curl"
-ports += {
-    "name": "devel/git",
-    "options": [
-        "OPTIONS_FILE_UNSET+=SVN",
-        "OPTIONS_FILE_UNSET+=CVS",
-        "OPTIONS_FILE_UNSET+=P4",
-        "OPTIONS_FILE_UNSET+=PERL",
-        "OPTIONS_FILE_UNSET+=CONTRIB",
-        "OPTIONS_FILE_UNSET+=NLS"
-        "OPTIONS_FILE_SET+=CURL"
-    ]
-}
-
 ports += {
     "name": "dns/samba-nsupdate",
     "options": ["OPTIONS_FILE_SET+=IPV6"]
