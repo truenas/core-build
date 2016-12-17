@@ -37,6 +37,7 @@ exclude = @include(../middleware/filelist)
 	@include(../freenasUI/filelist)
 	@include(../freebsd-pkgdb/filelist)
 	/usr/lib/*.a
+	/usr/lib/debug
 	/usr/local/share/doc
 	/usr/local/share/gtk-doc
 	/usr/local/share/gir-1.0
