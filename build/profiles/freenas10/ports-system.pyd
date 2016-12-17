@@ -121,9 +121,6 @@ ports += {
 }
 ports += "lang/python3"
 ports += "lang/python"
-# Unused yet and do not work with python3
-#ports += "dns/py-bonjour"
-ports += "net/py-s3cmd"
 ports += "dns/py-dnspython"
 
 ports += "security/pam_mkhomedir"
@@ -148,7 +145,6 @@ ports += "sysutils/e2fsprogs"
 ports += "sysutils/fusefs-ntfs"
 ports += "sysutils/smartmontools"
 ports += "net/mosh"
-ports += "sysutils/fusefs-s3fs"
 ports += "devel/py-magic"
 ports += "sysutils/ipfs-go"
 ports += {
