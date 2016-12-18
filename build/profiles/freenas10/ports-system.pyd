@@ -262,8 +262,12 @@ ports += {
         "OPTIONS_FILE_UNSET+=AVAHI",
     ]
 }
-ports += "sysutils/syslog-ng"
-
+ports += {
+    "name": "sysutils/syslog-ng",
+    "options": [
+        "OPTIONS_FILE_SET+=MONGO"
+    ]
+}
 ports += "net/ladvd"
 ports += "ftp/wget"
 ports += "benchmarks/iozone"
