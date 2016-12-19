@@ -161,6 +161,9 @@ release-push: update-push
 update-push:
 	@${BUILD_TOOLS}/post-to-upgrade.py
 
+update-rollback:
+	ssh sef@update-master.freenas.org freenas-release rollback ${TRAIN}
+
 archive:	release
 .if !defined(ARCHIVE)
 	@echo "ARCHIVE location must be defined" 1>&2
