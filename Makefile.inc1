@@ -46,7 +46,7 @@ all: check-root build
 check-root:
 	@[ `id -u` -eq 0 ] || ( echo "Sorry, you must be running as root to build this."; exit 1 )
 
-build: ports world debug packages images
+build: portsjail ports world debug packages images
 
 world:
 	@${BUILD_TOOLS}/install-world.py
