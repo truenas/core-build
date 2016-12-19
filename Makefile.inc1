@@ -202,24 +202,6 @@ tests:
 ports: check-root
 	@${BUILD_TOOLS}/build-ports.py
 
-huevos:
-	@${BUILD_TOOLS}/build-os.py
-
-huevos-tests:
-	@${BUILD_TOOLS}/run-huevos-tests.py
-
-huevos-playground:
-	@PLAYGROUND=yes ${BUILD_TOOLS}/run-huevos-tests.py
-
-huevos-ssh:
-	@START_SSH=yes ${BUILD_TOOLS}/run-huevos-tests.py
-
-huevos-telnet:
-	@START_TELNET=yes ${BUILD_TOOLS}/run-huevos-tests.py
-
-portsjail: huevos
-	@${BUILD_TOOLS}/install-jail.py
-
 profiles:
 	@${BUILD_TOOLS}/profiles.py
 
