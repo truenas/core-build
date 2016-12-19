@@ -115,6 +115,7 @@ bootstrap-pkgs:
 	pkg install -y sysutils/grub2-pcbsd
 	pkg install -y sysutils/xorriso
 	pkg install -y sysutils/grub2-efi
+	pkg install -y devel/git
 	pkg install -y devel/gmake
 	pkg install -y archivers/pigz
 	python3 -m ensurepip
