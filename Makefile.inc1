@@ -59,10 +59,12 @@ packages:
 
 checkout:
 	@${BUILD_TOOLS}/checkout.py
+	@${BUILD_TOOLS}/update-release-info.py
 
 update:
 	@git pull
 	@${BUILD_TOOLS}/checkout.py
+	@${BUILD_TOOLS}/update-release-info.py
 
 buildenv:
 	@sh
@@ -84,7 +86,7 @@ clean-package:
 	find ${OBJDIR}/ports -name "${p}*" | xargs rm -fr
 .else
 	@echo "Clean a single package from object tree"
-	@echo "" 
+	@echo ""
 	@echo "Usage:  ${MAKE} ${.TARGET} p=[package name]"
 	@echo ""
 	@echo "Examples:"
