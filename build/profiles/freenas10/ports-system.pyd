@@ -178,7 +178,10 @@ ports += {
 }
 ports += {
     "name": "www/apache24",
-    "options": ["WITH_OPENSSL_PORT=yes"]
+    "options": [
+        "WITH_OPENSSL_PORT=yes",
+        "OPTIONS_FILE_UNSET+=DEFLATE"
+    ]
 }
 ports += "www/mod_mpm_itk"
 ports += {
