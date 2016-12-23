@@ -210,10 +210,6 @@ ports += {
     "options": ["OPTIONS_FILE_UNSET+=NEON"]
 }
 
-if PRODUCT == "TrueNAS":
-	ports += "devel/bison"
-	ports += "devel/libffi"
-
 ports += {
     "name": "devel/libstatgrab",
     "options": [
@@ -364,3 +360,6 @@ ports += "sysutils/consul"
 # This is a silly for fun thing
 # feel free to remove it if need be
 ports += "games/cowsay"
+
+if PRODUCT == "TrueNAS":
+    ports += "devel/etcd3"
