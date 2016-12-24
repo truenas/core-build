@@ -48,7 +48,7 @@ repos += {
     "name": "gui",
     "path": "gui",
     "url": "https://github.com/freenas/gui.git",
-    "branch": "master"
+    "branch": "GUI-PRE-BROKEN"
 }
 
 repos += {
