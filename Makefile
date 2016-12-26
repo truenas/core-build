@@ -111,6 +111,7 @@ buildenv:
 bootstrap-pkgs:
 	pkg install -y archivers/pxz
 	pkg install -y lang/python3
+	pkg install -y lang/python
 	pkg install -y ports-mgmt/poudriere-devel
 	pkg install -y sysutils/grub2-pcbsd
 	pkg install -y sysutils/xorriso
@@ -118,8 +119,8 @@ bootstrap-pkgs:
 	pkg install -y devel/git
 	pkg install -y devel/gmake
 	pkg install -y archivers/pigz
-	python3 -m ensurepip
-	python3 -m pip install six
+	python -m ensurepip
+	python -m pip install six
 
 # The .DEFAULT gets run if there is no Recipe denoted above for the
 # .Target (this includes release, ports, and tests) the only
