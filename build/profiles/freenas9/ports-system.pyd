@@ -178,10 +178,6 @@ ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
 ports += "www/py-flup"
-ports += {
-    "name": "www/py-django16",
-    "options": ["OPTIONS_FILE_SET+=FASTCGI"]
-}
 ports += "www/py-dojango"
 ports += "www/dojo"
 ports += "databases/py-south"
