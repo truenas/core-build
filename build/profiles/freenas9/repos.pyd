@@ -38,13 +38,6 @@ repos += {
 }
 
 repos += {
-    "name": "migrate93",
-    "path": "migrate93",
-    "url": "https://github.com/freenas/migrate93",
-    "branch": "master"
-}
-
-repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
