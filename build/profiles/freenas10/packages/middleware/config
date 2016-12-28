@@ -31,10 +31,6 @@ post-install =
 		    -t persistent,config \
 		    -f /usr/local/share/datastore/factory.json \
 		    -d /usr/local/share/datastore/migrations
-		if [ -f "/data/freenas-v1.db" ]; then
-			/usr/local/sbin/migrate93 -f /data/freenas-v1.db
-			mv /data/freenas-v1.db /data/freenas-v1.db.old
-		fi
 	fi
 	/usr/local/sbin/dsinit --stop-forked
 
@@ -46,13 +42,10 @@ post-upgrade =
 	    -f /usr/local/share/datastore/factory.json \
 	    -d /usr/local/share/datastore/migrations \
 	    --alt
-	if [ -f "/data/freenas-v1.db" ]; then
-		/usr/local/sbin/migrate93 -f /data/freenas-v1.db
-		mv /data/freenas-v1.db /data/freenas-v1.db.old
-	fi
 	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 	/bin/rm -rf /var/db/system/vm_image_cache/
+
 
 [Services]
 services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
