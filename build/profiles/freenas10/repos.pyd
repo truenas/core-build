@@ -247,6 +247,13 @@ repos += {
     "branch": "master",
 }
 
+repos += {
+    "name": "migrate93",
+    "path": "migrate93",
+    "url": "https://github.com/freenas/migrate93",
+    "branch": "master"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas-middleware",

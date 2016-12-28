@@ -41,6 +41,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/migrate93",
+    "dest": "/usr/migrate93_src"
+}
+
+copy += {
     "source": "${BE_ROOT}/licenselib",
     "dest": "/usr/middleware_src/licenselib"
 }
