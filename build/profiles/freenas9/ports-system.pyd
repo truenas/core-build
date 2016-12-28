@@ -107,6 +107,7 @@ ports += "net/smbldap-tools"
 ports += {
     "name": "security/openssh-portable",
     "options": [
+        "OPTIONS_FILE_SET+=HEIMDAL_BASE",
         "OPTIONS_FILE_SET+=NONECIPHER",
     ]
 }
