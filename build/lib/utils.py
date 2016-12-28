@@ -276,6 +276,9 @@ def is_elf(filename):
     if os.path.islink(filename):
         return False
 
+    if not os.path.isfile(filename):
+        return False
+
     with open(filename, 'rb') as f:
         header = f.read(4)
         return header == b'\x7fELF'
