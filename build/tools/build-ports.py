@@ -209,6 +209,9 @@ def run():
     poudriere_proc = sh_spawn('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p', detach=True)
     poudriere_proc.wait()
 
+    if poudriere_proc.returncode != 0:
+        error('Ports build failed')
+
 
 def siginfo(*args):
     global poudriere_proc
