@@ -79,6 +79,7 @@ def create_upgradefile():
             shutil.copyfile(os.path.join(source_dir, entry),
                             os.path.join(temp_dir, entry))
     sh("tar -C {0} -cf {1} .".format(temp_dir, e("${BE_ROOT}/release/${PRODUCT}-${VERSION}-unsigned.tar")))
+    info("tar-file path: ${BE_ROOT}/release/${PRODUCT}-${VERSION}-unsigned.tar")
     shutil.rmtree(temp_dir)
 
 if __name__ == '__main__':
