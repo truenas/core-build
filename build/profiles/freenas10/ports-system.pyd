@@ -113,7 +113,7 @@ ports += {
     ]
 }
 ports += {
-    "name": "lang/python34",
+    "name": "lang/python36",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
         "OPTIONS_FILE_SET+=DEBUG"
