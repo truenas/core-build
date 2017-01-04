@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freenas_11_stable"
+    "branch": "freebsd11"
 }
 
 repos += {
