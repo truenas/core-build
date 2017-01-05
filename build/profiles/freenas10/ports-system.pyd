@@ -90,7 +90,6 @@ ports += {
 }
 ports += "net/vblade"
 ports += "net-mgmt/clog"
-ports += "security/cyrus-sasl2-gssapi"
 ports += "ftp/lftp"
 ports += {
     "name": "net/openldap24-sasl-client",
