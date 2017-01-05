@@ -32,7 +32,8 @@ from utils import sh, chroot
 
 def main():
     chroot('${WORLD_DESTDIR}', 'pkg delete -y -f gcc48\* || true')
-
+    chroot('${WORLD_DESTDIR}', 'pkg delete -y -f gcc-ecj\* || true')
+    
 
 if __name__ == '__main__':
     main()
