@@ -75,11 +75,6 @@ copy += {
     "dest": "/usr/samba_src"
 }
 
-copy += {
-    "source": "${BE_ROOT}/zfsd",
-    "dest": "/usr/nas_source/zfsd"
-}
-
 if PRODUCT == "TrueNAS":
     copy += {
         "source": "${BE_ROOT}/truenas",
