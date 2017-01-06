@@ -46,6 +46,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/django1611",
+    "dest": "/usr/django1611_src"
+}
+
+copy += {
     "source": "${BE_ROOT}/licenselib",
     "dest": "/usr/middleware_src/licenselib"
 }

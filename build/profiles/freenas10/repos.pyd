@@ -254,6 +254,13 @@ repos += {
     "branch": "master"
 }
 
+repos += {
+    "name": "django1611",
+    "path": "django1611",
+    "url": "https://github.com/django/django",
+    "commit": "9d915ac"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas-middleware",
