@@ -86,9 +86,9 @@ GIT_REF_PATH ?= /build/gitrefs
 .export BUILD_LOGLEVEL
 
 .BEGIN:
-# make(.Target) is a conditional that evalutes to true iff the .TARGET
-# was specified on the command line or has been delcared the default
-# .Target (either explicitly or implicity) some where before this line
+# make(.Target) is a conditional that evalutes to true if the .TARGET
+# was specified on the command line or has been declared the default
+# .Target (either explicitly or implicity) somewhere before this line
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
 	@echo "[0:00:00] ==> NOTICE: Build timestamp: ${BUILD_TIMESTAMP}"
