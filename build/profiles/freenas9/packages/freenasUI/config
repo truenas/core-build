@@ -33,7 +33,8 @@ post-upgrade =
 	     touch /tmp/.sqlite3_ha_skip
 	     /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              if [ ! -f "/data/update.failed" ]; then
-                 /usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+		 /usr/local/bin/python \
+			/usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              fi
 	     rm -f /tmp/.sqlite3_ha_skip
 
