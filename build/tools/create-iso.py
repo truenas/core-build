@@ -252,6 +252,7 @@ def setup_diskless():
     sh('touch ${INSTUFS_DESTDIR}/etc/diskless')
     sh('cp -a ${INSTUFS_DESTDIR}/etc/ ${INSTUFS_DESTDIR}/conf/default/etc')
     sh('cp -a ${INSTUFS_DESTDIR}/var/ ${INSTUFS_DESTDIR}/conf/default/var')
+    sh('rm -rf ${INSTUFS_DESTDIR}/conf/default/var/db/pkg')
 
 
 def cleandirs():
