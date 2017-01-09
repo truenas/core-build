@@ -234,6 +234,13 @@ repos += {
 }
 
 repos += {
+    "name": "grub2-pcbsd",
+    "path": "grub2-pcbsd",
+    "url": "https://github.com/freenas/grub2-pcbsd.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "py-filewrap",
     "path": "py-filewrap",
     "url": "https://github.com/freenas/py-filewrap.git",
