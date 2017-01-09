@@ -47,7 +47,7 @@ copy += {
 
 copy += {
     "source": "${BE_ROOT}/django1611",
-    "dest": "/usr/django1611_src"
+    "dest": "/usr/migrate93_src/django"
 }
 
 copy += {
