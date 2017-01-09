@@ -51,6 +51,7 @@ post-upgrade =
 		mv /data/freenas-v1.db /data/freenas-v1.db.old
 	fi
 	/usr/local/sbin/dsinit --stop-forked
+	/bin/rm -rf /var/db/system/vm_image_cache/
 
 [Services]
 services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
