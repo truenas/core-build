@@ -8,8 +8,10 @@ The steps below are the short summary version.
 
 ## Requirements
 
-* Your build environment must be  FreeBSD 10.3-RELEASE or later (or FreeBSD 10-STABLE)
-(building on FreeBSD 9 or 11 is not supported at this time).
+* For building FreeNAS 9.10 (only), your build environment must be FreeBSD 10.3-RELEASE
+  or later.
+* For building FreeNAS 10, your build environment must be FreeBSD 11.0-RELEASE or
+  later.
 
 * An amd64 capable processor.  12GB of memory, or an equal/greater amount
   of swap space, is also required.
