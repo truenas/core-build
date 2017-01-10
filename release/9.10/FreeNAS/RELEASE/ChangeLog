@@ -1,86 +1,27 @@
-#19458	Bug	Ready For Release	Regression	update-reboot issue
-#16429	Bug	Ready For Release	Blocks Until Resolved	Integrate Middlewared
-#5654	Bug	Ready For Release	Blocks Until Resolved	network restart should die
-#17522	Feature	Ready For Release	Blocks Until Resolved	Replication Peering Feature
-#16563	Feature	Ready For Release	Critical	AFP Share Auxiliary Parameters
-#17900	Bug	Ready For Release	Critical	Installer falls over in current 10-Nightly buld
-#19565	Bug	Ready For Release	Critical	Manual update using .tar file is failing.
-#17016	Bug	Ready For Release	Critical	9.10.1-U2 Jail Cannot Have DHCP Selected
-#19460	Bug	Ready For Release	Critical	GUI shows incorrect warning about LDAP not bind.
-#15466	Feature	Ready For Release	Expected	Add alert to let the user know if LDAP was unable to bind
-#17363	Feature	Ready For Release	Expected	Missing replication encryption option
-#19418	Bug	Ready For Release	Expected	NFSv4.1 restart patch
-#19589	Bug	Ready For Release	Expected	freenasOS's logging mangles with logging._handlers even in the presence of existing loggers
-#19118	Bug	Ready For Release	Expected	wrongly creating wrong BE name when there are wrongful duplicates
-#19462	Bug	Ready For Release	Expected	 traceback during the boot process when updating from  9.10.1-U4 to 9.10.2-INTERNAL2
-#19137	Bug	Ready For Release	Expected	Build does not properly handle validation scripts for tar file (part 2)
-#7133	Bug	Ready For Release	Expected	Time Machine fails trying to find disk until AFP is restarted
-#18684	Feature	Ready For Release	Expected	Implement events in middlewared
-#19474	Bug	Ready For Release	Expected	nginx: [warn] invalid parameter "spdy"
-#18277	Bug	Ready For Release	Expected	ZFS SLOG performance optimization to saturate NVDIMM
-#18630	Feature	Ready For Release	Important	Update to 2016Q4 Ports Tree
-#16239	Bug	Ready For Release	Important	Resilvered disks set to incorrect block size of 512B instead of 4096 like rest of pool
-#17310	Feature	Ready For Release	Important	Create API endpoint for snapshot rollback
-#14393	Bug	Ready For Release	Important	Samba is now at version 4.4 (as of March 22nd) and the current "stable release"
-#19463	Bug	Ready For Release	Important	pool import is slow due to many ZVOLs/snapshots
-#6074	Feature	Ready For Release	Important	Backup Script for Samba4 Active Directory Domain Controller
-#17026	Feature	Ready For Release	Important	Necromance the GUI update button.
-#18194	Bug	Ready For Release	Important	Regression: slow operations on systems with large openfiles resource limit
-#19360	Bug	Ready For Release	Important	Properly stop middlewared on shutdown/reboot
-#17046	Feature	Ready For Release	Important	Minimum RAM Requirements Warning Message
-#17825	Bug	Ready For Release	Important	Call timeout generating token
-#19296	Bug	Ready For Release	Important	Update consul to 0.7.0
-#19297	Bug	Ready For Release	Important	Update consul-alerts to 0.4.0
-#19295	Bug	Ready For Release	Important	Update nomad to 0.5.0
-#16847	Bug	Ready For Release	Important	can't update 9.10 from GUI
-#14436	Bug	Ready For Release	Important	Incorrect handling of resolv.conf generation and other network issues
-#16473	Feature	Ready For Release	Important	Allow TOE to be enabled for T3/T4/T5 chelsio cards
-#14948	Bug	Ready For Release	Important	SSH bind to an interface should include vlan parents
-#18903	Bug	Ready For Release	Important	consolidate the ix-* rc.d scripts
-#15491	Feature	Ready For Release	Important	Ability to turn off succeeded mountd requests for NFS service
-#16453	Bug	Ready For Release	Nice to have	GUI indicators not accessible to colorblind/monochrome users - section 508 compliance?
-#17830	Bug	Ready For Release	Nice to have	Focus password field on login screen
-#18542	Feature	Ready For Release	Nice to have	Implement heartbeat of DDP protocol
-#19635	Bug	Ready For Release	Nice to have	Traceback when detaching dev from freenas-boot pool
-#18914	Bug	Ready For Release	Nice to have	Keep savecore from running twice at boot
-#18626	Bug	Ready For Release	Nice to have	FreeNAS sharing wizard only reads first 50 users and/or groups from user/group lists
-#17241	Feature	Ready For Release	Nice to have	FQDN in syslog
-#16737	Feature	Ready For Release	Nice to have	Add the grub.cfg to freenas-debug
-#19005	Feature	Ready For Release	Nice to have	Clean up freenas-debug help output
-#18371	Bug	Ready For Release	Nice to have	Integrate rollbar to middlewared
-#17267	Bug	Ready For Release	Nice to have	Add nomad, consul, consul-alerts to FreeNAS
-#10646	Bug	Ready For Release	Nice to have	SMART not running warning should not be issued in virtualized environment for virtual disks
-#14687	Bug	Ready For Release	Nice to have	API is not adding default IP adress for new Jails
-#10851	Feature	Ready For Release	Nice to have	Add 'Lock Volume' to API
-#19258	Bug	Ready For Release	Nice to have	Traceback on wizard when creating iscsi with same name
-#19605	Bug	Ready For Release	Nice to have	[: =: unexpected operator
-#16723	Bug	Ready For Release	Nice to have	FreeNAS-9.10.1 (d989edd) Wizard aborted.
-#17833	Bug	Ready For Release	Nice to have	No handlers could be found for logger "common.pipesubr"
-#19063	Feature	Ready For Release	Nice to have	Console wording caused guy to accidentally hose pool
-#18539	Feature	Ready For Release	Nice to have	Add disk query in middlewared
-#17467	Bug	Ready For Release	Nice to have	Control path for lz4c for non-FreeNAS replication targets.
-#18708	Feature	Ready For Release	Nice to have	System reboot and shutdown from middlewared
-#18718	Feature	Ready For Release	Nice to have	Extra disk geom stats in reporting section
-#16901	Bug	Ready For Release	Nice to have	Periodic snapshots - autosnap - generate large demand on ARC metadata.
-#15928	Bug	Ready For Release	Nice to have	Stopping VirtualBox jail doesn't properly shutdown jail
-#18512	Feature	Ready For Release	Nice to have	Basic system info in middlewared
-#19537	Bug	Ready For Release	Nice to have	Need to log version as well as sequence when getting files from the server(s)
-#19096	Bug	Ready For Release	Nice to have	Installer "Upgrade Method" screen is inconsistent and assumes too much knowledge of ZFS and FreeNAS
-#18487	Feature	Ready For Release	Nice to have	Add update API to middlewared
-#8657	Feature	Ready For Release	Nice to have	Installer should figure out how to trampoline updates
-#17388	Feature	Ready For Release	Nice to have	Merge FN9 and FN10 installers
-#17132	Feature	Ready For Release	Nice to have	When doing upgrades, install direct to existing zpool
-#17751	Bug	Ready For Release	Nice to have	SMB shares in master may be sad
-#16674	Feature	Ready For Release	Nice to have	Allow customization of the shutdown command UPS/NUT uses to take down the system
-#15812	Bug	Ready For Release	Nice to have	High ASCII Characters in Password or Password Length
-#18582	Bug	Ready For Release	Nice to have	Allow utf8 in zfs option
-#17322	Bug	Ready For Release	Nice to have	Update tooltip explaining "Map ACLs"
-#17652	Bug	Ready For Release	Nice to have	Integrate rollbar to UI
-#19087	Bug	Ready For Release	Nice to have	Volume Manager Button is Broken
-#14355	Feature	Ready For Release	Nice to have	Add Comment column in Storage section (for zvol and datasets)
-#18196	Bug	Ready For Release	Nice to have	Browser cache issue: FreeNAS-9.10-STABLE train missing
-#18799	Bug	Ready For Release	Nice to have	Bad kerberos settings entry in tree menu
-#19448	Bug	Ready For Release	Nice to have	Traceback on API to show all periodic tasks
-#19447	Bug	Ready For Release	Nice to have	Adding user with utf8 homedir traceback
-#17180	Bug	Ready For Release	Nice to have	samba warning on boot: secrets.tdb: No such file or directory
-#19467	Bug	Ready For Release	No priority	remove SHA256 button from the GUI as it's not needed anymore
+#20071	Bug	Ready For Release	Critical	NFS exports are mangled, when you use AD user for Mapping users/group.
+#19854	Bug	Ready For Release	Expected	SSH "Allow Kerberos Authentication" broken
+#19822	Bug	Ready For Release	Important	Multipath sync may fail if disk identifier from geom is empty
+#19821	Bug	Ready For Release	Important	"Unable to find template!" error when directory exists and not in warden
+#19820	Bug	Ready For Release	Nice to have	Silence pwenc_decrypt reports
+#19819	Bug	Ready For Release	Important	Do not traceback if a template no longer exists
+#19809	Bug	Ready For Release	Expected	[regression] Mdns/Avahi/Zeroconf? for Netatalk (AFP) not working after 9.10.2 upgrade
+#19781	Bug	Ready For Release	Nice to have	check of today's update
+#19773	Bug	Ready For Release	No priority	FreeNAS Mini Console Inaccessible If No Network Plugged In
+#19761	Bug	Ready For Release	Critical	Interface sync breaks jail bridge
+#19759	Bug	Ready For Release	Critical	Plugins communication broken when ipv4 default gateway is of different interface
+#19758	Bug	Ready For Release	Nice to have	Unrecognizable traceback when reporting graph fails to generate
+#19757	Bug	Ready For Release	Nice to have	Iohyve 
+#19754	Bug	Ready For Release	No priority	Updated to FreeNAS-9.10.2 and periodic snapshots no longer work
+#19739	Bug	Ready For Release	Critical	Cloud Syncs in task menu of 9.10.2
+#19736	Bug	Ready For Release	Nice to have	Volume manager allows invalid names
+#19733	Bug	Ready For Release	Expected	Try to mitigate database locked errors
+#19715	Bug	Ready For Release	Important	Traceback on jail list
+#19709	Bug	Ready For Release	Expected	Certificates with utf8 names or spaces is the path to sadness
+#19702	Bug	Ready For Release	No priority	pyOpenSSL regression
+#19700	Bug	Ready For Release	Important	Query traceback when certificate fails to load
+#19698	Bug	Ready For Release	Nice to have	Validate BE name
+#19673	Bug	Ready For Release	Nice to have	Tracebacks with utf8 homedir
+#19460	Bug	Ready For Release	Regression	GUI shows incorrect warning about LDAP not bind.
+#19411	Bug	Ready For Release	Nice to have	Periodic Snapshot "Lifetime" field is ambiguous
+#19398	Bug	Ready For Release	Important	Random pool lock and kernel panic
+#19112	Feature	Ready For Release	No priority	Manual Update button improvements
