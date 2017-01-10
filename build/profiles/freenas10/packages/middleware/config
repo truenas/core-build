@@ -50,8 +50,10 @@ post-upgrade =
 		/usr/local/sbin/migrate93 -f /data/freenas-v1.db
 		mv /data/freenas-v1.db /data/freenas-v1.db.old
 	fi
+	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 	/bin/rm -rf /var/db/system/vm_image_cache/
+	
 
 [Services]
 services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
