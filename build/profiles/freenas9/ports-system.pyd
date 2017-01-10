@@ -231,9 +231,6 @@ ports += "devel/py-six"
 ports += "www/py-requests"
 ports += "net/py-pyvmomi"
 
-# For ntp test
-ports += "net/py-ntplib"
-
 # Reporting ports
 ports += "devel/libstatgrab"
 ports += {
