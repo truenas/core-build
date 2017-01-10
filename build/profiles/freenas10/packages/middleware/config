@@ -53,7 +53,6 @@ post-upgrade =
 	/usr/local/sbin/sdsinit
 	/usr/local/sbin/dsinit --stop-forked
 	/bin/rm -rf /var/db/system/vm_image_cache/
-	
 
 [Services]
 services = SMB, AFP, NFS, iSCSI, WebDAV, reboot
