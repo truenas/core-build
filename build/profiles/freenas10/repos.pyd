@@ -247,6 +247,21 @@ repos += {
     "branch": "master",
 }
 
+repos += {
+    "name": "migrate93",
+    "path": "migrate93",
+    "url": "https://github.com/freenas/migrate93",
+    "branch": "master"
+}
+
+repos += {
+    "name": "django1611",
+    "path": "django1611",
+    "url": "https://github.com/django/django",
+    "branch": "stable/1.6.x",
+    "commit": "9d915ac"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas-middleware",
