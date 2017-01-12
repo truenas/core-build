@@ -262,7 +262,7 @@ ports += {
     ]
 }
 ports += {
-    "name": "sysutils/syslog-ng",
+    "name": "sysutils/syslog-ng37",
     "options": [
         "OPTIONS_FILE_SET+=MONGO"
     ]
