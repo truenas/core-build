@@ -1,20 +1,10 @@
-# Building / Updating FreeNAS 10
+# Building / Updating FreeNAS 9.10
 
-To update an existing FreeNAS 10 instance that you are using for development
-purposes:
-
-* ```make update```
-* ```make ports```
-* ```make reinstall-package package=freenas host=root@1.2.3.4```
-
-Where 1.2.3.4 is the IP address of your development platform.  SSH will be
-used to push and install the new packages onto that host.
-
-To build FreeNAS 10 from scratch (experts only):
+To build FreeNAS 9.10 from scratch (experts only):
 
 ## Requirements:
 
-* Your build environment must be FreeBSD 10.2-RELEASE or FreeBSD 10-STABLE
+* Your build environment must be FreeBSD 10.x (or 10-STABLE)
 (building on FreeBSD 9 or 11 is not supported at this time).
 
 * An amd64 capable processor.  12GB of memory, or an equal/greater amount

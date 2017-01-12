@@ -1,29 +1,32 @@
 #-
-# Copyright 2010-2015 iXsystems, Inc.
+# Copyright 2010-2016 The FreeNAS Project
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted providing that the following conditions
 # are met:
+#
 # 1. Redistributions of source code must retain the above copyright
 #    notice, this list of conditions and the following disclaimer.
+#
 # 2. Redistributions in binary form must reproduce the above copyright
-#    notice, this list of conditions and the following disclaimer in the
-#    documentation and/or other materials provided with the distribution.
+#    notice, this list of conditions and the following disclaimer in
+#    the documentation and/or other materials provided with the
+#    distribution.
 #
-# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
-# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
-# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-# POSSIBILITY OF SUCH DAMAGE.
+# This Software is Provided by the Author ''As Is'' and Any Express or
+# Implied Warranties, Including, But Not Limited To, the Implied
+# Warranties of Merchantability and Fitness For a Particular Purpose
+# Are Disclaimed.  In No Event Shall the Author be Liable For Any
+# Direct, Indirect, Incidental, Special, Exemplary, or Consequential
+# Damages (Including, But Not Limited To, Procurement of Substitute
+# Goods or Services; Loss of Use, Data, or Profits; or Business
+# Interruption) However Caused And on Any Theory of Liability, Whether
+# in Contract, Strict Liability, or Tort (Including Negligence or
+# Otherwise) Arising in Any Way Out of the Use of This Software, Even
+# if Advised of the Possibility of Such Damage.
 #
-#####################################################################
+######################################################################
 
 .if exists(build/hooks/Makefile)
 .include "build/hooks/Makefile"
@@ -34,8 +37,6 @@ RELEASE_LOGFILE?=${SCRIPT}
 .else
 RELEASE_LOGFILE?=${BE_ROOT}/release.build.log
 .endif
-
-CHANGELOG := ${BUILD_ROOT}/release/9.10/${PRODUCT}/RELEASE/ChangeLog
 
 all: check-root build
 
@@ -57,10 +58,12 @@ packages:
 
 checkout:
 	@${BUILD_TOOLS}/checkout.py
+	@${BUILD_TOOLS}/update-release-info.py
 
 update:
 	@git pull
 	@${BUILD_TOOLS}/checkout.py
+	@${BUILD_TOOLS}/update-release-info.py
 
 buildenv:
 	@sh
@@ -82,7 +85,7 @@ clean-package:
 	find ${OBJDIR}/ports -name "${p}*" | xargs rm -fr
 .else
 	@echo "Clean a single package from object tree"
-	@echo "" 
+	@echo ""
 	@echo "Usage:  ${MAKE} ${.TARGET} p=[package name]"
 	@echo ""
 	@echo "Examples:"
