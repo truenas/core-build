@@ -28,8 +28,8 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "freenas9",
-    "description": "FreeNAS 9.3 with FreeBSD 10 kernel",
+    "name": "freenas9_stable_11",
+    "description": "FreeNAS 9.10 with FreeBSD 11 stable",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
