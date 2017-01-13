@@ -16,6 +16,9 @@ The steps below are the short summary version.
 * An amd64 capable processor.  12GB of memory, or an equal/greater amount
   of swap space, is also required.
 
+* For building on a ZFS based system, you must have ~60GB space free.
+* For building on a UFS based system, you must have ~100GB space free.
+
 * An internet connection for downloading source and packages
 
 ## Building FreeNAS
