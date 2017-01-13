@@ -49,7 +49,7 @@ def main():
         error('Release not found')
 
     download_suffix = ""
-    if e('${BUILD_TYPE}').lower() in ["master", "stable"]:
+    if e('${BUILD_TYPE}').lower() in ["master", "stable", "freebsd-stable", "freebsd-head"]:
         buildtimestamp = os.path.basename(rel_dir).split("-")[-1]
         download_suffix = e('${BUILD_TYPE}/${buildtimestamp}')
     else:
@@ -61,12 +61,12 @@ def main():
     sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
 
     # For all non-nightly builds create latest symlinks
-    if e('${BUILD_TYPE}').lower() != "master":
-        info('Creating top level downloads symlink')
-        sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
-    else:
+    if e('${BUILD_TYPE}').lower() in ["master", "freebsd-stable", "freebsd-head"]:
         info('Creating MILESTONE level downloads symlink')
         sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${buildtimestamp} ${DOWNLOAD_PREFIX}/${BUILD_TYPE}/latest')
+    else:
+        info('Creating top level downloads symlink')
+        sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
 
     info('Synchronizing download server to CDN')
     sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')

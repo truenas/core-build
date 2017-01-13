@@ -44,7 +44,7 @@ def main():
     if not rel_dir:
         error('Release not found')
 
-    if e('${BUILD_TYPE}').lower() in ["master", "stable"]:
+    if e('${BUILD_TYPE}').lower() in ["master", "stable", "freebsd-stable", "freebsd-head"]:
         appending_path = e('${VERSION_NUMBER}/${BUILD_TYPE}')
     else:
         appending_path = e('${VERSION_NUMBER}')
