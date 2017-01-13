@@ -51,7 +51,12 @@ GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
 GIT_LOCATION != cat ${GIT_REPO_SETTING}
 .endif
 
+.if ${PROFILE} != "freenas10"
+BE_ROOT := ${BUILD_ROOT}/${PROFILE}/_BE
+.else
 BE_ROOT := ${BUILD_ROOT}/_BE
+.endif
+
 OBJDIR := ${BE_ROOT}/objs
 DOC_PATH := ${BE_ROOT}/freenas-docs
 API_PATH := ${BE_ROOT}/freenas/docs
