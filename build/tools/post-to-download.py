@@ -62,7 +62,7 @@ def main():
 
     # For all non-nightly builds create latest symlinks
     if e('${BUILD_TYPE}').lower() in ["master", "freebsd-stable", "freebsd-head"]:
-        info('Creating ${MILESTONE} level downloads symlink')
+        info('Creating MILESTONE level downloads symlink')
         sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${buildtimestamp} ${DOWNLOAD_PREFIX}/${BUILD_TYPE}/latest')
     else:
         info('Creating top level downloads symlink')
