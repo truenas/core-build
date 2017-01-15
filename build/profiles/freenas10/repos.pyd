@@ -257,9 +257,8 @@ repos += {
 repos += {
     "name": "django1611",
     "path": "django1611",
-    "url": "https://github.com/django/django",
-    "branch": "stable/1.6.x",
-    "commit": "9d915ac"
+    "url": "https://github.com/freenas/django",
+    "branch": "stable/1.6.11"
 }
 
 if PRODUCT == "TrueNAS":
