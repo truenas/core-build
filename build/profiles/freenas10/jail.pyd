@@ -41,7 +41,7 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/migrate93",
+    "source": "${BE_ROOT}/freenas-migrate93",
     "dest": "/usr/migrate93_src"
 }
 
