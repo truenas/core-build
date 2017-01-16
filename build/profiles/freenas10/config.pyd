@@ -86,6 +86,7 @@ make_conf_build = {
     "WITHOUT_CLANG_FULL":           "yes",
     "WITHOUT_CTM":                  "yes",
     "WITHOUT_CUSE":                 "yes",
+    "WITHOUT_DEBUG_FILES":          "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_FORTRAN":              "yes",
     "WITHOUT_FREEBSD_UPDATE":       "yes",
