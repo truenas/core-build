@@ -40,10 +40,14 @@ dsl = load_profile_config()
 manifest = {sh_str("git config --get remote.origin.url"): get_git_rev()}
 
 
-def is_git_repo(path):
+def is_git_repo(path, allow_bare=False):
     """Determine whether given path names a git repository."""
     # This is how git itself does it
-    return os.path.exists(os.path.join(path, '.git', 'HEAD'))
+    if os.path.exists(os.path.join(path, '.git', 'HEAD')):
+        return True
+    if allow_bare and os.path.exists(os.path.join(path, 'HEAD')):
+        return True
+    return False
 
 def find_ref_clone(repo_name):
     """See if there's an existing clone to use as a reference."""
@@ -51,7 +55,7 @@ def find_ref_clone(repo_name):
     if git_ref_path:
         for path in git_ref_path.split(':'):
             candidate = os.path.join(path, repo_name)
-            if is_git_repo(candidate):
+            if is_git_repo(candidate, allow_bare=True):
                 return candidate
     return None
 
