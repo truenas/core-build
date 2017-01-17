@@ -58,12 +58,10 @@ packages:
 
 checkout:
 	@${BUILD_TOOLS}/checkout.py
-	@${BUILD_TOOLS}/update-release-info.py
 
 update:
 	@git pull
 	@${BUILD_TOOLS}/checkout.py
-	@${BUILD_TOOLS}/update-release-info.py
 
 buildenv:
 	@sh
