@@ -20,9 +20,6 @@
 /usr/local/lib/python3.4/site-packages/ipfs-api
 /usr/local/lib/node_modules/dispatcher-client
 /usr/local/share/datastore
-/usr/local/etc/pkg/repos/pcbsd.conf
-/usr/local/etc/pkg/fingerprints/pcbsd/revoked/.keepme
-/usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
 /usr/local/etc/rc.d/datastore
 /usr/local/etc/rc.d/dispatcher
 /usr/local/etc/rc.d/dsd
@@ -50,3 +47,4 @@
 /usr/local/sbin/networkd
 /usr/local/sbin/migrate93
 /usr/local/libexec/taskproxy
+/data/update.conf
