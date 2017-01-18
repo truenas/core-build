@@ -133,6 +133,7 @@ ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
 ports += "sysutils/consul"
 ports += "sysutils/consul-alerts"
+ports += "sysutils/py-iocage"
 ports += "net/py-s3cmd"
 ports += "devel/tevent"
 ports += {
