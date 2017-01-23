@@ -306,7 +306,7 @@ ports += {
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + migrate93_portrev
+        "REVISION={0}".format(migrate93_portrev)
     ]
 }
 
