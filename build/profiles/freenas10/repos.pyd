@@ -261,6 +261,13 @@ repos += {
     "branch": "stable/1.6.11"
 }
 
+repos += {
+    "name": "freenas9",
+    "path": "freenas9",
+    "url": "https://github.com/freenas/freenas",
+    "branch": "master"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas-middleware",
