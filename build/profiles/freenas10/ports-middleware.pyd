@@ -304,7 +304,7 @@ ports += {
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + sum([
             sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(x))
-            for x in ("freenas-migrate93", "freenas9", "django1611")
+            for x in ["freenas-migrate93", "freenas9", "django1611"]
         ])
     ]
 }
