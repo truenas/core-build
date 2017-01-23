@@ -47,4 +47,3 @@
 /usr/local/sbin/networkd
 /usr/local/sbin/migrate93
 /usr/local/libexec/taskproxy
-/data/update.conf
