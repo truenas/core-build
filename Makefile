@@ -28,7 +28,9 @@
 #
 ######################################################################
 
+.ifndef BUILD_TIMESTAMP
 BUILD_TIMESTAMP != date -u '+%Y%m%d%H%M'
+.endif
 BUILD_STARTED != date '+%s'
 
 BUILD_ROOT ?= ${.CURDIR}
