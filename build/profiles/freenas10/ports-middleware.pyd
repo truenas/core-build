@@ -238,6 +238,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/py-logd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/libserviced",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
