@@ -148,6 +148,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/freenas-logd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-restd",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -229,6 +238,15 @@ ports += {
 }
 
 ports += {
+    "name": "freenas/py-logd",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + middleware_git_rev
+    ]
+}
+
+ports += {
     "name": "freenas/libserviced",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
@@ -238,7 +256,7 @@ ports += {
 }
 
 ports += {
-    "name": "freenas/syslog-ng-serviced",
+    "name": "freenas/liblogd",
     "options": [
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
