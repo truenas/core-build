@@ -51,11 +51,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/freenas9",
-    "dest": "/usr/migrate93_src/freenas9"
-}
-
-copy += {
     "source": "${BE_ROOT}/licenselib",
     "dest": "/usr/middleware_src/licenselib"
 }
