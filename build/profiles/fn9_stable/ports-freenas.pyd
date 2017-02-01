@@ -63,6 +63,15 @@ if PRODUCT == "TrueNAS":
     }
 
 ports += {
+    "name": "freenas/freenas-migrate93",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+    ]
+}
+
+ports += {
     "name": "freenas/freenas-ui",
     "options": [
         "PRODUCT=${PRODUCT}",
