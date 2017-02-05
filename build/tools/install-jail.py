@@ -55,6 +55,3 @@ if __name__ == '__main__':
 
     sh('mkdir -p ${JAIL_DESTDIR}')
     installworld(e('${JAIL_DESTDIR}'), installworldlog, distributionlog, conf="build")
-
-    if e('${USE_ZFS}'):
-        sh('zfs snapshot ${ZPOOL}${ZROOTFS}/jail@clean')

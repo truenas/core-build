@@ -194,6 +194,9 @@ def prepare_env():
     sh('sed -i "" -e "s/,UNAME_r.*:/:/ ; s/:\(setenv.*\):/:\\1${login_env}:/" ${JAIL_DESTDIR}/etc/login.conf')
     sh('cap_mkdb ${JAIL_DESTDIR}/etc/login.conf');
 
+    if e('${USE_ZFS}'):
+        sh('zfs snapshot ${ZPOOL}${ZROOTFS}/jail@clean')
+
 
 def cleanup_env():
     global poudriere_proc
