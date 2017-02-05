@@ -44,8 +44,8 @@ if __name__ == '__main__':
         sys.exit(0)
 
     if os.path.isdir(e('${JAIL_DESTDIR}')):
-        sh('chflags -fR 0 ${JAIL_DESTDIR}', nofail=True)
-        sh('rm -rf ${JAIL_DESTDIR}')
+        sh('chflags -fR 0 ${JAIL_DESTDIR}/*', nofail=True)
+        sh('rm -rf ${JAIL_DESTDIR}/*')
 
     if e('${USE_ZFS}'):
         if not os.path.ismount(e('${ZPOOL}${ZROOTFS}/jail')):
