@@ -32,7 +32,7 @@ import sys
 import string
 from dsl import load_file, load_profile_config
 from utils import (
-    sh, sh_str, sh_spawn, env, e, glob, pathjoin,
+    sh, sh_str, sh_spawn, env, e, glob, pathjoin, objdir,
     setfile, template, debug, error, on_abort, info
 )
 
@@ -68,11 +68,16 @@ def create_overlay():
 
 def create_poudriere_config():
     sh('mkdir -p ${DISTFILES_CACHE}')
-    setfile('${POUDRIERE_ROOT}/etc/poudriere.conf', template('${BUILD_CONFIG}/templates/poudriere.conf', {
+    opts = {
         'ports_repo': config['repos'].where(name='ports')['path'],
         'ports_branch': config['repos'].where(name='ports')['branch'],
-    }))
+        'no_zfs': 'yes'
+    }
 
+    if e('${USE_ZFS}'):
+        opts['no_zfs'] = ''
+
+    setfile('${POUDRIERE_ROOT}/etc/poudriere.conf', template('${BUILD_CONFIG}/templates/poudriere.conf', opts))
     tree = e('${POUDRIERE_ROOT}/etc/poudriere.d/ports/p')
     sh('mkdir -p', tree)
     setfile(pathjoin(tree, 'mnt'), e('${PORTS_OVERLAY}'))
@@ -127,6 +132,9 @@ def obtain_jail_name():
 def prepare_jail():
     basepath = e('${POUDRIERE_ROOT}/etc/poudriere.d/jails/${jailname}')
     sh('mkdir -p ${basepath}')
+
+    if e('${USE_ZFS}'):
+        setfile(e('${basepath}/fs'), e('${ZPOOL}${ZROOTFS}/jail'))
 
     setfile(e('${basepath}/method'), 'git')
     setfile(e('${basepath}/mnt'), e('${JAIL_DESTDIR}'))

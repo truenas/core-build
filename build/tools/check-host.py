@@ -35,8 +35,8 @@ def check_build_sanity():
         error("Current path too long ({0} characters) for nullfs mounts during build",
               len(os.getcwd()))
 
-    if e('${BE_ROOT}') in sh_str('mount'):
-        error("You have dangling mounts inside {0}, did last build crash?", e('${BE_ROOT}'))
+    #if e('${BE_ROOT}/objs/ports') in sh_str('mount'):
+    #    error("You have dangling mounts inside {0}, did last build crash?", e('${BE_ROOT}'))
 
 
 def check_port(name, port):
