@@ -48,7 +48,7 @@ if __name__ == '__main__':
         sh('rm -rf ${JAIL_DESTDIR}/*')
 
     if e('${USE_ZFS}'):
-        if not os.path.ismount(e('${ZPOOL}${ZROOTFS}/jail')):
+        if not os.path.ismount(e('${JAIL_DESTDIR}')):
             sh('zfs create -o mountpoint=${JAIL_DESTDIR} ${ZPOOL}${ZROOTFS}/jail')
         else:
             sh('zfs destroy ${ZPOOL}${ZROOTFS}/jail@clean', nofail=True)
