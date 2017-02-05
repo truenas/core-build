@@ -50,8 +50,8 @@ if __name__ == '__main__':
     if e('${USE_ZFS}'):
         if not os.path.ismount(e('${ZPOOL}${ZROOTFS}/jail')):
             sh('zfs create -o mountpoint=${JAIL_DESTDIR} ${ZPOOL}${ZROOTFS}/jail')
-
-        sh('zfs destroy ${ZPOOL}${ZROOTFS}/jail@clean', nofail=True)
+        else:
+            sh('zfs destroy ${ZPOOL}${ZROOTFS}/jail@clean', nofail=True)
 
     sh('mkdir -p ${JAIL_DESTDIR}')
     installworld(e('${JAIL_DESTDIR}'), installworldlog, distributionlog, conf="build")
