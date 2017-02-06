@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freebsd10-stable"
+    "branch": "stable/11"
 }
 
 repos += {
@@ -84,13 +84,6 @@ repos += {
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
     "branch": "9.10-MASTER"
-}
-
-repos += {
-    "name": "zfsd",
-    "path": "zfsd",
-    "url": "https://github.com/freenas/zfsd.git",
-    "branch": "master"
 }
 
 if PRODUCT == "TrueNAS":
