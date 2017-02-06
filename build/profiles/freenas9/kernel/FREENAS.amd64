@@ -68,7 +68,6 @@ options 	HWPMC_HOOKS		# Necessary kernel hooks for hwpmc(4)
 options 	AUDIT			# Security event auditing
 options 	CAPABILITY_MODE		# Capsicum capability mode
 options 	CAPABILITIES		# Capsicum capabilities
-options 	PROCDESC		# Support for process descriptors
 options 	MAC			# TrustedBSD MAC Framework
 options 	KDTRACE_FRAME		# Ensure frames are compiled in
 options 	KDTRACE_HOOKS		# Kernel DTrace hooks
@@ -210,7 +209,6 @@ device		ixv			# Intel PRO/10GbE PCIE VF Ethernet
 device		ixl			# Intel XL710 40Gbe PCIE Ethernet
 device		ixlv			# Intel XL710 40Gbe VF PCIE Ethernet
 device		le			# AMD Am7900 LANCE and Am79C9xx PCnet
-device		mlxen			# Mellanox ConnectX, ConnectX-2, ConnectX-3 Series
 device		mlx5			# Mellanox ConnectX-4 common code
 device		mlx5en			# Mellanox ConnectX-4 Series
 device		mxge			# Myricom Myri10GE 10 Gigabit Ethernet adapter driver
@@ -235,7 +233,6 @@ device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
 device		msk			# Marvell/SysKonnect Yukon II Gigabit Ethernet
 device		nfe			# nVidia nForce MCP on-board Ethernet
 device		nge			# NatSemi DP83820 gigabit Ethernet
-device		nve			# nVidia nForce MCP on-board Ethernet Networking
 device		re			# RealTek 8139C+/8169/8169S/8110S
 device		rl			# RealTek 8129/8139
 device		sge			# Silicon Integrated Systems SiS190/191
@@ -254,7 +251,6 @@ device		vlan			# 802.1Q VLAN support
 device		tun			# Packet tunnel.
 device		md			# Memory "disks"
 device		gif			# IPv6 and IPv4 tunneling
-device		faith			# IPv6-to-IPv4 relaying (translation)
 device		firmware		# firmware assist module
 
 # The `bpf' device enables the Berkeley Packet Filter.
@@ -281,8 +277,6 @@ device		virtio_scsi		# VirtIO SCSI device
 device		virtio_balloon		# VirtIO Memory Balloon device
 
 # HyperV drivers and enchancement support
-# NOTE: HYPERV depends on hyperv.  They must be added or removed together.
-options 	HYPERV			# Hyper-V kernel infrastructure
 device		hyperv			# HyperV drivers 
 
 # Xen HVM Guest Optimizations
@@ -299,8 +293,8 @@ options		GEOM_ELI
 options		NULLFS
 options		UNIONFS
 options		TMPFS			#Efficient memory filesystem
-options		VFS_AIO
 options		ISP_TARGET_MODE		# Qlogic FC target mode
+options		COMPAT_LINUXKPI
 device		zfs
 device		amdtemp
 device		coretemp
@@ -312,6 +306,7 @@ device		lagg			# Link aggregation
 device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
+device		pci_iov
 
 # ipfw and nat for jails
 options		IPDIVERT
