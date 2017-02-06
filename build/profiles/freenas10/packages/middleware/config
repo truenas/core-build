@@ -42,9 +42,7 @@ post-upgrade =
 	    -f /usr/local/share/datastore/factory.json \
 	    -d /usr/local/share/datastore/migrations \
 	    --alt
-	/usr/local/sbin/sdsinit --alt
 	/usr/local/sbin/dsinit --stop-forked
-	/bin/rm -rf /var/db/system/vm_image_cache/
 
 
 [Services]
