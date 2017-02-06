@@ -285,7 +285,7 @@ def mount_packages():
     on_abort(umount_packages)
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/ports/packages')
-    sh('mount -t nullfs ${OBJDIR}/ports/packages/${jailname}-p ${INSTUFS_DESTDIR}/usr/ports/packages')
+    sh('mount -t nullfs ${OBJDIR}/ports/data/packages/${jailname}-p ${INSTUFS_DESTDIR}/usr/ports/packages')
 
 
 def umount_packages():
