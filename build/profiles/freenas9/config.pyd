@@ -29,7 +29,7 @@ include("packages.pyd")
 
 profile = {
     "name": "freenas9",
-    "description": "FreeNAS 9.3 with FreeBSD 10 kernel",
+    "description": "FreeNAS 9.10 with FreeBSD 11 stable",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
@@ -50,7 +50,6 @@ kernel_modules = [
     "khelp/h_ertt",
     "libiconv",
     "libmchain",
-    "lindev",
     "linprocfs",
     "linsysfs",
     "linux",
