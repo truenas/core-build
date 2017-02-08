@@ -287,7 +287,7 @@ if PRODUCT != "TrueNAS":
     ports += "sysutils/areca-cli"
     ports += "sysutils/hptcli"
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-pyldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 ports += "sysutils/ataidle"
