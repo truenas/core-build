@@ -41,7 +41,7 @@ repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "master"
+    "branch": "feature/py3k"
 }
 
 repos += {
