@@ -37,12 +37,12 @@ def main():
     pkg_names = []
 
     def append_packages(name):
-        for i in glob('${OBJDIR}/ports/packages/*/All/'+'{0}*.txz'.format(name)):
+        for i in glob('${OBJDIR}/ports/data/packages/*/All/'+'{0}*.txz'.format(name)):
             pkg_paths.append(i)
             pkg_names.append(os.path.basename(i))
 
     if 'install_latest' in sys.argv:
-        for i in glob('${OBJDIR}/ports/logs/bulk/*/latest/logs/*.log'):
+        for i in glob('${OBJDIR}/ports/data/logs/bulk/*/latest/logs/*.log'):
             current_pkg = os.path.basename(i).rsplit('.log')[0]
             append_packages(current_pkg)
     else:
