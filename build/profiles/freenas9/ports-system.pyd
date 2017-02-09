@@ -461,6 +461,7 @@ ports += "sysutils/nomad"
 ports += "sysutils/consul"
 ports += "sysutils/consul-alerts"
 ports += "security/vault"
+ports += "www/minio"
 
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
