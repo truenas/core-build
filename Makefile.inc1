@@ -166,6 +166,9 @@ update-push:
 update-rollback:
 	ssh sef@update-master.freenas.org freenas-release rollback ${TRAIN}
 
+changelog:
+	build/tools/create_redmine_changelog.py -k ~/redmine-key  -p freenas-10 -t RELEASE -s "Build Testing" > ChangeLog
+
 archive:	release
 .if !defined(ARCHIVE)
 	@echo "ARCHIVE location must be defined" 1>&2
