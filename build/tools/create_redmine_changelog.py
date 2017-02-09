@@ -14,8 +14,8 @@ def main(argv):
     stat = 'Ready For Release'
     s = None
     include_tracker = False
-    helpmesg = "create_redmine_changelog_ng.py -k <key> -p <project> -s <status>"
-    priority_order = "Blocks Until Resolved,Regression,Critical,Expected,Important,Nice to Have"
+    helpmesg = "create_redmine_changelog.py -k <key> -p <project> -s <status>"
+    priority_order = "Blocks Until Resolved,Regression,Critical,Expected,Important,Nice to have,No priority"
     try:
         opts, args = getopt.getopt(argv, "hmik:p:t:s:r:", ["key=", "project=", "target=", "status=", "--include_tracker", "--priority_order"])
     except getopt.GetoptError:
@@ -43,6 +43,7 @@ def main(argv):
     if project == '':
         print("<project> cannot be blank")
         sys.exit(2)
+    project = project.lower()
     priority_order = priority_order.split(",")
 
     bugs = 'https://bugs.freenas.org'
@@ -72,6 +73,7 @@ def main(argv):
         entrytext = issue.subject
         tracker = str(issue.tracker)
         skip = False
+        proj = str(issue.project).lower()
         try:
             if str(issue.fixed_version) != target:
                 sys.stderr.write(
@@ -85,7 +87,9 @@ def main(argv):
             )
             skip = True
 
-        if project.lower() == 'freenas' and str(issue.project).lower() == 'truenas':
+        if project == 'freenas' and proj == 'truenas':
+            skip = True
+        elif project == 'freenas-10' and proj != project:
             skip = True
         else:
             try: 
@@ -93,7 +97,7 @@ def main(argv):
                     if str(field) == "ChangeLog Entry":
                         if field.value:
                             if 'hide this' not in field.value.lower():
-                                if project.lower() == 'truenas' and 'freenas only' in field.value.lower():
+                                if project == 'truenas' and 'freenas only' in field.value.lower():
                                     skip = True
                                 else:
                                     entrytext = field.value
