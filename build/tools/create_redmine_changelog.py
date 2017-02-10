@@ -76,10 +76,11 @@ def main(argv):
         proj = str(issue.project).lower()
         try:
             if str(issue.fixed_version) != target:
-                sys.stderr.write(
-                    "WARNING: {0}/issues/{1} is set to {2} not to {3}\n".format(
-                        bugs, ticketnum, issue.fixed_version, target)
-                )
+                if proj == project:
+                    sys.stderr.write(
+                        "WARNING: {0}/issues/{1} is set to {2} not to {3}\n".format(
+                            bugs, ticketnum, issue.fixed_version, target)
+                    )
                 skip = True
         except exceptions.ResourceAttrError:
             sys.stderr.write(
