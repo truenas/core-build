@@ -13,3 +13,4 @@ options 	WITNESS			# Enable checks to detect deadlocks and cycles
 options 	WITNESS_SKIPSPIN	# Don't run witness on spinlocks for speed
 options 	MALLOC_DEBUG_MAXZONES=8	# Separate malloc(9) zones
 options		DEBUG_VFS_LOCKS		# enable VFS lock debugging
+options		ACPI_DEBUG		# include ACPI-debug code
