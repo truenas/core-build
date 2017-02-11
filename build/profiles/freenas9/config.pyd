@@ -130,7 +130,7 @@ make_conf_build = {
 
 # Packages configuration
 make_conf_pkg = {
-    "DEFAULT_VERSIONS":             "python=3.5",
+    "DEFAULT_VERSIONS":             "python=3.6",
     "OPTIONS_UNSET":                "DOCS",
     "WANT_OPENLDAP_SASL":           "yes",
     "USE_PACKAGE_DEPENDS":          "yes",
