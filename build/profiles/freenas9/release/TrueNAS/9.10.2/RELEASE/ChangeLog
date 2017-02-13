@@ -35,8 +35,8 @@
 
  Non-Critical Fixes:
 
- o Fix the snapshot bug where CIFS will not show periodic snapshot task
-   if there is space in snapshot task name.
+ o Fixed a snapshot bug where a CIFS/SMB Share will not show periodic 
+   snapshot task if there is a space in snapshot task name.
 
  o Fix a bug where CLI for setting up networking was broken in HA mode.
 
