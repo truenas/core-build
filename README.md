@@ -15,10 +15,10 @@ The steps below are the short summary version.
     later.
 
 * Free space
-  * For building on a ZFS based system, you must have ~60GB space free.
-  * For building on a UFS based system, you must have ~100GB space free.
+  * For building on a ZFS based system, you must have ~140GB space free.
+  * For building on a UFS based system, you must have ~180GB space free.
 
-* An amd64 capable processor.  12GB of memory, or an equal/greater amount
+* An amd64 capable processor.  32GB of memory, or an equal/greater amount
   of swap space, is also required.
 
 * An internet connection for downloading source and packages
@@ -58,4 +58,6 @@ purposes:
 
 Where 1.2.3.4 is the IP address of your development platform.  SSH will be
 used to push and install the new packages onto that host.  (Note previous
-comment about setting the profile.)
+comment about setting the profile).  PLEASE NOTE that this is an advanced
+development technique and may completely destroy your system if you don't know
+what you're doing.
