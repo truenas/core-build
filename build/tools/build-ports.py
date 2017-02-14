@@ -209,6 +209,10 @@ def cleanup_env():
         except OSError:
             info('Cannot kill poudriere, it has probably already terminated')
         
+    if e('${USE_ZFS}'):
+        info('Cleaning jail clean snaspshot')
+        sh('zfs destroy -r ${ZPOOL}${ZROOTFS}/jail@clean')
+
     info('Unmounting ports overlay...')
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):

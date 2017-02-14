@@ -73,6 +73,10 @@ dumpenv:
 	@${BUILD_TOOLS}/dumpenv.py
 
 clean:
+.if defined(ZPOOL)
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/data
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail
+.endif
 	chflags -R 0 ${BE_ROOT}/objs
 	rm -rf ${BE_ROOT}/objs
 	rm -rf ${BE_ROOT}/release

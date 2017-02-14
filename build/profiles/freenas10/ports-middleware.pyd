@@ -296,10 +296,24 @@ ports += {
     ]
 }
 
+migrate93_portrev = 0
+for x in ["freenas-migrate93", "django1611"]:
+    if exists("${BE_ROOT}/{0}".format(x)):
+        migrate93_portrev += int(sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(x)))
+
+ports += {
+    "name": "freenas/freenas-migrate93",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION={0}".format(migrate93_portrev)
+    ]
+}
+
 dedicated_repo_ports = [
     "py-freenas.cli", "py-freenas.utils", "py-libzfs", "py-netif", "py-cam", "py-SMART", "py-ws4py", "py-dhcp",
     "py-bsd", "py-smbconf", "py-pf", "py-wbclient", "py-krb5", "py-dockerhub", "licenselib", "py-ipfs-api",
-    "py-msock", "freenas-pkgtools", "py-filewrap", "freenas-migrate93"
+    "py-msock", "freenas-pkgtools", "py-filewrap"
 ]
 
 for iter_port in dedicated_repo_ports:

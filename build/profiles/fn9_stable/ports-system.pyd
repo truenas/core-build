@@ -129,6 +129,7 @@ ports += {
         "WITH_OPENSSL_PORT=y"
     ]
 }
+ports += "lang/python3"
 ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
@@ -461,9 +462,7 @@ ports += {
 }
 
 ports += "sysutils/nomad"
-ports += "sysutils/py-nomad"
 ports += "sysutils/consul"
-ports += "sysutils/py-consul"
 ports += "sysutils/consul-alerts"
 ports += "security/vault"
 ports += "www/minio"
