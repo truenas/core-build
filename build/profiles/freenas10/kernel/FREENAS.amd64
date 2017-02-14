@@ -87,6 +87,9 @@ options 	KDB_TRACE		# Print a stack trace for a panic.
 # Make an SMP-capable kernel by default
 options 	SMP			# Symmetric MultiProcessor Kernel
 
+# Options to make Infiniband useful
+options 	IPOIB                   # IP over Infiniband
+
 # CPU frequency control
 device		cpufreq
 
