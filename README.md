@@ -9,7 +9,7 @@ The steps below are the short summary version.
 ## Requirements
 
 * Operating System
-  * For building FreeNAS 9.10 (only), your build environment must be FreeBSD 10.3-RELEASE
+  * For building FreeNAS 9.10 (only), your build environment must be FreeBSD 11-STABLE
     or later.
   * For building FreeNAS 10, your build environment must be FreeBSD 11.0-RELEASE or
     later.
