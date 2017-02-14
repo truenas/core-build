@@ -443,8 +443,6 @@ ports += {
 }
 
 ports += "sysutils/lsof"
-ports += "sysutils/grub2-pcbsd"
-ports += "sysutils/grub2-efi"
 ports += "sysutils/grub2-bhyve"
 ports += "sysutils/beadm"
 ports += "sysutils/throttle"
