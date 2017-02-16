@@ -1,27 +1,35 @@
-#20071	Bug		Critical	NFS exports are mangled, when you use AD user for Mapping users/group.
-#19854	Bug		Expected	SSH "Allow Kerberos Authentication" broken
-#19822	Bug		Important	Multipath sync may fail if disk identifier from geom is empty
-#19821	Bug		Important	"Unable to find template!" error when directory exists and not in warden
-#19820	Bug		Nice to have	Silence pwenc_decrypt reports
-#19819	Bug		Important	Do not traceback if a template no longer exists
-#19809	Bug		Expected	[regression] Mdns/Avahi/Zeroconf? for Netatalk (AFP) not working after 9.10.2 upgrade
-#19781	Bug		Nice to have	check of today's update
-#19773	Bug		No priority	FreeNAS Mini Console Inaccessible If No Network Plugged In
-#19761	Bug		Critical	Interface sync breaks jail bridge
-#19759	Bug		Critical	Plugins communication broken when ipv4 default gateway is of different interface
-#19758	Bug		Nice to have	Unrecognizable traceback when reporting graph fails to generate
-#19757	Bug		Nice to have	Iohyve 
-#19754	Bug		No priority	Updated to FreeNAS-9.10.2 and periodic snapshots no longer work
-#19739	Bug		Critical	Cloud Syncs in task menu of 9.10.2
-#19736	Bug		Nice to have	Volume manager allows invalid names
-#19733	Bug		Expected	Try to mitigate database locked errors
-#19715	Bug		Important	Traceback on jail list
-#19709	Bug		Expected	Certificates with utf8 names or spaces is the path to sadness
-#19702	Bug		No priority	pyOpenSSL regression
-#19700	Bug		Important	Query traceback when certificate fails to load
-#19698	Bug		Nice to have	Validate BE name
-#19673	Bug		Nice to have	Tracebacks with utf8 homedir
-#19460	Bug		Regression	GUI shows incorrect warning about LDAP not bind.
-#19411	Bug		Nice to have	Periodic Snapshot "Lifetime" field is ambiguous
-#19398	Bug		Important	Random pool lock and kernel panic
-#19112	Feature		No priority	Manual Update button improvements
+#20401	Bug	No priority	Use python only for signature verification
+#20968	Bug	Blocks Until Resolved	Add alert for end-user to update BMC firmware on FreeNAS mini
+#20041	Bug	Blocks Until Resolved	[regression] 9.10.2 some samba tools doesn't work anymore
+#20686	Bug	Critical	Sync encrypted pool traceback
+#20261	Bug	Critical	ashift=12 enforcement broken by mismerge from stable/10 on May 30 2016
+#20260	Bug	Critical	Getting a traceback when cron started the last scrub
+#18824	Bug	Critical	freenas collectd[9657]: check_create_dir: `/var/db/collectd/rrd/freenas.local' exists but is not a directory!
+#16721	Bug	Critical	Can't set passwd on my zpool
+#20661	Bug	Expected	[regression] Volume manager and disk import broken after an update
+#20332	Bug	Expected	anonymous ldap binding is broken (nss_ldap)
+#20188	Bug	Expected	FreeBSD Security Advisory FreeBSD-SA-17:01.openssh
+#20904	Bug	Important	Enabling HTTPS results in GUI being inaccessable
+#20689	Bug	Important	Traceback listing now non-existent dir
+#20562	Bug	Important	Connection to AFP Share after Upgrade to 9.10
+#20536	Bug	Important	Cannot list available plugin.
+#20122	Bug	Important	/var/db/collectd/rrd using way to much memory
+#19844	Bug	Important	vfs.zfs.arc_max is a runtime sysctl in FreeBSD 10
+#19771	Bug	Important	FreeNAS iSCSI errors - possibly being caused due to a database import?
+#18958	Feature	Important	Active Directory gets disabled every time there is temporary communication issue with our Active Directory server
+#20688	Bug	Nice to have	Silent traceback talking to plugins if gateway in db is empty
+#20493	Bug	Nice to have	freenas notifier: [: False: bad number
+#20147	Bug	Nice to have	traceback if try to rename existing BE to a name that is already in use
+#19864	Bug	Nice to have	FreeNAS 9.10 user guide section 25.7
+#19406	Bug	Nice to have	Snapshot Replication column is blank for snapshots that have been replicated
+#19292	Bug	Nice to have	Create samba VFS module that mimics the behavior of Microsoft MoveSecurityAttributes registry option
+#19172	Bug	Nice to have	Unable to move system dataset
+#18816	Bug	Nice to have	Numeric Username Fails Creation
+#15803	Bug	Nice to have	Ungraceful error for non-ASCII usernames
+#20221	Bug	No priority	mdnsd/netatalk not registering services in 9.10.2 and later
+#20095	Bug	No priority	Samba vfs objects module recycle must be loaded after fruit or streams_xattr module for macOS clients
+#19293	Bug	No priority	Bump samba from 4.4.5 to 4.5.5
+#16807	Bug	Important	Hyper-V unable to run VM's hosted in CIFS share in 9.10
+#20320	Bug	Nice to have	GUI ".GUI_Upgrade.txz" manual upgrade file in documentation
+#15306	Bug	Nice to have	Document drive replacement without first removing failing disk
+#19695	Bug	Critical	Upgrade from 9.10.1-U4 to 9.10.2 failed
