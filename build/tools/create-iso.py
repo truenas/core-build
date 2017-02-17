@@ -289,7 +289,7 @@ def mount_packages():
 
 
 def umount_packages():
-    sh('umount ${INSTUFS_DESTDIR}/usr/ports/packages')
+    sh('umount -f ${INSTUFS_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
 
