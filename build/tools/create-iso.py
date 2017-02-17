@@ -259,7 +259,7 @@ def cleandirs():
     info('Cleaning previous build products')
     if os.path.isdir(e('${INSTUFS_DESTDIR}')):
         sh('chflags -R 0 ${INSTUFS_DESTDIR}')
-        sh('rm -rf ${INSTUFS_DESTDIR}')
+        sh('rm -rfx ${INSTUFS_DESTDIR}')
 
     sh('rm -rf ${ISO_DESTDIR}')
     sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
