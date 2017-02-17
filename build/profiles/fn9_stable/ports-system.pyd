@@ -467,6 +467,7 @@ ports += "sysutils/py-consul"
 ports += "sysutils/consul-alerts"
 ports += "security/vault"
 ports += "www/minio"
+ports += "misc/minio-client"
 
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
