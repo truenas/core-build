@@ -1,8 +1,0 @@
-#17908    Bug    Ready For Release    Expected    EFI install fails with complaint about more than one boot device
-#17904    Bug    Ready For Release    Expected    Failed to report when snapshot failed to create
-#17869    Bug    Ready For Release    Critical    Virtualbox cannot run any VMachine after upgrade to 9.10.1-U1
-#17826    Bug    Ready For Release    Critical    Errors reported during replication
-#17819    Bug    Ready For Release    Critical    iSCSI LUN ID's all set to 0
-#17809    Bug    Ready For Release    Important    GRUB needs modules specified for improved reliability
-#17789    Bug    Ready For Release    Critical    Bug from latest updates for 9.10.1 on 09/27/2016
-#17787    Bug    Ready For Release    Expected    OpenSSL Fix Use After Free for large message sizes (CVE-2016-6309)
