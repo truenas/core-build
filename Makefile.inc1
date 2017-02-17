@@ -74,8 +74,8 @@ dumpenv:
 
 clean:
 .if defined(ZPOOL)
-	zfs destroy -r ${ZPOOL}${ZROOTFS}/data
-	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/data || true
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail || true
 .endif
 	chflags -R 0 ${BE_ROOT}/objs
 	rm -rf ${BE_ROOT}/objs
