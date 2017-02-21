@@ -32,4 +32,3 @@
 #20320	Bug	Nice to have	GUI ".GUI_Upgrade.txz" manual upgrade file in documentation
 #15306	Bug	Nice to have	Document drive replacement without first removing failing disk
 #19695	Bug	Critical	Upgrade from 9.10.1-U4 to 9.10.2 failed
-#21340  Bug     Important 	notifier _system calls fail silently
