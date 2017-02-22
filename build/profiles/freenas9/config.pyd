@@ -136,7 +136,9 @@ make_conf_pkg = {
     "USE_PACKAGE_DEPENDS":          "yes",
     "BATCH":                        "yes",
     "WRKDIRPREFIX":                 "/wrkdirs",
-    "DISABLE_LICENSES":             "yes"
+    "DISABLE_LICENSES":             "yes",
+    "WITH_DEBUG":                   "yes",
+    "STRIP":                        ""
 }
 
 make_conf_run = {
