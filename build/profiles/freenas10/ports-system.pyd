@@ -227,7 +227,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=RRDTOOL"
     ]
 }
-ports += "net-mgmt/netdata"
 ports += "converters/base64"
 ports += {
     "name": "emulators/mtools",
