@@ -51,6 +51,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/freenas/webui",
+    "dest": "/usr/webui"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-licenselib",
     "dest": "/usr/nas_source/py-licenselib"
 }
