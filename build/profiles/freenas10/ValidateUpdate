@@ -1,8 +1,0 @@
-#!/bin/sh
-
-case "${CURRENT_VERSION}" 
-in
-	FreeNAS-9.*) echo "Cannot yet upgrade from FreeNAS 9.x to FreeNAS 10" 1>&2 ; exit 1 ;;
-esac
-exit 0
-
