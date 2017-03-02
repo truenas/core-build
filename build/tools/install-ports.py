@@ -63,7 +63,7 @@ def fetch_binary_packages():
 
 
 def umount_packages():
-    sh('umount ${WORLD_DESTDIR}/usr/ports/packages')
+    sh('umount -f ${WORLD_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
 
