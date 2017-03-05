@@ -68,10 +68,7 @@ ports += "dns/bind-tools"
 ports += "archivers/liblz4"
 ports += "archivers/pigz"
 ports += "archivers/plzip"
-ports += {
-    "name": "security/openvpn",
-    "options": ["WITHOUT_CHECK=yes"]
-}
+
 ports += "comms/lrzsz"
 ports += "sysutils/screen"
 ports += "devel/cdialog"
