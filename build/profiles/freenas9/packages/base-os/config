@@ -35,6 +35,7 @@ post-upgrade = /usr/bin/touch /boot/kernel/linker.hints
 
 [Files]
 exclude = /usr/local/www/freenasUI
+	/usr/local/www/webui
 	/usr/local/www/data/docs
 	/usr/lib/*.a
 	/usr/local/share/doc
