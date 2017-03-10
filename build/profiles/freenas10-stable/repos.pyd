@@ -1,0 +1,277 @@
+#+
+# Copyright (c) 2010-2015 iXsystems, Inc., All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL iXsystems, Inc. OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+
+repos += {
+    "name": "os",
+    "path": "os",
+    "url": "https://github.com/freenas/os.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "lib9p",
+    "path": "os/contrib/lib9p",
+    "url": "https://github.com/freenas/lib9p.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "ports",
+    "path": "ports",
+    "url": "https://github.com/freebsd/freebsd-ports.git",
+    "branch": "branches/2017Q1"
+}
+
+repos += {
+    "name": "gui",
+    "path": "gui",
+    "url": "https://github.com/freenas/gui.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "middleware",
+    "path": "middleware",
+    "url": "https://github.com/freenas/middleware.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "dispatcher-client",
+    "path": "dispatcher-client",
+    "url": "https://github.com/freenas/dispatcher-client.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "py-freenas.cli",
+    "path": "py-freenas.cli",
+    "url": "https://github.com/freenas/cli.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "py-freenas.utils",
+    "path": "py-freenas.utils",
+    "url": "https://github.com/freenas/py-freenas-utils.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "freenas-pkgtools",
+    "path": "freenas-pkgtools",
+    "url": "https://github.com/freenas/freenas-pkgtools.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-libzfs",
+    "path": "py-libzfs",
+    "url": "https://github.com/freenas/py-libzfs.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-netif",
+    "path": "py-netif",
+    "url": "https://github.com/freenas/py-netif.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-cam",
+    "path": "py-cam",
+    "url": "https://github.com/freenas/py-cam.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-bsd",
+    "path": "py-bsd",
+    "url": "https://github.com/freenas/py-bsd.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-smbconf",
+    "path": "py-smbconf",
+    "url": "https://github.com/freenas/py-smbconf.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "py-dhcp",
+    "path": "py-dhcp",
+    "url": "https://github.com/freenas/py-dhcp.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "py-pf",
+    "path": "py-pf",
+    "url": "https://github.com/freenas/py-pf.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "py-wbclient",
+    "path": "py-wbclient",
+    "url": "https://github.com/freenas/py-wbclient.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "py-krb5",
+    "path": "py-krb5",
+    "url": "https://github.com/freenas/py-krb5.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "licenselib",
+    "path": "licenselib",
+    "url": "https://github.com/freenas/licenselib.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "sample",
+    "path": "sample",
+    "url": "https://github.com/freenas/sample.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-SMART",
+    "path": "py-SMART",
+    "url": "https://github.com/freenas/py-SMART.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-ws4py",
+    "path": "py-ws4py",
+    "url": "https://github.com/freenas/WebSocket-for-Python.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-dockerhub",
+    "path": "py-dockerhub",
+    "url": "https://github.com/freenas/py-dockerhub.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-msock",
+    "path": "py-msock",
+    "url": "https://github.com/freenas/py-msock.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-ipfs-api",
+    "path": "py-ipfs-api",
+    "url": "https://github.com/ipfs/python-ipfs-api",
+    "branch": "master"
+}
+
+repos += {
+    "name": "samba",
+    "path": "samba",
+    "url": "https://github.com/freenas/samba.git",
+    "branch": "secret_stable"
+}
+
+repos += {
+    "name": "uefi-edk2",
+    "path": "uefi-edk2",
+    "url": "https://github.com/freenas/uefi-edk2.git",
+    "branch": "bhyve/UDK2014.SP1"
+}
+
+repos += {
+    "name": "ds2",
+    "path": "ds2",
+    "url": "https://github.com/jceel/ds2.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "pwatch",
+    "path": "pwatch",
+    "url": "https://github.com/jceel/pwatch.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "mDNSResponder",
+    "path": "mDNSResponder",
+    "url": "https://github.com/freenas/mDNSResponder.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "grub2-pcbsd",
+    "path": "grub2-pcbsd",
+    "url": "https://github.com/freenas/grub2-pcbsd.git",
+    "branch": "master"
+}
+
+repos += {
+    "name": "py-filewrap",
+    "path": "py-filewrap",
+    "url": "https://github.com/freenas/py-filewrap.git",
+    "branch": "master",
+}
+
+repos += {
+    "name": "freenas-migrate93",
+    "path": "freenas-migrate93",
+    "url": "https://github.com/freenas/freenas-migrate93",
+    "branch": "master"
+}
+
+repos += {
+    "name": "django1611",
+    "path": "django1611",
+    "url": "https://github.com/freenas/django",
+    "branch": "stable/1.6.11"
+}
+
+if PRODUCT == "TrueNAS":
+    repos += {
+        "name": "truenas-middleware",
+        "path": "truenas-middleware",
+        "url": "https://github.com/iXsystems/truenas-middleware.git",
+        "branch": "master"
+    }
+
+    repos += {
+        "name": "truenas-cli",
+        "path": "truenas-cli",
+        "url": "https://github.com/iXsystems/truenas-cli.git",
+        "branch": "master"
+    }
