@@ -24,9 +24,9 @@
 #
 
 if BUILD_TYPE == "RELEASE":
-    url = e("http://download-master.freenas.org/${VERSION_SHORT}/RELEASE")
+    url = e("http://download.freenas.org/${VERSION_SHORT}/RELEASE")
 else:
-    url = e("http://download-master.freenas.org/nightlies/${VERSION_SHORT}")
+    url = e("http://download.freenas.org/nightlies/${VERSION_SHORT}")
 
 formats = ["iso", "debug.txz"]
 aux_files = [
