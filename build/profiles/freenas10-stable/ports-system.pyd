@@ -44,7 +44,7 @@ ports += {
 ports += {
     "name": "devel/ds2",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + ds2_git_rev
     ]

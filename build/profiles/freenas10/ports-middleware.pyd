@@ -31,7 +31,7 @@ middleware_git_rev = sh("git -C ${BE_ROOT}/middleware rev-list HEAD --count") \
 ports += {
     "name": "freenas/freenas-middleware-files",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -40,7 +40,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-datastore",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -49,7 +49,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-dispatcher",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -58,7 +58,7 @@ ports += {
 ports += {
     "name": "freenas/nss-freenas",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev,
         "WITH_DEBUG=yes"
@@ -68,7 +68,7 @@ ports += {
 ports += {
     "name": "freenas/pam-freenas",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev,
         "WITH_DEBUG=yes"
@@ -78,7 +78,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-etcd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -87,7 +87,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-networkd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -96,7 +96,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-fnstatd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -105,7 +105,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-containerd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -114,7 +114,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-alertd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -123,7 +123,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-schedulerd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -132,7 +132,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-dscached",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -141,7 +141,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-serviced",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -150,7 +150,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-logd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -159,7 +159,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-restd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -168,7 +168,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-crashd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -177,7 +177,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-debug",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -186,7 +186,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-debugd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -195,7 +195,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-neighbord",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -204,7 +204,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-clid",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -213,7 +213,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-locate",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -222,7 +222,7 @@ ports += {
 ports += {
     "name": "freenas/freenas-splash",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -231,7 +231,7 @@ ports += {
 ports += {
     "name": "freenas/py-serviced",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -240,7 +240,7 @@ ports += {
 ports += {
     "name": "freenas/py-logd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -249,7 +249,7 @@ ports += {
 ports += {
     "name": "freenas/libserviced",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -258,7 +258,7 @@ ports += {
 ports += {
     "name": "freenas/liblogd",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + middleware_git_rev
     ]
@@ -271,7 +271,7 @@ dispatcher_client_git_rev = sh("git -C ${BE_ROOT}/dispatcher-client rev-list HEA
 ports += {
     "name": "freenas/js-freenas.dispatcher",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + dispatcher_client_git_rev
     ]
@@ -280,7 +280,7 @@ ports += {
 ports += {
     "name": "freenas/libdispatcherclient",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + dispatcher_client_git_rev,
         "WITH_DEBUG=yes"
@@ -290,7 +290,7 @@ ports += {
 ports += {
     "name": "freenas/py-freenas.dispatcher",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + dispatcher_client_git_rev
     ]
@@ -304,7 +304,7 @@ for x in ["freenas-migrate93", "django1611"]:
 ports += {
     "name": "freenas/freenas-migrate93",
     "options": [
-        "PRODUCT_VERSION=${VERSION}",
+        "PRODUCT_VERSION=${VERSION_NUMBER}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION={0}".format(migrate93_portrev)
     ]
@@ -324,7 +324,7 @@ for iter_port in dedicated_repo_ports:
     ports += {
         "name": "freenas/"+iter_port,
         "options": [
-            "PRODUCT_VERSION=${VERSION}",
+            "PRODUCT_VERSION=${VERSION_NUMBER}",
             "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
             "REVISION="+ iter_port_git_rev
         ]
