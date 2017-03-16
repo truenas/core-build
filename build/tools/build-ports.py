@@ -246,19 +246,11 @@ def terminate(*args):
             pass
 
 
-def cleanup_gui():
-    # FIXME: This triggers a kernel panic possible because of long path names
-    # with spaces and double dashes in it.
-    info('Cleaning up gui modules')
-    sh('rm -rf ${BE_ROOT}/gui/node_modules')
-
-
 if __name__ == '__main__':
     if env('SKIP_PORTS'):
         info('Skipping ports build as instructed by setting SKIP_PORTS')
         sys.exit(0)
 
-    cleanup_gui()
     create_overlay()
     on_abort(cleanup_env)
     obtain_jail_name()
