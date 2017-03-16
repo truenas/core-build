@@ -91,6 +91,7 @@ def main():
 
 
 def create_package():
+    info('Creating debug package')
     if os.path.exists('/usr/local/bin/pigz'):
         sh('tar -C ${DEBUG_ROOT} -cvf - . | /usr/local/bin/pigz -c > ${output}', log='/dev/null')
     else:
