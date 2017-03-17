@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "svn_head"
+    "branch": "freenas/svn_head"
 }
 
 repos += {
