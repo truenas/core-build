@@ -135,7 +135,7 @@ ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
-#ports += "sysutils/py-iocage"
+ports += "sysutils/py-iocage"
 ports += "devel/tevent"
 ports += {
     "name":"devel/talloc",
