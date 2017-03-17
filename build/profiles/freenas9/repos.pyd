@@ -100,3 +100,11 @@ if PRODUCT == "TrueNAS":
         "url": "git@github.com:iXsystems/truenas.git",
         "branch": "TN-9.10.2-STABLE"
     }
+
+    repos += {
+        "name": "vcenter_plugin",
+        "path": "vcenter_plugin",
+        "url": "git@github.com:iXsystems/vcenter_plugin.git",
+        "branch": "master",
+        "commit": "082d391b",
+    }
