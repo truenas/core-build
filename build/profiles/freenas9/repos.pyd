@@ -98,6 +98,6 @@ if PRODUCT == "TrueNAS":
         "name": "vcenter_plugin",
         "path": "vcenter_plugin",
         "url": "git@github.com:iXsystems/vcenter_plugin.git",
-        "branch": "master",
+        "branch": "build_vcp_html",
         "commit": "082d391b",
     }
