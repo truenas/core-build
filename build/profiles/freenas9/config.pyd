@@ -181,5 +181,6 @@ customize_tasks = [
     "strip-binaries",
     "conf-base9",
     "link-bash",
+    "login-conf",
     "install-avatar-conf"
 ]
