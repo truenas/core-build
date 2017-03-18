@@ -28,6 +28,11 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
+freenas_webui_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count -- webui/") \
+    if exists("${BE_ROOT}/freenas") \
+    else "0"
+
+
 
 ports += {
     "name": "freenas/freenas-files",
@@ -78,6 +83,17 @@ ports += {
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
+    ]
+}
+
+
+ports += {
+    "name": "freenas/freenas-webui",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + freenas_webui_git_rev
     ]
 }
 

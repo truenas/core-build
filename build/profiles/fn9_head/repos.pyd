@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freenas/svn_head"
+    "branch": "freenas/11-stable"
 }
 
 repos += {
@@ -47,8 +47,8 @@ repos += {
 repos += {
     "name": "ports",
     "path": "ports",
-    "url": "https://github.com/freebsd/freebsd-ports.git",
-    "branch": "branches/2016Q4"
+    "url": "https://github.com/freenas/ports.git",
+    "branch": "freenas/2016Q4"
 }
 
 repos += {
@@ -92,4 +92,11 @@ if PRODUCT == "TrueNAS":
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
         "branch": "master"
+    }
+
+    repos += {
+        "name": "vcenter_plugin",
+        "path": "vcenter_plugin",
+        "url": "git@github.com:iXsystems/vcenter_plugin.git",
+        "branch": "build_vcp_html",
     }

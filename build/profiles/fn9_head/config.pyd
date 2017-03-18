@@ -98,6 +98,7 @@ make_conf_build = {
     "WITHOUT_CLANG_FULL":           "yes",
     "WITHOUT_CTM":                  "yes",
     "WITHOUT_CUSE":                 "yes",
+    "WITHOUT_DEBUG_FILES":          "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_FORTRAN":              "yes",
     "WITHOUT_FREEBSD_UPDATE":       "yes",
@@ -125,18 +126,21 @@ make_conf_build = {
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
+    "DEBUG_FLAGS":                  "-g",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
 }
 
 # Packages configuration
 make_conf_pkg = {
-    "DEFAULT_VERSIONS":             "python=2.7",
-    "OPTIONS_UNSET":                "DOCS",
+    "DEFAULT_VERSIONS":             "python=3.6",
+    "OPTIONS_UNSET":                "DOCS X11 JAVA",
     "WANT_OPENLDAP_SASL":           "yes",
     "USE_PACKAGE_DEPENDS":          "yes",
     "BATCH":                        "yes",
     "WRKDIRPREFIX":                 "/wrkdirs",
-    "DISABLE_LICENSES":             "yes"
+    "DISABLE_LICENSES":             "yes",
+    "WITH_DEBUG":                   "yes",
+    "STRIP":                        ""
 }
 
 make_conf_run = {
@@ -179,5 +183,6 @@ customize_tasks = [
     "strip-binaries",
     "conf-base9",
     "link-bash",
+    "login-conf",
     "install-avatar-conf"
 ]

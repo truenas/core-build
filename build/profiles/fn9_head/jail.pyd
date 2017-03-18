@@ -51,6 +51,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/freenas/webui",
+    "dest": "/usr/webui"
+}
+
+copy += {
     "source": "${BE_ROOT}/py-licenselib",
     "dest": "/usr/nas_source/py-licenselib"
 }
@@ -79,4 +84,9 @@ if PRODUCT == "TrueNAS":
     copy += {
         "source": "${BE_ROOT}/truenas",
         "dest": "/usr/truenas"
+    }
+
+    copy += {
+        "source": "${BE_ROOT}/vcenter_plugin",
+        "dest": "/usr/vcenter_plugin"
     }

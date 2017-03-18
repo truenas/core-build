@@ -136,7 +136,6 @@ ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
 ports += "sysutils/py-iocage"
-ports += "net/py-s3cmd"
 ports += "devel/tevent"
 ports += {
     "name":"devel/talloc",
@@ -177,12 +176,11 @@ ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["OPTIONS_FILE_UNSET+=ICU"]
 }
-ports += "sysutils/xe-guest-utilities"
+#ports += "sysutils/xe-guest-utilities"
 ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
-ports += "www/py-flup"
 ports += "www/py-dojango"
 ports += "www/dojo"
 ports += "databases/py-south"
@@ -259,7 +257,7 @@ ports += {
     "options": [
         "OPTIONS_FILE_UNSET+=PERL",
         "OPTIONS_FILE_UNSET+=DEJAVU",
-        "OPTIONS_FILE_SET+=PYTHON",
+        "OPTIONS_FILE_UNSET+=PYTHON",
     ]
 }
 ports += {
@@ -289,7 +287,7 @@ if PRODUCT != "TrueNAS":
     ports += "sysutils/areca-cli"
     ports += "sysutils/hptcli"
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-pyldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 ports += "sysutils/ataidle"
@@ -450,6 +448,8 @@ ports += "sysutils/grub2-bhyve"
 ports += "sysutils/beadm"
 ports += "sysutils/throttle"
 ports += "misc/xtail"
+ports += "sysutils/uefi-edk2-bhyve"
+ports += "sysutils/uefi-edk2-bhyve-csm"
 ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
 ports += "sysutils/cmdwatch"
