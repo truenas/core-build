@@ -219,7 +219,6 @@ ports += {
     "name": "sysutils/nut",
     "options": ["OPTIONS_FILE_UNSET+=NEON"]
 }
-ports += "textproc/py-libxml2"
 ports += "textproc/expat2"
 ports += "devel/gamin"
 #ports += "devel/gio-fam-backend"
