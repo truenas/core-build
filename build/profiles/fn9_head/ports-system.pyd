@@ -468,6 +468,7 @@ ports += "sysutils/ipfs-go"
 ports += "security/vault"
 ports += "www/minio"
 ports += "misc/minio-client"
+ports += "net-mgmt/netdata"
 
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
