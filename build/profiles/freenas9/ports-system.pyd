@@ -46,10 +46,8 @@ ports += {
     "options": ["WITHOUT_CHECK=yes"]
 }
 ports += "security/stunnel"
-ports += "devel/gettext"
 ports += "comms/lrzsz"
 ports += "devel/pkgconf"
-ports += "devel/m4"
 ports += "sysutils/screen"
 ports += "sysutils/iohyve"
 ports += "sysutils/vm-bhyve"
@@ -87,7 +85,6 @@ if LABEL != "TrueNAS":
 
 ports += "security/libgpg-error"
 ports += "security/libgcrypt"
-ports += "databases/db48"
 ports += "security/cyrus-sasl2-gssapi"
 ports += {
     "name": "net/openldap24-sasl-client",
@@ -141,7 +138,6 @@ ports += {
     "name":"devel/talloc",
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
 }
-ports += "devel/libexecinfo"
 ports += "devel/popt"
 ports += {
     "name": "databases/tdb",
@@ -183,7 +179,6 @@ ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
 ports += "www/py-dojango"
 ports += "www/dojo"
-ports += "databases/py-south"
 ports += "devel/py-pyasn1"
 ports += "devel/py-pyasn1-modules"
 ports += "security/openssl"
@@ -271,8 +266,6 @@ ports += {
     ]
 }
 
-#FIXME: gobject now requires cairo as build dependency
-ports += "devel/gobject-introspection"
 ports += "devel/py-ipaddr"
 ports += "converters/base64"
 ports += {
@@ -305,7 +298,6 @@ ports += {
     "name": "sysutils/tmux",
     "options": ["OPTIONS_FILE_SET+=LIBEVENT2"]
 }
-ports += "devel/py-dbus"
 ports += {
     "name": "net/netatalk3",
     "options": [
@@ -350,7 +342,6 @@ ports += "devel/py-greenlet"
 ports += "net/py-eventlet"
 ports += "sysutils/sedutil"
 ports += "sysutils/sg3_utils"
-ports += "graphics/jpeg"
 ports += "www/py-requests"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
@@ -449,7 +440,6 @@ ports += "sysutils/throttle"
 ports += "misc/xtail"
 ports += "sysutils/uefi-edk2-bhyve"
 ports += "sysutils/uefi-edk2-bhyve-csm"
-ports += "security/pam_google_authenticator"
 ports += "benchmarks/fio"
 ports += "sysutils/cmdwatch"
 ports += "sysutils/htop"
