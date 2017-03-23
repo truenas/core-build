@@ -180,7 +180,6 @@ customize_tasks = [
     "remove-bits",
     "remove-var-cache-pkg",
     "remove-non-amd64",
-    "strip-binaries",
     "conf-base",
     "link-bash",
     "login-conf",
