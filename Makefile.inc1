@@ -77,10 +77,10 @@ clean:
 	zfs destroy -r ${ZPOOL}${ZROOTFS}/data || true
 	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail || true
 .endif
-	chflags -R 0 ${BE_ROOT}/objs
-	rm -rf ${BE_ROOT}/objs
-	rm -rf ${BE_ROOT}/release
-	rm -rf ${BE_ROOT}/release.build.log
+	chflags -R 0 ${PROFILE}/${BE_ROOT}/objs
+	rm -rf ${PROFILE}/${BE_ROOT}/objs
+	rm -rf ${PROFILE}/${BE_ROOT}/release
+	rm -rf ${PROFILE}/${BE_ROOT}/release.build.log
 
 clean-packages:
 	find ${OBJDIR}/ports -type f -delete
