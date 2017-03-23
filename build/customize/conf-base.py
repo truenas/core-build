@@ -31,13 +31,13 @@ from utils import sh, setfile
 
 def main():
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc')
+    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/var')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/mnt')
     sh('touch ${WORLD_DESTDIR}/etc/diskless')
     sh('cp -a ${WORLD_DESTDIR}/etc/ ${WORLD_DESTDIR}/conf/base/etc')
     sh('cp -a ${WORLD_DESTDIR}/usr/local/etc/ ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('rm -rf ${WORLD_DESTDIR}/usr/local/etc')
-    sh('ln -s /conf/base/etc/local ${WORLD_DESTDIR}/etc/local')
     sh('ln -s /etc/local ${WORLD_DESTDIR}/usr/local/etc')
     sh('cp -a ${WORLD_DESTDIR}/var/ ${WORLD_DESTDIR}/conf/base/var')
 
@@ -48,6 +48,9 @@ def main():
     # Symlink /tmp to /var/tmp
     sh('rm -rf ${WORLD_DESTDIR}/tmp')
     sh('ln -s /var/tmp ${WORLD_DESTDIR}/tmp')
+
+    sh('ln -s -f /data/zfs/zpool.cache ${WORLD_DESTDIR}/boot/zfs/zpool.cache')
+    sh('ln -s -f /usr/local/bin/ntfs-3g ${WORLD_DESTDIR}/sbin/mount_ntfs')
 
 
 if __name__ == '__main__':
