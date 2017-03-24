@@ -166,6 +166,7 @@ ports += "sysutils/e2fsprogs"
 ports += "sysutils/fusefs-libs"
 ports += "devel/libublio"
 ports += "sysutils/fusefs-ntfs"
+ports += "sysutils/fusefs-s3fs"
 ports += "sysutils/smartmontools"
 ports += "net/libdnet"
 ports += {
