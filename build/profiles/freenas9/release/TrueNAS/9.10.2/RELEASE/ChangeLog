@@ -1,47 +1,22 @@
- Security Fixes: 
- o FreeBSD Security Advisory FreeBSD-SA-17:01.openssh
- https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc
+Enhancements:
 
- Enhancements:
+o A new Proactive Support feature that allows iXsystems support staff to identify and resolve customers issues before they become problems.
+  This enhanced service is available only to Gold and Silver support customers.
 
- o Samba was updated to samba version 4.4.5.
+o Added secondary contact to proactive support.
 
- o Users can now download TrueNAS guide in PDF format.
+o Updated TrueNAS vCenter Plugin to 2.0.0 allowing TrueNAS storage related operations from vCenter.
 
- o AFP Share Auxiliary Parameters to have finer grained control over
-   AFP share.
+ 
 
- o Manual update file have been brought back to assist IXsystems support staff
-   to perform system updates on remote location.
+Critical Fixes:
 
- o Cloud Sync allows you to backup using Amazon S3 bucket.
+o Fixed an issue where HA systems did not failover when critical network interface became unavailable.
 
- o Allow a secondary email address to be attached to automatic proactive support tickets.
 
- Critical Fixes:
 
- o Fixed a bug where clients using readdirplus on data sets exceeding
-   billion files gets broken nfs file handles.
+Non-Critical Fixes:
 
- o Samba tools were fixed in this release.
+o Fixed an issue where when VMware-Snapshot failed due to invalid credentials and no errors were generated.
 
- o Fix a bug where any changes made to the network restarts network stack.
-
- o Fix some failing replication issue when you have large amount of data.
-
- o Fix anonymous ldap binding issues.
-
- o Fix periodic snapshot issues.
-
- Non-Critical Fixes:
-
- o Fixed a snapshot bug where a CIFS/SMB Share will not show periodic 
-   snapshot task if there is a space in snapshot task name.
-
- o Fix a bug where CLI for setting up networking was broken in HA mode.
-
- o Fix a bug that prevented alerts from being generated when
-   the support license is expired.
-
- o Fixed a bug with Vmware snapshots were not working with periodic snapshots
-   when dealing with recursive datasets.
+o Fixed an issue where TrueNAS will, after a failover, reboot twice to difference in memory size between the two nodes.
