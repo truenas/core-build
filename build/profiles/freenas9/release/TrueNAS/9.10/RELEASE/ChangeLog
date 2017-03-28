@@ -1,27 +1,22 @@
-#20071	Bug		Critical	NFS exports are mangled, when you use AD user for Mapping users/group.
-#19854	Bug		Expected	SSH "Allow Kerberos Authentication" broken
-#19822	Bug		Important	Multipath sync may fail if disk identifier from geom is empty
-#19821	Bug		Important	"Unable to find template!" error when directory exists and not in warden
-#19820	Bug		Nice to have	Silence pwenc_decrypt reports
-#19819	Bug		Important	Do not traceback if a template no longer exists
-#19809	Bug		Expected	[regression] Mdns/Avahi/Zeroconf? for Netatalk (AFP) not working after 9.10.2 upgrade
-#19781	Bug		Nice to have	check of today's update
-#19773	Bug		No priority	FreeNAS Mini Console Inaccessible If No Network Plugged In
-#19761	Bug		Critical	Interface sync breaks jail bridge
-#19759	Bug		Critical	Plugins communication broken when ipv4 default gateway is of different interface
-#19758	Bug		Nice to have	Unrecognizable traceback when reporting graph fails to generate
-#19757	Bug		Nice to have	Iohyve 
-#19754	Bug		No priority	Updated to FreeNAS-9.10.2 and periodic snapshots no longer work
-#19739	Bug		Critical	Cloud Syncs in task menu of 9.10.2
-#19736	Bug		Nice to have	Volume manager allows invalid names
-#19733	Bug		Expected	Try to mitigate database locked errors
-#19715	Bug		Important	Traceback on jail list
-#19709	Bug		Expected	Certificates with utf8 names or spaces is the path to sadness
-#19702	Bug		No priority	pyOpenSSL regression
-#19700	Bug		Important	Query traceback when certificate fails to load
-#19698	Bug		Nice to have	Validate BE name
-#19673	Bug		Nice to have	Tracebacks with utf8 homedir
-#19460	Bug		Regression	GUI shows incorrect warning about LDAP not bind.
-#19411	Bug		Nice to have	Periodic Snapshot "Lifetime" field is ambiguous
-#19398	Bug		Important	Random pool lock and kernel panic
-#19112	Feature		No priority	Manual Update button improvements
+Enhancements:
+
+o A new Proactive Support feature that allows iXsystems support staff to identify and resolve customers issues before they become problems.
+  This enhanced service is available only to Gold and Silver support customers.
+
+o Added secondary contact to proactive support.
+
+o Updated TrueNAS vCenter Plugin to 2.0.0 allowing TrueNAS storage related operations from vCenter.
+
+ 
+
+Critical Fixes:
+
+o Fixed an issue where HA systems did not failover when critical network interface became unavailable.
+
+
+
+Non-Critical Fixes:
+
+o Fixed an issue where when VMware-Snapshot failed due to invalid credentials and no errors were generated.
+
+o Fixed an issue where TrueNAS will, after a failover, reboot twice to difference in memory size between the two nodes.
