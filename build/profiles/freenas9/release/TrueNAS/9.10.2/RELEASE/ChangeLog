@@ -12,6 +12,7 @@ o Updated TrueNAS vCenter Plugin to 2.0.0 allowing TrueNAS storage related opera
 Critical Fixes:
 
 o Fixed an issue where HA systems did not failover when critical network interface became unavailable.
+o Fix race condition in the boot process which could cause the node to drop into single user mode.
 
 
 
