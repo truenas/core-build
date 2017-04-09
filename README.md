@@ -2,7 +2,7 @@
 
 ## Build Guide
 
-Detailed instructions for building FreeNAS can be found [here](https://github.com/freenas/freenas-build/wiki/FreeNAS-9.10---10-—-Setting-up-a-FreeNAS-build-environment).
+Detailed instructions for building FreeNAS can be found [here](https://github.com/freenas/corral-build/wiki/FreeNAS-9.10---10-—-Setting-up-a-FreeNAS-build-environment).
 
 The steps below are the short summary version.
 
