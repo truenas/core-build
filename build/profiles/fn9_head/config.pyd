@@ -71,15 +71,15 @@ kernel_modules = [
     "cxgbe",
     "dummynet",
     "hwpmc",
+    "ipoib",
+    "mlx4ib",
+    "mlxen",
+    "mthca",
 ]
 
 if PRODUCT == "TrueNAS":
     kernel_modules += [
         "syscons/blank",
-        "ipoib",
-        "mlx4ib",
-        "mlxen",
-        "mthca"
     ]
 else:
     kernel_modules += [

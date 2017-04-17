@@ -80,7 +80,6 @@ options 	RACCT			# Resource accounting framework
 options 	RACCT_DEFAULT_TO_DISABLED # Set kern.racct.enable=0 by default
 options 	RCTL			# Resource limits
 options 	KGSSAPI
-options		OFED			# Required for Mellanox adapter support
 
 # Debugging support.  Always need this:
 options 	KDB			# Enable kernel debugger support.
@@ -89,9 +88,6 @@ options 	KDB_TRACE		# Print a stack trace for a panic.
 # Make an SMP-capable kernel by default
 options 	SMP			# Symmetric MultiProcessor Kernel
 options 	DEVICE_NUMA		# I/O Device Affinity
-
-# Options to make Infiniband useful
-options		IPOIB			# IP over Infiniband
 
 # CPU frequency control
 device		cpufreq
@@ -320,6 +316,11 @@ options		IPFIREWALL_DEFAULT_TO_ACCEPT
 options		IPFIREWALL_NAT
 #options		DUMMYNET
 options		LIBALIAS
+
+# InfiniBand support (+ modules ipoib, mlx4ib, mlxen and mthca)
+options		OFED		# InfiniBand support
+options		SDP		# SDP protocol
+options		IPOIB_CM	# IPoIB connected mode
 
 ## FreeNAS specific modifications
 # misc
