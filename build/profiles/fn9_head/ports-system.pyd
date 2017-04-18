@@ -462,6 +462,20 @@ ports += "net-mgmt/netdata"
 if PRODUCT == "TrueNAS":
     ports += "www/grafana2"
 
+# John wants git for his development workflow
+if MILESTONE == "MASTER":
+    ports += {
+        "name": "devel/git",
+        "options": [
+            "OPTIONS_FILE_UNSET+=SVN",
+            "OPTIONS_FILE_UNSET+=CVS",
+            "OPTIONS_FILE_UNSET+=P4",
+            "OPTIONS_FILE_UNSET+=PERL",
+            "OPTIONS_FILE_UNSET+=CONTRIB",
+            "OPTIONS_FILE_UNSET+=NLS"
+        ]
+    }
+
 if DEBUG:
 	ports += "misc/py-pexpect"
 	ports += {
