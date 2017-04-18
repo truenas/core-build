@@ -27,6 +27,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
+    "commit": "e1497f2",
     "branch": "TN-9.10.2-STABLE" if PRODUCT == "TrueNAS" else "9.10.2-STABLE"
 }
 
@@ -34,6 +35,7 @@ repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
+    "master":"cd032c9",
     "branch": "master"
 }
 
@@ -48,6 +50,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freebsd/freebsd-ports.git",
+    "commit": "d8ef0e2",
     "branch": "branches/2016Q4"
 }
 
@@ -55,6 +58,7 @@ repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
+    "commit" : "8c0c25d",
     "branch": "master"
 }
 
@@ -62,6 +66,7 @@ repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
+    "commit": "acaa85a",
     "branch": "9.10.2-STABLE"
 }
 
@@ -69,13 +74,16 @@ repos += {
     "name": "py-libzfs",
     "path": "py-libzfs",
     "url": "https://github.com/freenas/py-libzfs.git",
+    "commit": "4f05657",
     "branch": "master"
+
 }
 
 repos += {
     "name": "py-bsd",
     "path": "py-bsd",
     "url": "https://github.com/freenas/py-bsd.git",
+    "commit": "5776f15",
     "branch": "master"
 }
 
@@ -83,13 +91,15 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "9.10.2-U2-STABLE"
+    "commit": "c4f3b91",
+    "branch": "9.10.2-U2-stable"
 }
 
 repos += {
     "name": "zfsd",
     "path": "zfsd",
     "url": "https://github.com/freenas/zfsd.git",
+    "commit": "a5f1df3",
     "branch": "master"
 }
 
