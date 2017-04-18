@@ -124,6 +124,7 @@ make_conf_build = {
     "WITHOUT_SENDMAIL":             "yes",
     "WITHOUT_SVNLITE":              "yes",
     "WITHOUT_SYSINSTALL":           "yes",
+    "WITHOUT_TESTS":                "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
     "DEBUG_FLAGS":                  "-g",
