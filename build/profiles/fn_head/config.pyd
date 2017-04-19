@@ -28,14 +28,14 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "freenas9",
-    "description": "FreeNAS 9.10 with FreeBSD 11 stable",
+    "name": "freenas_head",
+    "description": "FreeNAS 11 with FreeBSD HEAD",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
 
 if PRODUCT == "TrueNAS":
-    kernel_config = "${BE_ROOT}/truenas/build/TRUENAS11.amd64"
+    kernel_config = "${BE_ROOT}/truenas/build/TRUENAS12.amd64"
 else:
     kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
 

@@ -44,7 +44,7 @@ PROFILE_SETTING = ${BUILD_ROOT}/build/profiles/profile-setting
 . if exists(${PROFILE_SETTING})
 PROFILE != cat ${PROFILE_SETTING}
 . else
-PROFILE := freenas9
+PROFILE := freenas
 . endif
 .endif
 
