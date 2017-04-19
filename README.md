@@ -36,7 +36,7 @@ Compile the source, then generate the .ISO:
 
     # make release PROFILE=profile_type
 
-The vaid profile types are "freenas9" and "fn9_head" (see
+The vaid profile types are "freenas" and "fn_head" (see
 the build/profiles directory).  Instead of specifying PROFILE=profile_type,
 you can set the profile type in the file build/profiles/profile-setting
 (e.g. ```echo freenas9 > build/profiles/profile-setting```).
