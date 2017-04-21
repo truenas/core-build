@@ -33,6 +33,9 @@ ports += "databases/sqlite3"
 ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
 ports += "devel/py-six"
+ports += "freenas/py-libzfs"
+ports += "freenas/py-bsd"
+ports += "freenas/ix-installer"
 
 ports += {
     "name": "freenas/freenas-installer",
@@ -43,3 +46,4 @@ ports += {
         "REVISION=" + freenas_git_rev
     ]
 }
+
