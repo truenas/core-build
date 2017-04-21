@@ -73,7 +73,6 @@ kernel_modules = [
     "hwpmc",
     "ipoib",
     "mlx4ib",
-    "mlxen",
     "mthca",
 ]
 
