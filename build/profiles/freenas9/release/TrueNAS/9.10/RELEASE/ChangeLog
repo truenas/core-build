@@ -1,23 +1,3 @@
-Enhancements:
-
-o A new Proactive Support feature that allows iXsystems support staff to identify and resolve customers issues before they become problems.
-  This enhanced service is available only to Gold and Silver support customers.
-
-o Added secondary contact to proactive support.
-
-o Updated TrueNAS vCenter Plugin to 2.0.0 allowing TrueNAS storage related operations from vCenter.
-
- 
-
 Critical Fixes:
 
-o Fixed an issue where HA systems did not failover when critical network interface became unavailable.
-o Fix race condition in the boot process which could cause the node to drop into single user mode.
-
-
-
-Non-Critical Fixes:
-
-o Fixed an issue where when VMware-Snapshot failed due to invalid credentials and no errors were generated.
-
-o Fixed an issue where TrueNAS will, after a failover, reboot twice to difference in memory size between the two nodes.
+o Fixes slow listing of extremely large number of files/folders over SMB.
