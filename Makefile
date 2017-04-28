@@ -125,6 +125,10 @@ bootstrap-pkgs:
 	python -m ensurepip
 	python -m pip install six
 
+changelog-nightly:
+	@${BUILD_TOOLS}/changelog-nightly.sh
+
+
 # The .DEFAULT gets run if there is no Recipe denoted above for the
 # .Target (this includes release, ports, and tests) the only
 # difference between these and others is that the others are only
