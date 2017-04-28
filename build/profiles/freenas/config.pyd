@@ -116,7 +116,6 @@ make_conf_build = {
     "WITHOUT_OBJC":                 "yes",
     "WITH_OPENSSH_NONE_CIPHER":     "yes",
     "WITHOUT_PC_SYSINSTALL":        "yes",
-    "WITHOUT_PORTSNAP":             "yes",
     "WITHOUT_PPP":                  "yes",
     "WITHOUT_PROFILE":              "yes",
     "WITHOUT_RCMDS":                "yes",
