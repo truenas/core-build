@@ -44,6 +44,7 @@ def main():
     else:
         KEY_PASSWORD = ""
     changelog = e('${CHANGELOG}')
+    info('Using ChangeLog: {0}', changelog)
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
     sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
