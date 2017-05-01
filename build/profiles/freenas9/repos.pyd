@@ -35,8 +35,8 @@ repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "master"
+    "branch": "master",
+    "commit": "afa4b9a"
 }
 
 repos += {
@@ -58,48 +58,48 @@ repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "master"
+    "branch": "master",
+    "commit": "8c0c25d"
 }
 
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "9.10.2-STABLE"
+    "branch": "9.10.2-STABLE",
+    "commit": "9837010"
 }
 
 repos += {
     "name": "py-libzfs",
     "path": "py-libzfs",
     "url": "https://github.com/freenas/py-libzfs.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "master"
+    "branch": "master",
+    "commit": "7e7bbdf"
 }
 
 repos += {
     "name": "py-bsd",
     "path": "py-bsd",
     "url": "https://github.com/freenas/py-bsd.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "master"
+    "branch": "master",
+    "commit": "6d148fa"
 }
 
 repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "freenas/9.10.2-U2-stable"
+    "branch": "freenas/9.10.2-U2-stable",
+    "commit": "c4f3b917636"
 }
 
 repos += {
     "name": "zfsd",
     "path": "zfsd",
     "url": "https://github.com/freenas/zfsd.git",
-    "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-    "branch": "master"
+    "branch": "master",
+    "commit":"a5f1df3"
 }
 
 if PRODUCT == "TrueNAS":
@@ -107,8 +107,8 @@ if PRODUCT == "TrueNAS":
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
-        "CHECKOUT_TAG": "TrueNAS-9.10.2-U2",
-        "branch": "TN-9.10.2-STABLE"
+        "branch": "TN-9.10.2-STABLE",
+        "commit": "d656a1ec7"
     }
     if env("USING_JENKINS"):
         repos += {
@@ -124,5 +124,5 @@ if PRODUCT == "TrueNAS":
             "path": "vcenter_plugin",
             "url": "git@github.com:iXsystems/vcenter_plugin.git",
             "branch": "build_vcp_html",
-            "CHECKOUT_TAG": "TrueNAS-9.10.2-U2"
+            "commit": "56f287f"
          }

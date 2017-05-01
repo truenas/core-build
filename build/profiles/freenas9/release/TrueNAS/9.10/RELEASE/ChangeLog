@@ -1,3 +1,6 @@
 Critical Fixes:
 
-o Fixes slow listing of extremely large number of files/folders over SMB.
+o Fixes slow listing of extremely large number of files/folders over CIFS/SMB.
+
+
+o Move RRD files back to tmpfs from system dataset, this change reduces number of writes.
