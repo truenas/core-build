@@ -5,7 +5,26 @@ if [ $? = 0 ]; then # Fusion-I/O card has been found
 echo "TrueNAS 11 does not support Fusion-I/O cards" 1>&2
 exit 1
 else
-exit 0
+	numeric_version=`echo ${CURRENT_VERSION} | cut -d '-' -f2`;
+	IFS='.' read -ra vers <<< "${numeric_version}"
+	# major_version is ${vers[0]};
+	# minor_version is ${vers[1]};
+	# sub_version is ${vers[2]};
+	# Thus FreeNAS-9.10.2-U1
+	# will have major_version=9, minor_version=10, and sub_version=2-U1
+	case "${vers[0]}.${vers[1]}"
+	in
+		9.10*) subversion=`echo ${vers[2]} | cut -d '-' -f1`;
+		if [[ ${subversion} =~ ^-?[0-9]+$ ]]; then
+			if [ ${subversion} -lt 2 ]; then
+				echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11" 1>&2 ; exit 1;
+			fi
+		else
+			echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11" 1>&2 ; exit 1;
+		fi
+		;;
+	esac
+	exit 0
 fi
 
 
