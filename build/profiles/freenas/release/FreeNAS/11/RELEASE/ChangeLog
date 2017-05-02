@@ -133,3 +133,7 @@
 #15039	Bug	Nice to have	UNMAP error on VMWare ESXi 6.0
 #14750	Bug	Important	FreeNAS fails to snapshot specific VM on VMWare datastore
 #11390	Feature	Important	UNIX permissions & CIFS shares: group member cannot modify an existing file with 660 permissions
+#23130  Bug Expected Subject Alternative Name support in SSL certificates
+#23675  Bug Nice to have Classic UI - Services - buttons very close together
+#23703  Bug Nice to have Cascade exception in plugin upload
+#23447  Bug Bug OperationalError in Nightlies on upgrade from 9.10.1-U2
