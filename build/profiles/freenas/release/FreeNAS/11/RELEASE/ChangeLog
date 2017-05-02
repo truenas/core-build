@@ -1,8 +1,135 @@
-#17908    Bug    Ready For Release    Expected    EFI install fails with complaint about more than one boot device
-#17904    Bug    Ready For Release    Expected    Failed to report when snapshot failed to create
-#17869    Bug    Ready For Release    Critical    Virtualbox cannot run any VMachine after upgrade to 9.10.1-U1
-#17826    Bug    Ready For Release    Critical    Errors reported during replication
-#17819    Bug    Ready For Release    Critical    iSCSI LUN ID's all set to 0
-#17809    Bug    Ready For Release    Important    GRUB needs modules specified for improved reliability
-#17789    Bug    Ready For Release    Critical    Bug from latest updates for 9.10.1 on 09/27/2016
-#17787    Bug    Ready For Release    Expected    OpenSSL Fix Use After Free for large message sizes (CVE-2016-6309)
+#23685	Bug	Nice to have	During bootup: Exception while calling notifier.sync_encrypted
+#23683	Bug	Nice to have	SSH banner reveals sensitive information
+#23678	Bug	Important	ACPI error while booting on FreeNAS-9.10.2-U3
+#23614	Bug	Nice to have	Be specific about what "Serial" is in the System Information display
+#23604	Bug	No priority	FreeNAS 9.10.2-U3 hangs at boot "Loading kernel modules:"
+#23603	Bug	No priority	Does not create on the fly homes: SMB+LDAP
+#23567	Bug	No priority	After switching to the Nightly Train and updating I am getting an error message in the snapshots on the sending machine
+#23558	Bug	No priority	Enclose samba share path in double quotes to properly escape spaces contained in path
+#23555	Feature	Nice to have	Add additional caveat to streams_depot in FreeNAS documentation (because "EXPERIMENTAL" might not be enough)
+#23550	Bug	Nice to have	Verbiage for completed update check is odd
+#23532	Bug	Important	Cannot Create Jail
+#23519	Feature	Nice to have	I can haz mosh?
+#23518	Bug	Important	Downgrading from 11 nightlies to 9.10 results in django error.
+#23511	Bug	Important	AD Recovery Attempts Validation Error
+#23505	Bug	Important	Docs do not conatin any information on VM usage
+#23501	Bug	Important	DHCP from secondray NIC overrides the default gateway from network global configuration and affects bridge configurations
+#23499	Bug	Important	Jails/ Plugins FreeNAS-11-MASTER-201704220432 (9a8e790)
+#23494	Bug	Critical	Reporting graphs are broken
+#23492	Bug	Expected	mellanox support is missing drivers/dependencies in freenas 9.10/11
+#23488	Bug	No priority	FreeNAS 9.10.2 offline tar updates fail to apply
+#23486	Bug	Critical	NFS-Share dont work
+#23469	Bug	Important	Gracefully handle bad vmware snapshot login
+#23467	Bug	Nice to have	[PATCH] freenas csh.cshrc  clobbers noninteractive shell sentinal by setting prompt
+#23462	Bug	Important	Internal Certificate will not auto-populate when selecting signing CA
+#23453	Feature	Important	Create Jenkins Plugin
+#23449	Bug	Critical	Bad oseek value when formatting a disk
+#23440	Bug	Nice to have	Certificate creation dialog stuck
+#23438	Bug	Important	No tooltips or defaults in Add VM dialog
+#23436	Bug	Important	9.10 Nightlies break SendMail
+#23431	Bug	Expected	WebDAV not working in 9.10 nightlies
+#23424	Bug	Blocks Until Resolved	AD with site support broken
+#23423	Bug	Critical	MiddlewareError: b'Unable to GPT format the disk "da0"
+#23415	Bug	Important	Wrong Driver (mfi) selected when using PERC H330 Mini RAID card
+#23410	Bug	Expected	While booting, the lines that read "null" during boot transform in tracebacks if the pool is encrypted with new pass-phrase
+#23397	Bug	Expected	Jails - Pointing to wrong base
+#23347	Bug	Important	S3 service window missing tooltips on important fields
+#23341	Bug	Nice to have	Improve netcli menu text
+#23321	Bug	Important	New "Alerts" tab is misnamed
+#23318	Bug	Expected	Add idmap_fruit option to UI
+#23313	Bug	Important	Secret (Confirm) is out of order
+#23311	Bug	Important	Manual Setup of Volume gives traceback
+#23310	Bug	Important	Fix order of Link Aggregations in Network tab
+#23308	Bug	Important	Fix order of Support in System tab
+#23306	Bug	Nice to have	APM values seem repetitive
+#23297	Bug	Nice to have	sysctl module for various configuration options
+#23285	Bug	Critical	Alert system writes to database too often if there is an issue
+#23284	Bug	Nice to have	Clean up freenas-debug help
+#23270	Bug	Nice to have	Error message When I cancelled the Wizard in an "clean install"
+#23258	Bug	Important	Support bhyve for AMD Processor
+#23234	Bug	Critical	Volume name in wizard must be validated
+#23200	Bug	Nice to have	Replication is writing to the configuration database for every replication
+#23154	Bug	Important	Add VMs to tree menu
+#23147	Feature	Important	Auto enable serial mode if installed via serial option 
+#23141	Bug	Important	Services not in alphabetical order
+#23108	Feature	Critical	Add serial mode option to ISO installs
+#22991	Bug	No priority	API issue with storage permissions
+#22961	Bug	Important	Cannot add passphrase component to initiallly key encrypted volume
+#22817	Bug	Blocks Until Resolved	Deprecation warnings when running migrate93
+#22788	Bug	Regression	No Disk Stats in Reporting GUI tab
+#22745	Bug	Blocks Until Resolved	Creating Jail from GUI hangs indefinitely
+#22691	Bug	Regression	Crashdump broken in nightlies
+#22638	Bug	Important	Starting NATed jails always flushes ipfw table
+#22547	Bug	Critical	Extend Zvol REST API not working for zvol with special character in Zvol name
+#22482	Feature	Expected	Create new "Alerts UI" tab
+#22353	Bug	No priority	Change pysphere to pyvim
+#22331	Bug	Important	FPDMA TRIM fails on ASMedia ASM1061 AHCI SATA controller
+#22288	Bug	No priority	Can't Save a Debug
+#22231	Bug	Expected	zfs recv -s option missing (regression?) in 9.10.2 (was present in 9.10 and 9.10.1)
+#22229	Feature	Important	Web Form login with auth token
+#22211	Feature	Expected	Add MiddlewareD plugin for Consul-Alerts
+#22184	Feature	No priority	Make Alerts Great Again!
+#22070	Bug	Important	Network options does not apply after reboot
+#21984	Bug	Important	cannot select ZVol on VM UI for a VM device and mode selection cant't be switched to VirtIO
+#21946	Bug	Important	Can't access freenas with Win XP after upgrade
+#21923	Feature	Important	Debug Addition Request
+#21915	Bug	Nice to have	dmidecode running every hour
+#21873	Bug	No priority	When changing a shares Ownership in the Wizard it will only allow Root
+#21782	Bug	Critical	Autosnap on recursive + prefix matching datasets broken
+#21653	Feature	No priority	Include "sharesec --view-all" output in debug output for Samba shares
+#21652	Bug	Important	VMs 
+#21605	Bug	No priority	reduce log volume, minimize  pipe logging [patch]
+#21554	Bug	Nice to have	Bad parsing of SSH Public Key field ...
+#21553	Bug	Nice to have	Bump up copyright year in footer to 2017
+#21547	Bug	Expected	Import Netatalk 3.1.11 (was dsi_stream_read: len:0, unexpected EOF)
+#21437	Bug	Important	NFS export is removed when detaching volume even when share configuration is not deleted.
+#21376	Bug	Nice to have	9.10.2-U1 SAS3FLASH Version LSI 9305-8i, 9305-16i, and 9305-24i Firmware and Drivers
+#21338	Feature	Expected	Add Minio Object Store to services
+#21171	Bug	Nice to have	/etc/netcli fails ungracefully with non-root user
+#21158	Bug	Important	Cannot import single encrypted backup disk connected to onboard SATA (X9SCM-F)
+#21143	Bug	Expected	No documentation for iocage
+#21142	Bug	Expected	iocage bombs out when trying to fetch a release
+#21097	Feature	Expected	Display the version number in main GUI
+#21050	Feature	Important	Import Bhyve ZFStor code into FreeNAS UI
+#21007	Bug	Important	IPV6 error when adding an alias
+#20998	Bug	Nice to have	Installer password field char limit set too short
+#20971	Feature	Expected	Set new parent datasets to readonly after child datasets are created so child datasets get mount points during replication
+#20969	Feature	Important	Middlewared MDNS
+#20927	Bug	Regression	[regression] After upgrade 9.10.1-U4 > 9.10.2 or 9.10.2-U1 stuck on "loading kernel modules"
+#20832	Bug	Expected	ARC larger than RAM ??
+#20655	Bug	Important	When prompted to start a service, the service isn't started
+#20589	Bug	No priority	L2ARC accounting
+#20485	Bug	Expected	Changelog email contains no changes
+#20401	Bug	No priority	Use python only for signature verification
+#20354	Bug	Nice to have	Manual update files are not easily identifiable
+#20260	Bug	Critical	Getting a traceback when cron started the last scrub
+#20215	Bug	Important	traceback on NIS on 201701120619 (40e8230)
+#20212	Bug	Important	traceback on factory restore on 201701120619 (40e8230)
+#20201	Bug	Important	wizard volume creation traces back in FreeNAS-9.10-MASTER-201701120619 (40e8230)
+#20172	Bug	Important	Create / push pkgng repo for iocage
+#20171	Bug	Expected	Write middlewared APIs to interface with iocage
+#20170	Bug	Important	Add new python iocage to ports
+#20139	Bug	No priority	Tracback when running New Install Wizard with updated Django
+#20135	Bug	Important	CAM status: Command timeout - ASM1061
+#20073	Bug	No priority	Make sysutils/smartmontools build on >FreeBSD 11
+#20044	Bug	Nice to have	SFTP backup from CUCM 10.5.2.12900-14 fails with FreeNAS-9.10.2 (a476f16)
+#20012	Feature	Important	Upgrade samba to 4.5.3
+#19953	Bug	Critical	Strange ARC size info
+#19852	Bug	Expected	We need a shared migrate9 repo with all south migrations
+#19729	Feature	Nice to have	add pipe viewer utility
+#19695	Bug	Critical	Upgrade from 9.10.1-U4 to 9.10.2 failed
+#19610	Bug	Important	Configuration file contains no email password
+#19493	Bug	Nice to have	Improve minimum memory check
+#19406	Bug	Nice to have	Snapshot Replication column is blank for snapshots that have been replicated
+#19242	Feature	Nice to have	Installation progress
+#19110	Bug	Nice to have	cons25 still used for TERM
+#19092	Bug	Important	FreeNAS not booting without monitor
+#18941	Bug	Nice to have	Update Available email is sent every day
+#18510	Bug	Important	iSCSI hangs after deploying VM from template (same datastore)
+#18150	Bug	Expected	QLogic NetXtreme II BCM57800 - Causes total crash when binding jail
+#18071	Feature	Nice to have	Add support for PMC Adaptec HBAs
+#17855	Feature	Nice to have	Test email message should include hostname
+#17702	Feature	Nice to have	samba 4.5.1
+#15039	Bug	Nice to have	UNMAP error on VMWare ESXi 6.0
+#14750	Bug	Important	FreeNAS fails to snapshot specific VM on VMWare datastore
+#11390	Feature	Important	UNIX permissions & CIFS shares: group member cannot modify an existing file with 660 permissions

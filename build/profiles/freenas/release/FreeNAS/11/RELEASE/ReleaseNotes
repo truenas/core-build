@@ -1,45 +1,37 @@
 OS:
-The base OS version for FreeNAS 9.10 is now FreeBSD 10.3-RC3,
+The base OS version for FreeNAS 11 is now FreeBSD 11.0-STABLE,
 bringing in a huge number of OS-related bug fixes, performance
-improvements and new features (new drivers, new CPU chipset support,
-USB 3.0, etc) and basic support for hosting virtual machines with
-bhyve.
+improvements and new features.
 
 Directory Services:
-You can now connect to large AD domains with cache disabled.
+FreeNAS 11 aims to keep Active Directory enabled if there are some communication
+issues.
 
-Reporting:
-Add the ability to send collectd data to a remote graphite server.
+Allow Active Directory users to have consistent mapping on MacOS and FreeNAS 11 systems.
 
-Hardware Support:
-Added Support for Intel I219-V & I219-LM Gigabit Ethernet Chipset
-Added Support for Intel Skylake architecture
-Improved support for USB devices (like network adapters)
-USB 3.0 devices now supported.
+Services:
+The FreeNAS 11 S3 service now uses Minio to provide S3 storage hosted
+on the FreeNAS®system itself.
+
 
 Filesharing:
-Samba (SMB filesharing) updated from version 4.1 to 4.3.4
-Added GUI feature to allow nfsv3-like ownership when using nfsv4
-Various bug fixes related to FreeBSD 10. For more in-depth information,
-see the ChangeLog file.
+Samba (SMB filesharing) updated to 4.6.3.
+Netatalk updated to 3.1.10.
 
 Ports:
-FreeBSD ports updated to follow the FreeBSD 2016Q2 branch.
+FreeBSD ports updated to follow the FreeBSD 2016Q4 branch.
 
-Jails:
-FreeBSD Jails now default to a FreeBSD 10.3-RC2 based template.
-Old jails, or systems on which jails have been installed, will still
-default to the previous FreeBSD 9.3 based template.  Only those machines
-using jails for the first time (or deleting and recreating their jails
-dataset) will use the new template.
+VM:
+In FreeNAS11 VMs use the bhyve virtual machine software.
+This type of virtualization requires an Intel processor with
+Extended Page Tables (EPT) or an AMD processor with
+Rapid Virtualization Indexing (RVI) or Nested Page Tables (NPT).
 
-bhyve:
-In the upcoming 10 release, the CLI will offer full support for managing
-virtual machines and containers. Until then, the iohyve command is
-bundled as a stop-gap solution to provide basic VM management support -
-see https://github.com/pr1ntf/iohyve for more information.
+UI:
+Rewriting user interface using angular4.0, we encourage users to utilize this
+new User Interface and submit tickets or fixes if needed.
 
 Trains:
-Nightlies branch now gets you FreeNAS-9.10-Nightlies
-This release, and all future updates to it, are on the FreeNAS-9.10-STABLE
-train.
+Nightlies branch now gets you FreeNAS-11-Nightlies
+This release, and all future updates to it, are on the FreeNAS-11-STABLE
+train. 
