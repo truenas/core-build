@@ -13,6 +13,12 @@ Services:
 The FreeNAS 11 S3 service now uses Minio to provide S3 storage hosted
 on the FreeNAS®system itself.
 
+Services page re-design, allows one-time start / stop of services independent 
+to its boot-state.
+
+Alerts:
+Added Alert Integration, allowing FreeNAS alerts to be sent to Slack, 
+PagerDuty, OpsGenie and more.
 
 Filesharing:
 Samba (SMB filesharing) updated to 4.6.3.
