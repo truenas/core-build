@@ -41,7 +41,7 @@ def main():
     IX_KEY_PASSWORD = e("${IX_KEY_PASSWORD}") or getpass.getpass("Enter Password: ")
     prod = e("${PRODUCTION}")
     if prod and prod.lower() == "yes":
-        KEY_PASSWORD = getpass.getpass("Enter Password: ")
+        KEY_PASSWORD = IX_KEY_PASSWORD
     else:
         KEY_PASSWORD = ""
     changelog = e('${CHANGELOG}')
