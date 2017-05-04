@@ -38,6 +38,7 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 
 def main():
+    IX_KEY_PASSWORD = e("${IX_KEY_PASSWORD}") or getpass.getpass("Enter Password: ")
     prod = e("${PRODUCTION}")
     if prod and prod.lower() == "yes":
         KEY_PASSWORD = getpass.getpass("Enter Password: ")
@@ -46,7 +47,7 @@ def main():
     changelog = e('${CHANGELOG}')
     info('Using ChangeLog: {0}', changelog)
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    sshopts = '-o SendEnv=IX_KEY_PASSWORD -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
     delta_count = e('${DELTAS}')
