@@ -31,6 +31,15 @@ include = /usr/local/www/freenasUI
 #		            /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
 post-upgrade = 
+	KV="$(uname -K)" || KV=0
+        if [ "${KV}" -lt 1100000 ]; then
+		script_name=freenasUI-post-upgrade
+		mkdir -p /update-scripts
+		cp "${0}" /update-scripts/${script_name}
+		echo  ${script_name} >> /update-scripts/order
+		exit 0
+        fi
+
 	     touch /tmp/.sqlite3_ha_skip
 	     /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              if [ ! -f "/data/update.failed" ]; then
