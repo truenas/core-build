@@ -23,27 +23,75 @@
 # SUCH DAMAGE.
 #
 
-freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
-    if exists("${BE_ROOT}/freenas") \
-    else "0"
 
-ports += "lang/python3"
-ports += "lang/python"
-ports += "databases/sqlite3"
-ports += "databases/py-sqlite3"
-ports += "databases/py-bsddb3"
-ports += "devel/py-six"
-ports += "freenas/py-libzfs"
-ports += "freenas/py-bsd"
-ports += "freenas/ix-installer"
-
-ports += {
-    "name": "freenas/freenas-installer",
-    "options": [
-        "PRODUCT=${PRODUCT}",
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + freenas_git_rev
-    ]
+link += {
+    "source": OS_ROOT,
+    "dest": "/usr/src",
+    "flags": "ro",
 }
 
+copy += {
+    "source": "${BE_ROOT}/freenas-docs",
+    "dest": "/usr/freenas_docs"
+}
+
+copy += {
+    "source": "${BE_ROOT}/freenas/docs/api",
+    "dest": "/usr/freenas_docs/api"
+}
+
+copy += {
+    "source": "${BE_ROOT}/freenas/src",
+    "dest": "/usr/nas_source"
+}
+
+copy += {
+    "source": "${BE_ROOT}/freenas/gui",
+    "dest": "/usr/freenasUI"
+}
+
+copy += {
+    "source": "${BE_ROOT}/webui",
+    "dest": "/usr/webui"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-licenselib",
+    "dest": "/usr/nas_source/py-licenselib"
+}
+
+copy += {
+    "source": "${BE_ROOT}/freenas-pkgtools",
+    "dest": "/usr/nas_source/freenas-pkgtools"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-libzfs",
+    "dest": "/usr/nas_source/py-libzfs"
+}
+
+copy += {
+    "source": "${BE_ROOT}/py-bsd",
+    "dest": "/usr/nas_source/py-bsd"
+}
+
+copy += {
+    "source": "${BE_ROOT}/ix-installer",
+    "dest": "/usr/nas_source/ix-installer",
+}
+
+copy += {
+    "source": "${BE_ROOT}/samba",
+    "dest": "/usr/samba_src"
+}
+
+if PRODUCT == "TrueNAS":
+    copy += {
+        "source": "${BE_ROOT}/truenas",
+        "dest": "/usr/truenas"
+    }
+
+    copy += {
+        "source": "${BE_ROOT}/vcenter_plugin",
+        "dest": "/usr/vcenter_plugin"
+    }

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+pciconf -l | grep -q "chip=0x....1aed" 
+if [ $? = 0 ]; then # Fusion-I/O card has been found
+echo "TrueNAS 11 does not support Fusion-I/O cards" 1>&2
+exit 1
+else
+	numeric_version=`echo ${CURRENT_VERSION} | cut -d '-' -f2`;
+	OIFS=${IFS}
+	IFS='.' read -r major_version minor_version sub_version<<-_EOF_
+	$numeric_version
+	_EOF_
+	IFS=${OIFS}
+	# Thus FreeNAS-9.10.2-U1
+	# will have major_version=9, minor_version=10, and sub_version=2-U1
+	case "${major_version}.${minor_version}"
+	in
+		9.10*) sub_version=`echo ${sub_version} | cut -d '-' -f1`;
+		case $sub_version
+		in
+			(*[!0-9]*|'') echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11 directly. You have to upgrade to 9.10.2 first." 1>&2 ; exit 1;;
+			(*) if [ ${sub_version} -lt 2 ]; then
+					echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11 directly. You have to upgrade to 9.10.2 first." 1>&2 ; exit 1;
+				fi;;
+		esac
+		;;
+	esac
+	exit 0
+fi
+
+

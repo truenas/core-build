@@ -44,7 +44,7 @@ PROFILE_SETTING = ${BUILD_ROOT}/build/profiles/profile-setting
 . if exists(${PROFILE_SETTING})
 PROFILE != cat ${PROFILE_SETTING}
 . else
-PROFILE := freenas10
+PROFILE := freenas
 . endif
 .endif
 
@@ -53,11 +53,7 @@ GIT_REPO_SETTING = ${BUILD_ROOT}/.git-repo-setting
 GIT_LOCATION != cat ${GIT_REPO_SETTING}
 .endif
 
-.if ${PROFILE} != "freenas10"
 BE_ROOT := ${BUILD_ROOT}/${PROFILE}/_BE
-.else
-BE_ROOT := ${BUILD_ROOT}/_BE
-.endif
 
 OBJDIR := ${BE_ROOT}/objs
 DOC_PATH := ${BE_ROOT}/freenas-docs
@@ -128,6 +124,10 @@ bootstrap-pkgs:
 	pkg install -y archivers/pigz
 	python -m ensurepip
 	python -m pip install six
+
+changelog-nightly:
+	@${BUILD_TOOLS}/changelog-nightly.sh
+
 
 # The .DEFAULT gets run if there is no Recipe denoted above for the
 # .Target (this includes release, ports, and tests) the only

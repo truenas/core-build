@@ -74,6 +74,7 @@ files_to_preserve = [
     '/sbin/geom',
     '/sbin/gmirror',
     '/sbin/graid',
+    '/sbin/resolvconf',
     '/sbin/swapoff',
     '/bin/install_worker.sh',
     '/bin/install_worker2.sh'
@@ -259,7 +260,7 @@ def cleandirs():
     info('Cleaning previous build products')
     if os.path.isdir(e('${INSTUFS_DESTDIR}')):
         sh('chflags -R 0 ${INSTUFS_DESTDIR}')
-        sh('rm -rf ${INSTUFS_DESTDIR}')
+        sh('rm -rfx ${INSTUFS_DESTDIR}')
 
     sh('rm -rf ${ISO_DESTDIR}')
     sh('mkdir -p ${ISO_DESTDIR} ${INSTUFS_DESTDIR}')
@@ -289,7 +290,7 @@ def mount_packages():
 
 
 def umount_packages():
-    sh('umount ${INSTUFS_DESTDIR}/usr/ports/packages')
+    sh('umount -f ${INSTUFS_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
 

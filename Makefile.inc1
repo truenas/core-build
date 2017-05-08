@@ -74,8 +74,8 @@ dumpenv:
 
 clean:
 .if defined(ZPOOL)
-	zfs destroy -r ${ZPOOL}${ZROOTFS}/data
-	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/data || true
+	zfs destroy -r ${ZPOOL}${ZROOTFS}/jail || true
 .endif
 	chflags -R 0 ${BE_ROOT}/objs
 	rm -rf ${BE_ROOT}/objs
@@ -172,6 +172,7 @@ update-rollback:
 
 changelog:
 	build/tools/create_redmine_changelog.py -k ~/redmine-key  -p "freenas 10" -t RELEASE -s "Build Testing" > ChangeLog
+	@[ -s ChangeLog ] || rm ChangeLog
 
 archive:	release
 .if !defined(ARCHIVE)

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+pciconf -l | grep -q "chip=0x....1aed" 
+if [ $? = 0 ]; then # Fusion-I/O card has been found
+echo "TrueNAS 11 does not support Fusion-I/O cards" 1>&2
+exit 1
+else
+exit 0
+fi
+
+

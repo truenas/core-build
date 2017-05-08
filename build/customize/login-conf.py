@@ -26,38 +26,11 @@
 #
 #####################################################################
 
-from utils import sh, setfile
+from utils import chroot
 
 
 def main():
-    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc')
-    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc/local')
-    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/var')
-    sh('mkdir -p ${WORLD_DESTDIR}/conf/base/mnt')
-    sh('touch ${WORLD_DESTDIR}/etc/diskless')
-    sh('cp -a ${WORLD_DESTDIR}/etc/ ${WORLD_DESTDIR}/conf/base/etc')
-    sh('cp -a ${WORLD_DESTDIR}/usr/local/etc/ ${WORLD_DESTDIR}/conf/base/etc/local')
-    sh('rm -rf ${WORLD_DESTDIR}/usr/local/etc')
-    sh('ln -s /etc/local ${WORLD_DESTDIR}/usr/local/etc')
-    sh('cp -a ${WORLD_DESTDIR}/var/ ${WORLD_DESTDIR}/conf/base/var')
-
-    setfile('${WORLD_DESTDIR}/conf/base/var/md_size', '')
-    setfile('${WORLD_DESTDIR}/conf/base/etc/md_size', '65535')
-    setfile('${WORLD_DESTDIR}/conf/base/mnt/md_size', '8192')
-
-    # Symlink /tmp to /var/tmp
-    sh('rm -rf ${WORLD_DESTDIR}/tmp')
-    sh('ln -s /var/tmp ${WORLD_DESTDIR}/tmp')
-
-    # Make sure .rnd points to tmpfs.
-    # Some daemons starting at boot time will try to write that file
-    # because of $HOME/.rnd is the default path and HOME=/ defined in /etc/rc
-    # See #23304
-    sh('ln -s /var/tmp/.rnd ${WORLD_DESTDIR}/.rnd')
-    sh('touch ${WORLD_DESTDIR}/conf/base/var/tmp/.rnd')
-
-    sh('ln -s -f /data/zfs/zpool.cache ${WORLD_DESTDIR}/boot/zfs/zpool.cache')
-    sh('ln -s -f /usr/local/bin/ntfs-3g ${WORLD_DESTDIR}/sbin/mount_ntfs')
+    chroot('${WORLD_DESTDIR}', 'cap_mkdb /conf/base/etc/login.conf')
 
 
 if __name__ == '__main__':
