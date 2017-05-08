@@ -18,9 +18,9 @@ else
 		9.10*) sub_version=`echo ${sub_version} | cut -d '-' -f1`;
 		case $sub_version
 		in
-			(*[!0-9]*|'') echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11 directly. You have to upgrade to 9.10.2 first." 1>&2 ; exit 1;;
+			(*[!0-9]*|'') echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11" 1>&2 ; exit 1;;
 			(*) if [ ${sub_version} -lt 2 ]; then
-					echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11 directly. You have to upgrade to 9.10.2 first." 1>&2 ; exit 1;
+					echo "Cannot upgrade from ${CURRENT_VERSION} to FreeNAS 11" 1>&2 ; exit 1;
 				fi;;
 		esac
 		;;
