@@ -67,6 +67,7 @@ files_to_preserve = [
     '/usr/bin/scp',
     '/usr/bin/sftp',
     '/usr/bin/ssh',
+    '/usr/bin/ssh-keygen',
     '/usr/bin/tr',
     '/usr/bin/uname',
     '/usr/bin/xargs',
