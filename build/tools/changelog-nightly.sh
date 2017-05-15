@@ -14,7 +14,7 @@ make-changelog() {
 			rm -f /tmp/_changes.$$
 		fi
         done
-        sed -e 's/\(^[0-9a-f].*\)/\<p\>\1\<\/p\>/' < /tmp/changes.$$ > ChangeLog
+        cat /tmp/changes.$$ > ChangeLog
         rm -f /tmp/changes.$$
         CHANGELOG=`realpath ChangeLog`
 }
