@@ -113,6 +113,7 @@ ports += {
         "OPTIONS_FILE_SET+=NONECIPHER",
     ]
 }
+ports += "net/unison-nox11"
 ports += {
     "name": "net/rsync",
     "options": [
