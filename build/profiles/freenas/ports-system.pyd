@@ -74,6 +74,10 @@ ports += "net-mgmt/sipcalc"
 
 if LABEL != "TrueNAS":
     ports += "net/vblade"
+    ports += {
+        "name": "emulators/virtualbox-ose-kmod",
+        "options": ["OPTIONS_FILE_SET+=VIMAGE"]
+    }
 
 ports += "security/cyrus-sasl2-gssapi"
 ports += {
