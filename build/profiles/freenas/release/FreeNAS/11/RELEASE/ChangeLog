@@ -1,36 +1,33 @@
-#23992	Bug	Important	The "reset to Factory Defaults" in the Console isn't working correctly
-#23961	Bug	Critical	Encode issue in kerberos ticket
-#23938	Bug	Critical	Plugin jail creation may end up with duplicated mac
-#23932	Bug	Important	Jails with communication problem will hang plugin page for a good while
-#23920	Feature	Nice to have	Update ZeroTier to 1.2.4
-#23919	Bug	Expected	Is CVE­2016­10012 patched in the current 9.10.2-U3?
-#23909	Bug	Nice to have	Typo in getting unused disks when there is iscsi disk device
-#23907	Bug	No priority	Improve clarity of lagg member inactive alert
-#23889	Bug	Important	middlewared.log has too much noise
-#23887	Bug	Important	Traceback getting unused disks when there is a Disk iscsi extent
-#23861	Bug	Important	Cannot Upload Saved Config
-#23858	Bug	Blocks Until Resolved	Critical Alerts emailed every minute
-#23846	Bug	Important	Wrong graphs shown for disks latency
-#23844	Bug	Expected	Subject Alternative Name support in SSL certificates
-#23836	Bug	Important	Increase default timeout for middleware client
-#23835	Bug	Nice to have	Possible exception on update.get_pending
-#23821	Bug	Blocks Until Resolved	upgraded from 9.3 to 11 stable
-#23815	Bug	Nice to have	Typo in train downgrade alert
-#23803	Bug	Critical	Losing default route after boot if no interface is configured (DHCP)
-#23802	Bug	Important	Include middleware log on timeout exceptions from GUI
-#23800	Bug	Nice to have	Update iocage to cd6334eb0236642d7294149552a197312037bb68
-#23783	Bug	Important	Web interface not available after upgrade to 11.0 RC
-#23774	Bug	Important	Add middlewared event to tell when system has been booted
-#23764	Bug	Expected	Certificate in api doc shows mostly empty, not sure if it's done or not
-#23761	Bug	Important	Update iocage to latest version.
-#23760	Bug	Nice to have	jsonify the response coming from the API call.
-#23749	Bug	Important	Failure at jail creation will not be reported correctly
-#23705	Bug	Nice to have	Make sure homedir exists in replication pairing
-#23704	Bug	Important	Traceback when there is no jail matching plugin
-#23689	Bug	Important	s3 Secret Key - Incorrect Length
-#23593	Bug	Expected	mountd quoted parsing is not right
-#23591	Bug	No priority	Unable to reboot VM.  FreeNAS 11 GUI and bhyvectl show different status.
-#23390	Feature	Nice to have	Make Zerotier available to Freenas OS
-#21639	Feature	Important	Add warning if lagg members aren't all active when they should be.
-#20970	Feature	Important	Bump log retention
-#20212	Bug	Important	traceback on factory restore on 201701120619 (40e8230)
+#24119	Bug	Expected	Remove mismatched firmware alert
+#24093	Bug	Expected	Proxy Not working with Alerts.py
+#24086	Bug	No priority	afp global auxiliary parameters not applied properly
+#24075	Bug	Blocks Until Resolved	eventlet causing middlewared to get stuck
+#24073	Bug	Expected	arc_summary.py fails on FreeNAS 11.0-RC2: TypeError: unsupported operand type(s) for >>=: 'float' and 'int'
+#24064	Bug	Important	Update iocage to 74b7a3914acfc4cb55fd0374f615d2331f004b7b
+#24059	Bug	Expected	make zvol drop down work as it does in FreeNAS-11 old GUI
+#24054	Bug	Critical	DB journal cannot be written
+#24053	Bug	Nice to have	Security issue: open DNS Resolver (port 53)
+#24050	Bug	Critical	Enabling dhcp wipes default route
+#24049	Bug	Important	Snapshotter will try to snapshot not imported pool (e.g. locked)
+#24045	Bug	Nice to have	freenas offline updater not working when update cache directory forbids it
+#24035	Bug	Critical	zdb process hanging up GUI
+#24012	Feature	Critical	Add sentry error reporting (replace rollbar)
+#24004	Bug	No priority	python interface to sysctl module
+#23991	Bug	Important	Crashdump not working in 11-RC
+#23987	Feature	Nice to have	Please add unison-nox11 package
+#23974	Bug	Important	VM VNC Device is unreliable when VNC port is empty
+#23954	Bug	Expected	Spaces in ZVOL names are no longer working
+#23950	Bug	Blocks Until Resolved	Unlock encrypted pool time out
+#23939	Bug	No priority	Active Directory Auth Failure Throws 'INVALID_CREDENTIALS' Traceback
+#23933	Bug	No priority	Call timeouts everywhere
+#23926	Feature	Nice to have	VirtualBox kernel modules missing in FreeNAS 11
+#23913	Bug	Nice to have	Update iocage to 0a1895cee60f625e3b5c3908f358f2155322d822
+#23885	Bug	No priority	Version 11 AD Join
+#23833	Bug	Critical	Problem with Firefly plugin
+#23790	Bug	Important	False positives from smartmontools
+#23786	Bug	Important	Can't update any existing User after upgrading from 9.10.2-u3 to 11
+#23645	Feature	Critical	Change encryption to at least allow, if not simply use AES-256.
+#23586	Bug	Important	Alert services dialog improvements
+#23577	Bug	Nice to have	Cannot bind vlan interface to SSH service
+#23566	Bug	Blocks Until Resolved	Unable to get Domain Controller service to work
+#23510	Feature	No priority	VMs need an autostart option
