@@ -27,8 +27,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "commit": "e1497f2",
-    "branch": "TN-9.10.2-STABLE" if PRODUCT == "TrueNAS" else "9.10.2-STABLE"
+    "branch": "9.10.2-U4"
 }
 
 repos += {
@@ -42,6 +41,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
+    "commit": "21897e6695f",
     "branch": "9.10.2-STABLE"
 }
 
@@ -90,8 +90,7 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "commit": "c4f3b91",
-    "branch": "freenas/9.10.2-U2-stable"
+    "branch": "freenas/9.10.2-U4-stable"
 }
 
 repos += {
