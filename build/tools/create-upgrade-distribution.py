@@ -78,6 +78,7 @@ def create_upgradefile():
         else:
             shutil.copyfile(os.path.join(source_dir, entry),
                             os.path.join(temp_dir, entry))
+    sh("chmod 755 {0}".format(temp_dir))
     sh("tar -C {0} -cf {1} .".format(temp_dir, e("${BE_ROOT}/release/${PRODUCT}-${VERSION}-manual-update-unsigned.tar")))
     info("tar-file path: ${{BE_ROOT}}/release/${{PRODUCT}}-${{VERSION}}-manual-update-unsigned.tar")
     shutil.rmtree(temp_dir)
