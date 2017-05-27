@@ -39,6 +39,13 @@ repos += {
 }
 
 repos += {
+    "name": "webui",
+    "path": "webui",
+    "url": "http://github.com/freenas/webui.git",
+    "branch": "master"
+}
+
+repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
