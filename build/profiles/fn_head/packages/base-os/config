@@ -16,25 +16,27 @@ requires-reboot = True
 
 post-install =
 	KV="$(uname -K)" || KV=0
-        if [ "${KV}" -lt 1100000 ]; then
+	if [ "${KV}" -lt 1100000 ]; then
+		script_name=base-os-post-install
                 mkdir -p /update-scripts
-                cp "${0}" /tmp/update-scripts/"${0}"
-                echo "${0}" >> /update-scripts/order
+                cp "${0}" /update-scripts/${script_name}
+                echo ${script_name} >> /update-scripts/order
                 exit 0
         fi
+
 	/usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
 
 post-upgrade =
 	KV="$(uname -K)" || KV=0
-        if [ "${KV}" -lt 1100000 ]; then
+	if [ "${KV}" -lt 1100000 ]; then
+		script_name=base-os-post-upgrade
                 mkdir -p /update-scripts
-                cp "${0}" /update-scripts/"${0}"
-                echo "${0}" >> /update-scripts/order
+                cp "${0}" /update-scripts/${script_name}
+                echo  ${script_name} >> /update-scripts/order
                 exit 0
         fi
-
-	/usr/bin/touch /boot/kernel/linker.hints
+	 /usr/bin/touch /boot/kernel/linker.hints
 	     /usr/bin/touch /boot/modules/linker.hints
 	/bin/sh /etc/ix.rc.d/ix-device_hints start
 	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
@@ -52,6 +54,7 @@ post-upgrade =
 
 [Files]
 exclude = /usr/local/www/freenasUI
+	/usr/local/www/webui
 	/usr/local/www/data/docs
 	/usr/lib/*.a
 	/usr/local/share/doc

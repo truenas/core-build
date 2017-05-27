@@ -14,6 +14,7 @@ licenses = [BSD, MIT, GPL]
 requires-reboot = False
 [Files]
 include = /usr/local/www/freenasUI
+	/usr/local/www/webui
 
 [Scripts]
 
@@ -29,20 +30,29 @@ include = /usr/local/www/freenasUI
 #		/usr/bin/yes | /usr/local/bin/python \
 #		            /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
-post-upgrade =
+post-upgrade = 
 	KV="$(uname -K)" || KV=0
         if [ "${KV}" -lt 1100000 ]; then
+		script_name=freenasUI-post-upgrade
 		mkdir -p /update-scripts
-		cp "${0}" /update-scripts/"${0}"
-		echo "${0}" >> /update-scripts/order
+		cp "${0}" /update-scripts/${script_name}
+		echo  ${script_name} >> /update-scripts/order
 		exit 0
-	fi
+        fi
+
 	     touch /tmp/.sqlite3_ha_skip
 	     /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              if [ ! -f "/data/update.failed" ]; then
                  /usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              fi
 	     rm -f /tmp/.sqlite3_ha_skip
+
+	     # Remove dangling .pyc files because previously freenas-ui did not include .pyc in pkg-plist
+	     find /usr/local/www/freenasUI -type f -iname "*.pyc" | while read f; do
+	             if ! dirname $f|grep -q __pycache__; then
+	                     rm -f $f;
+	             fi
+	     done;
 
 [Services]
 
