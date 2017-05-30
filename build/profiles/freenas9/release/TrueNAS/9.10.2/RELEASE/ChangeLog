@@ -1,6 +1,3 @@
-Critical Fixes:
+Security Fixes:
 
-o Fixes slow listing of extremely large number of files/folders over CIFS/SMB.
-
-
-o Move RRD files back to tmpfs from system dataset, this change reduces number of writes.
+o Samba updated to 4.5.10 to address CVE-2017-7494 please read https://www.samba.org/samba/security/CVE-2017-7494.html for more details.
