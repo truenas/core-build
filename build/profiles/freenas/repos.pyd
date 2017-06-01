@@ -38,15 +38,6 @@ repos += {
      "branch": "truenas/11.0-stable" if PRODUCT == "TrueNAS" else "freenas/11.0-stable",
 }
 
-
-repos += {
-    "name": "webui",
-    "path": "webui",
-    "url": "http://github.com/freenas/webui.git",
-    "branch": "master"
-}
-
-
 repos += {
     "name": "webui",
     "path": "webui",
@@ -115,7 +106,7 @@ if PRODUCT == "TrueNAS":
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "master"
+        "branch": "truenas/11.0-stable"
     }
     if env("USING_JENKINS"):
         repos += {
