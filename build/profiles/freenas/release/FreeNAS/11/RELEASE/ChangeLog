@@ -1,33 +1,27 @@
+#24335	Bug	Important	Try to be more clear when URLs could not be reached in netcli
+#24309	Bug	Expected	Mark AD monitoring / restart as experimental
+#24291	Bug	Expected	Increase timeout waiting for middlewared
+#24250	Bug	Important	Broken freenas-snmpd: py2 to py3
+#24223	Bug	Blocks Until Resolved	RuntimeError: can't start new thread
+#24216	Bug	Important	Do not traceback if foreign key does not exist
+#24209	Bug	No priority	SNMPd zfs-snmp broken Deprecated lib in use
+#24200	Bug	Important	Request details not being reported to sentry
+#24199	Bug	Important	RC3 will not switch to the Nightly train
+#24185	Bug	Expected	AD monitoring disables AD when AD servers comes online
+#24171	Bug	Nice to have	hostname in debug file name will have a leading "b"
+#24168	Bug	Expected	update.get_pending may block for too long
+#24167	Bug	Nice to have	Decoding error in var log messages
+#24162	Bug	Blocks Until Resolved	Update samba to 4.6.4
+#24161	Bug	No priority	GUI Shell gets stuck at loading.
+#24160	Bug	Important	Alert Traceback & Critical LAGG email
+#24159	Bug	No priority	CIFS auxiliary parameters field has a max length of 120char
+#24141	Bug	Nice to have	Use default timeout to setup system datasets
+#24140	Bug	Expected	Django response content expects bytes not str
+#24138	Bug	Important	Run datastore operations in a thread
+#24135	Bug	No priority	errors on console during boot: ConnectionRefusedError Errno 61 Connection refused
+#24134	Bug	Nice to have	Auto-start on VMs created in RC1/RC2 defaults to true
+#24126	Bug	Nice to have	Update iocage to latest stable release
+#24124	Bug	Important	Add devices for VM should display all available options 
 #24119	Bug	Expected	Remove mismatched firmware alert
-#24093	Bug	Expected	Proxy Not working with Alerts.py
-#24086	Bug	No priority	afp global auxiliary parameters not applied properly
-#24075	Bug	Blocks Until Resolved	eventlet causing middlewared to get stuck
 #24073	Bug	Expected	arc_summary.py fails on FreeNAS 11.0-RC2: TypeError: unsupported operand type(s) for >>=: 'float' and 'int'
-#24064	Bug	Important	Update iocage to 74b7a3914acfc4cb55fd0374f615d2331f004b7b
-#24059	Bug	Expected	make zvol drop down work as it does in FreeNAS-11 old GUI
-#24054	Bug	Critical	DB journal cannot be written
-#24053	Bug	Nice to have	Security issue: open DNS Resolver (port 53)
-#24050	Bug	Critical	Enabling dhcp wipes default route
-#24049	Bug	Important	Snapshotter will try to snapshot not imported pool (e.g. locked)
-#24045	Bug	Nice to have	freenas offline updater not working when update cache directory forbids it
-#24035	Bug	Critical	zdb process hanging up GUI
-#24012	Feature	Critical	Add sentry error reporting (replace rollbar)
-#24004	Bug	No priority	python interface to sysctl module
-#23991	Bug	Important	Crashdump not working in 11-RC
-#23987	Feature	Nice to have	Please add unison-nox11 package
-#23974	Bug	Important	VM VNC Device is unreliable when VNC port is empty
-#23954	Bug	Expected	Spaces in ZVOL names are no longer working
-#23950	Bug	Blocks Until Resolved	Unlock encrypted pool time out
-#23939	Bug	No priority	Active Directory Auth Failure Throws 'INVALID_CREDENTIALS' Traceback
-#23933	Bug	No priority	Call timeouts everywhere
-#23926	Feature	Nice to have	VirtualBox kernel modules missing in FreeNAS 11
-#23913	Bug	Nice to have	Update iocage to 0a1895cee60f625e3b5c3908f358f2155322d822
-#23885	Bug	No priority	Version 11 AD Join
-#23833	Bug	Critical	Problem with Firefly plugin
-#23790	Bug	Important	False positives from smartmontools
-#23786	Bug	Important	Can't update any existing User after upgrading from 9.10.2-u3 to 11
-#23645	Feature	Critical	Change encryption to at least allow, if not simply use AES-256.
-#23586	Bug	Important	Alert services dialog improvements
-#23577	Bug	Nice to have	Cannot bind vlan interface to SSH service
-#23566	Bug	Blocks Until Resolved	Unable to get Domain Controller service to work
-#23510	Feature	No priority	VMs need an autostart option
+#23941	Bug	Nice to have	Services top icon consistently stalls with "Loading..." when GUI is left idle for some time
