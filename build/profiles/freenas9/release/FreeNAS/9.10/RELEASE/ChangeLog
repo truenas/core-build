@@ -1,1 +1,2 @@
-#24116	Bug	  Expected	Update Samba to 4.5.9
+#24342   Bug Blocks Until Resolved   smbd exited on signal 6 (core dumped) / after upgrade 9.10.2-U3 => 9.10.2-U4, samba bug #12798 (ticket for tracking 9.10.2-U5 fixes)
+#23919   Bug Expected    Is CVE­2016­10012 patched in the current 9.10.2-U3?
