@@ -28,7 +28,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "TN-9.10.2-U4"
+    "branch": "TN-9.10.2-U5"
 }
 
 repos += {
@@ -91,7 +91,7 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "freenas/9.10.2-U4-stable",
+    "branch": "freenas/9.10.2-U5-stable",
 }
 
 repos += {
