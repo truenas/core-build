@@ -4,3 +4,12 @@
 #24378	Bug	Important	'ServiceMonitorThread' object has no attribute 'cancel'
 #24167	Bug	Blocks Until Resolved	Decoding error in var log messages
 #24001	Bug	Important	Starting a new VM generates an MTU error
+#24261	Feature	Expected	NFS Service	
+#24257	Bug	Expected	AFP Service	
+#24165	Bug	Important	Fix showing jail errors on form	
+#24156	Bug	Important	please add an websocket call like vm.device where I can use it add a device to a particular vm	
+#24105	Bug	Important	9.10 User Guide line change	
+#24091	Bug	Nice to have	docs: old link to hardware recommendations	
+#23905	Bug	No priority	FreeNAS 9.10 Jails contain critical OpenSSL bug	
+#22944	Bug	Nice to have	Update translation section of Guide	
+#19544	Bug	Important	lagg0 network configuration must be manually reset on reboot to restore connectivitY
