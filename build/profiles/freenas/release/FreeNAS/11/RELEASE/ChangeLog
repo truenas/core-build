@@ -1,31 +1,6 @@
-#24335	Bug	Important	Try to be more clear when URLs could not be reached in netcli
-#24309	Bug	Expected	Mark AD monitoring / restart as experimental
-#24291	Bug	Expected	Increase timeout waiting for middlewared
-#24250	Bug	Important	Broken freenas-snmpd: py2 to py3
-#24223	Bug	Blocks Until Resolved	RuntimeError: can't start new thread
-#24216	Bug	Important	Do not traceback if foreign key does not exist
-#24209	Bug	No priority	SNMPd zfs-snmp broken Deprecated lib in use
-#24200	Bug	Important	Request details not being reported to sentry
-#24199	Bug	Important	RC3 will not switch to the Nightly train
-#24185	Bug	Expected	AD monitoring disables AD when AD servers comes online
-#24171	Bug	Nice to have	hostname in debug file name will have a leading "b"
-#24168	Bug	Expected	update.get_pending may block for too long
-#24167	Bug	Nice to have	Decoding error in var log messages
-#24162	Bug	Blocks Until Resolved	Update samba to 4.6.4
-#24161	Bug	No priority	GUI Shell gets stuck at loading.
-#24160	Bug	Important	Alert Traceback & Critical LAGG email
-#24159	Bug	No priority	CIFS auxiliary parameters field has a max length of 120char
-#24141	Bug	Nice to have	Use default timeout to setup system datasets
-#24140	Bug	Expected	Django response content expects bytes not str
-#24138	Bug	Important	Run datastore operations in a thread
-#24135	Bug	No priority	errors on console during boot: ConnectionRefusedError Errno 61 Connection refused
-#24134	Bug	Nice to have	Auto-start on VMs created in RC1/RC2 defaults to true
-#24126	Bug	Nice to have	Update iocage to latest stable release
-#24124	Bug	Important	Add devices for VM should display all available options
-#24119	Bug	Expected	Remove mismatched firmware alert
-#24073	Bug	Expected	arc_summary.py fails on FreeNAS 11.0-RC2: TypeError: unsupported operand type(s) for >>=: 'float' and 'int'
-#23941	Bug	Nice to have	Services top icon consistently stalls with "Loading..." when GUI is left idle for some time
-#24225  Bug Blocks Until Resolved smbd exited on signal 6 (core dumped) / after upgrade 9.10.2-U3 => 9.10.2-U4, samba bug #12798
-#24251	Bug	Important	Errors Using Alert Service
-#24177	Bug	Nice to have	Unable to update from Corral to FN 11
-#18958	Feature	Important	Active Directory gets disabled every time there is temporary communication issue with our Active Directory server
+#24356	Bug	No priority	iocage fetch --plugins - can't find freebsd-version file in /mnt/iocage/releases/
+#21415	Bug	No priority	AD server offline can prevent other services from starting at bootup
+#24401	Bug	Critical	Service does not start if "Start on boot" is not checked
+#24378	Bug	Important	'ServiceMonitorThread' object has no attribute 'cancel'
+#24167	Bug	Blocks Until Resolved	Decoding error in var log messages
+#24001	Bug	Important	Starting a new VM generates an MTU error
