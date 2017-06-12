@@ -1,3 +1,4 @@
-Security Fixes:
+o Critical:
+ Fixed segfault issue with samba protocol, please refer to https://bugzilla.samba.org/show_bug.cgi?id=12798 for more details. 
+ Patched CVE201610012, this bringing in OpenSSH server up to 7.4p1 release.o Critical:
 
-o Samba updated to 4.5.10 to address CVE-2017-7494 please read https://www.samba.org/samba/security/CVE-2017-7494.html for more details.
