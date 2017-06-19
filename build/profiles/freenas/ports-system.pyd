@@ -399,6 +399,7 @@ ports += "sysutils/ipfs-go"
 ports += "security/vault"
 ports += "www/minio"
 ports += "misc/minio-client"
+ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 
 if PRODUCT == "TrueNAS":
