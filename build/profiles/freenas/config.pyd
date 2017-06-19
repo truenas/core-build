@@ -182,15 +182,18 @@ customize_tasks = [
 
 # If not doing a SDK build
 if SDK == "no":
-    make_conf_build += {
+    temp_dict = {
         "WITHOUT_CLANG_FULL":           "yes",
-        "WITHOUT_DEBUG_FILES":          "yes"
+        "WITHOUT_DEBUG_FILES":          "yes",
     }
-    make_conf_run += {
+    make_conf_build.update(temp_dict)
+    temp_dict = {
         "WITHOUT_KERNEL_SYMBOLS":       "yes",
         "WITHOUT_TOOLCHAIN":            "yes",
     }
-    make_conf_boot = {
+    make_conf_run.update(temp_dict)
+    temp_dict = {
          "WITHOUT_MAKE":                 "yes",
          "WITHOUT_MAN":                  "yes",
     }
+    make_conf_boot.update(temp_dict)

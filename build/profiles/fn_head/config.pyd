@@ -94,10 +94,8 @@ make_conf_build = {
     "WITHOUT_BSDINSTALL":           "yes",
     "WITHOUT_BSNMP":                "yes",
     "WITHOUT_CALENDAR":             "yes",
-    "WITHOUT_CLANG_FULL":           "yes",
     "WITHOUT_CTM":                  "yes",
     "WITHOUT_CUSE":                 "yes",
-    "WITHOUT_DEBUG_FILES":          "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_FORTRAN":              "yes",
     "WITHOUT_FREEBSD_UPDATE":       "yes",
@@ -144,9 +142,7 @@ make_conf_pkg = {
 
 make_conf_run = {
     "WITHOUT_INSTALLLIB":           "yes",
-    "WITHOUT_KERNEL_SYMBOLS":       "yes",
     "WITHOUT_RCS":                  "yes",
-    "WITHOUT_TOOLCHAIN":            "yes",
 }
 
 make_conf_boot = {
@@ -162,8 +158,6 @@ make_conf_boot = {
     "WITHOUT_LOCALES":              "yes",
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_MAIL":                 "yes",
-    "WITHOUT_MAKE":                 "yes",
-    "WITHOUT_MAN":                  "yes",
     "WITHOUT_NIS":                  "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
@@ -185,3 +179,22 @@ customize_tasks = [
     "login-conf",
     "install-avatar-conf"
 ]
+
+# If not doing a SDK build
+if SDK == "no":
+    temp_dict = {
+        "WITHOUT_CLANG_FULL":           "yes",
+        "WITHOUT_DEBUG_FILES":          "yes",
+    }
+    make_conf_build.update(temp_dict)
+    temp_dict = {
+        "WITHOUT_KERNEL_SYMBOLS":       "yes",
+        "WITHOUT_TOOLCHAIN":            "yes",
+    }
+    make_conf_run.update(temp_dict)
+    temp_dict = {
+         "WITHOUT_MAKE":                 "yes",
+         "WITHOUT_MAN":                  "yes",
+    }
+    make_conf_boot.update(temp_dict)
+
