@@ -32,15 +32,6 @@ from utils import sh
 
 
 def main(destdir):
-    # Kill .pyo files
-    sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
-
-    # We don't need python test in the image
-    sh('rm -rf ${destdir}/usr/local/lib/python3.6/test')
-
-    # Kill includes
-    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
-
     # Kill docs
     sh('rm -rf ${destdir}/usr/local/share/doc')
     sh('rm -rf ${destdir}/usr/local/share/gtk-doc')
@@ -48,12 +39,8 @@ def main(destdir):
     # Kill gobject introspection xml
     sh('rm -rf ${destdir}/usr/local/share/git-1.0')
 
-    # Kill info
-    sh('rm -rf ${destdir}/usr/local/info')
-
     # Kill examples
     sh('rm -rf ${destdir}/usr/local/share/examples')
-
     sh('rm -rf ${destdir}/usr/share/me')
 
     # Kill static libraries
@@ -65,6 +52,21 @@ def main(destdir):
     # magic.mgc is just a speed optimization
     sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
 
+    # If we are doing SDK build, we can stop here
+    if SDK != "no":
+        return 0
+
+    # Kill info
+    sh('rm -rf ${destdir}/usr/local/info')
+
+    # Kill .pyo files
+    sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
+
+    # We don't need python test in the image
+    sh('rm -rf ${destdir}/usr/local/lib/python3.6/test')
+
+    # Kill includes
+    sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
 
 if __name__ == '__main__':
     main(sys.argv[1])

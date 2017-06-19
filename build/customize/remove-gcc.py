@@ -55,6 +55,11 @@ files_to_save = [
 
 
 def main():
+
+    # If doing SDK build we can stop here
+    if SDK != "no":
+        return 0
+
     for i in files_to_save:
         sh('mv ${WORLD_DESTDIR}/${i} ${WORLD_DESTDIR}/${i}.bak')
 
