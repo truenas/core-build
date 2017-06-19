@@ -214,6 +214,10 @@ def cleanup_env():
         sh('zfs destroy -r ${ZPOOL}${ZROOTFS}/jail@clean')
 
     info('Unmounting ports overlay...')
+    if SDK != "no":
+        info('Saving copy of ports tree for SDK...')
+        sh('tar cJf ${BE_ROOT}/ports.txz -c ${PORTS_OVERLAY} .')
+
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
         sh('umount -f', cmd['source'])

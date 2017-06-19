@@ -83,6 +83,14 @@ def install_ports():
     if not os.path.isdir(e('${WORLD_DESTDIR}/data')) or err != 0:
         error('Packages installation failed, see log file {0}', logfile)
 
+    # If we are SDK'ing lets save the ports.txz file
+    if SDK != "no":
+        sh('mkdir -p ${WORLD_DESTDIR}/sdk')
+        info('Saving ports.txz to /sdk/')
+        sh('cp ${BE_ROOT}/ports.txz ${WORLD_DESTDIR}/sdk/ports.txz')
+        info('Saving src.txz to /sdk/')
+        sh('cp ${BE_ROOT}/src.txz ${WORLD_DESTDIR}/sdk/src.txz')
+
 
 def install_binary_packages():
     for i in config.binary_packages:
