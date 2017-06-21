@@ -126,6 +126,7 @@ ports += "lang/python3"
 ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
+ports += "dns/py-zeroconf"
 ports += "dns/py-dnspython"
 ports += "sysutils/py-iocage"
 ports += {
