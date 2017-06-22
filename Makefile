@@ -75,6 +75,7 @@ GIT_REF_PATH ?= /build/gitrefs
 .export MK
 
 .export PROFILE
+.export SDK
 
 .export GIT_REPO_SETTING
 .export GIT_LOCATION
@@ -95,6 +96,7 @@ GIT_REF_PATH ?= /build/gitrefs
 .if !make(remote) && !make(sync) && !make(bootstrap-pkgs)
 	@echo "[0:00:00] ==> NOTICE: Selected profile: ${PROFILE}"
 	@echo "[0:00:00] ==> NOTICE: Build timestamp: ${BUILD_TIMESTAMP}"
+	@echo "[0:00:00] ==> NOTICE: SDK Build: ${SDK}"
 
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
 .if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(profiles) && !make(select-profile) && !make(docs) && !make(api-docs)

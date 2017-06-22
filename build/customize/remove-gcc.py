@@ -57,7 +57,7 @@ files_to_save = [
 def main():
 
     # If doing SDK build we can stop here
-    if SDK != "no":
+    if e('${SDK}') == "YES":
         return 0
 
     for i in files_to_save:
