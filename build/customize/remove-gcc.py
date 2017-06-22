@@ -27,7 +27,7 @@
 #####################################################################
 
 
-from utils import sh, chroot
+from utils import sh, chroot, e
 
 
 files_to_save = [

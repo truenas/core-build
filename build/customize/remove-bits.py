@@ -28,7 +28,7 @@
 
 
 import sys
-from utils import sh
+from utils import sh, e
 
 
 def main(destdir):
