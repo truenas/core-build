@@ -76,6 +76,7 @@ def create_pkgng_configuration():
     if e('${SDK}') == "yes":
         info('SDK: Enabling pkgng repo')
         sh('sed -i "" "s|: no|: yes|g" ${WORLD_DESTDIR}/usr/local/etc/pkg/repos/FreeBSD.conf')
+        sh('rm ${WORLD_DESTDIR}/usr/local/etc/pkg/repos/local.conf')
 
 
 def install_ports():
