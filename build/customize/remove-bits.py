@@ -53,7 +53,7 @@ def main(destdir):
     sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
 
     # If we are doing SDK build, we can stop here
-    if e('${SDK}') == "YES":
+    if e('${SDK}') == "yes":
         return 0
 
     # Kill info

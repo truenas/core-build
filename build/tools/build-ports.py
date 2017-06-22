@@ -215,7 +215,7 @@ def cleanup_env():
 
     info('Unmounting ports overlay...')
 
-    if e("${SDK}") == "YES":
+    if e("${SDK}") == "yes":
         info('Saving copy of ports tree for SDK...')
         sh('tar cJf ${BE_ROOT}/ports.txz -c ${PORTS_OVERLAY} .')
 

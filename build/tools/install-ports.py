@@ -84,7 +84,7 @@ def install_ports():
         error('Packages installation failed, see log file {0}', logfile)
 
     # If we are SDK'ing lets save the ports.txz file
-    if e('${SDK}') == "YES":
+    if e('${SDK}') == "yes":
         sh('mkdir -p ${WORLD_DESTDIR}/sdk')
         info('Saving ports.txz to /sdk/')
         sh('cp ${BE_ROOT}/ports.txz ${WORLD_DESTDIR}/sdk/ports.txz')
