@@ -217,7 +217,7 @@ def cleanup_env():
 
     if e("${SDK}") == "yes":
         info('Saving copy of ports tree for SDK...')
-        sh('tar cJf ${BE_ROOT}/ports.txz -c ${PORTS_OVERLAY} .')
+        sh('tar cJf ${BE_ROOT}/ports.txz -C ${PORTS_OVERLAY} .')
 
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
