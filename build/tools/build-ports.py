@@ -200,6 +200,7 @@ def prepare_env():
 
 def cleanup_env():
     global poudriere_proc
+    global SDK
 
     info('Cleaning up poudriere environment...')
     if poudriere_proc and poudriere_proc.poll() is None:
@@ -208,13 +209,14 @@ def cleanup_env():
             poudriere_proc.wait()
         except OSError:
             info('Cannot kill poudriere, it has probably already terminated')
-        
+
     if e('${USE_ZFS}'):
         info('Cleaning jail clean snaspshot')
         sh('zfs destroy -r ${ZPOOL}${ZROOTFS}/jail@clean')
 
     info('Unmounting ports overlay...')
-    if SDK != "no":
+
+    if SDK == "YES":
         info('Saving copy of ports tree for SDK...')
         sh('tar cJf ${BE_ROOT}/ports.txz -c ${PORTS_OVERLAY} .')
 
