@@ -216,8 +216,8 @@ def cleanup_env():
     info('Unmounting ports overlay...')
 
     if e("${SDK}") == "yes":
-        info('Saving copy of ports tree for SDK...')
-        sh('tar cJf ${BE_ROOT}/ports.txz -C ${PORTS_OVERLAY} .')
+        info('SDK: Saving copy of ports tree...')
+        sh('tar cJf ${BE_ROOT}/ports.txz --exclude .git -C ${PORTS_OVERLAY} .')
 
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):

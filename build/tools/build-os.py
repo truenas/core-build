@@ -180,8 +180,8 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
 
     # Saving the SDK sources
     if e('${SDK}') == "yes":
-        info('Saving FreeBSD sources to src.txz...')
-        sh('tar cJf ${BE_ROOT}/src.txz -C ${OS_ROOT} .')
+        info('SDK: Saving FreeBSD sources to src.txz...')
+        sh('tar cJf ${BE_ROOT}/src.txz --exclude .git -C ${OS_ROOT} .')
 
 
 calculate_make_jobs()
