@@ -200,7 +200,6 @@ def prepare_env():
 
 def cleanup_env():
     global poudriere_proc
-    global SDK
 
     info('Cleaning up poudriere environment...')
     if poudriere_proc and poudriere_proc.poll() is None:
@@ -216,7 +215,7 @@ def cleanup_env():
 
     info('Unmounting ports overlay...')
 
-    if SDK == "YES":
+    if e("${SDK}") == "YES":
         info('Saving copy of ports tree for SDK...')
         sh('tar cJf ${BE_ROOT}/ports.txz -c ${PORTS_OVERLAY} .')
 

@@ -179,7 +179,7 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
     )
 
     # Saving the SDK sources
-    if SDK == "YES":
+    if e('${SDK}') == "YES":
         info('Saving FreeBSD sources to src.txz...')
         sh('tar cJf ${BE_ROOT}/src.txz -C ${OS_ROOT} .')
 

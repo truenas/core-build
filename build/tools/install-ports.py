@@ -75,7 +75,6 @@ def create_pkgng_configuration():
 
 
 def install_ports():
-    global SDK
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     err = chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile, nofail=True)
@@ -85,7 +84,7 @@ def install_ports():
         error('Packages installation failed, see log file {0}', logfile)
 
     # If we are SDK'ing lets save the ports.txz file
-    if SDK == "YES":
+    if e('${SDK}') == "YES":
         sh('mkdir -p ${WORLD_DESTDIR}/sdk')
         info('Saving ports.txz to /sdk/')
         sh('cp ${BE_ROOT}/ports.txz ${WORLD_DESTDIR}/sdk/ports.txz')
