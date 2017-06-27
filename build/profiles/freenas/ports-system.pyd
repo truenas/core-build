@@ -383,6 +383,7 @@ ports += "sysutils/uefi-edk2-bhyve"
 ports += "sysutils/uefi-edk2-bhyve-csm"
 ports += "benchmarks/fio"
 ports += "sysutils/cmdwatch"
+ports += "sysutils/devcpu-data"
 ports += "sysutils/htop"
 ports += "sysutils/mcelog"
 ports += {
