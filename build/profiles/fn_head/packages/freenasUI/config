@@ -41,7 +41,16 @@ post-upgrade =
         fi
 
 	     touch /tmp/.sqlite3_ha_skip
-	     /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+
+             # If database does not have account:0005_add_netdata_user
+             # it means its too old and needs to run old migrator first
+             newdb=$(/usr/local/bin/sqlite3 /data/freenas-v1.db "select count() from django_migrations where app = 'account' and name = '0005_add_netdata_user'" 2> /dev/null)
+             if [ "${newdb}" != "1" ]; then
+                 /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+             else
+                 rm -f /data/update.failed
+             fi
+
              if [ ! -f "/data/update.failed" ]; then
                  /usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              fi
