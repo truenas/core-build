@@ -1,15 +1,17 @@
-#24356	Bug	No priority	iocage fetch --plugins - can't find freebsd-version file in /mnt/iocage/releases/
-#21415	Bug	No priority	AD server offline can prevent other services from starting at bootup
-#24401	Bug	Critical	Service does not start if "Start on boot" is not checked
-#24378	Bug	Important	'ServiceMonitorThread' object has no attribute 'cancel'
-#24167	Bug	Blocks Until Resolved	Decoding error in var log messages
-#24001	Bug	Important	Starting a new VM generates an MTU error
-#24261	Feature	Expected	NFS Service	
-#24257	Bug	Expected	AFP Service	
-#24165	Bug	Important	Fix showing jail errors on form	
-#24156	Bug	Important	please add an websocket call like vm.device where I can use it add a device to a particular vm	
-#24105	Bug	Important	9.10 User Guide line change	
-#24091	Bug	Nice to have	docs: old link to hardware recommendations	
-#23905	Bug	No priority	FreeNAS 9.10 Jails contain critical OpenSSL bug	
-#22944	Bug	Nice to have	Update translation section of Guide	
-#19544	Bug	Important	lagg0 network configuration must be manually reset on reboot to restore connectivitY
+#23196	Bug	Nice to have	inherited compression level is not always displayed correctly in the WebGUI
+#23354	Bug	Nice to have	Can't create a boot environment named "9.10.2-U2"
+#23890	Bug	Expected	Error when trying to make NIS user owner of dataset
+#24235	Bug	Nice to have	Incorrect help text in Services: SMB: Guest account?
+#24312	Bug	Critical	checking Log rpc.statd(8) and rpc.lockd results in timeout.
+#24458	Bug	Expected	FreeNAS 11.0 RC4 Unable to setup AD
+#24506	Bug	Expected	Rework AD code so that when joined to AD, stay joined to AD without need to always join
+#24548	Bug	Nice to have	Cannot remove templates of jails
+#24563	Bug	Regression	Stack trace during replication
+#24565	Bug	Nice to have	ZFS boot error=63 "Unable to create ZVOL" after upgrade 9.10->11.0.  Cosmetic?
+#24570	Bug	Regression	[regression] FreeNAS 11 VMware Snapshot Broken with ESXi 6.5.0d
+#24572	Bug	Regression	Cannot start ProFTPD after upgrade to Freenas 11
+#24780	Bug	Blocks Until Resolved	Wizard is giving a Traceback error when it is creating/completing the volumes and shares at the end
+#24834	Bug	No priority	Death to NT4
+#24849	Bug	Critical	No more lagg after reboot in 11.0
+#24864	Bug	No priority	Setting an "IPv4 Default Gateway:" on a DHCP-networked system causes hard freeze or traceback
+#24922	Bug	Nice to have	FYI - patch correcting root DNS servers in python/samba/provision/sambadns.py
