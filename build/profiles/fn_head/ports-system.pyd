@@ -402,6 +402,8 @@ ports += "www/minio"
 ports += "misc/minio-client"
 ports += "misc/mmv"
 ports += "net-mgmt/netdata"
+ports += "sysutils/xen-guest-tools"
+ports += "sysutils/xe-guest-utilities"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
