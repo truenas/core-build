@@ -138,7 +138,6 @@ device		sa			# Sequential Access (tape etc)
 device		cd			# CD
 device		pass			# Passthrough device (direct ATA/SCSI access)
 device		ses			# Enclosure Services (SES and SAF-TE)
-device		cfiscsi			# CAM Target Layer iSCSI target frontend
 device		ctl			# CAM Target Layer
 
 # RAID controllers interfaced to the SCSI subsystem
@@ -311,6 +310,7 @@ device		lagg			# Link aggregation
 device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
+device		cfiscsi			# CAM Target Layer iSCSI target frontend
 
 # ipfw and nat for jails
 options		IPDIVERT

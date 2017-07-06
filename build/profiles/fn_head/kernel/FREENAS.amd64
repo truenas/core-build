@@ -309,6 +309,7 @@ device		lagg			# Link aggregation
 device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
+device		cfiscsi			# CAM Target Layer iSCSI target frontend
 
 # ipfw and nat for jails
 options		IPDIVERT
