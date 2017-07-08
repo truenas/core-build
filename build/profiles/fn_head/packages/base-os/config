@@ -56,7 +56,6 @@ post-upgrade =
 exclude = /usr/local/www/freenasUI
 	/usr/local/www/webui
 	/usr/local/www/data/docs
-	/usr/lib/*.a
 	/usr/local/share/doc
 	/usr/local/share/gtk-doc
 	/usr/local/share/gir-1.0

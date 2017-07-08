@@ -43,9 +43,6 @@ def main(destdir):
     sh('rm -rf ${destdir}/usr/local/share/examples')
     sh('rm -rf ${destdir}/usr/share/me')
 
-    # Kill static libraries
-    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
-
     # Kill sources of locale files
     sh("find ${destdir}/usr/local -type f -name '*.po' -delete")
 
@@ -55,6 +52,10 @@ def main(destdir):
     # If we are doing SDK build, we can stop here
     if e('${SDK}') == "yes":
         return 0
+
+    # Kill static libraries
+    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
+    sh("rm -rf ${destdir}/usr/lib/*.a")
 
     # Kill info
     sh('rm -rf ${destdir}/usr/local/info')
