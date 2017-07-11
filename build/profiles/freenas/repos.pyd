@@ -35,7 +35,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-     "branch": "truenas/11.0-stable" if PRODUCT == "TrueNAS" else "freenas/11.0-stable",
+     "branch": "freenas/11.0-stable",
 }
 
 repos += {
