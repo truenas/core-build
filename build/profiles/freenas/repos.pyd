@@ -63,7 +63,7 @@ repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
-    "branch": "master"
+    "branch": "freenas/11.0-stable"
 }
 
 repos += {
