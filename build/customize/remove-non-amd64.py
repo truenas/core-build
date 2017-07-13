@@ -28,10 +28,15 @@
 
 import os
 import sys
-from utils import sh, sh_str, is_elf
+from utils import sh, e, sh_str, is_elf
 
 
 def main(destdir):
+
+    # If we are doing SDK build, we can stop here
+    if e('${SDK}') == "yes":
+        return 0
+
     # Kill all binaries that are non for AMD64 arch
     for root, dirs, files in os.walk(destdir):
         for name in files:
