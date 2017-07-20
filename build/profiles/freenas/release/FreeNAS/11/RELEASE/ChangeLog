@@ -1,17 +1,9 @@
-#23196	Bug	Nice to have	inherited compression level is not always displayed correctly in the WebGUI
-#23354	Bug	Nice to have	Can't create a boot environment named "9.10.2-U2"
-#23890	Bug	Expected	Error when trying to make NIS user owner of dataset
-#24235	Bug	Nice to have	Incorrect help text in Services: SMB: Guest account?
-#24312	Bug	Critical	checking Log rpc.statd(8) and rpc.lockd results in timeout.
-#24458	Bug	Expected	FreeNAS 11.0 RC4 Unable to setup AD
-#24506	Bug	Expected	Rework AD code so that when joined to AD, stay joined to AD without need to always join
-#24548	Bug	Nice to have	Cannot remove templates of jails
-#24563	Bug	Regression	Stack trace during replication
-#24565	Bug	Nice to have	ZFS boot error=63 "Unable to create ZVOL" after upgrade 9.10->11.0.  Cosmetic?
-#24570	Bug	Regression	[regression] FreeNAS 11 VMware Snapshot Broken with ESXi 6.5.0d
-#24572	Bug	Regression	Cannot start ProFTPD after upgrade to Freenas 11
-#24780	Bug	Blocks Until Resolved	Wizard is giving a Traceback error when it is creating/completing the volumes and shares at the end
-#24834	Bug	No priority	Death to NT4
-#24849	Bug	Critical	No more lagg after reboot in 11.0
-#24864	Bug	No priority	Setting an "IPv4 Default Gateway:" on a DHCP-networked system causes hard freeze or traceback
-#24922	Bug	Nice to have	FYI - patch correcting root DNS servers in python/samba/provision/sambadns.py
+#25142	Bug	Blocks Until Resolved	FreeBSD Security Advisory FreeBSD-SA-17:05.heimdal for FreeNAS 11
+#25126	Bug	Important	            Fix "Upgrade Install" error
+#25123	Bug	Important	            Remove (Experimental) from Active Directory Enable Monitoring field and tooltip
+#25119	Bug	No priority	          Samba CVE-2017-11103 for FreeNAS 11.0
+#25061	Bug	Critical	            Traceback if gateway is empty
+#24925	Bug	Nice to have	        Maproot user and group
+#24867	Bug	Expected	            I get a Traceback error when I try to "check now" for Updates
+#24323	Feature	Nice to have	    Need Support Ticket UI
+#24128	Bug	Expected	            Cannot assign certificates to ldap via api
