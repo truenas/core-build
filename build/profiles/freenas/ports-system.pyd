@@ -297,6 +297,7 @@ ports += "net/ladvd"
 ports += "ftp/wget"
 ports += "benchmarks/iozone"
 ports += "benchmarks/iperf"
+ports += "benchmarks/iperf3"
 ports += "benchmarks/netperf"
 ports += {
     "name": "security/sudo",
