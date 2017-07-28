@@ -1,3 +1,5 @@
+The base operating system version for TrueNAS 11.0-U2 is FreeBSD 11-STABLE, bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
+
 TrueNAS 11.0-U2 includes the following fixes from FreeNAS:
 
 11.0-RC: https://bugs.freenas.org/projects/freenas/issues?query_id=378
