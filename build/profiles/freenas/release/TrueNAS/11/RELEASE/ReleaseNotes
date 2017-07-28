@@ -1,0 +1,37 @@
+Base Operating System and Software
+The base operating system version for TrueNAS 11.0-U2 is FreeBSD 11-STABLE,
+bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
+
+Hardware Support
+Support for the TrueNAS X10 has been added. Information for racking and connecting to a TrueNAS X10 is available in the TrueNAS User Guide. Note that that the X10 hardware requires TrueNAS version 11.0-U2 or higher.
+
+Alert Services
+A new System → Alert Services screen makes it possible to send important alerts through external services, including AWS-SNS, Hipchat, InfluxDB, Slack, Mattermost, OpsGenie, PagerDuty, and VictorOps.
+
+ALUA
+This version introduces ALUA (Asymmetric Logical Unit Access) support, allowing an ALUA-enabled iSCSI initiator to discover and use the best storage path to a TrueNAS node. With ALUA, clients automatically ask for and use the best path to the storage. If a TrueNAS HA node becomes inaccessible, the initiator automatically switches to the next best alternate path to the storage. ALUA can be enabled on the TrueNAS system by checking the  “Enable iSCSI ALUA” box in Sharing → Block (iSCSI) → Target Global Configuration. 
+
+Directory Services
+An Active Directory Enable Monitoring option has been added and is disabled by default. When enabled, this restarts the Active Directory service after a temporary loss of communications with an Active Directory server. Previously, a loss of communications with the AD server would stop the Active Directory service, requiring a manual restart.
+
+Filesharing
+Samba, used for SMB file sharing, has been updated to version 4.6.6 to address the recent CVE.
+
+Support for NT4 domain controllers been removed from Directory Services.
+
+Services
+An enhanced Services screen adds a checkbox to directly set which services start at boot.
+
+The S3 service has been added, providing the ability to build hybrid and private S3-compatible object storage services, allowing fast access to locally hosted object stores.
+
+
+TrueNAS vCenter Plugin
+The vCenter plugin has been updated to version 2.1.0 which adds support for advanced provisioning, datastore snapshot management, LUN management, ZFS pool management, ZFS pool health status, and Role-Based Access Control (RBAC).
+
+VAAI for NAS
+The client plugin for using VAAI for NAS is pending certification. Call us at 1.855.GREP.4.IX (US Toll Free) or 1.408.943.4100 if you need a copy of the required plugin or instructions on how to install and use it.
+
+Trains:
+This release, and all future updates to it, are on the TrueNAS-11.0-STABLE train.
+
+For a full list of bug fixes and features included in this release, refer to the ChangeLog.
