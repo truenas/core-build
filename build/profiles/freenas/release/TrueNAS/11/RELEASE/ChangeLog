@@ -59,3 +59,4 @@ Update Samba to address CVE-2017-11103
 FreeBSD Security Advisory FreeBSD-SA-17:05.heimdal for TrueNAS 11
 Add warning to disable failover when configuring network address
 Fix traceback when running alert.py directly
+Log hasyncd errors on first instance
