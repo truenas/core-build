@@ -404,6 +404,7 @@ ports += "misc/minio-client"
 ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
+ports += "devel/git-lite"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
