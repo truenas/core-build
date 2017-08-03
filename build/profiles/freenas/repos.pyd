@@ -102,6 +102,13 @@ repos += {
     "branch": "freenas/master"
 }
 
+repos += {
+    "name": "iocage",
+    "path": "iocage",
+    "url": "https://github.com/iocage/iocage.git",
+    "branch": "master"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",

@@ -146,8 +146,7 @@ ports += {
 #}
 
 dedicated_repo_ports = [
-    "py-libzfs", "py-licenselib",
-    "py-bsd", "freenas-pkgtools",
+    "py-licenselib", "py-bsd", "freenas-pkgtools",
 ]
 
 for iter_port in dedicated_repo_ports:
