@@ -107,8 +107,7 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "commit": "a4e610147cb",
-    "branch": "freenas/11.0-stable"
+    "branch": "freenas/11.0-u2.1-stable"
 }
 
 if PRODUCT == "TrueNAS":
