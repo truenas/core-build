@@ -59,8 +59,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "commit": "e45d7cf3bd98",
-    "branch": "freenas/11.0-stable"
+    "branch": "freenas/11.0-u2.1-stable"
 }
 
 repos += {
