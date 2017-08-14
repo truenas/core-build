@@ -15,7 +15,7 @@
 
 
 	Filesharing:
-	Samba (SMB filesharing) updated from version 4.1 to 4.3.6.
+	Samba (SMB filesharing) has been updated to 4.6.4 and patched to address CVE-2017-11103.
 	Added GUI feature to allow NFSv3-like ownership when using NFSv4.
 	Various bug fixes related to FreeBSD 10. For more in-depth information,
 	see the ChangeLog file.
