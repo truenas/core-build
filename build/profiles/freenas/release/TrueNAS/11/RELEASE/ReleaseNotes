@@ -15,7 +15,7 @@ Directory Services
 An Active Directory Enable Monitoring option has been added and is disabled by default. When enabled, this restarts the Active Directory service after a temporary loss of communications with an Active Directory server. Previously, a loss of communications with the AD server would stop the Active Directory service, requiring a manual restart.
 
 Filesharing
-Samba, used for SMB file sharing, has been updated to version 4.6.6 to address the recent CVE.
+Samba, used for SMB file sharing, has been updated to 4.6.4 and patched to address CVE-2017-11103.
 
 Support for NT4 domain controllers been removed from Directory Services.
 
