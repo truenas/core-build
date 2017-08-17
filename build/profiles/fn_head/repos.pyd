@@ -38,6 +38,7 @@ repos += {
     "branch": "master"
 }
 
+
 repos += {
     "name": "webui",
     "path": "webui",
@@ -99,6 +100,13 @@ repos += {
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
     "branch": "freenas/master"
+}
+
+repos += {
+    "name": "iocage",
+    "path": "iocage",
+    "url": "https://github.com/iocage/iocage.git",
+    "branch": "master"
 }
 
 if PRODUCT == "TrueNAS":

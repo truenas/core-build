@@ -400,10 +400,11 @@ ports += "sysutils/consul-alerts"
 ports += "sysutils/ipfs-go"
 ports += "security/vault"
 ports += "www/minio"
-ports += "misc/minio-client"
+ports += "www/minio-client"
 ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
+ports += "devel/git-lite"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
