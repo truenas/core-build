@@ -18,6 +18,8 @@ TrueNAS 11.0-U2 includes the following fixes from FreeNAS:
 
 11.0-U2.1: https://bugs.freenas.org/projects/truenas/issues?query_id=426
 
+11.0-U2.2: https://bugs.freenas.org/projects/truenas/issues?query_id=427
+
 In addition, these fixes are specific to TrueNAS:
 
 Add iSCSI ALUA support
