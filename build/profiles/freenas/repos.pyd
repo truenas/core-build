@@ -51,7 +51,6 @@ repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "commit": "da85bc4",
     "branch": "master"
 }
 
