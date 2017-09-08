@@ -406,6 +406,8 @@ ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
 ports += "devel/git-lite"
+ports += "www/novnc"
+ports += "www/novnc-websockify"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
