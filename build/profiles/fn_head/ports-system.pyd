@@ -406,6 +406,17 @@ ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
 ports += "devel/git-lite"
+# There ports are all vm related.
+ports += "www/novnc"
+ports += "www/novnc-websockify"
+ports += "net/libvncserver"
+#ports += {
+#    "name": "devel/libhyve-remote",
+#    "options": [
+#        "OPTIONS_FILE_SET+=BHYVE",
+#    ]
+#}
+
 
 if DEBUG:
 	ports += "misc/py-pexpect"
