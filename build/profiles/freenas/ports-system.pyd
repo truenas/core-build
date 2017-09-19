@@ -51,6 +51,7 @@ ports += "sysutils/vm-bhyve"
 ports += "sysutils/pciutils"
 ports += "sysutils/pv"
 ports += "dns/inadyn-mt"
+ports += "dns/inadyn-troglobit"
 ports += "editors/nano"
 ports += {
     "name": "editors/jed",
