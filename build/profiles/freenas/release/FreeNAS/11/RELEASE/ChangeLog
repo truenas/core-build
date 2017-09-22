@@ -1,2 +1,3 @@
 25810	Add missing restart_queue initialization to isp(4)
 25946	FreeBSD SA 17:06
+25950 Update Samba to address current CVEs
