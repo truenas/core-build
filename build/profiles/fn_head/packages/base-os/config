@@ -38,7 +38,6 @@ post-upgrade =
         fi
 	 /usr/bin/touch /boot/kernel/linker.hints
 	     /usr/bin/touch /boot/modules/linker.hints
-	/bin/sh /etc/ix.rc.d/ix-device_hints start
 	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
 	   for disk in $(sysctl -n kern.disks); do
 	       if gpart show ${disk} | grep -q bios-boot; then
