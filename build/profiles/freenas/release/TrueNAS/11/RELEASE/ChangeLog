@@ -1,6 +1,6 @@
 The base operating system version for TrueNAS 11.0-U2 is FreeBSD 11-STABLE, bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
 
-TrueNAS 11.0-U2 includes the following fixes from FreeNAS:
+TrueNAS 11.0-U4 includes the following fixes from FreeNAS:
 
 11.0-RC: https://bugs.freenas.org/projects/freenas/issues?query_id=378
 
@@ -16,49 +16,11 @@ TrueNAS 11.0-U2 includes the following fixes from FreeNAS:
 
 11.0-U2: https://bugs.freenas.org/projects/freenas/issues?query_id=418 
 
-In addition, these fixes are specific to TrueNAS:
+11.0-U3: https://bugs.freenas.org/projects/freenas/issues?query_id=419 
 
-Add iSCSI ALUA support
-Temporary communications loss with AD server no longer disables AD
-Create VMFS Datasets using vCenter
-Add checkbox to enable iSCSI ALUA
-iSCSI ALUA portal datagrid changes
-Fix hactl traceback
-Add additional IPMI info to freenas-debug
-Add Interlink and CriticalGroupN to network debug and ifconfig output
-Add option to shutdown standby node
-Reorder System tab
-Add serial mode option to ISO installs
-Keep host and NetBIOS names consistent in HA pair
-Allow VHID of 10 or 20
-Destroy a mirrored swap when partitioning the disks
-Add option to reboot standby node on sync to peer
-Remove hactl section from Guide as GUI should be used instead
-Integrate vCenter 2.1.0 Plugin
-Make use of X10 LEDs
-Remove repetitive HA update instructions  in TrueNAS User Guide
-Clarify Proactive Support description in TrueNAS User Guide
-Add missing  HA timeout parameter to API
-Fix CARP traceback
-Load freenas_sysctl module at boot
-Propagate service start/stop on master node to standby
-vCenter fixes for Python 3
-Fix middleware database sync
-Logs filled with useless pciconf/zpool calls
-Fix Save Debug traceback
-Dismissed Alerts still light warning LED
-Cannot create a debug when 1 node is down
-Fix migration issue when upgrading HA pair
-Fix Cloud Sync
-Improve wording of Proactive Support alert
-Fix Wizard traceback
-Add mlx5 modules to TrueNAS kernel
-Fix "Upgrade Install" error
-Update vCenter plugin to 2.1.0
-Regenerate ALUA config when iSCSI is enabled
-Fix traceback if gateway is empty
-Update Samba to address CVE-2017-11103
-FreeBSD Security Advisory FreeBSD-SA-17:05.heimdal for TrueNAS 11
-Add warning to disable failover when configuring network address
-Fix traceback when running alert.py directly
-Log hasyncd errors on first instance
+11.0-U4: https://bugs.freenas.org/projects/freenas/issues?query_id=430 
+
+In addition, these fixes are specific to TrueNAS 11.0-U4:
+
+FreeBSD SA 17:06
+Update Samba to address current CVEs
