@@ -50,7 +50,7 @@ def calculate_make_jobs():
     if not jobs:
         makejobs = 2
 
-    makejobs = 2 * int(jobs) + 1
+    makejobs = os.environ.get("POUDRIERE_JOBS", 2 * int(jobs) + 1)
     debug('Using {0} make jobs', makejobs)
 
 
