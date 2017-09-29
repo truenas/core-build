@@ -341,7 +341,7 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=IPV6"]
 }
 ports += {
-    "name": "net/samba46",
+    "name": "net/samba47",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
@@ -411,13 +411,7 @@ ports += "devel/git-lite"
 ports += "www/novnc"
 ports += "www/novnc-websockify"
 ports += "net/libvncserver"
-#ports += {
-#    "name": "devel/libhyve-remote",
-#    "options": [
-#        "OPTIONS_FILE_SET+=BHYVE",
-#    ]
-#}
-
+ports += "devel/libhyve-remote"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
