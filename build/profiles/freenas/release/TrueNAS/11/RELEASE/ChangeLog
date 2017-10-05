@@ -22,5 +22,15 @@ TrueNAS 11.0-U4 includes the following fixes from FreeNAS:
 
 In addition, these fixes are specific to TrueNAS 11.0-U4:
 
-FreeBSD SA 17:06
-Update Samba to address current CVEs
+Patch base operating system to address FreeBSD SA 17:06.openssh:
+https://www.freebsd.org/security/advisories/FreeBSD-SA-17:06.openssh.asc.
+
+Update Samba version to 4.6.8 to address current CVEs:
+https://www.samba.org/samba/history/samba-4.6.8.html.
+
+Prevent the configuration of the failover lagg type on HA systems. This lagg
+type is too slow for High Availability environments.
+
+Improvements to ensure that a system automatically rejoins the Active Directory
+network after an HA failover.
+
