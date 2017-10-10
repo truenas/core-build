@@ -28,7 +28,7 @@
 
 
 import sys
-from utils import sh, e
+from utils import sh, e, info
 
 
 def main(destdir):
@@ -51,6 +51,7 @@ def main(destdir):
 
     # If we are doing SDK build, we can stop here
     if e('${SDK}') == "yes":
+        info('SDK: Skipping remove-bits...')
         return 0
 
     # Kill static libraries

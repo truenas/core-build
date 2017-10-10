@@ -27,7 +27,7 @@
 #####################################################################
 
 
-from utils import sh, chroot, e
+from utils import sh, chroot, e, info
 
 
 files_to_save = [
@@ -58,6 +58,7 @@ def main():
 
     # If doing SDK build we can stop here
     if e('${SDK}') == "yes":
+        info('SDK: Skipping remove-gcc...')
         return 0
 
     for i in files_to_save:

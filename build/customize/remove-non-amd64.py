@@ -28,13 +28,14 @@
 
 import os
 import sys
-from utils import sh, e, sh_str, is_elf
+from utils import sh, e, sh_str, is_elf, info
 
 
 def main(destdir):
 
     # If we are doing SDK build, we can stop here
     if e('${SDK}') == "yes":
+        info('SDK: Skipping remove-non-amd64 files...')
         return 0
 
     # Kill all binaries that are non for AMD64 arch
