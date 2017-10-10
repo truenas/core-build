@@ -170,6 +170,16 @@ early_customize_tasks = [
     "write-version"
 ]
 
+customize_tasks = [
+    "remove-bits",
+    "remove-var-cache-pkg",
+    "remove-non-amd64",
+    "conf-base",
+    "link-bash",
+    "login-conf",
+    "install-avatar-conf"
+]
+
 # If not doing a SDK build
 if SDK == "no":
     temp_dict = {
@@ -187,20 +197,3 @@ if SDK == "no":
          "WITHOUT_MAN":                  "yes",
     }
     make_conf_boot.update(temp_dict)
-    customize_tasks = [
-         "remove-bits",
-         "remove-var-cache-pkg",
-         "remove-non-amd64",
-         "conf-base",
-         "link-bash",
-         "login-conf",
-         "install-avatar-conf"
-    ]
-else:
-    customize_tasks = [
-         "remove-var-cache-pkg",
-         "conf-base",
-         "link-bash",
-         "login-conf",
-         "install-avatar-conf"
-    ]
