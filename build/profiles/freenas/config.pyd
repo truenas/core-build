@@ -115,7 +115,6 @@ make_conf_build = {
     "WITH_OPENSSH_NONE_CIPHER":     "yes",
     "WITHOUT_PC_SYSINSTALL":        "yes",
     "WITHOUT_PPP":                  "yes",
-    "WITHOUT_PROFILE":              "yes",
     "WITHOUT_RCMDS":                "yes",
     "WITHOUT_SENDMAIL":             "yes",
     "WITHOUT_SVNLITE":              "yes",
@@ -141,7 +140,6 @@ make_conf_pkg = {
 }
 
 make_conf_run = {
-    "WITHOUT_INSTALLLIB":           "yes",
     "WITHOUT_RCS":                  "yes",
 }
 
@@ -161,7 +159,6 @@ make_conf_boot = {
     "WITHOUT_NIS":                  "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
-    "WITHOUT_PROFILE":              "yes",
     "WITHOUT_SYSCONS":              "yes",
     "WITHOUT_VT":                   "yes",
 }
@@ -175,16 +172,19 @@ if SDK == "no":
     temp_dict = {
         "WITHOUT_CLANG_FULL":           "yes",
         "WITHOUT_DEBUG_FILES":          "yes",
+        "WITHOUT_PROFILE":              "yes",
     }
     make_conf_build.update(temp_dict)
     temp_dict = {
         "WITHOUT_KERNEL_SYMBOLS":       "yes",
         "WITHOUT_TOOLCHAIN":            "yes",
+        "WITHOUT_INSTALLLIB":           "yes",
     }
     make_conf_run.update(temp_dict)
     temp_dict = {
          "WITHOUT_MAKE":                 "yes",
          "WITHOUT_MAN":                  "yes",
+         "WITHOUT_PROFILE":              "yes",
     }
     make_conf_boot.update(temp_dict)
     customize_tasks = [
