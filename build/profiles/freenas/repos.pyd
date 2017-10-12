@@ -107,7 +107,7 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "fix-25394"
+    "branch": "fix-25394-vs-stable"
 }
 
 repos += {
