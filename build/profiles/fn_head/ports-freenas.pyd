@@ -32,7 +32,9 @@ webui_git_rev = sh("git -C ${BE_ROOT}/webui rev-list HEAD --count") \
     if exists("${BE_ROOT}/webui") \
     else "0"
 
-
+iocage_git_rev = sh("git -C ${BE_ROOT}/iocage rev-list HEAD --count") \
+    if exists("${BE_ROOT}/iocage") \
+    else "0"
 
 ports += {
     "name": "freenas/freenas-files",
@@ -96,6 +98,17 @@ ports += {
         "REVISION=" + webui_git_rev
     ]
 }
+
+ports += {
+    "name": "sysutils/py3-iocage",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + iocage_git_rev
+    ]
+}
+
 
 
 ports += {
