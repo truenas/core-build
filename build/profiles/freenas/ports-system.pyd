@@ -417,7 +417,7 @@ ports += "net/libvncserver"
 ports += "devel/libhyve-remote"
 
 ports += "net/nsq"
-ports += "net/py-nsq"
+ports += "net/py-pynsq"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
