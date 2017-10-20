@@ -2,6 +2,7 @@
 11534	Register enterprise number for FREENAS-MIB
 12684	Do not create an actual /nonexistent directory
 13630	Prevent large file delete from starving out write operations
+16455	Add lsiget tool
 17875	Specify a quota per time machine backup
 17907	Add ability to sign CSRs using internal FreeNAS CA
 17923	Add dataset quota email notifications
