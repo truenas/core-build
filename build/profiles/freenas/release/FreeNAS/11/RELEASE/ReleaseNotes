@@ -1,45 +1,43 @@
 OS:
-The base OS version for FreeNAS 9.10 is now FreeBSD 10.3-RC3,
-bringing in a huge number of OS-related bug fixes, performance
-improvements and new features (new drivers, new CPU chipset support,
-USB 3.0, etc) and basic support for hosting virtual machines with
-bhyve.
+The base operating system version for FreeNAS 11.1 is FreeBSD 11.1-STABLE,
+which brings in many bug fixes, performance improvements, updated and
+new drivers, and new features.
 
-Directory Services:
-You can now connect to large AD domains with cache disabled.
+OpenZFS:
+There have been many improvements to OpenZFS. Users should notice a
+significant speed difference when listing a large number of snapshots or
+when deleting multiple snapshots and large files.
 
-Reporting:
-Add the ability to send collectd data to a remote graphite server.
+The algorithm used for scrubs and resilvers has received many speed
+improvements which will be most noticeable on defragmented pools.
+
+Resilver Priority has been added to Storage. This provides the ability to
+run resilvering at a higher priority at configurable times and days of the
+week.
+
+SNMP:
+The SNMP MIB has many improvements, including the ability to send SNMP
+traps for new alerts. 
 
 Hardware Support:
-Added Support for Intel I219-V & I219-LM Gigabit Ethernet Chipset
-Added Support for Intel Skylake architecture
-Improved support for USB devices (like network adapters)
-USB 3.0 devices now supported.
+The hardware watchdog has been reenabled for recent firmware versions of
+AsrockRack C2750D4I. The BMC bug which required the watchdog to be
+disabled is resolved with the 00.30.00 or newer BMC firmware version. 
 
-Filesharing:
-Samba (SMB filesharing) updated from version 4.1 to 4.3.4
-Added GUI feature to allow nfsv3-like ownership when using nfsv4
-Various bug fixes related to FreeBSD 10. For more in-depth information,
-see the ChangeLog file.
+Cloud:
+Cloud Credentials has been added to System. This can be used to provide a
+secure connection to a cloud services providers. Supported services
+include Amazon S3, Backblaze B2, and Google Cloud Storage.
 
-Ports:
-FreeBSD ports updated to follow the FreeBSD 2016Q2 branch.
+Cloud Sync has been added to Tasks and can be used to synchronize files or
+directories to remote cloud storage providers. 
 
-Jails:
-FreeBSD Jails now default to a FreeBSD 10.3-RC2 based template.
-Old jails, or systems on which jails have been installed, will still
-default to the previous FreeBSD 9.3 based template.  Only those machines
-using jails for the first time (or deleting and recreating their jails
-dataset) will use the new template.
+Alerts:
+The Send Test Alert button has been added to Alert Services.
 
-bhyve:
-In the upcoming 10 release, the CLI will offer full support for managing
-virtual machines and containers. Until then, the iohyve command is
-bundled as a stop-gap solution to provide basic VM management support -
-see https://github.com/pr1ntf/iohyve for more information.
+IPMI:
+The Identify Light button has been added to make it easier to identify a
+system in a rack by flashing its IPMI LED light.
 
-Trains:
-Nightlies branch now gets you FreeNAS-9.10-Nightlies
-This release, and all future updates to it, are on the FreeNAS-9.10-STABLE
-train.
+Time Machine:
+Support for per-backup OS X Time Machine quotas has been added.
