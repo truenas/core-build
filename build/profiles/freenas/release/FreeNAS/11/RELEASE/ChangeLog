@@ -180,6 +180,7 @@
 25978	Indicate that the new GUI is still in beta
 25982	Allow catia VFS object to be enabled independently from fruit and streams_xattr
 25987	Add support for Ryzen processors
+25990	Add ability to query Certificate ID using API
 26004	Convert System:Email to Middlewared
 26011	Remove character limitation in Auxiliary Parameters field of FTP service
 26012	Fix Rsync service tooltip
