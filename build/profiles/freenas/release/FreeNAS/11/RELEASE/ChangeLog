@@ -37,6 +37,7 @@
 23848	Unify zvol create/update code and update API docs
 23850	Add compression and dedup to zvol API
 23857	Filter out collectd log spam
+23871	Don't create additional dataset at replication destination
 23872	Allow rsync task with / as remote host
 23881	Unify API code to create/update zvol
 23883	Document API for boot environment calls
