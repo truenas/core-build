@@ -181,6 +181,7 @@
 25987	Add support for Ryzen processors
 26004	Convert System:Email to Middlewared
 26011	Remove character limitation in Auxiliary Parameters field of FTP service
+26012	Fix Rsync service tooltip
 26020	Convert Services:SNMP to Middlewared
 26021	Convert Services:SMART to Middlewared
 26026	Fix traceback on certificate import
