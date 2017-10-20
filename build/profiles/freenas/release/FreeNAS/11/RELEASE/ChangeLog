@@ -50,6 +50,7 @@
 23978	Enable VLAN priority code point (vlanpcp) for CoS classification
 23979	Add VNC authentication support to VMs
 23989	Clarify what replicator does when there is no overlapping snapshot on the sending/receiving system
+24013	Add "clone promote" functionality to Storage tab
 24014	Do not auto-hide error messages on top of the GUI
 24040	Add comments to zvol dict
 24042	Fix update jail API
