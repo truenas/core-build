@@ -190,6 +190,7 @@
 26026	Fix traceback on certificate import
 26030	Preserve RRD graphs after hostname change
 26043	Fix nginx alias bug in new GUI
+26049	Clarify description for LDAP certificate in Guide
 26067	Use Object ID for group in API
 26080	Convert System:Boot Env to Middlewared
 26097	Preserve new lines in MOTD
