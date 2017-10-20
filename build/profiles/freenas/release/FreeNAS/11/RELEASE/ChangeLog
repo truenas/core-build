@@ -13,6 +13,7 @@
 20230	Clarify scrub schedule fields in Guide
 20908	Add several new providers for Dynamic DNS
 21091	Script to migrate from warden to iocage jails
+21336	Add ability to attach smaller disk to a larger one
 21872	Apply default permissions to SMB share ACLs
 22859	Speed up the installation of base-os
 23177	Add System - General fields to Middlewared
