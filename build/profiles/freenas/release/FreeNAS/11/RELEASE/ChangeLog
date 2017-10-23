@@ -207,3 +207,4 @@
 26244	Fix traceback when signing a CSR
 26270	Restart cron after timezone change
 26271	Use middlewared to get public key and scan remote ssh key
+26292	Add support for Intel X553 to ixgb(4)
