@@ -46,7 +46,7 @@ def main():
     changelog = e('${CHANGELOG}')
     info('Using ChangeLog: {0}', changelog)
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    sshopts = f'-o SendEnv={KEY_PASSWORD} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    sshopts = '-o SendEnv={KEY_PASSWORD} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
     delta_count = e('${DELTAS}')
