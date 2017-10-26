@@ -8,3 +8,4 @@
 26278	Add ability to get console messages to API
 26329	Fix 11.1 Prerelease registering as a downgrade
 26344	Preserve leading space in MOTD banner field
+26357	Report PCI UARTs to recognize serial cards
