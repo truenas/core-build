@@ -12,3 +12,4 @@
 26344	Preserve leading space in MOTD banner field
 26352	Update Netdata to 1.8.0
 26357	Report PCI UARTs to recognize serial cards
+26372	Handle failed password attempts when logging into new UI
