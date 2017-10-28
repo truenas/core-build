@@ -13,3 +13,4 @@
 26352	Update Netdata to 1.8.0
 26357	Report PCI UARTs to recognize serial cards
 26372	Handle failed password attempts when logging into new UI
+26373	Middleware events for scrub/resilver progress
