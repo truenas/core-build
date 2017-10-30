@@ -15,4 +15,5 @@
 26357	Report PCI UARTs to recognize serial cards
 26372	Handle failed password attempts when logging into new UI
 26373	Middleware events for scrub/resilver progress
+26387	Fix SMART service not sending emails
 26408	Change minimum required memory to 8GB in installer
