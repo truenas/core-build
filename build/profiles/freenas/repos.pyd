@@ -36,14 +36,14 @@ else:
         "name": "os",
         "path": "os",
         "url": "https://github.com/freenas/os.git",
-        "branch": "freenas/11-stable"
+        "branch": "freenas/11.1-stable"
 }
 
 repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 
@@ -51,7 +51,7 @@ repos += {
     "name": "webui",
     "path": "webui",
     "url": "http://github.com/freenas/webui.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
@@ -65,21 +65,21 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
@@ -107,14 +107,14 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/iocage/iocage.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 if PRODUCT == "TrueNAS":
