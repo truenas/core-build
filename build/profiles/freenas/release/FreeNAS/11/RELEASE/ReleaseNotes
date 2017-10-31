@@ -9,7 +9,7 @@ significant speed difference when listing a large number of snapshots or
 when deleting multiple snapshots and large files.
 
 The algorithm used for scrubs and resilvers has received many speed
-improvements which will be most noticeable on defragmented pools.
+improvements which will be most noticeable on fragmented pools.
 
 Resilver Priority has been added to Storage. This provides the ability to
 run resilvering at a higher priority at configurable times and days of the
