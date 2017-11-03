@@ -410,6 +410,7 @@ ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
 ports += "devel/git-lite"
+ports += "sysutils/zfs-stats-lite"
 # There ports are all vm related.
 ports += "www/novnc"
 ports += "www/novnc-websockify"
