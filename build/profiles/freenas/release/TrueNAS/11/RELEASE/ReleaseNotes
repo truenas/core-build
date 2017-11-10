@@ -1,8 +1,8 @@
 Base Operating System and Software
-The base operating system version for TrueNAS 11.0-U2 is FreeBSD 11-STABLE,
+The base operating system version for TrueNAS 11.0 is FreeBSD 11-STABLE,
 bringing in a number of bug fixes, performance improvements, and new
- drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4
- branch.
+drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4
+branch.
 
 Hardware Support
 Support for the TrueNAS X10 has been added. Information for racking and
@@ -22,14 +22,14 @@ and use the best path to the storage. If a TrueNAS HA node becomes
 inaccessible, the initiator automatically switches to the next best
 alternate path to the storage. ALUA can be enabled on the TrueNAS system
 by checking the "Enable iSCSI ALUA" box in Sharing -> Block (iSCSI) ->
- Target Global Configuration. 
+Target Global Configuration. 
 
 Directory Services
 An Active Directory Enable Monitoring option has been added and is disabled
- by default. When enabled, this restarts the Active Directory service after
- a temporary loss of communications with an Active Directory server.
- Previously, a loss of communications with the AD server would stop the
- Active Directory service, requiring a manual restart.
+by default. When enabled, this restarts the Active Directory service after
+a temporary loss of communications with an Active Directory server.
+Previously, a loss of communications with the AD server would stop the
+Active Directory service, requiring a manual restart.
 
 Filesharing
 Samba, used for SMB file sharing, has been updated to 4.6.4 and patched
@@ -39,7 +39,7 @@ Support for NT4 domain controllers been removed from Directory Services.
 
 Services
 An enhanced Services screen adds a checkbox to directly set which services
- start at boot.
+start at boot.
 
 The S3 service has been added, providing the ability to build hybrid and
 private S3-compatible object storage services, allowing fast access to
