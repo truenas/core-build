@@ -34,3 +34,5 @@ Ensure winmsa honors ACEs from destination directories.
 
 Prevent multiple interfaces on same VLAN.
 
+Do not display the password when using the Take Over button.
+
