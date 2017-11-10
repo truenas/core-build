@@ -22,7 +22,7 @@ TrueNAS 11.0-U5 includes the following fixes from FreeNAS:
 
 In addition, these fixes are specific to TrueNAS 11.0-U5:
 
-Don't issue an alert when when AD monitoring is disabled.
+Don't issue an alert when AD monitoring is disabled.
 
 Allow catia VFS object to be enabled independently from fruit and streams_xattr.
 
