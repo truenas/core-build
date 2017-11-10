@@ -20,7 +20,7 @@ TrueNAS 11.0-U5 includes the following fixes from FreeNAS:
 
 11.0-U4: https://bugs.freenas.org/projects/freenas/issues?query_id=430 
 
-In addition, these fixes are specific to TrueNAS 11.0-U4:
+In addition, these fixes are specific to TrueNAS 11.0-U5:
 
 Don't issue an alert when when AD monitoring is disabled.
 
