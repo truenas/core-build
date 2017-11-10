@@ -1,6 +1,6 @@
-The base operating system version for TrueNAS 11.0-U4 is FreeBSD 11-STABLE, bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
+The base operating system version for TrueNAS 11.0-U5 is FreeBSD 11-STABLE, bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
 
-TrueNAS 11.0-U4 includes the following fixes from FreeNAS:
+TrueNAS 11.0-U5 includes the following fixes from FreeNAS:
 
 11.0-RC: https://bugs.freenas.org/projects/freenas/issues?query_id=378
 
@@ -22,15 +22,15 @@ TrueNAS 11.0-U4 includes the following fixes from FreeNAS:
 
 In addition, these fixes are specific to TrueNAS 11.0-U4:
 
-Patch base operating system to address FreeBSD SA 17:06.openssh:
-https://www.freebsd.org/security/advisories/FreeBSD-SA-17:06.openssh.asc.
+Don't issue an alert when when AD monitoring is disabled.
 
-Update Samba version to 4.6.8 to address current CVEs:
-https://www.samba.org/samba/history/samba-4.6.8.html.
+Allow catia VFS object to be enabled independently from fruit and streams_xattr.
 
-Prevent the configuration of the failover lagg type on HA systems. This lagg
-type fails over too slowly for High Availability environments.
+Don't write unneeded SNMP messages to /var/log/messages.
 
-Improvements to ensure that a system automatically rejoins the Active Directory
-network after an HA failover.
+HA support for kerberized NFS.
+
+Ensure winmsa honors ACEs from destination directories.
+
+Prevent multiple interfaces on same VLAN.
 
