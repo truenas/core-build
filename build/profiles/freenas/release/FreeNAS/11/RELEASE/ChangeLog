@@ -1,3 +1,1 @@
-25810	Add missing restart_queue initialization to isp(4)
-25946	FreeBSD SA 17:06
-25950	Update Samba to address current CVEs
+26777	Samba 4.6.11 fixes for CVE-2017-14746 and CVE-2017-15275
