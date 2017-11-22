@@ -86,6 +86,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/netatalk",
+    "dest": "/usr/netatalk_src"
+}
+
+copy += {
     "source": "${BE_ROOT}/iocage",
     "dest": "/usr/iocage_src"
 }
