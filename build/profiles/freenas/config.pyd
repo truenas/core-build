@@ -63,6 +63,7 @@ kernel_modules = [
     "usb",
     "fuse",
     "vmm",
+    "netmap",
     "nmdm",
     "ntb",
     "nvdimm",
