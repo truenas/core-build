@@ -111,6 +111,13 @@ repos += {
 }
 
 repos += {
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
+    "branch": "freenas/master"
+}
+
+repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/iocage/iocage.git",
