@@ -122,7 +122,7 @@ if PRODUCT == "TrueNAS":
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "master"
+        "branch": "truenas/11.1-stable"
     }
     if env("USING_JENKINS"):
         repos += {
