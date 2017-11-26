@@ -24,11 +24,19 @@
 #
 from utils import env
 
-repos += {
-    "name": "os",
-    "path": "os",
-    "url": "https://github.com/freenas/os.git",
-    "branch": "freenas/master"
+if env("WITH_PNFS"):
+    repos += {
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
+        "branch": "freenas/11-stable-pNFS"
+}
+else:
+    repos += {
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
+        "branch": "freenas/master"
 }
 
 repos += {
@@ -99,6 +107,13 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
+    "branch": "freenas/master"
+}
+
+repos += {
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
     "branch": "freenas/master"
 }
 
