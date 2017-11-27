@@ -14,6 +14,7 @@
 26316 	Include VirtualBox in note about promiscuous mode in Guide
 26330 	Add API to get Kerberos principal
 26340 	Add location to change lagg MTU to tooltip
+26365	Ensure uniqueness by combining guest VM name with its ID number
 26386 	Be consistent when restarting NFS
 26393 	Properly detect disks and display in View Disks
 26403 	Don't send email on authorized system reboot
