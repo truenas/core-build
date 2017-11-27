@@ -1,20 +1,36 @@
-24127	Update AD and LDAP endpoints in API
-25394	Remove_ea_value() calls and its 64K limitation
-25543	Proper error messages for VMware exceptions
-25886	Ensure NFS shares networks do not overlap
-25889	Allow reporting CPU usage as a percentage
-26100	Ensure winmsa honors ACEs from destination directories
-26165	Send email when scrub finishes
-26278	Add ability to get console messages to API
-26295	More improvements to SNMP MIB
-26313	Merge in additional upstream scrub commits
-26329	Fix 11.1 Prerelease registering as a downgrade
-26343	Update iocage section of Guide
-26344	Preserve leading space in MOTD banner field
-26352	Update Netdata to 1.8.0
-26357	Report PCI UARTs to recognize serial cards
-26358	Convert Tasks:InitShutdown to Middlewared
-26372	Handle failed password attempts when logging into new UI
-26373	Middleware events for scrub/resilver progress
-26387	Fix SMART service not sending emails
-26408	Change minimum required memory to 8GB in installer
+17875 	Specify a quota per time machine backup
+17923 	Add dataset quota email notifications
+21336 	Add ability to attach smaller disk to a larger one
+23357 	Add ability to create Docker container in VM using RancherOS
+23544 	Allow up to 6 additional domains in DNS search directive
+24972 	Add transfer mode for cloud sync tasks
+25034 	Fix Intel i350 WOL bug
+25527 	Allow $ character in IPMI password
+25734 	Expose zvol state through SNMP
+25886 	Ensure NFS shares networks do not overlap
+26047 	Use certificate chain if certificate contains multiple parts
+26165 	Send email when scrub finishes
+26178 	Convert Services:TFTP to Middlewared
+26316 	Include VirtualBox in note about promiscuous mode in Guide
+26330 	Add API to get Kerberos principal
+26340 	Add location to change lagg MTU to tooltip
+26386 	Be consistent when restarting NFS
+26393 	Properly detect disks and display in View Disks
+26403 	Don't send email on authorized system reboot
+26416 	Do not traceback if volume is locked
+26470 	Allow interfaces to be selected from netcli
+26471 	Add support for CloudSync Azure backups
+26492 	Add zfs-stats command
+26498 	Fix PULL tasks for BackBlaze and Google Cloud storage
+26505 	Fix FTP traceback
+26555 	Fix traceback when creating a volume after destroying the old volume
+26557 	Only create new virtual interface if it does not exist
+26563 	Provide message when configuring a dataset fails
+26593 	Fix snmp-agent.py shebang
+26650 	Correctly report ZFS dataset quota overflows
+26661 	Fix traceback in CPU temperature graph
+26663 	Fix disk attach/detach of boot pool
+26687 	Improve performance for speculative prefetch in ZFS for misaligned reads
+26775 	Samba 4.7.3 fixes for CVE-2017-14746 and CVE-2017-15275
+26803 	Add netmap kernel module
+26834 	Do not destroy GELI metadata on failed encrypted import
