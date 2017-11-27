@@ -32,7 +32,7 @@
 26661 	Fix traceback in CPU temperature graph
 26663 	Fix disk attach/detach of boot pool
 26687 	Improve performance for speculative prefetch in ZFS for misaligned reads
-26775 	Samba 4.7.3 fixes for CVE-2017-14746 and CVE-2017-15275
+26775 	Samba fixes for CVE-2017-14746 and CVE-2017-15275
 26797	Fix error when replacing a failed disk
 26803 	Add netmap kernel module
 26834 	Do not destroy GELI metadata on failed encrypted import
