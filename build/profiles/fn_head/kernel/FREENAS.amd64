@@ -204,7 +204,6 @@ device		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
 device		cxgb			# Chelsio T3 10 Gigabit Ethernet adapter driver
 device		cxgbe			# Chelsio T4 and T5 based 1GbE/10GbE/40GbE PCIe Ethernet adapters.
 device		em			# Intel PRO/1000 Gigabit Ethernet Family
-device		igb			# Intel PRO/1000 PCIE Server Gigabit Family
 device		ix			# Intel PRO/10GbE PCIE PF Ethernet
 device		ixv			# Intel PRO/10GbE PCIE VF Ethernet
 device		ixl			# Intel XL710 40Gbe PCIE Ethernet
