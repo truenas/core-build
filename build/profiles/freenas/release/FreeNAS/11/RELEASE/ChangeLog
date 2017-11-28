@@ -38,3 +38,4 @@
 26797 	Fix error when replacing a failed disk
 26803 	Add netmap kernel module
 26834 	Do not destroy GELI metadata on failed encrypted import
+26878   Add zfs.pool.query method to create Docker VM
