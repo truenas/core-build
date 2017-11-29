@@ -15,29 +15,47 @@ Resilver Priority has been added to Storage. This provides the ability to
 run resilvering at a higher priority at configurable times and days of the
 week.
 
-SNMP:
-The SNMP MIB has many improvements, including the ability to send SNMP
-traps for new alerts. 
-
 Hardware Support:
 The hardware watchdog has been reenabled for recent firmware versions of
 AsrockRack C2750D4I. The BMC bug which required the watchdog to be
-disabled is resolved with the 00.30.00 or newer BMC firmware version. 
-
-Cloud:
-Cloud Credentials has been added to System. This can be used to provide a
-secure connection to a cloud services providers. Supported services
-include Amazon S3, Backblaze B2, and Google Cloud Storage.
-
-Cloud Sync has been added to Tasks and can be used to synchronize files or
-directories to remote cloud storage providers. 
-
-Alerts:
-The Send Test Alert button has been added to Alert Services.
+disabled is resolved with the 00.30.00 or newer BMC firmware version.
 
 IPMI:
 The Identify Light button has been added to make it easier to identify a
 system in a rack by flashing its IPMI LED light.
 
+Cloud:
+Cloud Credentials has been added to System. This can be used to provide a
+secure connection to a cloud services providers. Supported services
+include Amazon S3, Azure Blob Storage, Backblaze B2, and Google Cloud
+Storage.
+
+Cloud Sync has been added to Tasks and can be used to synchronize files or
+directories to remote cloud storage providers.
+
+VMs:
+VMs have received significant improvements, including:
+
+- support for non-US keyboards.
+- the ability to specify the NIC used by the VM as well as the MAC address
+  for the VM NIC.
+- the ability to specify the sector size used by the emulated disk.
+- the ability to edit the VNC screen resolution, select the IP address to
+  bind to, set the VNC password, and select the option to use the Web
+  version of VNC.
+- the ability to create a Docker instance based on RancherOS.
+
+Services:
+The Netdata real-time performance and monitoring system has been added.
+
+The SNMP MIB has many improvements, including the ability to send SNMP
+traps for new alerts.
+
 Time Machine:
 Support for per-backup OS X Time Machine quotas has been added.
+
+Alerts:
+The Send Test Alert button has been added to Alert Services.
+
+The complete list of features is available at
+http://doc.freenas.org/11/intro.html#new-features-in-release.
