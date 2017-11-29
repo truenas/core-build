@@ -19,6 +19,7 @@
 26393 	Properly detect disks and display in View Disks
 26403 	Don't send email on authorized system reboot
 26416 	Do not traceback if volume is locked
+26441   Add back scrub/resilver tunables
 26470 	Allow interfaces to be selected from netcli
 26471 	Add support for CloudSync Azure backups
 26492 	Add zfs-stats command
