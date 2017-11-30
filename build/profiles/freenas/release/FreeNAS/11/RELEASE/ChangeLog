@@ -42,3 +42,4 @@
 26878   Add zfs.pool.query method to create Docker VM
 26913   Fixes to address OpenSSL CVE 17:11
 26923   Fix volume creation traceback
+26936   Fix deadlock on middlewared startup
