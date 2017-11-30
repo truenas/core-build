@@ -44,3 +44,4 @@
 26923   Fix volume creation traceback
 26925   Fix List index out of Range error
 26936   Fix deadlock on middlewared startup
+26938   Remove runtime depend on GCC from grub2-efi
