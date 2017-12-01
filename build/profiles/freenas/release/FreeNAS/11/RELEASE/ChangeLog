@@ -34,6 +34,7 @@
 26661 	Fix traceback in CPU temperature graph
 26663 	Fix disk attach/detach of boot pool
 26687 	Improve performance for speculative prefetch in ZFS for misaligned reads
+26774   Fix middlewared segfault due to libzfs not being thread safe
 26775 	Samba fixes for CVE-2017-14746 and CVE-2017-15275
 26785 	Use websockets to prevent Support debug upload from timing out
 26797 	Fix error when replacing a failed disk
