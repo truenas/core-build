@@ -46,3 +46,4 @@
 26925   Fix error in volume import
 26936   Fix deadlock on middlewared startup
 26938   Remove runtime depend on GCC from grub2-efi
+26973   Fix error message when unlocking an encrypted volume 
