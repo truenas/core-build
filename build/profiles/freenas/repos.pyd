@@ -114,7 +114,7 @@ repos += {
     "name": "mdnsresponder",
     "path": "mdnsresponder",
     "url": "https://github.com/freenas/mDNSResponder.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
