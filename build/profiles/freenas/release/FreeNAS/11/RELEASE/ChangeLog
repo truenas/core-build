@@ -1,4 +1,5 @@
 12684 	Do not create an actual /nonexistent directory
+23197   Try to validate certificate before importing it
 24000 	Improve FHA locality control for NFS read/write requests
 24942 	Register mDNS on all interfaces
 26509 	Autostart at boot iocage jails that have property boot=on
