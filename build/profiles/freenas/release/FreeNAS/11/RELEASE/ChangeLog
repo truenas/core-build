@@ -4,5 +4,6 @@
 24942 	Register mDNS on all interfaces
 26509 	Autostart at boot iocage jails that have property boot=on
 26800 	Fork netatalk
+26990   Fix regression that prevented VNC connection
 26993 	Allow special characters in grub-bhyve password
 27001   Fix mDNS traceback
