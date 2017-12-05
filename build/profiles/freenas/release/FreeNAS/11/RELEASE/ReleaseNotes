@@ -50,10 +50,10 @@ VMs have received significant improvements, including:
 - the option to create a Docker instance based on RancherOS.
 
 Services
-- The Netdata real-time performance and monitoring system has been added.
+The Netdata real-time performance and monitoring system has been added.
 
-- The SNMP MIB has many improvements, including the ability to send SNMP
-  traps for new alerts.
+The SNMP MIB has many improvements, including the ability to send SNMP
+traps for new alerts.
 
 Time Machine
 Support for per-backup OS X Time Machine quotas has been added.
