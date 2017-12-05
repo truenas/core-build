@@ -1,61 +1,67 @@
-OS:
-The base operating system version for FreeNAS 11.1 is FreeBSD 11.1-STABLE,
-which brings in many bug fixes, performance improvements, updated and
-new drivers, and new features.
+We are pleased to announce the general availability of FreeNAS 11.1.  
+This release delivers many performance improvements, new and updated
+drivers, new features and enhancements, and bug fixes. FreeNAS 11.1 can
+be used and distributed free of charge, and updates are freely available.
 
-OpenZFS:
-There have been many improvements to OpenZFS. Users should notice a
-significant speed difference when listing a large number of snapshots or
-when deleting multiple snapshots and large files.
+Operating System
+FreeNAS 11.1 is based on the FreeBSD 11.1-STABLE operating system, which
+includes numerous performance improvements, new and updated drivers, new
+features, and bug fixes.
 
-The algorithm used for scrubs and resilvers has received many speed
-improvements which will be most noticeable on defragmented pools.
+OpenZFS
 
-Resilver Priority has been added to Storage. This provides the ability to
-run resilvering at a higher priority at configurable times and days of the
-week.
+OpenZFS has seen many improvements. Users will notice a significant
+speedup when listing a large number of snapshots or deleting multiple
+snapshots and large files.
 
-Hardware Support:
+The scrub and resilver algorithm implement substantial speed improvements
+which will be most noticeable on fragmented pools.
+
+Resilver Priority has been added to Storage. Resilvering, which rebuilds
+the storage array, can now be run at a higher priority at configurable
+times and days of the week.
+
+Hardware Support
 The hardware watchdog has been reenabled for recent firmware versions of
 AsrockRack C2750D4I. The BMC bug which required the watchdog to be
 disabled is resolved with the 00.30.00 or newer BMC firmware version.
 
-IPMI:
-The Identify Light button has been added to make it easier to identify a
-system in a rack by flashing its IPMI LED light.
+IPMI
+The Identify Light button has been added to identify a system in a rack
+by flashing its Unit ID light.
 
-Cloud:
-Cloud Credentials has been added to System. This can be used to provide a
-secure connection to a cloud services providers. Supported services
-include Amazon S3, Azure Blob Storage, Backblaze B2, and Google Cloud
-Storage.
+Cloud Support
+Cloud Credentials has been added to System, providing a secure connection
+with cloud service providers. Supported services include Amazon S3, Azure
+Blob Storage, Backblaze B2, and Google Cloud Storage.
 
-Cloud Sync has been added to Tasks and can be used to synchronize files or
-directories to remote cloud storage providers.
+Cloud Sync has been added to Tasks, giving the capability of synchronizing
+files or directories with remote cloud storage.
 
-VMs:
+Virtual Machines
 VMs have received significant improvements, including:
 
 - support for non-US keyboards.
-- the ability to specify the NIC used by the VM as well as the MAC address
-  for the VM NIC.
-- the ability to specify the sector size used by the emulated disk.
-- the ability to edit the VNC screen resolution, select the IP address to
-  bind to, set the VNC password, and select the option to use the Web
-  version of VNC.
-- the ability to create a Docker instance based on RancherOS.
+- selecting which NIC is used by the VM, and setting the MAC address for
+  the VM NIC.
+- specifying the sector size used by the emulated disk.
+- selecting the VNC screen resolution, the IP address to bind to, the VNC
+  password, and the option to use the Web version of VNC.
+- the option to create a Docker instance based on RancherOS.
 
-Services:
-The Netdata real-time performance and monitoring system has been added.
+Services
 
-The SNMP MIB has many improvements, including the ability to send SNMP
-traps for new alerts.
+- The Netdata real-time performance and monitoring system has been added.
 
-Time Machine:
+- The SNMP MIB has many improvements, including the ability to send SNMP
+  traps for new alerts.
+
+Time Machine
 Support for per-backup OS X Time Machine quotas has been added.
 
-Alerts:
-The Send Test Alert button has been added to Alert Services.
+Alerts
+The Send Test Alert button has been added to Alert Services, making
+testing of notification services simpler.
 
 The complete list of features is available at
 http://doc.freenas.org/11/intro.html#new-features-in-release.
