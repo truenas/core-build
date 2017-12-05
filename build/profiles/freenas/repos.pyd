@@ -111,6 +111,13 @@ repos += {
 }
 
 repos += {
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
+    "branch": "freenas/11.1-stable"
+}
+
+repos += {
     "name": "mdnsresponder",
     "path": "mdnsresponder",
     "url": "https://github.com/freenas/mDNSResponder.git",
