@@ -50,7 +50,6 @@ VMs have received significant improvements, including:
 - the option to create a Docker instance based on RancherOS.
 
 Services
-
 - The Netdata real-time performance and monitoring system has been added.
 
 - The SNMP MIB has many improvements, including the ability to send SNMP
