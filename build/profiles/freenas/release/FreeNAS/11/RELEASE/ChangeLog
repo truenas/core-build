@@ -4,6 +4,7 @@
 24000 	Improve FHA locality control for NFS read/write requests
 24942 	Register mDNS on all interfaces
 25236   Add Docker section to Guide
+25966   Update module that reports ARC Hit Ratio
 26470   Allow interfaces to be selected from netcli
 26509 	Autostart at boot iocage jails that have property boot=on
 26531   Make sure mDNS starts
