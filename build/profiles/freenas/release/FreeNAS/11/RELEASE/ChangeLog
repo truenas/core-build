@@ -1,8 +1,12 @@
 12684 	Do not create an actual /nonexistent directory
+21336   Add ability to attach smaller disk to a larger one
 23197   Try to validate certificate before importing it
 24000 	Improve FHA locality control for NFS read/write requests
 24942 	Register mDNS on all interfaces
+26470   Allow interfaces to be selected from netcli
 26509 	Autostart at boot iocage jails that have property boot=on
+26531   Make sure mDNS starts
+26663   Fix disk attach/detach of boot pool
 26800 	Fork netatalk
 26990   Fix regression that prevented VNC connection
 26993 	Allow special characters in grub-bhyve password
