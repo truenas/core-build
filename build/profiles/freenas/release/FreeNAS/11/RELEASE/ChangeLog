@@ -13,3 +13,7 @@
 26990   Fix regression that prevented VNC connection
 26993 	Allow special characters in grub-bhyve password
 27001   Fix mDNS traceback
+27088   Fix iocage logging
+27097   Avoid exception when number of maximum swap mirrors is reached
+27098   Fix destroying system datasets on migrate
+27099   Fix traceback on cloud credentials
