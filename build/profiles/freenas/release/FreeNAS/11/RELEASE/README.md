@@ -9,6 +9,7 @@ Note: All these commands must be run as `root`.
 
   * CPU: amd64-compatible 64-bit Intel or AMD CPU.
   * 16GB memory, or the equivalent in memory plus swap space
+  * at least 80GB of free disk space
 
 
 * Software
@@ -72,7 +73,20 @@ make update
 make release
 ```
 
+Clean builds take a while, not just due to operating system builds, but
+because poudriere has build all of the ports. Later builds are faster,
+only rebuilding files that need it.
+
+Use ```make clean``` to remove all built files.
+
 
 ## Results
 
-After a successful build, the results are in the _BE subdirectory.
+Built files are in the ```freenas/_BE``` subdirectory,
+```/usr/build/freenas/_BE``` in this example.
+
+ISO files: ```freenas/_BE/release/FreeNAS-11-MASTER-{date}/x64/```.
+
+Update files: ```freenas/_BE/release/```.
+
+Log files: ```freenas/_BE/objs/logs/```.
