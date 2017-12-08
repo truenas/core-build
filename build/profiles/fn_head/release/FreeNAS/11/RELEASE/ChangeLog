@@ -1,8 +1,20 @@
-#17908    Bug    Ready For Release    Expected    EFI install fails with complaint about more than one boot device
-#17904    Bug    Ready For Release    Expected    Failed to report when snapshot failed to create
-#17869    Bug    Ready For Release    Critical    Virtualbox cannot run any VMachine after upgrade to 9.10.1-U1
-#17826    Bug    Ready For Release    Critical    Errors reported during replication
-#17819    Bug    Ready For Release    Critical    iSCSI LUN ID's all set to 0
-#17809    Bug    Ready For Release    Important    GRUB needs modules specified for improved reliability
-#17789    Bug    Ready For Release    Critical    Bug from latest updates for 9.10.1 on 09/27/2016
-#17787    Bug    Ready For Release    Expected    OpenSSL Fix Use After Free for large message sizes (CVE-2016-6309)
+24127	Update AD and LDAP endpoints in API
+25394	Remove_ea_value() calls and its 64K limitation
+25543	Proper error messages for VMware exceptions
+25886	Ensure NFS shares networks do not overlap
+25889	Allow reporting CPU usage as a percentage
+26100	Ensure winmsa honors ACEs from destination directories
+26165	Send email when scrub finishes
+26278	Add ability to get console messages to API
+26295	More improvements to SNMP MIB
+26313	Merge in additional upstream scrub commits
+26329	Fix 11.1 Prerelease registering as a downgrade
+26343	Update iocage section of Guide
+26344	Preserve leading space in MOTD banner field
+26352	Update Netdata to 1.8.0
+26357	Report PCI UARTs to recognize serial cards
+26358	Convert Tasks:InitShutdown to Middlewared
+26372	Handle failed password attempts when logging into new UI
+26373	Middleware events for scrub/resilver progress
+26387	Fix SMART service not sending emails
+26408	Change minimum required memory to 8GB in installer

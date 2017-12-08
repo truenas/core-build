@@ -91,6 +91,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/mdnsresponder",
+    "dest": "/usr/mdnsresponder_src"
+}
+
+copy += {
     "source": "${BE_ROOT}/iocage",
     "dest": "/usr/iocage_src"
 }
