@@ -18,3 +18,4 @@
 27097   Avoid exception when number of maximum swap mirrors is reached
 27098   Fix destroying system datasets on migrate
 27099   Fix traceback on cloud credentials
+27124   Fixes to address OpenSSL SA 17:12
