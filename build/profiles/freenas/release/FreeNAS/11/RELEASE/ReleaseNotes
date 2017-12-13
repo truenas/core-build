@@ -24,7 +24,7 @@ times and days of the week.
 Hardware Support
 The hardware watchdog has been reenabled for recent firmware versions of
 AsrockRack C2750D4I. The BMC bug which required the watchdog to be
-disabled is resolved with the 00.30.00 or newer BMC firmware version.
+disabled is resolved with the 00.35.00 or newer BMC firmware version.
 
 IPMI
 The Identify Light button has been added to identify a system in a rack
