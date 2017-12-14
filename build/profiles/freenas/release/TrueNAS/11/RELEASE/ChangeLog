@@ -1,38 +1,7 @@
-The base operating system version for TrueNAS 11.0-U5 is FreeBSD 11-STABLE, bringing in a number of bug fixes, performance improvements, and new drivers. FreeBSD ports have been updated to follow the FreeBSD 2016Q4 branch.
+TrueNAS 11.0-U6 is a security update release which addresses the following security vulnerabilities:
 
-TrueNAS 11.0-U5 includes the following fixes from FreeNAS:
+FreeBSD Security Advisory 17:12 for OpenSSL
 
-11.0-RC: https://bugs.freenas.org/projects/freenas/issues?query_id=378
+FreeBSD Security Advisory 17:11 for OpenSSL
 
-11.0-RC2: https://bugs.freenas.org/projects/freenas/issues?query_id=379
-
-11.0-RC3: https://bugs.freenas.org/projects/freenas/issues?query_id=411
-
-11.0-RC4: https://bugs.freenas.org/projects/freenas/issues?query_id=393
-
-11.0: https://bugs.freenas.org/projects/freenas/issues?query_id=325
-
-11.0-U1: https://bugs.freenas.org/projects/freenas/issues?query_id=404
-
-11.0-U2: https://bugs.freenas.org/projects/freenas/issues?query_id=418 
-
-11.0-U3: https://bugs.freenas.org/projects/freenas/issues?query_id=419 
-
-11.0-U4: https://bugs.freenas.org/projects/freenas/issues?query_id=430 
-
-In addition, these fixes are specific to TrueNAS 11.0-U5:
-
-Don't issue an alert when AD monitoring is disabled.
-
-Allow catia VFS object to be enabled independently from fruit and streams_xattr.
-
-Don't write unneeded SNMP messages to /var/log/messages.
-
-HA support for kerberized NFS.
-
-Ensure winmsa honors ACEs from destination directories.
-
-Prevent multiple interfaces on same VLAN.
-
-Do not display the password when using the Take Over button.
-
+CVE-2017-14746 and CVE-2017-15275 for Samba
