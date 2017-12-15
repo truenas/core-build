@@ -1,7 +1,9 @@
-TrueNAS 11.0-U6 is a security update release which addresses the following security vulnerabilities:
+TrueNAS 11.0-U6 is an update release which addresses the following bugs and security vulnerabilities:
 
-FreeBSD Security Advisory 17:12 for OpenSSL
+Be consistent with NFSv3 ownership model for NFSv4.
 
-FreeBSD Security Advisory 17:11 for OpenSSL
+Address FreeBSD Security Advisory 17:12 for OpenSSL.
 
-CVE-2017-14746 and CVE-2017-15275 for Samba
+Address FreeBSD Security Advisory 17:11 for OpenSSL.
+
+Apply fixes for CVE-2017-14746 and CVE-2017-15275 for Samba.
