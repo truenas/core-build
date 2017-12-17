@@ -74,7 +74,7 @@ make release
 ```
 
 Clean builds take a while, not just due to operating system builds, but
-because poudriere has build all of the ports. Later builds are faster,
+because poudriere has to build all of the ports. Later builds are faster,
 only rebuilding files that need it.
 
 Use ```make clean``` to remove all built files.
