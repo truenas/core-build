@@ -46,6 +46,10 @@ def main(destdir):
     # Kill sources of locale files
     sh("find ${destdir}/usr/local -type f -name '*.po' -delete")
 
+    # Kill install leftover (#27013)
+    sh('rm -rf ${destdir}/var/tmp/rc.conf.frenas')
+    sh('rm -rf ${destdir}/var/tmp/freenas_config.md5')
+
     # magic.mgc is just a speed optimization
     sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
 
