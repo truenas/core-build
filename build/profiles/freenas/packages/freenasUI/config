@@ -30,6 +30,16 @@ include = /usr/local/www/freenasUI
 #		/usr/bin/yes | /usr/local/bin/python \
 #		            /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
 
+
+pre-upgrade = 
+	# Out of order migration, see #27607
+	if [ "${CURRENT_VERSION}" = "TrueNAS-11.0-U6" ]; then
+		mkdir -p /data/sentinels
+		/usr/local/bin/sqlite3 /data/freenas-v1.db "SELECT gc_hostname_virtual FROM network_globalconfiguration" > /data/sentinels/gc_hostname_virtual_out_of_order
+		/usr/local/bin/sqlite3 /data/freenas-v1.db "DELETE FROM django_migrations WHERE name = '0007_globalconfiguration_gc_hostname_virtual'"
+	fi
+
+
 post-upgrade = 
 	KV="$(uname -K)" || KV=0
         if [ "${KV}" -lt 1100000 ]; then
