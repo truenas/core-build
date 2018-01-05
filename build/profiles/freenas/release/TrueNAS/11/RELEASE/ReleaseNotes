@@ -7,7 +7,6 @@ includes numerous performance improvements, new and updated drivers, new
 features, and bug fixes.
 
 OpenZFS
-
 OpenZFS has seen many improvements. Users will notice a significant
 speedup when listing a large number of snapshots or deleting multiple
 snapshots and large files.
