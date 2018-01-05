@@ -1,0 +1,37 @@
+TrueNAS 11.1-RELEASE delivers many performance improvements, new and
+updated drivers, new features and enhancements, and bug fixes.
+
+Operating System
+TrueNAS 11.1 is based on the FreeBSD 11.1-STABLE operating system, which
+includes numerous performance improvements, new and updated drivers, new
+features, and bug fixes.
+
+OpenZFS
+
+OpenZFS has seen many improvements. Users will notice a significant
+speedup when listing a large number of snapshots or deleting multiple
+snapshots and large files.
+
+The scrub and resilver algorithm implement substantial speed improvements
+which will be most noticeable on fragmented pools.
+
+Resilver Priority has been added to Storage. Resilvering, which rebuilds
+the storage array, can now be run at a higher priority at configurable
+times and days of the week.
+
+IPMI
+The Identify Light button has been added to identify a system in a rack
+by flashing its Unit ID light.
+
+Services
+The Netdata real-time performance and monitoring system has been added.
+
+The SNMP MIB has many improvements, including the ability to send SNMP
+traps for new alerts.
+
+Time Machine
+Support for per-backup OS X Time Machine quotas has been added.
+
+Alerts
+The Send Test Alert button has been added to Alert Services, making
+testing of notification services simpler.
