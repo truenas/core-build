@@ -34,4 +34,4 @@ Generate an alert when passive node is unreachable via failover interface.
 
 Don't allow failed passive node to take active node's IP address.
 
-Rename factory restore button.
+Rename Factory Restore button to Reset Configuration Defaults.
