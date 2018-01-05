@@ -1,0 +1,37 @@
+TrueNAS 11.1 includes the Changelogs listed at https://www.ixsystems.com/blog/library/freenas-11-1-release/.
+
+Additionally, these bug fixes and features are specific to TrueNAS 11.1:
+
+Wait for passive node to stabilize before turning HA icon green.
+
+Display correct number of drive slots.
+
+Generate an alert when the number of connected JBODs exceeds the license.
+
+Display serial number of second HA node in System Information.
+
+Validate VIP when set using netcli.
+
+Add critical alert if USB stick is detected in X10.
+
+Add System Serial and System Product fields to System -> Information.
+
+Warn before deleting a pool that is required for HA to function.
+
+Move View Enclosure from Storage -> Volumes to System.
+
+Force FC ports to N-Port mode.
+
+Email notifications at 14, 30, 90, and 180 days before support contract expiration and at support contract expiration.
+
+Status View for Contracts.
+
+Don't try to send email when no email address is set for root.
+
+Disable space reservation for VAAI for NFS.
+
+Generate an alert when passive node is unreachable via failover interface.
+
+Don't allow failed passive node to take active node's IP address.
+
+Rename factory restore button.
