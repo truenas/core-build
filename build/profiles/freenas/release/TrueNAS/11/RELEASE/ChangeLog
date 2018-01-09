@@ -1,6 +1,6 @@
-TrueNAS 11.1 includes the Changelogs listed at https://www.ixsystems.com/blog/library/freenas-11-1-release/.
+TrueNAS 11.1-U1 includes the Changelogs listed at https://www.ixsystems.com/blog/library/freenas-11-1-release/.
 
-Additionally, these bug fixes and features are specific to TrueNAS 11.1:
+Additionally, these bug fixes and features are specific to TrueNAS 11.1-U1:
 
 Wait for passive node to stabilize before turning HA icon green.
 
@@ -35,3 +35,5 @@ Generate an alert when passive node is unreachable via failover interface.
 Don't allow failed passive node to take active node's IP address.
 
 Rename Factory Restore button to Reset Configuration Defaults.
+
+Do not auto-fill root account at login prompt.
