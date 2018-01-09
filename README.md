@@ -73,6 +73,14 @@ make update
 make release
 ```
 
+To build the SDK version:
+
+```
+make update
+make release BUILD_SDK=yes
+```
+
+
 Clean builds take a while, not just due to operating system builds, but
 because poudriere has to build all of the ports. Later builds are faster,
 only rebuilding files that need it.
