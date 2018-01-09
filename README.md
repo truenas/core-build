@@ -27,7 +27,7 @@ Note: All these commands must be run as `root`.
       ```
 
     ```textproc/py-sphinx_numfig``` must be installed from ports as there
-    is no package for it:
+    is no package for it. This requires the ports tree to be installed:
 
     * ```make -C /usr/ports/textproc/py-sphinx_numfig install clean```
 
