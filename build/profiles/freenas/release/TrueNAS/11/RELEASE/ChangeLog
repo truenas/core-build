@@ -16,13 +16,15 @@ Add critical alert if USB stick is detected in X10.
 
 Add System Serial and System Product fields to System -> Information.
 
-Warn before deleting a pool that is required for HA to function.
+Indicate that you cannot destroy or detach a volume when failover is
+enabled and warn before deleting a pool that is required for HA to function.
 
 Move View Enclosure from Storage -> Volumes to System.
 
 Force FC ports to N-Port mode.
 
-Email notifications at 14, 30, 90, and 180 days before support contract expiration and at support contract expiration.
+Email notifications at 14, 30, 90, and 180 days before support contract
+expiration and at support contract expiration.
 
 Status View for Contracts.
 
