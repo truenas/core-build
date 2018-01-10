@@ -131,6 +131,13 @@ repos += {
     "branch": "master"
 }
 
+repos += {
+    "name": "libsunacl",
+    "path": "libsunacl",
+    "url": "https://github.com/freenas/libsunacl.git",
+    "branch": "freenas/master"
+}
+
 if PRODUCT == "TrueNAS":
     repos += {
         "name": "truenas",
