@@ -100,6 +100,11 @@ copy += {
     "dest": "/usr/iocage_src"
 }
 
+copy += {
+    "source": "${BE_ROOT}/libsunacl",
+    "dest": "/usr/libsunacl_src"
+}
+
 if PRODUCT == "TrueNAS":
     copy += {
         "source": "${BE_ROOT}/truenas",
