@@ -6,7 +6,6 @@
 26776 Remove obsolete patch from Samba 4.7
 26831 Revert using external Parse::Pidl
 26899 Improve VM shutdown and add Power Off button
-26994 vfs_objects being dropped while upgrading from 9.10-U1 to 11.0-U4 yielding windows error "The Parameter is incorrect"
 27013 Fix "ConnectionRefusedError Errno 61"
 27023 Convert vfs.zfs.arc_max from loader to sysctl tunable
 27063 Fix typo in "quota exceeded" alert
