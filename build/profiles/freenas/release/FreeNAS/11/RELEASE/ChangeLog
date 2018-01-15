@@ -37,6 +37,7 @@
 27496 Fix for alert emails being improperly addressed
 27512 Fix permissions on user's SSH directory when creating the user account
 27524 Fix panic on resilver or scrub
+27531 Fix CPU temperatures scale used by Reporting
 27582 Fix SMART schedule that exceeds MAXLINELEN
 27655 Fix setting vnet while a jail is running
 27666 Fixes related to jails for volume unlock
