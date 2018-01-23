@@ -63,6 +63,7 @@ kernel_modules = [
     "usb",
     "fuse",
     "vmm",
+    "netmap",
     "nmdm",
     "ntb",
     "nvdimm",
@@ -73,7 +74,6 @@ kernel_modules = [
     "hwpmc",
     "ipoib",
     "mlx4ib",
-    "mthca",
 ]
 
 if PRODUCT == "TrueNAS":
@@ -94,10 +94,8 @@ make_conf_build = {
     "WITHOUT_BSDINSTALL":           "yes",
     "WITHOUT_BSNMP":                "yes",
     "WITHOUT_CALENDAR":             "yes",
-    "WITHOUT_CLANG_FULL":           "yes",
     "WITHOUT_CTM":                  "yes",
     "WITHOUT_CUSE":                 "yes",
-    "WITHOUT_DEBUG_FILES":          "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_FORTRAN":              "yes",
     "WITHOUT_FREEBSD_UPDATE":       "yes",
@@ -117,7 +115,6 @@ make_conf_build = {
     "WITH_OPENSSH_NONE_CIPHER":     "yes",
     "WITHOUT_PC_SYSINSTALL":        "yes",
     "WITHOUT_PPP":                  "yes",
-    "WITHOUT_PROFILE":              "yes",
     "WITHOUT_RCMDS":                "yes",
     "WITHOUT_SENDMAIL":             "yes",
     "WITHOUT_SVNLITE":              "yes",
@@ -143,10 +140,7 @@ make_conf_pkg = {
 }
 
 make_conf_run = {
-    "WITHOUT_INSTALLLIB":           "yes",
-    "WITHOUT_KERNEL_SYMBOLS":       "yes",
     "WITHOUT_RCS":                  "yes",
-    "WITHOUT_TOOLCHAIN":            "yes",
 }
 
 make_conf_boot = {
@@ -162,12 +156,9 @@ make_conf_boot = {
     "WITHOUT_LOCALES":              "yes",
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_MAIL":                 "yes",
-    "WITHOUT_MAKE":                 "yes",
-    "WITHOUT_MAN":                  "yes",
     "WITHOUT_NIS":                  "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
-    "WITHOUT_PROFILE":              "yes",
     "WITHOUT_SYSCONS":              "yes",
     "WITHOUT_VT":                   "yes",
 }
@@ -176,12 +167,40 @@ early_customize_tasks = [
     "write-version"
 ]
 
-customize_tasks = [
-    "remove-bits",
-    "remove-var-cache-pkg",
-    "remove-non-amd64",
-    "conf-base",
-    "link-bash",
-    "login-conf",
-    "install-avatar-conf"
-]
+# If not doing a SDK build
+if SDK == "no":
+    temp_dict = {
+        "WITHOUT_CLANG_FULL":           "yes",
+        "WITHOUT_DEBUG_FILES":          "yes",
+        "WITHOUT_PROFILE":              "yes",
+    }
+    make_conf_build.update(temp_dict)
+    temp_dict = {
+        "WITHOUT_KERNEL_SYMBOLS":       "yes",
+        "WITHOUT_TOOLCHAIN":            "yes",
+        "WITHOUT_INSTALLLIB":           "yes",
+    }
+    make_conf_run.update(temp_dict)
+    temp_dict = {
+         "WITHOUT_MAKE":                 "yes",
+         "WITHOUT_MAN":                  "yes",
+         "WITHOUT_PROFILE":              "yes",
+    }
+    make_conf_boot.update(temp_dict)
+    customize_tasks = [
+         "remove-bits",
+         "remove-var-cache-pkg",
+         "remove-non-amd64",
+         "conf-base",
+         "link-bash",
+         "login-conf",
+         "install-avatar-conf"
+    ]
+else:
+    customize_tasks = [
+         "remove-var-cache-pkg",
+         "conf-base",
+         "link-bash",
+         "login-conf",
+         "install-avatar-conf"
+    ]

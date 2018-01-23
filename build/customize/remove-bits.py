@@ -28,10 +28,43 @@
 
 
 import sys
-from utils import sh
+from utils import sh, e, info
 
 
 def main(destdir):
+    # Kill docs
+    sh('rm -rf ${destdir}/usr/local/share/doc')
+    sh('rm -rf ${destdir}/usr/local/share/gtk-doc')
+
+    # Kill gobject introspection xml
+    sh('rm -rf ${destdir}/usr/local/share/git-1.0')
+
+    # Kill examples
+    sh('rm -rf ${destdir}/usr/local/share/examples')
+    sh('rm -rf ${destdir}/usr/share/me')
+
+    # Kill sources of locale files
+    sh("find ${destdir}/usr/local -type f -name '*.po' -delete")
+
+    # Kill install leftover (#27013)
+    sh('rm -rf ${destdir}/var/tmp/rc.conf.frenas')
+    sh('rm -rf ${destdir}/var/tmp/freenas_config.md5')
+
+    # magic.mgc is just a speed optimization
+    sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
+
+    # If we are doing SDK build, we can stop here
+    if e('${SDK}') == "yes":
+        info('SDK: Skipping remove-bits...')
+        return 0
+
+    # Kill static libraries
+    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
+    sh("rm -rf ${destdir}/usr/lib/*.a")
+
+    # Kill info
+    sh('rm -rf ${destdir}/usr/local/info')
+
     # Kill .pyo files
     sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
 
@@ -40,31 +73,6 @@ def main(destdir):
 
     # Kill includes
     sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
-
-    # Kill docs
-    sh('rm -rf ${destdir}/usr/local/share/doc')
-    sh('rm -rf ${destdir}/usr/local/share/gtk-doc')
-
-    # Kill gobject introspection xml
-    sh('rm -rf ${destdir}/usr/local/share/git-1.0')
-
-    # Kill info
-    sh('rm -rf ${destdir}/usr/local/info')
-
-    # Kill examples
-    sh('rm -rf ${destdir}/usr/local/share/examples')
-
-    sh('rm -rf ${destdir}/usr/share/me')
-
-    # Kill static libraries
-    sh("find ${destdir}/usr/local \( -name '*.a' -or -name '*.la' \) -delete")
-
-    # Kill sources of locale files
-    sh("find ${destdir}/usr/local -type f -name '*.po' -delete")
-
-    # magic.mgc is just a speed optimization
-    sh('rm -f ${destdir}/usr/share/misc/magic.mgc')
-
 
 if __name__ == '__main__':
     main(sys.argv[1])

@@ -75,6 +75,8 @@ GIT_REF_PATH ?= /build/gitrefs
 .export MK
 
 .export PROFILE
+.export SDK
+.export BUILD_SDK
 
 .export GIT_REPO_SETTING
 .export GIT_LOCATION

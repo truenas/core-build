@@ -24,11 +24,19 @@
 #
 from utils import env
 
-repos += {
-    "name": "os",
-    "path": "os",
-    "url": "https://github.com/freenas/os.git",
-    "branch": "freenas/11-stable"
+if env("WITH_PNFS"):
+    repos += {
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
+        "branch": "freenas/11-stable-pNFS"
+}
+else:
+    repos += {
+        "name": "os",
+        "path": "os",
+        "url": "https://github.com/freenas/os.git",
+        "branch": "freenas/11-stable"
 }
 
 repos += {
@@ -57,7 +65,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/2016Q4"
+    "branch": "freenas/master"
 }
 
 repos += {
@@ -100,6 +108,27 @@ repos += {
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
     "branch": "freenas/master"
+}
+
+repos += {
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
+    "branch": "freenas/master"
+}
+
+repos += {
+    "name": "mdnsresponder",
+    "path": "mdnsresponder",
+    "url": "https://github.com/freenas/mDNSResponder.git",
+    "branch": "freenas/master"
+}
+
+repos += {
+    "name": "iocage",
+    "path": "iocage",
+    "url": "https://github.com/iocage/iocage.git",
+    "branch": "master"
 }
 
 if PRODUCT == "TrueNAS":

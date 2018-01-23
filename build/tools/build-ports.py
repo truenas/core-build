@@ -208,12 +208,17 @@ def cleanup_env():
             poudriere_proc.wait()
         except OSError:
             info('Cannot kill poudriere, it has probably already terminated')
-        
+
     if e('${USE_ZFS}'):
         info('Cleaning jail clean snaspshot')
         sh('zfs destroy -r ${ZPOOL}${ZROOTFS}/jail@clean')
 
     info('Unmounting ports overlay...')
+
+    if e("${SDK}") == "yes":
+        info('SDK: Saving copy of ports tree...')
+        sh('tar cJf ${BE_ROOT}/ports.txz --exclude .git -C ${PORTS_OVERLAY} .')
+
     sh('rm -rf ${PORTS_OVERLAY}')
     for cmd in jailconf.get('link', []):
         sh('umount -f', cmd['source'])

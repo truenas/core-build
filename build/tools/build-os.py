@@ -50,7 +50,7 @@ def calculate_make_jobs():
     if not jobs:
         makejobs = 2
 
-    makejobs = 2 * int(jobs) + 1
+    makejobs = os.environ.get("BUILDWORLD_JOBS", 2 * int(jobs) + 1)
     debug('Using {0} make jobs', makejobs)
 
 
@@ -177,6 +177,11 @@ def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
         "MODULES_OVERRIDE='{0}'".format(modules),
         log=log
     )
+
+    # Saving the SDK sources
+    if e('${SDK}') == "yes":
+        info('SDK: Saving FreeBSD sources to src.txz...')
+        sh('tar cJf ${BE_ROOT}/src.txz --exclude .git -C ${OS_ROOT} .')
 
 
 calculate_make_jobs()

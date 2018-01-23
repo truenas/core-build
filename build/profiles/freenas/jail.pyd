@@ -85,6 +85,21 @@ copy += {
     "dest": "/usr/samba_src"
 }
 
+copy += {
+    "source": "${BE_ROOT}/netatalk",
+    "dest": "/usr/netatalk_src"
+}
+
+copy += {
+    "source": "${BE_ROOT}/mdnsresponder",
+    "dest": "/usr/mdnsresponder_src"
+}
+
+copy += {
+    "source": "${BE_ROOT}/iocage",
+    "dest": "/usr/iocage_src"
+}
+
 if PRODUCT == "TrueNAS":
     copy += {
         "source": "${BE_ROOT}/truenas",

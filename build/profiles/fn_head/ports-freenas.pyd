@@ -28,11 +28,13 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
-freenas_webui_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count -- webui/") \
-    if exists("${BE_ROOT}/freenas") \
+webui_git_rev = sh("git -C ${BE_ROOT}/webui rev-list HEAD --count") \
+    if exists("${BE_ROOT}/webui") \
     else "0"
 
-
+iocage_git_rev = sh("git -C ${BE_ROOT}/iocage rev-list HEAD --count") \
+    if exists("${BE_ROOT}/iocage") \
+    else "0"
 
 ports += {
     "name": "freenas/freenas-files",
@@ -93,9 +95,20 @@ ports += {
         "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + freenas_webui_git_rev
+        "REVISION=" + webui_git_rev
     ]
 }
+
+ports += {
+    "name": "sysutils/py3-iocage",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+        "REVISION=" + iocage_git_rev
+    ]
+}
+
 
 
 ports += {
@@ -146,8 +159,7 @@ ports += {
 #}
 
 dedicated_repo_ports = [
-    "py-libzfs", "py-licenselib",
-    "py-bsd", "freenas-pkgtools",
+    "py-licenselib", "py-bsd", "freenas-pkgtools",
 ]
 
 for iter_port in dedicated_repo_ports:

@@ -66,6 +66,12 @@ def umount_packages():
     sh('umount -f ${WORLD_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
+    # If doing a SDK build, we can nuke the local.conf and enable FreeBSD pkg
+    if e('${SDK}') == "yes":
+        info('SDK: Enabling pkgng repo')
+        sh('sed -i "" "s|: no|: yes|g" ${WORLD_DESTDIR}/usr/local/etc/pkg/repos/FreeBSD.conf')
+        sh('rm ${WORLD_DESTDIR}/usr/local/etc/pkg/repos/local.conf')
+
 
 def create_pkgng_configuration():
     sh('mkdir -p ${WORLD_DESTDIR}/usr/local/etc/pkg/repos')
@@ -82,6 +88,14 @@ def install_ports():
 
     if not os.path.isdir(e('${WORLD_DESTDIR}/data')) or err != 0:
         error('Packages installation failed, see log file {0}', logfile)
+
+    # If we are SDK'ing lets save the ports.txz file
+    if e('${SDK}') == "yes":
+        sh('mkdir -p ${WORLD_DESTDIR}/sdk')
+        info('Saving ports.txz to /sdk/')
+        sh('cp ${BE_ROOT}/ports.txz ${WORLD_DESTDIR}/sdk/ports.txz')
+        info('Saving src.txz to /sdk/')
+        sh('cp ${BE_ROOT}/src.txz ${WORLD_DESTDIR}/sdk/src.txz')
 
 
 def install_binary_packages():

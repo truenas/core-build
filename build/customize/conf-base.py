@@ -56,7 +56,6 @@ def main():
     sh('ln -s /var/tmp/.rnd ${WORLD_DESTDIR}/.rnd')
     sh('touch ${WORLD_DESTDIR}/conf/base/var/tmp/.rnd')
 
-    sh('ln -s -f /data/zfs/zpool.cache ${WORLD_DESTDIR}/boot/zfs/zpool.cache')
     sh('ln -s -f /usr/local/bin/ntfs-3g ${WORLD_DESTDIR}/sbin/mount_ntfs')
 
 
