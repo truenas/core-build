@@ -35,7 +35,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "feature/bsdloader"
+    "branch": "master"
 }
 
 repos += {

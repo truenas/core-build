@@ -445,7 +445,9 @@ ports += {
 }
 
 ports += "sysutils/nomad"
+ports += "sysutils/py-nomad"
 ports += "sysutils/consul"
+ports += "sysutils/py-consul"
 ports += "sysutils/consul-alerts"
 ports += "sysutils/ipfs-go"
 ports += "security/vault"
