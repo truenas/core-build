@@ -38,13 +38,13 @@ post-upgrade =
         fi
 	 /usr/bin/touch /boot/kernel/linker.hints
 	     /usr/bin/touch /boot/modules/linker.hints
-	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
+	if [ -c /dev/null ]; then
 	   for disk in $(sysctl -n kern.disks); do
-	       if gpart show ${disk} | grep -q bios-boot; then
-	       	   /usr/local/sbin/grub-install --modules="zfs part_gpt" /dev/${disk}
-	       elif /bin/kenv | fgrep -q 'grub.platform="efi"' && gpart show ${disk} | grep -q efi; then
+	       if gpart show ${disk} | grep -q freebsd-boot; then
+		   gpart bootcode bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 /dev/${disk}
+	       elif sysctl -n machdep.bootmethod | fgrep -q "EFI" && gpart show ${disk} | grep -q efi; then
 		   if mount -t msdosfs /dev/${disk}p1 /boot/efi; then
-		       /usr/local/sbin/grub-install --efi-directory=/boot/efi --modules='zfs part_gpt efi_gop' --removable --target=x86_64-efi /dev/${disk}
+		       cp /boot/boot1.efi /boot/efi/efi/boot/BOOTx64.efi
 		       umount -f /boot/efi
 		   fi
 	       fi
