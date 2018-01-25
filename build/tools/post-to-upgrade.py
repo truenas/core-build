@@ -46,11 +46,11 @@ def main():
     changelog = e('${CHANGELOG}')
     info('Using ChangeLog: {0}', changelog)
     ssh = e('${UPDATE_USER}@${UPDATE_HOST}')
-    sshopts = '-o SendEnv={KEY_PASSWORD} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+    sshopts = '-o SendEnv=KEY_PASSWORD -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     temp_dest = sh_str("ssh ${ssh} ${sshopts} mktemp -d /tmp/update-${PRODUCT}-XXXXXXXXX")
     temp_changelog = sh_str("ssh ${ssh} ${sshopts} mktemp /tmp/changelog-XXXXXXXXX")
     delta_count = e('${DELTAS}')
-
+    
     if not temp_dest or not temp_changelog:
         error('Failed to create temporary directories on {0}', ssh)
 
