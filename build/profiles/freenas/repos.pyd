@@ -36,7 +36,7 @@ else:
         "name": "os",
         "path": "os",
         "url": "https://github.com/freenas/os.git",
-        "branch": "freenas/11.1-stable"
+        "branch": "freenas/11-stable"
 }
 
 repos += {
