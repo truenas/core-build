@@ -24,15 +24,15 @@
 #
 
 
-freenas_git_rev = sh("git -C ${BE_ROOT}/freenas rev-list HEAD --count") \
+freenas_git_rev = sh("git -C ${BE_ROOT}/freenas log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
-webui_git_rev = sh("git -C ${BE_ROOT}/webui rev-list HEAD --count") \
+webui_git_rev = sh("git -C ${BE_ROOT}/webui log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/webui") \
     else "0"
 
-iocage_git_rev = sh("git -C ${BE_ROOT}/iocage rev-list HEAD --count") \
+iocage_git_rev = sh("git -C ${BE_ROOT}/iocage log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/iocage") \
     else "0"
 
@@ -57,7 +57,7 @@ ports += {
 }
 
 if PRODUCT == "TrueNAS":
-    truenas_git_rev = sh("git -C ${BE_ROOT}/truenas rev-list HEAD --count") \
+    truenas_git_rev = sh("git -C ${BE_ROOT}/truenas log -1 --pretty=format:%ct") \
         if exists("${BE_ROOT}/truenas") \
         else "0"
     ports += {
@@ -163,7 +163,7 @@ dedicated_repo_ports = [
 ]
 
 for iter_port in dedicated_repo_ports:
-    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} rev-list HEAD --count".format(iter_port)) \
+    iter_port_git_rev = sh("git -C ${BE_ROOT}/{0} log -1 --pretty=format:%ct".format(iter_port)) \
         if exists("${BE_ROOT}/{0}".format(iter_port)) \
         else "0"
 
