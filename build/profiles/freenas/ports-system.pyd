@@ -287,6 +287,7 @@ ports += {
         "OPTIONS_FILE_SET+=PAM",
         "OPTIONS_FILE_SET+=ACL",
         "OPTIONS_FILE_SET+=KERBEROS",
+        "OPTIONS_FILE_SET+=DBUS",
         "OPTIONS_FILE_SET+=LDAP",
         "OPTIONS_FILE_SET+=KRB5",
         "OPTIONS_FILE_SET+=SENDFILE",
