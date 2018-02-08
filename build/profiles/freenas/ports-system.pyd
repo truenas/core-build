@@ -23,7 +23,7 @@
 # SUCH DAMAGE.
 #
 
-samba_git_rev = sh("git -C ${BE_ROOT}/samba rev-list HEAD --count") if exists("${BE_ROOT}/samba") else "0"
+samba_git_rev = sh("git -C ${BE_ROOT}/samba log -1 --pretty=format:%ct") if exists("${BE_ROOT}/samba") else "0"
 
 ports += {
     "name": "ports-mgmt/pkg",
