@@ -65,7 +65,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/master"
+    "branch": "freenas/master-fn-head"
 }
 
 repos += {
