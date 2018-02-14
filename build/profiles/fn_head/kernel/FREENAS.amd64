@@ -294,9 +294,10 @@ device		crypto			# Required by IPSEC
 ## FreeNAS shared modifications
 options		GEOM_UZIP
 options		GEOM_ELI
-options		NULLFS
-options		UNIONFS
-options		TMPFS			#Efficient memory filesystem
+options 	FDESCFS			# File descriptor filesystem
+options 	NULLFS			# NULL filesystem
+options 	UNIONFS			# Union filesystem
+options 	TMPFS			# Efficient memory filesystem
 options		ISP_TARGET_MODE		# Qlogic FC target mode
 options		COMPAT_LINUXKPI
 device		zfs
