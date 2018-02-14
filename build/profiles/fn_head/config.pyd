@@ -43,7 +43,6 @@ kernel_modules = [
     "cc",
     "dtrace",
     "ext2fs",
-    "fdescfs",
     "geom",
     "i2c",
     "ipmi",
