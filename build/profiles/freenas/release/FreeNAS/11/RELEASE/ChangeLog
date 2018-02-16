@@ -1,50 +1,39 @@
-17875 Specify a quota per time machine backup
-25949 Allow access to ZFS snapshots over SMB
-26039 Properly handle "replace inherited permissions with non-inherited ones"
-26355 Fix freenas.json for newer versions of consul
-26625 Update smartmontools to version 6.6
-26776 Remove obsolete patch from Samba 4.7
-26831 Revert using external Parse::Pidl
-26899 Improve VM shutdown and add Power Off button
-27013 Fix "ConnectionRefusedError Errno 61"
-27023 Convert vfs.zfs.arc_max from loader to sysctl tunable
-27063 Fix typo in "quota exceeded" alert
-27131 Additional patches for AMD Ryzen support
-27234 Update dojo version link in old UI to flush browser cache
-27239 Rename factory restore button
-27253 Update iocage Makefile with required dependency
-27265 Update forum information in Guide
-27268 Fix Update option of console menu
-27270 Fix memory leak
-27276 Fix GUI display on Internet Explorer 11
-27284 Prevent queueing of repeated cloud sync jobs
-27286 Indicate when cloud sync credentials are invalid
-27292 Add example of how to check for pending updates to API documentation
-27298 Fix CPU spike by using middlewared to get alerts for consul health check and consecutive event subscription
-27299 Fix link to Netdata service
-27306 Be less verbose with libiocage progress reporting
-27334 Pass SNMP Auxiliary parameters values to running configuration
-27346 Fix traceback when there are too many swap mirrors
-27349 Relax the minimum amount of memory for a VM guest to 256M
-27356 Update memory type used by Reporting memory graphs
-27383 Disable consul update check
-27387 Update operating system device choices and sizes in Guide
-27394 Fix traceback on first boot related to iocage
-27403 Update guidelines on RAM requirements in Guide
-27407 Set proper certificate expire time when signing CSR
-27417 Support Fibre Channel loop mode
-27441 Remove recommendations for SMB min/max protocols in Guide
-27496 Fix for alert emails being improperly addressed
-27512 Fix permissions on user's SSH directory when creating the user account
-27524 Fix panic on resilver or scrub
-27531 Fix CPU temperatures scale used by Reporting
-27582 Fix SMART schedule that exceeds MAXLINELEN
-27655 Fix setting vnet while a jail is running
-27666 Fixes related to jails for volume unlock
-27675 Document "Use all disk space" in Guide
-27701 Clarify "use all disk space" tooltip wording when mirroring boot devices
-27740 Fix race condition on django using middleware client
-27757 Update RancherOS to 1.1.3
-27773 Fix livelock in  in sequential scrub
-27783 Add instructions for importing encrypted disks with a saved configuration to the Guide
-27814 Authenticate requests from  loopback network
+26994	Add zfs_space and zfsacl as default modules to VFS objects
+27334	Pass SNMP Auxiliary parameters values to running configuration
+27516	Only run savecore in unused partitions
+27534	Fix iocage traceback when configuration is missing
+27674	Fix race condition in aac(4) driver 
+27758	Add 1920x1200 and 1600x1200 to VNC resolution list
+27795	Remove dead link to pcbsd.org in "Upload Plugin" UI dialog
+27811	Update Midnight Commander to 4.8.20
+27834	Fix the attachment of boot mirror devices
+27860	Display proper error message when mirroring boot device fails due to target device size being too small
+27861	Return an error when the downloaded RancherOS image has a checksum problem
+27863	Add -B to freenas-debug to dump the configuration database to a text file
+27874	Bump the copyright year in the old UI
+27885	Allow VM Network Interface to use an MTU over 1500
+27888	Fix ix-inadyn not being called on service update
+27906	Remove System Update from Console Menu
+27924	Be more strict about nfsd virtual host names
+27930	Fix erroneous "Not ran since boot" message when replication task deleted
+27971	Add Sync option to Create Dataset and Create zvol
+28035	Add APIs to restart-httpd and restart-httpd-all
+28115	Remove 1280x960 from VNC resolution list
+28127	Enable providing afpstats via D-Bus interface
+2813	Fix error that prevented proper deletion of boot environment
+28187	Send email notification when a new update is available
+28201	Fix queue length reporting in mps(4) and mpr(4)
+28210	Run boot.attach as a job
+28230	Don't recreate grub.cfg everytime a Docker VM is launched
+28235	Bump default number of chain frames for mps(4) and mpr(4)
+28247	Set the default value of scrub delay to 4 and resilver delay to 2
+28369	If system has a serial number, display it in System -> Information 
+28377	Update ixl(4) driver
+28383	Use the default route interface for the auto-created NIC VM
+28400	Workaround to start smartd when there is NVMe present
+28413	Spelling fixes for netcli
+28462	When changing the MTU of a LAGG, use the lowest value supported by all LAGG members
+28491	Fix regression in Samba xattr handling
+28505	Fix submitting tickets through Support tab
+28512	Update DDNS screenshot and text in Guide
+28518	Set permissions correctly on user's home directory
