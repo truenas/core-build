@@ -17,6 +17,7 @@
 27924	Be more strict about nfsd virtual host names
 27930	Fix erroneous "Not ran since boot" message when replication task deleted
 27971	Add Sync option to Create Dataset and Create zvol
+28021 Add NTP info and per-process memory usage to system output of freenas-debug
 28035	Add APIs to restart-httpd and restart-httpd-all
 28115	Remove 1280x960 from VNC resolution list
 28127	Enable providing afpstats via D-Bus interface
