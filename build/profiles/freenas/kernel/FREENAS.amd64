@@ -87,7 +87,6 @@ options 	KDB_TRACE		# Print a stack trace for a panic.
 
 # Make an SMP-capable kernel by default
 options 	SMP			# Symmetric MultiProcessor Kernel
-options 	DEVICE_NUMA		# I/O Device Affinity
 options 	EARLY_AP_STARTUP
 
 # CPU frequency control
@@ -204,13 +203,13 @@ device		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
 device		cxgb			# Chelsio T3 10 Gigabit Ethernet adapter driver
 device		cxgbe			# Chelsio T4 and T5 based 1GbE/10GbE/40GbE PCIe Ethernet adapters.
 device		em			# Intel PRO/1000 Gigabit Ethernet Family
-device		igb			# Intel PRO/1000 PCIE Server Gigabit Family
 device		ix			# Intel PRO/10GbE PCIE PF Ethernet
 device		ixv			# Intel PRO/10GbE PCIE VF Ethernet
 device		ixl			# Intel XL710 40Gbe PCIE Ethernet
 device		ixlv			# Intel XL710 40Gbe VF PCIE Ethernet
 device		le			# AMD Am7900 LANCE and Am79C9xx PCnet
-device		mlxen			# Mellanox ConnectX HCA Ethernet
+device		mlx4			# Mellanox ConnectX common code
+device		mlx4en			# Mellanox ConnectX HCA Ethernet
 device		mlx5			# Mellanox ConnectX-4 common code
 device		mlx5en			# Mellanox ConnectX-4 Series
 device		mxge			# Myricom Myri10GE 10 Gigabit Ethernet adapter driver
