@@ -85,7 +85,7 @@ ports += "security/cyrus-sasl2-gssapi"
 ports += {
     "name": "net/openldap24-sasl-client",
     "options": [
-        "WITH_OPENSSL_PORT=y",
+        "DEFAULT_VERSIONS+=ssl=base",
         "OPTIONS_FILE_SET+=GSSAPI"
     ]
 }
@@ -104,8 +104,7 @@ ports += "net/smbldap-tools"
 ports += {
     "name": "security/openssh-portable",
     "options": [
-        "OPTIONS_FILE_SET+=HEIMDAL_BASE",
-        "OPTIONS_FILE_SET+=NONECIPHER",
+        "OPTIONS_FILE_SET+=HEIMDAL_BASE"
     ]
 }
 ports += {
@@ -120,7 +119,7 @@ ports += {
     "name": "lang/python27",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
-        "WITH_OPENSSL_PORT=y"
+        "DEFAULT_VERSIONS+=ssl=base"
     ]
 }
 ports += "lang/python3"
@@ -177,14 +176,14 @@ ports += "security/py-openssl"
 ports += "security/py-pycrypto"
 ports += {
     "name": "www/apache24",
-    "options": ["WITH_OPENSSL_PORT=yes"]
+    "options": ["DEFAULT_VERSIONS+=ssl=base"]
 }
 ports += "www/mod_mpm_itk"
 ports += "sysutils/syslog-ng"
 ports += {
     "name": "www/nginx",
     "options": [
-        "WITH_OPENSSL_PORT=yes",
+        "DEFAULT_VERSIONS+=ssl=base",
         "OPTIONS_FILE_SET+=HTTP_SSL",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD_PROGRESS",
