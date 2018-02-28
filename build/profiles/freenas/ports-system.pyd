@@ -179,7 +179,18 @@ ports += {
     "options": ["DEFAULT_VERSIONS+=ssl=base"]
 }
 ports += "www/mod_mpm_itk"
-ports += "sysutils/syslog-ng"
+ports += {
+    "name": "sysutils/syslog-ng",
+    "options": [
+        "DEFAULT_VERSIONS=python=2.7"
+    ]
+}
+ports += {
+    "name": "www/node",
+    "options": [
+        "BUNDLED_SSL=on"
+    ]
+}
 ports += {
     "name": "www/nginx",
     "options": [
