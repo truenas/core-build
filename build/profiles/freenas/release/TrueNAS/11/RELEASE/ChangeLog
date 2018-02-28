@@ -1,6 +1,12 @@
-TrueNAS 11.1-U1 includes the Changelogs listed at https://www.ixsystems.com/blog/library/freenas-11-1-release/.
+TrueNAS 11.1-U2 includes the Changelogs listed at:
 
-Additionally, these bug fixes and features are specific to TrueNAS 11.1-U1:
+- https://www.ixsystems.com/blog/library/freenas-11-1-release/
+
+- https://www.ixsystems.com/blog/library/freenas-11-1-u1/
+
+- https://www.ixsystems.com/blog/library/freenas-11-1-u2/
+
+Additionally, these bug fixes and features are specific to TrueNAS:
 
 Wait for passive node to stabilize before turning HA icon green.
 
@@ -23,14 +29,9 @@ Move View Enclosure from Storage -> Volumes to System.
 
 Force FC ports to N-Port mode.
 
-Email notifications at 14, 30, 90, and 180 days before support contract
-expiration and at support contract expiration.
-
 Status View for Contracts.
 
 Don't try to send email when no email address is set for root.
-
-Disable space reservation for VAAI for NFS.
 
 Generate an alert when passive node is unreachable via failover interface.
 
