@@ -127,7 +127,7 @@ ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
-ports += "sysutils/py3-iocage"
+ports += "sysutils/iocage"
 ports += {
     "name":"devel/talloc",
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
@@ -188,7 +188,7 @@ ports += {
 ports += {
     "name": "www/node",
     "options": [
-        "BUNDLED_SSL=on"
+        "OPTIONS_FILE_SET+=BUNDLED_SSL"
     ]
 }
 ports += {

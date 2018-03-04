@@ -100,7 +100,7 @@ ports += {
 }
 
 ports += {
-    "name": "sysutils/py3-iocage",
+    "name": "sysutils/iocage",
     "options": [
         "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
