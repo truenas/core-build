@@ -40,7 +40,11 @@ installkernellog = objdir('logs/iso-installkernel')
 distributionlog = objdir('logs/iso-distribution')
 sysinstalllog = objdir('logs/iso-sysinstall')
 imgfile = objdir('base.ufs')
-output = objdir('${NAME}.iso')
+# Saving the SDK sources
+if e('${SDK}') == "yes":
+    output = objdir('${NAME}-SDK.iso')
+else:
+    output = objdir('${NAME}.iso')
 
 
 purge_dirs = [
