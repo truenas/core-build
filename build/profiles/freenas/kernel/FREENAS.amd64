@@ -210,8 +210,7 @@ device		ixv			# Intel PRO/10GbE PCIE VF Ethernet
 device		ixl			# Intel XL710 40Gbe PCIE Ethernet
 device		ixlv			# Intel XL710 40Gbe VF PCIE Ethernet
 device		le			# AMD Am7900 LANCE and Am79C9xx PCnet
-device		mlx4			# Mellanox ConnectX HCA common code
-device		mlx4en			# Mellanox ConnectX HCA Ethernet
+device		mlxen			# Mellanox ConnectX HCA Ethernet
 device		mlx5			# Mellanox ConnectX-4 common code
 device		mlx5en			# Mellanox ConnectX-4 Series
 device		mxge			# Myricom Myri10GE 10 Gigabit Ethernet adapter driver
