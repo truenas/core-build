@@ -10,35 +10,25 @@ TrueNAS 11.1-U3 includes the Changelogs listed at:
 
 Additionally, these bug fixes and features are specific to TrueNAS:
 
-Wait for passive node to stabilize before turning HA icon green.
+There have been several bug fixes for HA. The active node will now wait
+for the passive node to stabilize before turning the HA icon green. The
+system will indicate that you cannot destroy or detach a volume when
+failover is enabled and warn before deleting a pool that is required for
+HA to function. An alert will be generated when the passive node is
+unreachable via the failover interface and the system will not allow a
+failed passive node to take the active node's IP address.
 
-Display correct number of drive slots.
+Several alerts have been added to provide advance notification with regards
+to licensing. These include email notifications at 14, 30, 90, and 180
+days before support contract expiration and at support contract
+expiration. Additionally, an alert will be generated when the number of
+connected JBODs exceeds the license.
 
-Generate an alert when the number of connected JBODs exceeds the license.
+The  System Serial and System Product fields have been added to System ->
+Information. For HA configurations, the System Serial will also include
+the serial number of the other HA node.
 
-Display serial number of second HA node in System Information.
+The View Enclosure screen has moved from Storage -> Volumes to System.
 
-Validate VIP when set using netcli.
-
-Add critical alert if USB stick is detected in X10.
-
-Add System Serial and System Product fields to System -> Information.
-
-Indicate that you cannot destroy or detach a volume when failover is
-enabled and warn before deleting a pool that is required for HA to function.
-
-Move View Enclosure from Storage -> Volumes to System.
-
-Force FC ports to N-Port mode.
-
-Status View for Contracts.
-
-Don't try to send email when no email address is set for root.
-
-Generate an alert when passive node is unreachable via failover interface.
-
-Don't allow failed passive node to take active node's IP address.
-
-Rename Factory Restore button to Reset Configuration Defaults.
-
-Do not auto-fill root account at login prompt.
+The “Factory Restore” button has been renamed to “Reset Configuration
+Defaults”.
