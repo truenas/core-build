@@ -1,8 +1,8 @@
-TrueNAS 11.1-U2 delivers many performance improvements, new and
+TrueNAS 11.1-U3 delivers many performance improvements, new and
 updated drivers, new features and enhancements, and bug fixes.
 
 Operating System
-TrueNAS 11.1-U2 is based on the FreeBSD 11.1-STABLE operating system, which
+TrueNAS 11.1-U3 is based on the FreeBSD 11.1-STABLE operating system, which
 includes numerous performance improvements, new and updated drivers, new
 features, and bug fixes.
 
@@ -23,6 +23,9 @@ The Identify Light button has been added to identify a system in a rack
 by flashing its Unit ID light.
 
 Services
+
+Samba has been patched to address CVE-2018-1050 and CVE-2018-1057. 
+
 The Netdata real-time performance and monitoring system has been added.
 
 The SNMP MIB has many improvements, including the ability to send SNMP
