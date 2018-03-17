@@ -161,6 +161,7 @@ ports += "sysutils/fusefs-s3fs"
 ports += "sysutils/smartmontools"
 ports += "net/libdnet"
 ports += "net/ntp"
+ports += "net/dhcpcd"
 ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["OPTIONS_FILE_UNSET+=ICU"]
