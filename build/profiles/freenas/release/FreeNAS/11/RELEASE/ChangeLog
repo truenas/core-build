@@ -1,4 +1,28 @@
-26355   More fixes to prevent freenas-health warnings from spamming /var/log/messages
+26275 	Update Apache version to 2.4.27
+26303 	Don't try to send email when no email address is set for root
+26355 	More fixes to prevent freenas-health warnings from spamming /var/log/messages
+26931 	Use ifconfig -vvv in freenas-debug
+27498 	Do not auto-fill root account at login prompt
+27607 	Fix migration from 11.0-U6
+27764 	Add filesystem.put to middlewared
+27824 	Properly handle 401 in dgrid-error
+27977 	Set limit on number of open files for python during early boot
+28078 	Do not expose root password in traceback
+28094 	Do not log freenas-health warnings to /var/log/messages
+28105 	Conform to RFC-7530 when using NFSv3 UID-GIDs with NFSv4 protocol
+28125 	Fix traceback by ensuring uuid always exists
+28133 	Fix error that prevented proper deletion of boot environment
+28385 	Fix middlewared calling job with process=True
+28634 	Only run freenas-debug -B when explicitly specified through CLI
+28684 	Add "-v" to zpool status in freenas-debug script
+28786 	Fix traceback when migrating system dataset
+28792 	Increase size of RAM disk used by Reporting for systems with many disks
+28936 	Detach geli provider when removing a ZFS disk
+28982 	Temporary fix to silence "@job(pipe=True) leaking file descriptors" messages
+28988 	Do not detach pool if extending a volume fails
+29040 	Rework manual upgrade to use polling requests
 29133 	Fix "Unauthorized Reboot" emails when system did not actually reboot
+29361 	Write nginx access log to tmpfs
+29551 	Fix traceback when multiplex.proc_dump returns bool
 29753 	Fixes for CVE-2018-1050 and CVE-2018-1057
-29853   Prevent " [Errno 48] Address already in use" error by not using SO_REUSEADDR for ephemeral ports
+29853 	Prevent "[Errno 48] Address already in use" error by not using SO_REUSEADDR for ephemeral ports
