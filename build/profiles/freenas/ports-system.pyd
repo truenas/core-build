@@ -30,7 +30,6 @@ ports += {
     "options": ["WITH_DEBUG=yes"]
 }
 ports += "dns/bind-tools"
-ports += "dns/dnsmasq"
 ports += "dns/mDNSResponder_nss"
 ports += "net/mDNSResponder"
 ports += "net/viamillipede"
@@ -399,9 +398,6 @@ ports += "converters/convmv"
 
 ports += "sysutils/nomad"
 ports += "sysutils/py-nomad"
-ports += "sysutils/consul"
-ports += "sysutils/py-consul"
-ports += "sysutils/consul-alerts"
 ports += "sysutils/ipfs-go"
 ports += "security/vault"
 ports += "www/minio"
