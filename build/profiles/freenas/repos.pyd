@@ -55,10 +55,18 @@ repos += {
 }
 
 repos += {
+    "name": "freenas-docs-legacy",
+    "path": "freenas-docs-legacy",
+    "url": "http://github.com/freenas/freenas-docs.git",
+    "branch": "master"
+}
+
+
+repos += {
     "name": "freenas-docs",
     "path": "freenas-docs",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "master"
+    "branch": "angulargui"
 }
 
 repos += {
