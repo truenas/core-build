@@ -82,7 +82,7 @@ def checkout_repo(cwd, repo):
     buildenv_root = e('${BE_ROOT}')
     repo_name = repo['name']
     repo_path = repo['path']
-    repo_url = repo['url']
+    repo_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}') or repo['url']
     branch = repo['branch']
 
     # Search for a reference clone before changing directories
