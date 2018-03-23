@@ -1,3 +1,4 @@
 29521 	Remove '%s' literal from configuration database backup name
+30309   Use polling requests to get debug
 30480 	Don't change the permissions on the Samba private files
 30501   Set "inherited" flag when winmsa changes ACL
