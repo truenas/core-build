@@ -63,8 +63,8 @@ def find_ref_clone(repo_name):
 
 def get_latest_commit(repo, branch):
     output = sh_str('git ls-remote', repo, f'refs/heads/{branch}')
-    commit = output.split()[0]
-    if not re.search(r'^[a-f0-9]+$', commit):
+    commit = output.split()
+    if commit and not re.search(r'^[a-f0-9]+$', commit[0]):
         return None
     return commit
 
