@@ -28,6 +28,7 @@
 
 
 import os
+import re
 import sys
 from dsl import load_profile_config
 from utils import sh, sh_str, info, debug, e, setfile, appendfile
@@ -59,6 +60,15 @@ def find_ref_clone(repo_name):
                 return candidate
     return None
 
+
+def get_latest_commit(repo, branch):
+    output = sh_str('git ls-remote', repo, f'refs/heads/{branch}')
+    commit = output.split()[0]
+    if not re.search(r'^[a-f0-9]+$', commit):
+        return None
+    return commit
+
+
 def checkout_repo(cwd, repo):
     """Check out the given repository.
 
@@ -82,8 +92,16 @@ def checkout_repo(cwd, repo):
     buildenv_root = e('${BE_ROOT}')
     repo_name = repo['name']
     repo_path = repo['path']
-    repo_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}') or repo['url']
+    repo_url = repo['url']
+    mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
     branch = repo['branch']
+
+    if mirror_url:
+        if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
+            info(f'Mirror {mirror_url} up-to-date with remote {repo_url}, using it')
+            repo_url = mirror_url
+        else:
+            info(f'Mirror {mirror_url} does not match latest commit of {repo_url}, skipping it')
 
     # Search for a reference clone before changing directories
     # in case it's a relative path.
