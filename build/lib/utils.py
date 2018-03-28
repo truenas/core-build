@@ -62,7 +62,7 @@ def sh(*args, **kwargs):
                 break
             read = read.decode('utf8', 'ignore')
             if logtimestamp:
-                read = f'[{str(datetime.datetime.now())}] {read}'
+                read = '[{}] {}'.format(str(datetime.datetime.now()), read)
             f.write(read)
     ret = proc.wait()
     if ret != 0 and not nofail:
