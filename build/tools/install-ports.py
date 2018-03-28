@@ -83,7 +83,7 @@ def create_pkgng_configuration():
 def install_ports():
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
-    err = chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile, nofail=True)
+    err = chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}', log=logfile, logtimestamp=True, nofail=True)
     sh('umount -f ${WORLD_DESTDIR}/dev')
 
     if not os.path.isdir(e('${WORLD_DESTDIR}/data')) or err != 0:
