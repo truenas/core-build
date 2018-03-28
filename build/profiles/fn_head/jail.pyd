@@ -36,6 +36,11 @@ copy += {
 }
 
 copy += {
+    "source": "${BE_ROOT}/freenas-docs-legacy",
+    "dest": "/usr/freenas_docs_legacy"
+}
+
+copy += {
     "source": "${BE_ROOT}/freenas/docs/api",
     "dest": "/usr/freenas_docs/api"
 }

@@ -54,6 +54,7 @@ kernel_modules = [
     "linux",
     "linux64",
     "linux_common",
+    "msdosfs_iconv",
     "ispfw/ispfw",
     "pf",
     "pflog",

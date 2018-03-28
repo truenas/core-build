@@ -108,7 +108,6 @@ ports += {
         "OPTIONS_FILE_SET+=NONECIPHER",
     ]
 }
-ports += "net/unison-nox11"
 ports += {
     "name": "net/rsync",
     "options": [
@@ -173,6 +172,7 @@ ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
 ports += "www/py-dojango"
 ports += "www/dojo"
+ports += "security/gnupg"
 ports += "security/openssl"
 ports += "security/py-openssl"
 ports += "security/py-pycrypto"
