@@ -1,4 +1,3 @@
-#+
 # Copyright 2015 iXsystems, Inc.
 # All rights reserved
 #
@@ -46,6 +45,7 @@ def interrupt(signal, frame):
 
 def sh(*args, **kwargs):
     logfile = kwargs.pop('log', None)
+    logtimestamp = kwargs.pop('logtimestamp', False)
     mode = kwargs.pop('mode', 'w')
     nofail = kwargs.pop('nofail', False)
     cmd = e(' '.join(args), **get_caller_vars())
@@ -54,7 +54,17 @@ def sh(*args, **kwargs):
         f = open(logfile, mode)
 
     debug('sh: {0}', cmd)
-    ret = subprocess.call(cmd, stdout=f if logfile else None, stderr=subprocess.STDOUT, shell=True, bufsize=65536, close_fds=False)
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE if logfile else None, stderr=subprocess.STDOUT, shell=True, close_fds=False)
+    if logfile:
+        while True:
+            read = proc.stdout.readline()
+            if read == b'':
+                break
+            read = read.decode('utf8', 'ignore')
+            if logtimestamp:
+                read = f'[{str(datetime.now())}] {read}'
+            f.write(read)
+    ret = proc.wait()
     if ret != 0 and not nofail:
         info('Failed command: {0}', cmd)
         info('Returned value: {0}', ret)
