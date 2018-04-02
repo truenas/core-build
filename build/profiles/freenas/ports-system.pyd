@@ -42,7 +42,10 @@ ports += "archivers/plzip"
 ports += "security/easy-rsa"
 ports += {
     "name": "security/openvpn",
-    "options": ["WITHOUT_CHECK=yes"]
+    "options": [
+        "WITHOUT_CHECK=yes",
+        "OPTIONS_FILE_UNSET+=test"
+    ]
 }
 ports += "security/stunnel"
 ports += "comms/lrzsz"
