@@ -47,7 +47,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=test"
     ]
 }
-ports += "security/stunnel"
 ports += "comms/lrzsz"
 ports += "sysutils/screen"
 ports += "sysutils/iohyve"
