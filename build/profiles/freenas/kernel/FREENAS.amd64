@@ -303,6 +303,7 @@ options 	TMPFS			# Efficient memory filesystem
 options		ISP_TARGET_MODE		# Qlogic FC target mode
 options		COMPAT_LINUXKPI
 device		zfs
+device		amdsmn
 device		amdtemp
 device		coretemp
 device		cpuctl
