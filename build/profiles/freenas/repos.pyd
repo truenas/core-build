@@ -35,7 +35,7 @@ else:
     repos += {
         "name": "os",
         "path": "os",
-        "url": "https://github.com/trueos/freebsd.git",
+        "url": "https://github.com/trueos/trueos.git",
         "branch": "trueos-master"
 }
 
@@ -71,7 +71,7 @@ repos += {
 repos += {
     "name": "ports",
     "path": "ports",
-    "url": "https://github.com/trueos/freebsd-ports.git",
+    "url": "https://github.com/trueos/trueos-ports.git",
     "branch": "trueos-master"
 }
 
