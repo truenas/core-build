@@ -37,11 +37,11 @@ iocage_git_rev = sh("git -C ${BE_ROOT}/iocage log -1 --pretty=format:%ct") \
     else "0"
 
 docs_git_rev = sh("git -C ${BE_ROOT}/freenas-docs log -1 --pretty=format:%ct") \
-    if exists("${BE_ROOT}/iocage") \
+    if exists("${BE_ROOT}/freenas-docs") \
     else "0"
 
 docs_legacy_git_rev = sh("git -C ${BE_ROOT}/freenas-docs-legacy log -1 --pretty=format:%ct") \
-    if exists("${BE_ROOT}/iocage") \
+    if exists("${BE_ROOT}/freenas-docs-legacy") \
     else "0"
 
 ports += {
