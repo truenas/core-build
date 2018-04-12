@@ -62,12 +62,13 @@ repos += {
 }
 
 
-repos += {
-    "name": "freenas-docs",
-    "path": "freenas-docs",
-    "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "angulargui"
-}
+if PRODUCT != "TrueNAS":
+    repos += {
+        "name": "freenas-docs",
+        "path": "freenas-docs",
+        "url": "http://github.com/freenas/freenas-docs.git",
+        "branch": "angulargui"
+    }
 
 repos += {
     "name": "ports",
