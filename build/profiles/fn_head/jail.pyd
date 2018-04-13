@@ -42,11 +42,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/freenas/docs/api",
-    "dest": "/usr/freenas_docs/api"
-}
-
-copy += {
     "source": "${BE_ROOT}/freenas/src",
     "dest": "/usr/nas_source"
 }
