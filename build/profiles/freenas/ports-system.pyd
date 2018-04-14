@@ -312,7 +312,7 @@ ports += "benchmarks/iperf"
 ports += "benchmarks/iperf3"
 ports += "benchmarks/netperf"
 ports += {
-    "name": "security/sudo",
+    "name": "freenas/sudo",
     "options": [
         "OPTIONS_FILE_SET+=LDAP",
         "OPTIONS_FILE_SET+=SSSD"
