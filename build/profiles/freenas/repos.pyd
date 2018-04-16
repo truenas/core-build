@@ -65,7 +65,7 @@ repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/11.1-stable"
+    "branch": "freenas/master"
 }
 
 repos += {
@@ -107,21 +107,21 @@ repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "freenas/11.1-stable"
+    "branch": "freenas/master"
 }
 
 repos += {
     "name": "netatalk",
     "path": "netatalk",
     "url": "https://github.com/freenas/Netatalk.git",
-    "branch": "freenas/11.1-stable"
+    "branch": "freenas/master"
 }
 
 repos += {
     "name": "mdnsresponder",
     "path": "mdnsresponder",
     "url": "https://github.com/freenas/mDNSResponder.git",
-    "branch": "freenas/11.1-stable"
+    "branch": "freenas/master"
 }
 
 repos += {
