@@ -31,7 +31,7 @@ ports += {
 }
 ports += "dns/bind-tools"
 ports += "dns/dnsmasq"
-ports += "dns/mDNSResponder_nss"
+ports += "freenas/mDNSResponder_nss"
 ports += "freenas/mDNSResponder"
 ports += "net/viamillipede"
 ports += "textproc/jq"
