@@ -172,7 +172,7 @@ ports += "www/dojo"
 ports += "security/gnupg"
 ports += "security/openssl"
 ports += "security/py-openssl"
-ports += "security/py-pycrypto"
+ports += "security/py-pycryptodome"
 ports += {
     "name": "www/apache24",
     "options": ["DEFAULT_VERSIONS+=ssl=base"]
