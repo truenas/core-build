@@ -236,6 +236,7 @@ ports += {
     "options": [
         "OPTIONS_FILE_UNSET+=BIND",
         "OPTIONS_FILE_UNSET+=SNMP",
+        "OPTIONS_FILE_SET+=CURL",
         "OPTIONS_FILE_SET+=DISK",
         "OPTIONS_FILE_SET+=IPMI",
         "OPTIONS_FILE_SET+=PYTHON",
