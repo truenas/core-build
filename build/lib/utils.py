@@ -276,7 +276,10 @@ def error(fmt, *args):
 def get_port_names(ports):
     for i in ports:
         if isinstance(i, dict):
-            yield i.name
+            if 'package' in i:
+                yield i.package
+            else:
+                yield i.name
             continue
 
         yield i

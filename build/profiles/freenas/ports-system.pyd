@@ -105,6 +105,14 @@ ports += {
         "OPTIONS_FILE_SET+=HEIMDAL_BASE"
     ]
 }
+<<<<<<< HEAD
+=======
+ports += {
+    "name": "net/unison@nox11",
+    "package": "unison-nox11",
+}
+
+>>>>>>> 415797c31e940e8595b0231dc443cdcf67ff9399
 ports += {
     "name": "net/rsync",
     "options": [
@@ -117,7 +125,10 @@ ports += {
     "name": "lang/python27",
     "options": [
         "OPTIONS_FILE_UNSET+=NLS",
+<<<<<<< HEAD
         "DEFAULT_VERSIONS+=ssl=base"
+=======
+>>>>>>> 415797c31e940e8595b0231dc443cdcf67ff9399
     ]
 }
 ports += "lang/python3"
@@ -126,6 +137,7 @@ ports += "lang/python"
 ports += "freenas/py-bonjour"
 ports += "dns/py-dnspython"
 ports += "sysutils/iocage"
+<<<<<<< HEAD
 ports += {
     "name":"devel/talloc",
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
@@ -134,6 +146,8 @@ ports += {
     "name": "databases/tdb",
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
 }
+=======
+>>>>>>> 415797c31e940e8595b0231dc443cdcf67ff9399
 ports += "security/pam_ldap"
 ports += "security/pam_mkhomedir"
 ports += {
@@ -172,11 +186,16 @@ ports += "www/dojo"
 ports += "security/gnupg"
 ports += "security/openssl"
 ports += "security/py-openssl"
+<<<<<<< HEAD
 ports += "security/py-pycryptodome"
 ports += {
     "name": "www/apache24",
     "options": ["DEFAULT_VERSIONS+=ssl=base"]
 }
+=======
+ports += "security/py-pycrypto"
+ports += "www/apache24"
+>>>>>>> 415797c31e940e8595b0231dc443cdcf67ff9399
 ports += "www/mod_mpm_itk"
 ports += {
     "name": "sysutils/syslog-ng",
@@ -193,7 +212,10 @@ ports += {
 ports += {
     "name": "www/nginx",
     "options": [
+<<<<<<< HEAD
         "DEFAULT_VERSIONS+=ssl=base",
+=======
+>>>>>>> 415797c31e940e8595b0231dc443cdcf67ff9399
         "OPTIONS_FILE_SET+=HTTP_SSL",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD",
         "OPTIONS_FILE_SET+=HTTP_UPLOAD_PROGRESS",
@@ -253,6 +275,7 @@ ports += {
     "options": [
         "OPTIONS_FILE_UNSET+=BIND",
         "OPTIONS_FILE_UNSET+=SNMP",
+        "OPTIONS_FILE_SET+=CURL",
         "OPTIONS_FILE_SET+=DISK",
         "OPTIONS_FILE_SET+=IPMI",
         "OPTIONS_FILE_SET+=PYTHON",
