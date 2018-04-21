@@ -351,8 +351,10 @@ ports += {
     "name": "security/ca_root_nss",
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
 }
-ports += "ftp/curl"
-
+ports += {
+    "name": "ftp/curl",
+    "options": ["MAKE_JOBS_UNSAFE=yes"]
+}
 ports += {
     "name": "dns/samba-nsupdate",
     "options": ["OPTIONS_FILE_SET+=IPV6"]
