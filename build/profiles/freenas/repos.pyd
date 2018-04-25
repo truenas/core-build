@@ -35,17 +35,16 @@ else:
     repos += {
         "name": "os",
         "path": "os",
-        "url": "https://github.com/freenas/os.git",
-        "branch": "freenas/11-stable"
+        "url": "https://github.com/trueos/trueos.git",
+        "branch": "trueos-master"
 }
 
 repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "branch": "evilunity"
 }
-
 
 repos += {
     "name": "webui",
@@ -73,8 +72,8 @@ if PRODUCT != "TrueNAS":
 repos += {
     "name": "ports",
     "path": "ports",
-    "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/master"
+    "url": "https://github.com/trueos/trueos-ports.git",
+    "branch": "trueos-master"
 }
 
 repos += {
@@ -112,26 +111,26 @@ repos += {
     "branch": "master"
 }
 
-repos += {
-    "name": "samba",
-    "path": "samba",
-    "url": "https://github.com/freenas/samba.git",
-    "branch": "freenas/master"
-}
+#repos += {
+#    "name": "samba",
+#    "path": "samba",
+#    "url": "https://github.com/freenas/samba.git",
+#    "branch": "freenas/master"
+#}
 
-repos += {
-    "name": "netatalk",
-    "path": "netatalk",
-    "url": "https://github.com/freenas/Netatalk.git",
-    "branch": "freenas/master"
-}
+#repos += {
+#    "name": "netatalk",
+#    "path": "netatalk",
+#    "url": "https://github.com/freenas/Netatalk.git",
+#    "branch": "freenas/master"
+#}
 
-repos += {
-    "name": "mdnsresponder",
-    "path": "mdnsresponder",
-    "url": "https://github.com/freenas/mDNSResponder.git",
-    "branch": "freenas/master"
-}
+#repos += {
+#    "name": "mdnsresponder",
+#    "path": "mdnsresponder",
+#    "url": "https://github.com/freenas/mDNSResponder.git",
+#    "branch": "freenas/master"
+#}
 
 repos += {
     "name": "iocage",
