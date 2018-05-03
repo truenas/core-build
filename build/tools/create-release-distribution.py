@@ -39,10 +39,11 @@ url = dsl.url
 
 def stage_release():
     sh('mkdir -p ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}')
-    for ext in dsl.formats:
-        path = e('${OBJDIR}/${NAME}.${ext}')
+    releases = [e('${OBJDIR}/${NAME}.${ext}') for ext in dsl.formats]
+    releases += [p.replace('.iso', '-NOGRUB.iso') for p in releases if '.iso' in p]
+    for path in releases:
         if os.path.exists(path):
-            info('Moving installation disk ISO to release directory')
+            info(e('Moving ${path} artifact to release directory'))
             sh('mv ${path} ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/')
             sh('mv ${path}.sha256 ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/')
             info('ISO path: ${{RELEASE_STAGEDIR}}/${{BUILD_ARCH_SHORT}}')
