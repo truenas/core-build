@@ -241,7 +241,6 @@ def create_iso_dirs():
     sh('mkdir -p ${ISO_DESTDIR}/.mount')
     sh('mkdir -p ${ISO_DESTDIR}/mnt')
     sh('mkdir -p ${ISO_DESTDIR}/tmp')
-    sh('mkdir -p ${ISO_DESTDIR}/boot/grub')
 
 
 def create_ufs_dirs():
@@ -377,9 +376,23 @@ def make_ufs_image():
 
 def make_iso_image():
     setfile('${ISO_DESTDIR}/boot/loader.conf', template('${BUILD_CONFIG}/templates/cdrom/loader.conf'))
-    setfile('${ISO_DESTDIR}/boot/grub/grub.cfg', template('${BUILD_CONFIG}/templates/cdrom/grub.cfg'))
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
+    sh('cp ${WORLD_DESTDIR}/boot/loader ${ISO_DESTDIR}/boot/loader')
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
+    sh('cp ${WORLD_DESTDIR}/boot/*.4th ${ISO_DESTDIR}/boot')
+    sh('cp ${WORLD_DESTDIR}/boot/loader.rc ${ISO_DESTDIR}/boot/loader.rc')
+    sh('cp ${WORLD_DESTDIR}/boot/loader.rc.local ${ISO_DESTDIR}/boot/loader.rc.local')
+    sh('cp ${WORLD_DESTDIR}/boot/menu.rc ${ISO_DESTDIR}/boot/menu.rc')
+    sh('cp -R ${WORLD_DESTDIR}/boot/defaults ${ISO_DESTDIR}/boot/defaults')
+
+    # New-style isoboot image
+    output_nogrub = output.replace('.iso', '-NOGRUB.iso')
+    sh('${BUILD_ROOT}/build/tools/make_iso_image.sh ${CDROM_LABEL} ${output_nogrub} ${WORLD_DESTDIR} ${ISO_DESTDIR}')
+    sha256(output_nogrub)
+
+    # Old-style GRUB image
+    sh('mkdir -p ${ISO_DESTDIR}/boot/grub')
+    setfile('${ISO_DESTDIR}/boot/grub/grub.cfg', template('${BUILD_CONFIG}/templates/cdrom/grub.cfg'))
     sh('grub-mkrescue --xorriso=${BUILD_ROOT}/build/tools/xorriso.sh -o ${output} ${ISO_DESTDIR} -- -volid ${CDROM_LABEL}')
     sha256(output)
 
