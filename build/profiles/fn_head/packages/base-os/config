@@ -26,6 +26,7 @@ post-install =
 
 	/usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
+	/usr/bin/touch /data/.hba_firmware_update
 
 post-upgrade =
 	KV="$(uname -K)" || KV=0
@@ -36,8 +37,9 @@ post-upgrade =
                 echo  ${script_name} >> /update-scripts/order
                 exit 0
         fi
-	 /usr/bin/touch /boot/kernel/linker.hints
-	     /usr/bin/touch /boot/modules/linker.hints
+	/usr/bin/touch /boot/kernel/linker.hints
+	/usr/bin/touch /boot/modules/linker.hints
+	/usr/bin/touch /data/.hba_firmware_update
 	if [ -c /dev/null -a -f /boot/grub/grub.cfg ]; then
 	   for disk in $(sysctl -n kern.disks); do
 	       if gpart show ${disk} | grep -q bios-boot; then
