@@ -199,6 +199,8 @@ device		agp			# support several AGP chipsets
 # Serial (COM) ports
 device		uart			# Generic UART driver
 
+device		puc			# Multi I/O cards and multi-channel UARTs
+
 # PCI Ethernet NICs.
 device		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
 device		cxgb			# Chelsio T3 10 Gigabit Ethernet adapter driver
