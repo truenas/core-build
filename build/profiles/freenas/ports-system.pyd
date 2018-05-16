@@ -93,7 +93,7 @@ ports += {
     "name": "net/nss_ldap",
     "options": [
         "OPTIONS_FILE_SET+=KERBEROS",
-        "OPTIONS_FILE_SET+=LCLASS"
+        "OPTIONS_FILE_SET+=LCLASS",
         "OPTIONS_FILE_SET+=SASL"
     ]
 }
