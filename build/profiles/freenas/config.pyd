@@ -128,7 +128,8 @@ make_conf_build = {
 
 # Packages configuration
 make_conf_pkg = {
-    "DEFAULT_VERSIONS":             "python=3.6",
+    "DEFAULT_VERSIONS":             "python=3.6 ssl=base",
+    "WITH_SAMBA4_PYTHON3":          "python3.6",
     "OPTIONS_UNSET":                "DOCS X11 JAVA",
     "WANT_OPENLDAP_SASL":           "yes",
     "USE_PACKAGE_DEPENDS":          "yes",
