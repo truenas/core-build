@@ -132,7 +132,6 @@ def obtain_jail_name():
 def prepare_jail():
     basepath = e('${POUDRIERE_ROOT}/etc/poudriere.d/jails/${jailname}')
     sh('mkdir -p ${basepath}')
-    sh('sed -i "" "s|injail service ldconfig start|injail /etc/rc.d/ldconfig start|g" /usr/local/share/poudriere/common.sh')
 
     if e('${USE_ZFS}'):
         setfile(e('${basepath}/fs'), e('${ZPOOL}${ZROOTFS}/jail'))
