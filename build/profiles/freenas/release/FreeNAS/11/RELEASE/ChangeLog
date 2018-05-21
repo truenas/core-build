@@ -1,4 +1,23 @@
-29521 	Remove '%s' literal from configuration database backup name
-30309   Use polling requests to get debug
-30480 	Don't change the permissions on the Samba private files
-30501   Set "inherited" flag when winmsa changes ACL
+24965 	Add more command output to freenas-debug
+26484 	Don't write unneeded SNMP messages to /var/log/messages
+27936 	More fixes to ensure /nonexistent directory is not created
+28585 	Fix Samba memory leak in vfswrap_getwd()
+29971 	Improve logging in AD monitoring
+30213 	Turn bootenv.delete into a job to prevent timeout related traceback when deleting boot enviroments
+30609 	Do not log nginx errors to console
+30729 	Speed up and clean up freenas-debug
+30768 	Fix argument for SMB_VFS_NEXT_DISK_FREE in zfs_space VFS module
+30960 	Display Samba version and git commit with smbd -v
+30990 	Make lagg work with 100Gbps and 25Gbps interfaces that report extended media types
+31041 	Add support for Self-Encrypting Drives
+31050 	Do not spawn another thread on call_sync middleware call
+31059 	Fix user.delete API call when DC is enabled
+31404 	When using ADS disable DOSATTRIB to prevent Windows 7 "Invalid MS-DOS function" error
+31773 	Migrate MTU settings when upgrading from 9.10.X to 11.1.X
+32868 	Fix "Check Now" traceback error
+32880 	Fix alert services traceback
+32943 	Add -M to freenas-debug to check SATA DOM speed
+33045 	Check if TrueNAS system needs an HBA firmware update
+33228 	Add configured SMART, replication, and scrub tasks to freenas-debug
+33618 	Do not show beta UI link
+33663 	Alphabetize freenas-debug switches
