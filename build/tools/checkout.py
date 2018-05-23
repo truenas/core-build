@@ -114,7 +114,8 @@ def checkout_repo(cwd, repo):
     if is_git_repo(repo_path):
         os.chdir(repo_path)
         current_branch = sh_str('git rev-parse --abbrev-ref HEAD')
-        if current_branch != branch:
+        current_origin = sh_str('git remote get-url origin')
+        if current_branch != branch or current_origin != repo_url:
             # (re)setting origin is a bit rude if someone had
             # carefully set their own variant, but oh well.
             sh('git remote set-url origin', repo_url)
