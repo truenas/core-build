@@ -28,4 +28,4 @@
 33924 	Add check to see if NIS is enabled
 33927 	Fix typo in NFS section of freenas-debug
 33930 	Fix traceback in system section of freenas-debug
-33957 	Fix Python global interpreter lock in with LDAP
+33957 	Fix Python global interpreter lock with LDAP
