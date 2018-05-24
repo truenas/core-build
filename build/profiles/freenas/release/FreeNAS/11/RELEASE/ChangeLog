@@ -13,6 +13,7 @@
 31050 	Do not spawn another thread on call_sync middleware call
 31059 	Fix user.delete API call when DC is enabled
 31404 	When using ADS disable DOSATTRIB to prevent Windows 7 "Invalid MS-DOS function" error
+31635 	Correct PAM constants for AFP users authenticating as local user in LDAP environment
 31773 	Migrate MTU settings when upgrading from 9.10.X to 11.1.X
 32868 	Fix "Check Now" traceback error
 32880 	Fix alert services traceback
@@ -21,3 +22,10 @@
 33228 	Add configured SMART, replication, and scrub tasks to freenas-debug
 33618 	Do not show beta UI link
 33663 	Alphabetize freenas-debug switches
+33786 	Be less restrictive for NFS exports
+33855 	Remove dtrace freenas-debug modules
+33885 	Start dbus before netatalk
+33924 	Add check to see if NIS is enabled
+33927 	Fix typo in NFS section of freenas-debug
+33930 	Fix traceback in system section of freenas-debug
+33957 	Fix Python global interpreter lock in with LDAP
