@@ -29,3 +29,5 @@
 33927 	Fix typo in NFS section of freenas-debug
 33930 	Fix traceback in system section of freenas-debug
 33957 	Fix Python global interpreter lock with LDAP
+33987 	Fix system.advanced traceback during system boot
+33993 	Remove parallel routines for freenas-debug to prevent CPU spike
