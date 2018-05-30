@@ -1,44 +1,5 @@
-TrueNAS 11.1-U4 includes the Changelogs listed at:
+TrueNAS 11.1-U5 includes the Changelog listed at:
 
-- https://www.ixsystems.com/blog/library/freenas-11-1-release/
-
-- https://www.ixsystems.com/blog/library/freenas-11-1-u1/
-
-- https://www.ixsystems.com/blog/library/freenas-11-1-u2/
-
-- https://www.ixsystems.com/blog/library/freenas-11-1-u3/
-
-- https://www.ixsystems.com/blog/library/freenas-11-1-u4/
+- https://www.ixsystems.com/blog/library/freenas-11-1-u5/
 
 Additionally, these bug fixes and features are specific to TrueNAS:
-
-There have been several bug fixes and new alerts for HA. The active node
-will now wait for the passive node to stabilize before turning the HA
-icon green. The system will indicate that you cannot destroy or detach a
-volume when failover is enabled and warn before deleting a pool that is
-required for HA to function. Additionally, the system will warn when
-locking the last volume as this will prevent failover from functioning
-correctly. An alert will also be generated when the passive node is
-unreachable via the failover interface and the system will not allow a
-failed passive node to take the active node's IP address. A warning will
-be issued when removing the last HA critical interface. Finally, the
-system will alert when the boot volume of the passive node is not healthy.
-
-Several alerts have been added to provide advance notification with
-regards to licensing. These include email notifications at 14, 30, 90,
-and 180 days before support contract expiration and at support contract
-expiration. Additionally, an alert will be generated when the number of
-connected JBODs exceeds the license.
-
-The  System Serial, System Product, and License fields have been added to
-System -> Information. For HA configurations, the System Serial will also
-include the serial number of the other HA node.
-
-The View Enclosure screen has moved from Storage -> Volumes to System.
-
-The “Factory Restore” button has been renamed to “Reset Configuration
-Defaults”.
-
-The PDF version of the Guide has been moved from Support to the Guide icon
-which now provides a drop-down to select either the HTML or the PDF
-version of the Guide.
