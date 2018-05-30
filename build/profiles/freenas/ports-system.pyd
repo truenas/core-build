@@ -88,18 +88,15 @@ ports += {
         "OPTIONS_FILE_SET+=GSSAPI"
     ]
 }
-
 ports += {
-    "name": "net/nss_ldap",
+    "name": "net/nss-pam-ldapd-sasl",
     "options": [
         "OPTIONS_FILE_SET+=KERBEROS",
-        "OPTIONS_FILE_SET+=LCLASS"
-        "OPTIONS_FILE_SET+=SASL"
+        "OPTIONS_FILE_SET+=PAM",
+        "OPTIONS_FILE_SET+=NSS"
     ]
 }
-
 ports += "net/smbldap-tools"
-
 ports += {
     "name": "security/openssh-portable",
     "options": [
@@ -137,7 +134,6 @@ ports += {
     "name": "databases/tdb",
     "options": ["MAKE_JOBS_UNSAFE=y", "MAKE_JOBS_NUMBER=1"]
 }
-ports += "security/pam_ldap"
 ports += "security/pam_mkhomedir"
 ports += {
     "name": "shells/bash",
