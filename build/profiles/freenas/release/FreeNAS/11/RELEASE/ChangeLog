@@ -2,6 +2,7 @@
 26484 	Don't write unneeded SNMP messages to /var/log/messages
 27936 	More fixes to ensure /nonexistent directory is not created
 28585 	Fix Samba memory leak in vfswrap_getwd()
+28862   Fix restoring old reporting values after a FreeNAS update
 29971 	Improve logging in AD monitoring
 30213 	Turn bootenv.delete into a job to prevent timeout related traceback when deleting boot enviroments
 30609 	Do not log nginx errors to console
