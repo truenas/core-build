@@ -127,7 +127,7 @@ repos += {
 repos += {
     "name": "iocage",
     "path": "iocage",
-    "url": "https://github.com/iocage/iocage.git",
+    "url": "https://github.com/freenas/iocage.git",
     "branch": "freenas/11.1-stable"
 }
 
