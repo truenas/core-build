@@ -1,5 +1,25 @@
-TrueNAS 11.1-U5 includes the Changelog listed at:
+TrueNAS 11.1-U5 introduces Self-Encrypting Drive (SED support). Refer to
+https://www.ixsystems.com/blog/library/using-self-encrypting-drives/ for
+an overview of the SED implementation and how to manage these devices on
+a TrueNAS system.
+
+This version includes the Changelog listed at:
 
 - https://www.ixsystems.com/blog/library/freenas-11-1-u5/
 
-Additionally, these bug fixes and features are specific to TrueNAS:
+Additionally, TrueNAS 11.1-U5 provides further improvements to HA. For
+HA configurations using encrypted pools, the pools are properly detached
+when demoting an active node to passive or when a successful failover
+occurs. Should both nodes power cycle, the UI will prompt for the
+passphrase, allowing the pools to become available.
+
+For systems using the Netdata service, this service is automatically
+restarted after a failover event. For all HA configurations, logging events
+for both the active and passive controllers are logged to stable storage.
+
+The End-User Agreement (EULA) has been updated. During initial setup, the
+login screen will display the EULA and options to agree to the terms or
+to cancel the EULA display. Cancelling the display will still provide
+access to the GUI but the EULA will display on subsequent logins until the
+user agrees to the terms. The EULA is available online at
+https://support.ixsystems.com/truenasguide/tn_eula.html.
