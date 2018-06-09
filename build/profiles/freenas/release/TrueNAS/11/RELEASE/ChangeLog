@@ -1,4 +1,4 @@
-TrueNAS 11.1-U5 introduces Self-Encrypting Drive (SED support). Refer to
+TrueNAS 11.1-U5 introduces Self-Encrypting Drive (SED) support. Refer to
 https://www.ixsystems.com/blog/library/using-self-encrypting-drives/ for
 an overview of the SED implementation and how to manage these devices on
 a TrueNAS system.
