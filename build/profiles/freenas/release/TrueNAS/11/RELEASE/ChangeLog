@@ -19,7 +19,7 @@ restarted after a failover event. For all HA configurations, logging events
 for both the active and passive controllers are logged to stable storage.
 
 The End-User Agreement (EULA) has been updated. During initial setup, the
-login screen will display the EULA and options to agree to the terms or
+login screen will display the EULA with options to agree to the terms or
 to cancel the EULA display. Cancelling the display will still provide
 access to the GUI but the EULA will display on subsequent logins until the
 user agrees to the terms. The EULA is available online at
