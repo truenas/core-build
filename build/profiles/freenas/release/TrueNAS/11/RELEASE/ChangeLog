@@ -3,8 +3,9 @@ https://www.ixsystems.com/blog/library/using-self-encrypting-drives/ for
 an overview of the SED implementation and how to manage these devices on
 a TrueNAS system.
 
-This version includes the Changelog listed at:
+This version includes the Changelogs listed at:
 
+- https://www.ixsystems.com/blog/library/truenas-11-1-u4/
 - https://www.ixsystems.com/blog/library/freenas-11-1-u5/
 
 Additionally, TrueNAS 11.1-U5 provides further improvements to HA. For
