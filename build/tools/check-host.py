@@ -69,9 +69,6 @@ def check_build_tools():
     check_port('pxz', 'archivers/pxz')
     check_port('python3', 'lang/python3')
     check_port('poudriere', 'ports-mgmt/poudriere-devel')
-    check_port('grub-mkrescue', 'sysutils/grub2-pcbsd')
-    check_port_byfile('grub2-efi', 'sysutils/grub2-efi', '/usr/local/lib/grub/x86_64-efi/zfs.mod')
-    check_port('xorriso', 'sysutils/xorriso')
     check_port('gmake', 'devel/gmake')
 
 
