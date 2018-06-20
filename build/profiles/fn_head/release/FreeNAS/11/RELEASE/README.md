@@ -20,7 +20,7 @@ Note: All these commands must be run as `root`.
   * Required packages must be installed and set up:
 
     * ```
-      pkg install -y archivers/pigz archivers/pxz devel/git devel/gmake lang/python3 lang/python ports-mgmt/poudriere-devel sysutils/grub2-efi sysutils/grub2-pcbsd sysutils/xorriso sysutils/grub2-efi```
+      pkg install -y archivers/pigz archivers/pxz devel/git devel/gmake lang/python3 lang/python ports-mgmt/poudriere-devel```
       rehash
       python2.7 -m ensurepip
       python2.7 -m pip install six
