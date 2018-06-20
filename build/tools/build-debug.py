@@ -52,7 +52,7 @@ def main():
             if ext == '.ko':
                 continue
 
-            if relpath.startswith(('boot', 'usr/local/lib/grub')):
+            if relpath.startswith('boot'):
                 continue
 
             if ext == '.c':

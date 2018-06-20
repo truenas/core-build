@@ -386,14 +386,7 @@ def make_iso_image():
     sh('cp -R ${WORLD_DESTDIR}/boot/defaults ${ISO_DESTDIR}/boot/defaults')
 
     # New-style isoboot image
-    output_nogrub = output.replace('.iso', '-NOGRUB.iso')
-    sh('${BUILD_ROOT}/build/tools/make_iso_image.sh ${CDROM_LABEL} ${output_nogrub} ${WORLD_DESTDIR} ${ISO_DESTDIR}')
-    sha256(output_nogrub)
-
-    # Old-style GRUB image
-    sh('mkdir -p ${ISO_DESTDIR}/boot/grub')
-    setfile('${ISO_DESTDIR}/boot/grub/grub.cfg', template('${BUILD_CONFIG}/templates/cdrom/grub.cfg'))
-    sh('grub-mkrescue --xorriso=${BUILD_ROOT}/build/tools/xorriso.sh -o ${output} ${ISO_DESTDIR} -- -volid ${CDROM_LABEL}')
+    sh('${BUILD_ROOT}/build/tools/make_iso_image.sh ${CDROM_LABEL} ${output} ${WORLD_DESTDIR} ${ISO_DESTDIR}')
     sha256(output)
 
 
