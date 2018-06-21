@@ -1,20 +1,364 @@
-24127	Update AD and LDAP endpoints in API
-25394	Remove_ea_value() calls and its 64K limitation
-25543	Proper error messages for VMware exceptions
-25886	Ensure NFS shares networks do not overlap
-25889	Allow reporting CPU usage as a percentage
-26100	Ensure winmsa honors ACEs from destination directories
-26165	Send email when scrub finishes
-26278	Add ability to get console messages to API
-26295	More improvements to SNMP MIB
-26313	Merge in additional upstream scrub commits
-26329	Fix 11.1 Prerelease registering as a downgrade
-26343	Update iocage section of Guide
-26344	Preserve leading space in MOTD banner field
-26352	Update Netdata to 1.8.0
-26357	Report PCI UARTs to recognize serial cards
-26358	Convert Tasks:InitShutdown to Middlewared
-26372	Handle failed password attempts when logging into new UI
-26373	Middleware events for scrub/resilver progress
-26387	Fix SMART service not sending emails
-26408	Change minimum required memory to 8GB in installer
+9053 	AFP home share configuration moved from Services to Sharing
+19397 	Rename TFTP umask field to "File Permissions" and use permissions selection grid
+20169 	Replace Warden backend with iocage
+20236 	Document how to create an iocage plugin
+23392 	Replace (nss|pam)_ldap with nss-pam-ldapd
+23893 	Enhance compressed ARC performance
+24282 	Make ctlstat -n option work reasonably for sparse LUN list
+24283 	Add "exec" property to dataset configuration screen
+24405 	Add viamillipede to build
+24607 	Support IPv6 in iocage jails
+24740 	Properly quote password created during installation
+24785 	Import LAPIC interrupts fix which should prevent Windows VMs from hanging sporadically
+24884 	Add option for VM VNC to listen on localhost only
+25010 	Resolve keymap warning during boot by getting keymaps from vt instead of syscons
+25131 	Interrupt fixes for Windows installations within VMs
+25246 	Use middleware to wipe disks on volume creation
+25420 	Reenable Chelsio TCP offload now that bug in T580-SO-CR 4x10G is fixed
+25598 	Document API to encrypt a volume
+25659 	Reset UPS shutdown timer when shutdown mode changes
+25941 	Convert System:Tunables to Middlewared
+25942 	Convert Services:LLDP to Middlewared
+25943 	Convert Services:WebDav to Middlewared
+25944 	Add Services:Rsync to Middlewared
+25945 	Convert Tasks:Rsync to Middlewared
+25970 	Add devel/py-xattr to base install
+25973 	Set net.link.ether.inet.log_arp_movements to 0 by default
+26104 	Validate vlan number when configuring via the console
+26281 	Validate that first certificate in chain matches private key
+26374 	Make ZSH the default root shell for new installs
+26432 	Provide API calls to get boot pool status and available disks for replacement
+26460 	Add API to download encryption key
+26480 	Add a seatbelt for the amount of memory on the host machine available for VM guests
+26514 	Add API call for web UI images
+26518 	Add LAGG members to API documentation
+26530 	Add API to fetch members of a single group
+26545 	Blacklist mrsas(4) as it is currently unsupported by FreeBSD smartd
+26547 	Don't run scrub if the pool is unlocked or not online
+26586 	Prevent Volume Manager from switching to stripe after selecting cache device
+26594 	Only show detach button when the boot pool is mirrored
+26659 	Ensure that disks attached to a pool are not available for use as a spare
+26668 	Ensure that a disk can not be selected to replace itself
+26679 	Add granularity for alerts so users can select which alerts matter and which services to send each type to
+26708 	Fix UEFI boot menu to allow Linux kernels 4.15 and higher to boot properly in bhyve VMs
+26779 	Add API for boot device scrub
+26802 	Have login screen default to the new UI
+26806 	Add API for managing datasets and zvols
+26841 	Note in the API documentation that bsdusr_attributes cannot be set
+26842 	Note in the API Documentation that Get User Groups only retrieves/sets auxiliary groups
+26895 	Allow IPv6 addresses with zone indexes for IPv6 Default Gateway
+26898 	Don't require a reboot when entering a static IPv6 default route
+26912 	Don't require reboot when adding additional DNS domains
+26924 	Add file-level encryption to Cloud Sync
+26969 	Fix an issue with upgrading into an existing boot pool
+27047 	Convert Services:NFS to Middlewared
+27048 	Convert Services:SSH to Middlewared
+27049 	Add Services:SMB to Middlewared
+27050 	Add Services:S3 to Middlewared
+27093 	Add middleware to handle jail mounts
+27123 	Fix range locking in ZIL commit codepath
+27215 	Document how to add a hot spare using new UI
+27271 	Prevent generating some /etc files from temporarily blocking middlewared
+27272 	Prevent IPv6 from slowing down the console
+27285 	Add sysutils/ncdu to base system
+27307 	Allow unsigned 64-bit serials for certificates which allows AFP auth against macOS LDAP/KRB5
+27332 	Add websocket call to get partitions for use by disk import
+27333 	Bring pNFS code into FreeNAS
+27342 	Fix detaching a degraded or offlined disk from a boot pool
+27362 	Do not show Wipe button for disks that are in use
+27450 	Fix traceback when first unlocking encrypted pool after upgrade
+27489 	Sanitize IP addresses when set using iocage
+27490 	Convert Sharing:iSCSI Global to Middlewared
+27491 	Convert Sharing:iSCSI - Targets to Middlewared
+27492 	Try to restart middlewared when the address is already in use on boot
+27514 	Break potential recursion involving getnewvnode and zfs_rmnode
+27596 	Add an API for network summary
+27608 	Add API for additional user attributes
+27649 	Add API to create passphrase for encrypted volumes
+27656 	Include Intel Meltdown workaround code
+27667 	Allow multiple NFS shares of the same dataset
+27700 	Generate warning when a scrub is paused
+27705 	Add API to remove user attributes
+27739 	Fix "coroutine object has no attribute result" error
+27756 	Log rclone events to middleware
+27763 	Include smbstatus -L output in SMB debug
+27786 	Fix formatting of failed import text
+27794 	Add support for configuring a custom S3 endpoint
+27802 	Add -Z flag to freenas-debug to delete the /var/tmp/fndebug directory
+27833 	Fix distorted graphics in UEFI mode
+27842 	Add "MSDOSFS locale" field to Import Disk screen
+27843 	More robust parser for rsync progress in pool.import_disk
+27844 	Improve rsync logs for pool.import_disk
+27881 	Set the default setting for the SMB -> Sharing -> SMB -> Apply Default Permissions checkbox to checked
+27895 	Remove popup message that refers to defunct Change Email button
+27928 	Replace GRUB with BSD boot loader
+27948 	Allow Samba to also listen on loopback when specifying a Bind IP
+27961 	Authenticate API calls using authorization token header
+27967 	Validate private key presence and permissions when using rsync over SSH
+27968 	Add method to handle logs for jobs that produce huge logging output
+27990 	Add logout method to auth plugin
+27994 	Add email wrapper to redirect stdout/stderr
+28020 	Add docker/rancher password restriction to Guide
+28025 	Fix typo in ix-smbpasswd
+28026 	Do not load unneeded GEOM modules by default
+28044 	Fix PUT and DELETE calls fail with a 405 error when using authorization token
+28062 	Return ACL in filesystem.stat API call
+28064 	Use FreeBSD boot code for installation images
+28068 	Use existing aliases in network interface API instead of creating new ones
+28072 	Add memtest support to loader menu
+28091 	Add API call for ZFS sync option
+28095 	Monitor mdnsd and restart if necessary
+28156 	Escape quotes for S3 secret key
+28175 	Add disk temperature graph to Reporting
+28183 	Update minio to version 2018-04-04T05
+28218 	Do not show Enclosure Slot in Disk View
+28219 	Focus on username in login page
+28220 	Fix logout URL in legacy UI
+28240 	Install FreeBSD GPT zfs loader instead of grub
+28465 	Provide an API call for the next available VNC port
+28470 	Display graphs for network interfaces with a colon in the interface name
+28496 	Add Cloud Sync encryption support
+28498 	Implement Meltdown mitigation
+28508 	Fix winacl issue in minio
+28515 	Use auth token in header
+28519 	Update to Netatalk 3.1.12
+28533 	Use TRACE level for mDNS messages to prevent it from filling middlewared log
+28539 	Fix renamed function in zilstat MIB
+28544 	Merge in compressed ARC patches
+28548 	Do not expose Redmine credentials in debug output
+28566 	Do not allow underscores in hostname
+28567 	Add CPU temperature graph in Reporting menu on AMD Ryzen
+28572 	Fix issue with SNMP over IPv6
+28573 	Fix default permissions on /etc/services
+28590 	Mail fixes regarding the "to address" and failed attempts
+28592 	Add ability to unlock SEDs during boot to Volumes -> View Disks
+28593 	Fix middlewared debug not starting
+28627 	Add the iocage host interface to the bridge and only rename if the default vnet0 interface is supplied
+28656 	Add API method to get current activated pool
+28680 	Actually restart when middlewared is started in the foregound
+28754 	Fix traceback if an incorrect passphrase is used when unlocking a pool
+28780 	Delete static address after switching to DHCP
+28784 	Fix minio config directory permissions
+28790 	Return FreeNAS version in SNMP sysDescr string
+28798 	Add security/gnupg to base as needed by update-smart-drivedb
+28804 	Update API docs for SMART tests
+28814 	Add API to open a shell in the specified jail
+28876 	Add API to promote datasets
+28888 	Fix Plugins check that looks for an active pool
+29000 	Add APIs for getting AD and LDAP users and groups
+29044 	Rework middlewared pipes so that file descriptors won't leak
+29086 	Display more information when mirroring boot device fails due to target device size being too small
+29096 	Add API to decrypt disks and import pool
+29161 	Update rsync to version 3.1.3
+29185 	Add --pidfile flag to middlewared
+29189 	Ensure the host NIC attached to a VM is in an UP state
+29221 	Fix traceback on kerberoskeytab and kerberosprincipal API operations
+29265 	Generate a unique serial for each LUN
+29365 	Add a manual update function to Update.py
+29377 	Provide API endpoint for `directoryservice_clearcache`
+29389 	Show errors on boot pool attach or replace
+29533 	Read complete lines from devd socket to prevent skipped events
+29566 	Increase size of MOTD
+29613 	Check size of debug file and generate an error if it is over the size limit
+29785 	Add a worker process to use with non thread-safe modules
+29805 	Allow /etc/find_alias_for_smtplib.sh to be used by sudoers
+30010 	Fix UI display bug for iSCSI LUNs
+30031 	Convert Network:Global Configuration to Middlewared
+30034 	Convert System:General to Middlewared
+30097 	Fix restoring rrds from /data/rrd_dir.tar.bz2
+30100 	Build new UI Guide from angulargui branch
+30106 	Fix DDNS using SSL when "Use SSL" is unchecked
+30168 	Add "exec" option to pool.dataset API
+30177 	Add msdosfs_iconv kernel module
+30354 	S.M.A.R.T. fix for devices that report "Unknown USB bridge"
+30405 	Fix traceback in S3 Service
+30432 	Document in the Guide how users can submit iocage plugins
+30468 	Add pause attribute to py-libzfs scrub state
+30504 	Remove deprecated consul and consul alerts
+30597 	Handle IOCAGE_SKIP gracefully when no pool is activated
+30672 	Add vnet_interfaces to iocage creation config
+30675 	Configure the serial console to support both BIOS and UEFI
+30687 	Fix validation of hostname for FTP Masquerade address
+30690 	Convert Storage:Scrub to Middlewared
+30693 	Convert System:Advanced to Middlewared
+30705 	Fix for Error 22:'FakeMiddleware' object has no attribute 'run_in_thread'
+30765 	Convert Network:Static Routes to Middlewared
+30798 	Fix process alerts traceback
+30813 	Make SNMP indexes 1-based as described in RFC 2578
+30846 	Turn disk.sync_all into a job so it won't time out while booting
+30852 	Start iocage jails after volume is unlocked
+30858 	Fix traceback that prevented iocage create jail from template from working
+30864 	Update Netdata to 1.10.0
+30870 	Ensure shell is killed on connection close
+30969 	Merge fix for detaching a degraded or offlined disk from a pool
+30987 	Convert Storage:Resilver Priority to Middlewared
+31014 	Fix middleware client not working in Microsoft Edge due to middlewareTokenUrl being undefined
+31083 	Fix traceback when importing a non-encrypted pool
+31110 	Mitigate command injection by prohibiting the setting of multiple NIC options at once
+31185 	Convert Services:UPS to Middlewared
+31188 	Convert Task:CronJob to Middlewared
+31215 	Convert Storage:Disk-Wipe to Middlewared
+31218 	Add API to associate an SMB share with a periodic snapshot task
+31251 	Convert Tasks:SMART to Middlewared
+31254 	Convert Services:DC to Middlewared
+31299 	Separate S.M.A.R.T. email addresses with spaces
+31308 	Update /etc/resolv.conf when nameservers are changed in Network -> Global Configuration
+31317 	Convert Sharing:iSCSI Portals to Middlewared
+31341 	Start S.M.A.R.T. service using smartd-daemon rc script
+31382 	Convert Sharing:AFP to Middlewared
+31384 	Add iocage attribute to differentiate official plugins
+31400 	Silence warning about nut_upsshut not being set when it is disabled
+31402 	Fix iocage traceback when DNS server not found
+31674 	Do not spawn another middleware thread if only the thread id is different
+31731 	Extend jail.query to allow a jail identifier
+31770 	Use "camcontrol devlist -v" in freenas-debug
+31893 	Rebase Ports Tree
+31920 	Fix memory leak in net-snmp
+31950 	Convert Sharing:CIFS to Middlewared
+31953 	Convert System:CA to Middlewared
+31956 	Convert System:Certificates to Middlewared
+32001 	Add share_type to pool.dataset middleware call
+32067 	Fix error in jail.create call
+32112 	Fix download link in installation section of Guide
+32118 	Don't restart NTP when changing the GUI language
+32169 	Don't advertise unsupported UPS types
+32211 	Update config file format version
+32223 	Fix bug that prevented creation of Time Machine share when AFP home share exists
+32262 	Sorting bug fixed in ISCSITargetToExtent
+32274 	Return an IP address for DHCP jails when queried by jail.query call
+32352 	Add UPS serial port choices to Middlewared
+32361 	Add CURL support to collectd
+32364 	Fix for WebDAV SSL choices
+32382 	Ensure group.query middleware call provides information about primary users belonging to a group
+32388 	Stop all iocage jails before a exporting a pool
+32412 	Fix deprecated fstab error
+32430 	Convert System:General:NTP Servers to Middlewared
+32451 	Convert Sharing:NFS to Middlewared
+32457 	Convert Sharing:iSCSI - Authorized Access to Middlewared
+32472 	Convert Sharing:WebDav to Middlewared
+32484 	Add filesystem.stat to middleware to provide user and group names
+32502 	Fix smartd config not being generated
+32523 	Bind middlewared to Unix socket and use it by default in client
+32526 	Check that the path exists within the volume when creating an AFP share
+32535 	Mount ZFS dataset before setting share type
+32577 	Generate specified Subject Alternate Names in Certificate Signing Request
+32673 	Convert Storage:VMWare Snapshots to Middlewared
+32679 	Convert Storage:Periodic Snapshot Tasks to Middlewared
+32685 	Fix alias bug that prevented certain users from not being added to /etc/aliases
+32751 	Detach GELI on single disk swap
+32760 	Fix shell in new UI
+32766 	Fix mountpoint traceback when creating shares
+32772 	Reconfigure swap when a disk vanishes
+32775 	Disable file upload size for VMs in middlewared
+32931 	Add p5-IO-Socket-INET6 as a run dependency for asip-status.pl
+32937 	Clean up krb5.conf and pam.d/* after stopping AD
+32946 	Create bacula iocage plugin
+32976 	Create XMRig iocage plugin
+32985 	Convert Sharing:iSCSI Extent to Middlewared
+33021 	Try to show the reason a VMware snapshot failed
+33048 	Fix domaincontroller partial update in API
+33060 	Add API to show pool status/topology
+33063 	Update instructions for submitting FreeNAS UI translations
+33114 	Return plugin versions in API
+33159 	Allow SNMP contact field to be empty
+33171 	Update FreeBSD cam driver
+33183 	Fix issue with UEFI installs on hybrid BSD loader images
+33237 	Fix serial_from_device for virtio-block disks
+33240 	Add update.file API call to update system using tar file
+33276 	Add puc(4) driver to the kernel config
+33279 	Convert Sharing:iSCSI Initiators to Middlewared
+33294 	Fix traceback when adding a LAGG
+33297 	Set Plugins in legacy UI to read-only
+33300 	Wait for system to fully boot before running alerts
+33306 	Disable Jails creation in legacy UI
+33330 	Fix NFS share creation in API
+33387 	Allow REST to run Jobs returning its `id`
+33411 	Convert Storage:Replication to Middlewared
+33441 	Support all cloud sync services that rclone supports
+33483 	Fix KERBEROS5 option in netatalk3 port
+33576 	Handle permission error more gracefully when creating local user
+33612 	Convert Sharing:iSCSI Target to Extent to Middlewared
+33636 	Add ability to change passphrase on a volume to API 1.0
+33660 	Provide device name in pool topology API
+33666 	Write API functional tests for Tunables
+33672 	Write API functional tests for LLDP
+33684 	Write API functional tests for Cronjob
+33687 	Write API functional tests for Init/Shutdown Scripts
+33696 	Add disk online API and document disk offline API
+33711 	Allow trailing slashes in REST 2.0 API
+33720 	Write API functional tests for System General
+33726 	Handle validation and schema errors in REST 2.0
+33780 	Write API functional tests for Disks
+33783 	Write API functional tests for System Advanced
+33789 	Add Disk update method to middleware
+33834 	Write API functional tests for rsync
+33837 	Write API functional tests for SNMP
+33840 	Write API functional tests for dyndns
+33852 	Specify replication bandwidth limit in kbps
+33861 	Fix setting value on inherited attributes in middleware
+33864 	Write API functional tests for NTP Servers
+33891 	Write API functional tests for Static Routes
+33900 	Force size option added for zvol creation in Middlewared
+33936 	Add release build date to middleware
+33942 	Write API functional tests for SMART
+33945 	Fix maproot/mapall not having default null values in NFS create API
+33969 	Write API functional tests for ups
+33972 	Write API functional tests for webdav_bsd
+33975 	Write API functional tests for webdav_osx
+34002 	Add API to force a disk replacement
+34005 	Add default values to keys that need it in sharing/cifs API
+34032 	Properly show API 1.0 errors on forms using middleware
+34035 	Remove path from proxy_pass to disable decoding in API
+34047 	Convert Storage:Permissions to Middlewared
+34050 	Remove CRASHED state from API until proper service monitoring is implemented
+34053 	Add missing default values to /sharing/afp API
+34056 	Unmount datasets before deletion
+34071 	Fix iSCSI Target Group 1.0 API
+34074 	Allow GET for /{service}/id/{id}/ in REST 2.0
+34092 	Fix middleware bug in rsync task quick scheduler
+34128 	Fix displaying unnecessary errors when ResponseParserError occurs in API
+34146 	Load catia VFS module before zfs_space and zfsacl
+34180 	Create API tests for pool dataset plugin
+34195 	Add API tests for iSCSI
+34213 	Add API endpoint to remove a disk from a pool
+34231 	Minor fixes for iSCSI API
+34234 	Add compressionratio to API
+34381 	Fix traceback in AFP share API
+34417 	Register URLs with and without a slash to avoid a redirect
+34432 	Display root email in Wizard
+34462 	Provide progress report for update.download job
+34477 	Fix recursion issue in Import Certificate
+34498 	Add API tests for IPMI
+34501 	Create API tests for TFTP
+34507 	Minor code improvements for TFTP plugin
+34522 	Allow reset of SED password in UI
+34528 	Fix traceback in /sharing/cifs/id API
+34606 	Fix to allow SSH to reload when start on boot is disabled for SSH
+34636 	Reload iSCSI when zvol size changes
+34675 	Fix order of certificate chain in middleware
+34741 	Support IPv6 networks for NFS shares
+34744 	Add -sec=sys to NFS when using Kerberos keytabs
+34771 	Catch any exceptions when updating a property
+34807 	Minor edits in IPMI plugin
+34810 	Display an error if user trys to install a plugin on a dataset configured with noexec
+34843 	Fix "Set of coroutines/Futures is empty" error when querying for invalid service
+34846 	Fix default iocage jail filtering
+34885 	Ensure ui_protocol is uppercase in /system/general/ API
+34891 	Minor edits in Jail plugin
+34909 	Fix deadlock when using call_sync
+34924 	Fix display of list parameters in /api/docs/
+34945 	Fix deleting cloud credentials
+34954 	Make encryption_salt non-required field for Cloud Sync Task
+34969 	Properly handle dataset recordsize of 1M
+34996 	Fix middleware error when creating iSCSI Authorized Access
+35035 	Do not allow invalid JSON object attributes on REST calls
+35038 	Rename cifs to smb in REST API
+35041 	Provide API call to get SMB sharing storage tasks
+35074 	Watch middleware parent process on workers
+35110 	Update APIv1 documentation for smarttest_disks
+35113 	Update iocage destroy example in Guide
+35128 	Fix traceback caused by attribute name change in iocage
+35167 	Properly report invalid cloud credentials
+35233 	Catch up sharing.cifs to sharing.smb renaming in middleware
+35317 	Build single hybrid CD/USB ISO image
+35542	Fix traceback when updating zvol size
