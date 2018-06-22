@@ -343,6 +343,7 @@
 34810 	Display an error if user trys to install a plugin on a dataset configured with noexec
 34843 	Fix "Set of coroutines/Futures is empty" error when querying for invalid service
 34846 	Fix default iocage jail filtering
+34870 	Add APIv2 tests for Jails
 34885 	Ensure ui_protocol is uppercase in /system/general/ API
 34891 	Minor edits in Jail plugin
 34909 	Fix deadlock when using call_sync
@@ -361,4 +362,7 @@
 35167 	Properly report invalid cloud credentials
 35233 	Catch up sharing.cifs to sharing.smb renaming in middleware
 35317 	Build single hybrid CD/USB ISO image
-35542	Fix traceback when updating zvol size
+35416  Add APIv2 tests for S3
+35542  Fix traceback when updating zvol size
+35587  Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
+
