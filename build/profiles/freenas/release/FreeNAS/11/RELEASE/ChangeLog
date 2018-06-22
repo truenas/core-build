@@ -25,6 +25,7 @@
 25970 	Add devel/py-xattr to base install
 25973 	Set net.link.ether.inet.log_arp_movements to 0 by default
 26104 	Validate vlan number when configuring via the console
+26131 	Add "Auxiliary arguments" field to Cloud Sync
 26281 	Validate that first certificate in chain matches private key
 26374 	Make ZSH the default root shell for new installs
 26432 	Provide API calls to get boot pool status and available disks for replacement
@@ -146,6 +147,7 @@
 28876 	Add API to promote datasets
 28888 	Fix Plugins check that looks for an active pool
 29000 	Add APIs for getting AD and LDAP users and groups
+29020 	Encrypt cloud credentials in configuration database
 29044 	Rework middlewared pipes so that file descriptors won't leak
 29086 	Display more information when mirroring boot device fails due to target device size being too small
 29096 	Add API to decrypt disks and import pool
@@ -257,6 +259,7 @@
 32985 	Convert Sharing:iSCSI Extent to Middlewared
 33021 	Try to show the reason a VMware snapshot failed
 33048 	Fix domaincontroller partial update in API
+33054 	Automatically create bridge with default route for iocage jails
 33060 	Add API to show pool status/topology
 33063 	Update instructions for submitting FreeNAS UI translations
 33114 	Return plugin versions in API
@@ -333,9 +336,11 @@
 34507 	Minor code improvements for TFTP plugin
 34522 	Allow reset of SED password in UI
 34528 	Fix traceback in /sharing/cifs/id API
+34603 	Fix traceback when setting IPMI VLAN ID
 34606 	Fix to allow SSH to reload when start on boot is disabled for SSH
 34636 	Reload iSCSI when zvol size changes
 34675 	Fix order of certificate chain in middleware
+34684 	Fix quota exceeded emails being sent every minute
 34741 	Support IPv6 networks for NFS shares
 34744 	Add -sec=sys to NFS when using Kerberos keytabs
 34771 	Catch any exceptions when updating a property
@@ -360,8 +365,10 @@
 35113 	Update iocage destroy example in Guide
 35128 	Fix traceback caused by attribute name change in iocage
 35167 	Properly report invalid cloud credentials
+35215 	Fix smart.nawk script in freenas-debug SMART section
 35233 	Catch up sharing.cifs to sharing.smb renaming in middleware
 35317 	Build single hybrid CD/USB ISO image
+35404 	Fix race condition in SMART
 35416  Add APIv2 tests for S3
 35542  Fix traceback when updating zvol size
 35587  Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
