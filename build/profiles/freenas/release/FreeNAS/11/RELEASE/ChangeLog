@@ -106,7 +106,6 @@
 28062 	Return ACL in filesystem.stat API call
 28064 	Use FreeBSD boot code for installation images
 28068 	Use existing aliases in network interface API instead of creating new ones
-28072 	Add memtest support to loader menu
 28091 	Add API call for ZFS sync option
 28095 	Monitor mdnsd and restart if necessary
 28156 	Escape quotes for S3 secret key
