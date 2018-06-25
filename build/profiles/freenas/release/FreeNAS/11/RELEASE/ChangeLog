@@ -320,6 +320,7 @@
 34074 	Allow GET for /{service}/id/{id}/ in REST 2.0
 34092 	Fix middleware bug in rsync task quick scheduler
 34128 	Fix displaying unnecessary errors when ResponseParserError occurs in API
+34134   Fix corruption of first byte in AFP_AfpInfo stream/xattr in Samba
 34146 	Load catia VFS module before zfs_space and zfsacl
 34180 	Create API tests for pool dataset plugin
 34195 	Add API tests for iSCSI
@@ -369,7 +370,7 @@
 35233 	Catch up sharing.cifs to sharing.smb renaming in middleware
 35317 	Build single hybrid CD/USB ISO image
 35404 	Fix race condition in SMART
-35416  Add APIv2 tests for S3
-35542  Fix traceback when updating zvol size
-35587  Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
+35416   Add APIv2 tests for S3
+35542   Fix traceback when updating zvol size
+35587   Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
 
