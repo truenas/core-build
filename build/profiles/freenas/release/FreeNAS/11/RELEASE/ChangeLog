@@ -40,7 +40,7 @@
 26594 	Only show detach button when the boot pool is mirrored
 26659 	Ensure that disks attached to a pool are not available for use as a spare
 26668 	Ensure that a disk can not be selected to replace itself
-26679 	Add granularity for alerts so users can select which alerts matter and which services to send each type to
+26679 	Add System -> Alerts for configuring alert frequency
 26708 	Fix UEFI boot menu to allow Linux kernels 4.15 and higher to boot properly in bhyve VMs
 26779 	Add API for boot device scrub
 26802 	Have login screen default to the new UI
