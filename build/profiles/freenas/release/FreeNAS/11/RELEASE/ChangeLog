@@ -356,6 +356,7 @@
 34954 	Make encryption_salt non-required field for Cloud Sync Task
 34969 	Properly handle dataset recordsize of 1M
 34996 	Fix middleware error when creating iSCSI Authorized Access
+35017   Improve validation for serial ports
 35035 	Do not allow invalid JSON object attributes on REST calls
 35038 	Rename cifs to smb in REST API
 35041 	Provide API call to get SMB sharing storage tasks
