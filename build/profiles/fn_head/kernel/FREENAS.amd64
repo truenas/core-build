@@ -48,7 +48,6 @@ options 	PSEUDOFS		# Pseudo-filesystem framework
 options 	GEOM_PART_GPT		# GUID Partition Tables.
 options 	GEOM_RAID		# Soft RAID functionality.
 options 	GEOM_LABEL		# Provides labelization
-options 	COMPAT_43TTY		# BSD 4.3 TTY compat (sgtty)
 options 	COMPAT_FREEBSD32	# Compatible with i386 binaries
 options 	COMPAT_FREEBSD4		# Compatible with FreeBSD4
 options 	COMPAT_FREEBSD5		# Compatible with FreeBSD5
@@ -346,12 +345,4 @@ device		ichwd
 device		amdsbwd
 device		viawd
 device		wbwd
-
-# FireWire support
-device		firewire	# FireWire bus code
-device		sbp		# SCSI over FireWire (Requires scbus and da)
-#device		fwe		# Ethernet over FireWire (non-standard!)
-#device		fwip		# IP over FireWire (RFC 2734,3146)
-#device		dcons		# Dumb console driver
-#device		dcons_crom	# Configuration ROM for dcons
 ## End FreeNAS specific section
