@@ -132,7 +132,7 @@
 28572 	Fix issue with SNMP over IPv6
 28573 	Fix default permissions on /etc/services
 28590 	Mail fixes regarding the "to address" and failed attempts
-28592 	Add ability to unlock SEDs during boot to Volumes -> View Disks
+28592 	Automatically unlock SEDs during boot
 28593 	Fix middlewared debug not starting
 28627 	Add the iocage host interface to the bridge and only rename if the default vnet0 interface is supplied
 28656 	Add API method to get current activated pool
