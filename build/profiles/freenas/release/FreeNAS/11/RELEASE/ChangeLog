@@ -377,6 +377,7 @@
 35548 	Explicitly make serial console preferred when it is enabled
 35551 	Fix creating zvol with volblocksize
 35653 	Check GRUB presence via kenv instead of fstab
-35863 	Fix traceback when creatiing new Cloud Sync Task35587   Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
+35863 	Fix traceback when creating new Cloud Sync Task
+35587   Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
 35873 	Fix error when changing Cloud Credential Name in new UI
 36008 	Fix for resolved hostnames validator
