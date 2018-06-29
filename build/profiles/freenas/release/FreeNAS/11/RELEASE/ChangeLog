@@ -326,6 +326,7 @@
 34231 	Minor fixes for iSCSI API
 34234 	Add compressionratio to API
 34381 	Fix traceback in AFP share API
+34411 	Get samba_server status when checking if AD started
 34417 	Register URLs with and without a slash to avoid a redirect
 34432 	Display root email in Wizard
 34462 	Provide progress report for update.download job
@@ -370,6 +371,7 @@
 35233 	Catch up sharing.cifs to sharing.smb renaming in middleware
 35257 	Fix disk identifier issue in new UI
 35317 	Build single hybrid CD/USB ISO image
+35374 	Add dummy input fields to prevent the browser from auto-filling passwords
 35404 	Fix race condition in SMART
 35416   Add APIv2 tests for S3
 35527 	Fix aliases in new UI
@@ -381,3 +383,6 @@
 35587   Fix instances where pool.snapshot was renamed to pool.snapshottask in middleware
 35873 	Fix error when changing Cloud Credential Name in new UI
 36008 	Fix for resolved hostnames validator
+36118 	Add support to boot from dataset with a colon in its name
+36183 	Fix corruption of first byte in AFP_AfpInfo stream/xattr in Samba
+36223 	Allow upgrades on systems where grub is the only fstab entry
