@@ -1,43 +1,71 @@
-OS:
-The base operating system version for FreeNAS 11.1 is FreeBSD 11.1-STABLE,
-which brings in many bug fixes, performance improvements, updated and
-new drivers, and new features.
+We are pleased to announce the general availability of FreeNAS 11.2-BETA1.
+This initial version of the 11.2 series is considered to be
+feature-complete and ready for testing. Users, especially those who use
+Plugins, Jails, or VMs, are encouraged to update to this release in order
+to take advantage of the many improvements and bug fixes to those
+subsystems. Please report any bugs to
+https://redmine.ixsystems.com/projects/freenas/. 
 
-OpenZFS:
-There have been many improvements to OpenZFS. Users should notice a
-significant speed difference when listing a large number of snapshots or
-when deleting multiple snapshots and large files.
+To update to this release, select the 11.2-STABLE train in System -> Update.
+Should you need to return to the 11.1 series after updating, reboot and
+select that boot environment from the boot menu.
 
-The algorithm used for scrubs and resilvers has received many speed
-improvements which will be most noticeable on fragmented pools.
+These major features are new in the 11.2 series:
 
-Resilver Priority has been added to Storage. This provides the ability to
-run resilvering at a higher priority at configurable times and days of the
-week.
+The login screen defaults to the new, Angular-based UI. Users who wish to
+continue to use the classic UI can select “Legacy UI” in the login screen. 
 
-SNMP:
-The SNMP MIB has many improvements, including the ability to send SNMP
-traps for new alerts. 
+Beginning with this release, the screenshots that appear in the published
+version of the Guide and in the Guide icon within the new UI are for the
+new UI. However, users who click on the Guide icon while logged into the
+classic UI will continue to see screenshots for the old UI. The
+availability of both versions of the Guide is to assist users as they
+become familiar with the new UI during the transition period before the
+classic UI is deprecated in a future release. 
 
-Hardware Support:
-The hardware watchdog has been reenabled for recent firmware versions of
-AsrockRack C2750D4I. The BMC bug which required the watchdog to be
-disabled is resolved with the 00.30.00 or newer BMC firmware version. 
+The rewrite from the old API to the new middlewared continues. Once the API
+stabilizes and the rewrite is complete, api.freenas.org will be deprecated
+and replaced by the new API documentation. In the mean time, to see the API
+documentation for the new middleware, log into the new UI, click on the URL
+for the FreeNAS system in your browser’s location bar, and add :api/docs to
+the end of that URL. 
 
-Cloud:
-Cloud Credentials has been added to System. This can be used to provide a
-secure connection to a cloud services providers. Supported services
-include Amazon S3, Backblaze B2, and Google Cloud Storage.
+The boot loader has changed from GRUB to the native FreeBSD boot loader.
+This should resolve several issues that some users experienced with GRUB.
+GRUB was introduced as a temporary solution until the FreeBSD boot
+loader had full support for boot environments, which it now has. 
 
-Cloud Sync has been added to Tasks and can be used to synchronize files or
-directories to remote cloud storage providers. 
+The Plugins and Jails backend has switched from warden to iocage and
+warden will no longer receive bug fixes. The new UI will automatically
+use iocage to create and manage Plugins and Jails. Users are encouraged
+to recreate any existing Plugins and Jails using the new UI to ensure
+that they are running the latest supported application versions. 
 
-Alerts:
-The Send Test Alert button has been added to Alert Services.
+Virtual Machines are more crash-resistant. When a guest is started, the
+amount of available memory is checked and an initialization error will
+occur if there is insufficient system resources. When a guest is stopped,
+its resources are returned to the system. In addition, the UEFI boot menu
+fix allows Linux kernels 4.15 and higher to boot properly. 
 
-IPMI:
-The Identify Light button has been added to make it easier to identify a
-system in a rack by flashing its IPMI LED light.
+Cloud Sync Tasks provides configuration options to encrypt data before it
+is transmitted and to keep it in the encrypted format while stored on the
+cloud. The filenames can also be encrypted. 
 
-Time Machine:
-Support for per-backup OS X Time Machine quotas has been added.
+Preliminary support has been added for Self-Encrypting Drives (SEDs). 
+
+OpenZFS is up-to-date with Illumos and slightly ahead due to support for
+sorted scrubs which were ported from ZFS on Linux. Notable improvements
+include channel programs, data disk removal, more resilient volume import,
+the ability to import a pool with missing vdevs, pool checkpoints,
+improved compressed ARC performance, and ZIL batching. Note that many of
+these improvements need further testing so have not yet been integrated
+into the UI.
+
+Known Issues
+
+There are 2 known limitations of BETA1 that should be fixed for RC1:
+
+Serial console installations are not yet supported.
+
+Resizing zvols created in the new UI is not yet supported. If you need to
+create a zvol, log into the legacy UI to create it.
