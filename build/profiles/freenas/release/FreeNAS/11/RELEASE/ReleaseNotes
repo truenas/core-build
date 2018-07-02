@@ -60,3 +60,12 @@ the ability to import a pool with missing vdevs, pool checkpoints,
 improved compressed ARC performance, and ZIL batching. Note that many of
 these improvements need further testing so have not yet been integrated
 into the UI.
+
+Known Issues
+
+There are 2 known limitations of BETA1 that should be fixed for RC1:
+
+Serial console installations are not yet supported.
+
+Resizing zvols created in the new UI is not yet supported. If you need to
+create a zvol, log into the legacy UI to create it.
