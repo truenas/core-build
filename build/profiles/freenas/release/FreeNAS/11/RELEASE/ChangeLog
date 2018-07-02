@@ -386,3 +386,4 @@
 36118 	Add support to boot from dataset with a colon in its name
 36183 	Fix corruption of first byte in AFP_AfpInfo stream/xattr in Samba
 36223 	Allow upgrades on systems where grub is the only fstab entry
+36228 	Fix traceback in new UI when checking the force button in the create a zvol screen 
