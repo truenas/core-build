@@ -1,5 +1,5 @@
 We are pleased to announce the general availability of FreeNAS 11.2-BETA1.
-This initial version of the 11.-2 series is considered to be
+This initial version of the 11.2 series is considered to be
 feature-complete and ready for testing. Users, especially those who use
 Plugins, Jails, or VMs, are encouraged to update to this release in order
 to take advantage of the many improvements and bug fixes to those
