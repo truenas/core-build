@@ -6,6 +6,10 @@ to take advantage of the many improvements and bug fixes to those
 subsystems. Please report any bugs to
 https://redmine.ixsystems.com/projects/freenas/. 
 
+To update to this release, select the 11.2-STABLE train in System -> Update.
+Should you need to return to the 11.1 series after updating, reboot and
+select that boot environment from the boot menu.
+
 These major features are new in the 11.2 series:
 
 The login screen defaults to the new, Angular-based UI. Users who wish to
