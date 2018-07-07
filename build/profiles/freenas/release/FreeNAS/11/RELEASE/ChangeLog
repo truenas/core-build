@@ -355,6 +355,7 @@
 34909 	Fix deadlock when using call_sync
 34924 	Fix display of list parameters in /api/docs/
 34945 	Fix deleting cloud credentials
+34951 	Separate S.M.A.R.T. email addresses with spaces
 34954 	Make encryption_salt non-required field for Cloud Sync Task
 34969 	Properly handle dataset recordsize of 1M
 34996 	Fix middleware error when creating iSCSI Authorized Access
@@ -384,6 +385,10 @@
 35873 	Fix error when changing Cloud Credential Name in new UI
 36008 	Fix for resolved hostnames validator
 36118 	Add support to boot from dataset with a colon in its name
+36173   Use ups.port_choices and ups.driver_choices to get ports and drivers for UPS in new UI
 36183 	Fix corruption of first byte in AFP_AfpInfo stream/xattr in Samba
 36223 	Allow upgrades on systems where grub is the only fstab entry
 36228 	Fix traceback in new UI when checking the force button in the create a zvol screen 
+36468 	Fix zvol edit mode in new UI
+36523 	Hide Auxiliary Arguments from Cloud Sync task
+36728 	Fix for ISO upgrade in BIOS mode
