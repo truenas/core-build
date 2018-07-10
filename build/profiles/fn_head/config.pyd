@@ -47,6 +47,7 @@ kernel_modules = [
     "geom",
     "i2c",
     "ipmi",
+    "ipsec",
     "khelp/h_ertt",
     "libiconv",
     "libmchain",
