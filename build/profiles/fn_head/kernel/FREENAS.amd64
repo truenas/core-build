@@ -179,15 +179,6 @@ device		psm			# PS/2 mouse
 
 device		kbdmux			# keyboard multiplexer
 
-device		vga			# VGA video card driver
-options 	VESA			# Add support for VESA BIOS Extensions (VBE)
-
-device		splash			# Splash screen and screen saver support
-
-# syscons is the default console driver, resembling an SCO console
-device		sc
-options 	SC_PIXEL_MODE		# add support for the raster text mode
-
 # vt is the new video console driver
 device		vt
 device		vt_vga
