@@ -77,16 +77,9 @@ kernel_modules = [
     "ipoib",
     "mlx4ib",
     "mthca",
+    "ocs_fc",
+    "smartpqi",
 ]
-
-if PRODUCT == "TrueNAS":
-    kernel_modules += [
-    ]
-else:
-    kernel_modules += [
-        "netgraph/ether",
-        "netgraph/socket"
-    ]
 
 # World configuration
 make_conf_build = {

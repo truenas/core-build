@@ -110,7 +110,6 @@ device		siis			# SiliconImage SiI3124/SiI3132/SiI3531 SATA
 # SCSI Controllers
 device		ahc			# AHA2940 and onboard AIC7xxx devices
 device		ahd			# AHA39320/29320 and onboard AIC79xx devices
-#device		esp			# AMD 53C974 (Tekram DC-390(T))
 device		hptiop			# Highpoint RocketRaid 3xxx series
 device		isp			# Qlogic family
 #device		ispfw			# Firmware for QLogic HBAs- normally a module
@@ -119,14 +118,9 @@ device		mps			# LSI-Logic MPT-Fusion 2
 device		mpr			# LSI-Logic MPT-Fusion 3
 #device		ncr			# NCR/Symbios Logic
 device		sym			# NCR/Symbios Logic (newer chipsets + those of `ncr')
-#device		trm			# Tekram DC395U/UW/F DC315U adapters
 
-#device		adv			# Advansys SCSI adapters
-#device		adw				# Advansys wide SCSI adapters
-#adevice	aic			# Adaptec 15[012]x SCSI adapters, AIC-6[23]60.
-#device		bt			# Buslogic/Mylex MultiMaster SCSI adapters
 device		isci			# Intel C600 SAS controller
-device		ocs_fc			# Emulex FC adapters
+#device		ocs_fc			# Emulex FC adapters
 
 # ATA/SCSI peripherals
 device		scbus			# SCSI bus (required for ATA/SCSI)
@@ -142,31 +136,29 @@ device		ctl			# CAM Target Layer
 device		amr			# AMI MegaRAID
 device		arcmsr			# Areca SATA II RAID
 device		ciss			# Compaq Smart RAID 5*
-device		dpt			# DPT Smartcache III, IV - See NOTES for options
 device		hptmv			# Highpoint RocketRAID 182x
 device		hptnr			# Highpoint DC7280, R750
 device		hptrr			# Highpoint RocketRAID 17xx, 22xx, 23xx, 25xx
 device		hpt27xx			# Highpoint RocketRAID 27xx
 device		iir			# Intel Integrated RAID
 device		ips			# IBM (Adaptec) ServeRAID
-device		mly			# Mylex AcceleRAID/eXtremeRAID
+#device		mly			# Mylex AcceleRAID/eXtremeRAID
 device		twa			# 3ware 9000 series PATA/SATA RAID
-device		smartpqi		# Microsemi smartpqi driver
+#device		smartpqi		# Microsemi smartpqi driver
 device		tws			# LSI 3ware 9750 SATA+SAS 6Gb/s RAID controller
 
 # RAID controllers
 device		aac			# Adaptec FSA RAID
 device		aacp			# SCSI passthrough for aac (requires CAM)
 device		aacraid			# Adaptec by PMC RAID
-#device		ida			# Compaq Smart RAID
 device		mfi			# LSI MegaRAID SAS
 device		mfip			# LSI MegaRAID SAS passthrough, requires CAM
-device		mlx			# Mylex DAC960 family
+#device		mlx			# Mylex DAC960 family
 device		mrsas			# LSI/Avago MegaRAID SAS/SATA, 6Gb/s and 12Gb/s
 device		pmspcv			# PMC-Sierra SAS/SATA Controller driver
 #XXX pointer/int warnings
 #device		pst			# Promise Supertrak SX6000
-device		twe			# 3ware ATA RAID
+#device		twe			# 3ware ATA RAID
 
 # NVM Express (NVMe) support
 device		nvme			# base NVMe driver
@@ -324,7 +316,6 @@ options		IPOIB_CM	# IPoIB connected mode
 ## FreeNAS specific modifications
 # misc
 device		padlock
-options		NETGRAPH
 device		snp
 device		epair		# A pair of virtual back-to-back connected Ethernet interfaces
 device		if_bridge	# network bridge device
