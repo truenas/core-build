@@ -47,6 +47,7 @@ kernel_modules = [
     "geom",
     "i2c",
     "ipmi",
+    "ipsec",
     "khelp/h_ertt",
     "libiconv",
     "libmchain",
@@ -75,18 +76,9 @@ kernel_modules = [
     "hwpmc",
     "ipoib",
     "mlx4ib",
+    "ocs_fc",
+    "smartpqi",
 ]
-
-if PRODUCT == "TrueNAS":
-    kernel_modules += [
-        "syscons/blank",
-    ]
-else:
-    kernel_modules += [
-        "syscons",
-        "netgraph/ether",
-        "netgraph/socket"
-    ]
 
 # World configuration
 make_conf_build = {
@@ -119,6 +111,7 @@ make_conf_build = {
     "WITHOUT_RCMDS":                "yes",
     "WITHOUT_SENDMAIL":             "yes",
     "WITHOUT_SVNLITE":              "yes",
+    "WITHOUT_SYSCONS":              "yes",
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_TESTS":                "yes",
     "WITHOUT_WIRELESS":             "yes",
@@ -161,7 +154,6 @@ make_conf_boot = {
     "WITHOUT_NIS":                  "yes",
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
-    "WITHOUT_SYSCONS":              "yes",
     "WITHOUT_VT":                   "yes",
 }
 
