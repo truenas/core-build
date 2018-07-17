@@ -381,7 +381,6 @@ def make_iso_image():
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
     sh('cp ${WORLD_DESTDIR}/boot/*.4th ${ISO_DESTDIR}/boot')
     sh('cp ${WORLD_DESTDIR}/boot/loader.rc ${ISO_DESTDIR}/boot/loader.rc')
-    sh('cp ${WORLD_DESTDIR}/boot/loader.rc.local ${ISO_DESTDIR}/boot/loader.rc.local')
     sh('cp ${WORLD_DESTDIR}/boot/menu.rc ${ISO_DESTDIR}/boot/menu.rc')
     sh('cp -R ${WORLD_DESTDIR}/boot/defaults ${ISO_DESTDIR}/boot/defaults')
 
