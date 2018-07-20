@@ -163,6 +163,11 @@ device		pmspcv			# PMC-Sierra SAS/SATA Controller driver
 device		nvme			# base NVMe driver
 device		nvd			# expose NVMe namespaces as disks, depends on nvme
 
+# eMMC flash storage support
+device		mmc			# dependency for mmcsd
+device		mmcsd			# eMMC driver
+device		sdhci			# Bus driver for eMMC device
+
 # atkbdc0 controls both the keyboard and the PS/2 mouse
 device		atkbdc			# AT keyboard controller
 device		atkbd			# AT keyboard

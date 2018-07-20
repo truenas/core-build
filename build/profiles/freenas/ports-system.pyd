@@ -235,6 +235,7 @@ ports += {
         "OPTIONS_FILE_SET+=CURL",
         "OPTIONS_FILE_SET+=DISK",
         "OPTIONS_FILE_SET+=IPMI",
+        "OPTIONS_FILE_SET+=NUTUPS",
         "OPTIONS_FILE_SET+=PYTHON",
         "OPTIONS_FILE_SET+=RRDTOOL",
         "OPTIONS_FILE_SET+=STATGRAB"
@@ -409,6 +410,8 @@ ports += "devel/libhyve-remote"
 
 ports += "net/nsq"
 ports += "net/py-pynsq"
+
+ports += "graphics/drm-next-kmod"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
