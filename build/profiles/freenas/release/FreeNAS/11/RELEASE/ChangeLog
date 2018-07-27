@@ -174,7 +174,7 @@
 37994 	Add Manual Update section to new UI version of Guide
 37998 	Show random MAC address generator in NIC edit mode of new UI
 38022 	Add validators for VM and Docker wizards in new UI
-38026 	Add writeable certificates field to CSR in new UI
+38026 	Add writeable certificates field when importing a certificate in new UI
 38038 	Do not send empty SNMP password when sending an email
 38058 	Add UnavailableException for alert checkers
 38078 	Fix Cloud Credentials breadcrumb
