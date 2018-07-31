@@ -213,6 +213,7 @@
 38993 	Redesign shutdown screen in new UI
 38998 	Do not expose AD or LDAP passwords in new UI
 39067 	Adjust top margin on data table footer in new UI
+39083  Have browser reload login page when leaving reboot screen
 39095 	Hide collapsed toggle in new UI when sidenav is offscreen
 39103 	Raise descriptive error in new UI when VM fails to start
 39213 	Password fix for CHAP authentication
