@@ -1,5 +1,5 @@
-We are pleased to announce the general availability of FreeNAS 11.2-BETA1.
-This initial version of the 11.2 series is considered to be
+We are pleased to announce the general availability of FreeNAS 11.2-BETA2.
+This second BETA of the 11.2 series is considered to be
 feature-complete and ready for testing. Users, especially those who use
 Plugins, Jails, or VMs, are encouraged to update to this release in order
 to take advantage of the many improvements and bug fixes to those
@@ -27,7 +27,7 @@ The rewrite from the old API to the new middlewared continues. Once the API
 stabilizes and the rewrite is complete, api.freenas.org will be deprecated
 and replaced by the new API documentation. In the mean time, to see the API
 documentation for the new middleware, log into the new UI, click on the URL
-for the FreeNAS system in your browser’s location bar, and add :api/docs to
+for the FreeNAS system in your browser’s location bar, and add /api/docs to
 the end of that URL. 
 
 The boot loader has changed from GRUB to the native FreeBSD boot loader.
@@ -63,9 +63,5 @@ into the UI.
 
 Known Issues
 
-There are 2 known limitations of BETA1 that should be fixed for RC1:
-
-Serial console installations are not yet supported.
-
-Resizing zvols created in the new UI is not yet supported. If you need to
-create a zvol, log into the legacy UI to create it.
+Cron Job Tasks created using the new UI will generate an error if the job
+is viewed in the legacy UI. This bug will be fixed for RC1. 
