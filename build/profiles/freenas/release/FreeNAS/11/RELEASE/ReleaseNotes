@@ -65,3 +65,6 @@ Known Issues
 
 Cron Job Tasks created using the new UI will generate an error if the job
 is viewed in the legacy UI. This bug will be fixed for RC1. 
+
+ If the UI does not automatically refresh after updating, restart the browser
+ or open a new private window.
