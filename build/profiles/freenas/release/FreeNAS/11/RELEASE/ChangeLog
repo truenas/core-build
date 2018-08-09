@@ -154,6 +154,7 @@
 29185 	Add --pidfile flag to middlewared
 29189 	Ensure the host NIC attached to a VM is in an UP state
 29221 	Fix traceback on kerberoskeytab and kerberosprincipal API operations
+29277 	Wait for zfs.pool.extend to complete so we can propagate errors when adding a mirrored USB drive
 29265 	Generate a unique serial for each LUN
 29365 	Add a manual update function to Update.py
 29377 	Provide API endpoint for `directoryservice_clearcache`
