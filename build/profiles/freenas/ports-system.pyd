@@ -444,6 +444,7 @@ if WITH_ASIGRA:
         ]
     }
     ports += "databases/postgresql10-client"
+    ports += "databases/postgresql10-contrib"
     ports += "databases/postgresql10-plpython"
     ports += {
         "name": "databases/py-psycopg2",
