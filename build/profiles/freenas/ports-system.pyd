@@ -443,8 +443,14 @@ if WITH_ASIGRA:
             "OPTIONS_FILE_SET+=XML"
         ]
     }
+    ports += "databases/postgresql10-client"
     ports += "databases/postgresql10-plpython"
-    ports += "databases/py-psycopg2"
+    ports += {
+        "name": "databases/py-psycopg2",
+        "options": [
+            "PGSQL_DEFAULT=10"
+        ]
+    }
     ports += "devel/gettext-runtime"
     ports += "devel/icu"
     ports += "print/indexinfo"
