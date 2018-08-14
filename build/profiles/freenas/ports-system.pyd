@@ -458,6 +458,7 @@ if WITH_ASIGRA:
     ports += "textproc/libxml2"
     ports += "lang/perl5.24"
     ports += "sysutils/dssystem"
+    ports += "sysutils/dsoperator"
 
     # Asigra uses nss_ldap & pam_ldap
     # We can adjust nslcd to work the way Asigra requires
