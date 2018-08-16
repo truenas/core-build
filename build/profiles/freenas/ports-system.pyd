@@ -426,7 +426,7 @@ if DEBUG:
 	ports += "devel/ctags"
 	ports += "devel/py-pyflakes"
 
-if WITH_ASIGRA:
+if PRODUCT == "TrueNAS" or WITH_ASIGRA:
     ports += {
         "name": "databases/postgresql10-server",
         "options": [
