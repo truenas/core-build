@@ -427,8 +427,6 @@ if DEBUG:
 	ports += "devel/py-pyflakes"
 
 if PRODUCT == "TrueNAS" or WITH_ASIGRA:
-    WITH_ASIGRA = True
-
     ports += {
         "name": "databases/postgresql10-server",
         "options": [
