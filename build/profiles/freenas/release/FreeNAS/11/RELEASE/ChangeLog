@@ -1,34 +1,56 @@
-24965 	Add more command output to freenas-debug
-26484 	Don't write unneeded SNMP messages to /var/log/messages
-27936 	More fixes to ensure /nonexistent directory is not created
-28585 	Fix Samba memory leak in vfswrap_getwd()
-28862   Fix restoring old reporting values after a FreeNAS update
-29971 	Improve logging in AD monitoring
-30213 	Turn bootenv.delete into a job to prevent timeout related traceback when deleting boot enviroments
-30609 	Do not log nginx errors to console
-30729 	Speed up and clean up freenas-debug
-30768 	Fix argument for SMB_VFS_NEXT_DISK_FREE in zfs_space VFS module
-30960 	Display Samba version and git commit with smbd -v
-30990 	Make lagg work with 100Gbps and 25Gbps interfaces that report extended media types
-31041 	Add support for Self-Encrypting Drives
-31050 	Do not spawn another thread on call_sync middleware call
-31059 	Fix user.delete API call when DC is enabled
-31404 	When using ADS disable DOSATTRIB to prevent Windows 7 "Invalid MS-DOS function" error
-31635 	Correct PAM constants for AFP users authenticating as local user in LDAP environment
-31773 	Migrate MTU settings when upgrading from 9.10.X to 11.1.X
-32868 	Fix "Check Now" traceback error
-32880 	Fix alert services traceback
-32943 	Add -M to freenas-debug to check SATA DOM speed
-33045 	Check if TrueNAS system needs an HBA firmware update
-33228 	Add configured SMART, replication, and scrub tasks to freenas-debug
-33618 	Do not show beta UI link
-33663 	Alphabetize freenas-debug switches
-33786 	Be less restrictive for NFS exports
-33855 	Remove dtrace freenas-debug modules
-33885 	Start dbus before netatalk
-33924 	Add check to see if NIS is enabled
-33927 	Fix typo in NFS section of freenas-debug
-33930 	Fix traceback in system section of freenas-debug
-33957 	Fix Python global interpreter lock with LDAP
-33987 	Fix system.advanced traceback during system boot
-33993 	Remove parallel routines for freenas-debug to prevent CPU spike
+26131 	Add "Auxiliary arguments" field to middleware
+26695 	Use 4k jumbo cluster pool for all jumbo frames until the allocator problem is fixed for the 9k jumbo cluster pool
+28063 	Write local SID to correct DB file
+29020 	Encrypt cloud credentials in configuration database
+30696 	Fixes for Windows AD User Base entries
+32055 	Remove warning that vfs_full_audit may cause transfer problems
+33054 	Automatically create bridge with default route for iocage jails
+33453 	Fix unnecessary AD restarts caused by enabling service monitor
+33645 	Add ability to stop winmsa from changing owner
+34134 	Fix corruption of first byte in AFP_AfpInfo stream/xattr in Samba
+34264 	Add support for configuring a custom S3 endpoint
+34276 	NVMe SMART monitoring workaround
+34396 	Use FreeNAS-specific fork of iocage
+34459 	Recompile minio to allow S3 service to start
+34522 	Allow reset of SED password in UI
+34603 	Fix traceback when setting IPMI VLAN ID
+34684 	Fix quota exceeded emails being sent every minute
+35215 	Fix smart.nawk script in freenas-debug SMART section
+35404 	Fix race condition in SMART
+35973 	Remove faulty enabled/disabled logic from freenas-debug
+37143 	Remove unnecessary pam_sss errors from /var/log/auth.log
+37878 	Add sysctls to disable winbind and sssd enumeration
+37902 	Remove 'net usersidlist' from freenas-debug
+38898 	Improve text of unauthorized email alert message
+39178 	Ensure that U6 installs the correct version of the Guide
+39628 	Fix function for storing SIDs
+40572 	Allow Samba to also listen on loopback when specifying a Bind IP
+40636 	Allow /etc/find_alias_for_smtplib.sh to be used by sudoers
+40640 	Monitor mdnsd and restart if necessary
+40644 	Get samba_server status when checking if AD started
+40648 	Load catia VFS module before zfs_space and zfsacl
+40664 	Log netatalk messages to /var/log/afp.log
+40668 	Regenerate /etc/resolv.conf when disabling Domain Controller service
+40672 	Write out pam configuration files in /etc/pam.d/ if they don't already exist
+40680 	Kerberos authentication fixes for LDAP servers
+40684 	Allow NIS to be ID provider for Active Directory
+40688 	Fix typo and lack of clarity in NTLMv1 warning
+40692 	At boot, have MDNS wait for /etc/resolv.conf to be available and valid
+40696 	Remove leftover NT4 code
+40704 	Do not grant extra privileges to users when a Directory Service is enabled
+40708 	Add unix_primary_group and unix_nss_info to idmap_ad configuration to address how Samba now handles groups
+40716 	Disable SMB1 by default
+40720 	Replace (nss|pam)_ldap with nss-pam-ldapd
+40724 	Allow unsigned 64-bit serials for certificates which allows AFP auth against macOS LDAP/KRB5
+40728 	Add experimental sysctl to enable multichannel Samba
+40768 	Revert recent zilstat commit as there is no zil_lwb_write_start() function in FreeNAS 11.1
+40968 	Fix traceback when trying to add a Cloud Sync task
+41028 	Patch FreeBSD CVE-2018-6922 "Resource exhaustion in TCP reassembly"
+41044 	Fix traceback when creating an internal certificate
+41052 	Bug fix for zvol/dataset traceback
+41244 	Fix check to see whether the SMB service is started
+41272 	Properly encode passwords in inadyn config
+41385 	Update Samba port to address August CVEs
+41410 	Fix "AttributeError: 'Undefined' object has no attribute 'call'` traceback
+41772 	Add patch to address FreeBSD-SA-18:10.ip
+41880 	Improve service status wording in freenas-debug
