@@ -50,6 +50,7 @@
 41052 	Bug fix for zvol/dataset traceback
 41244 	Fix check to see whether the SMB service is started
 41272 	Properly encode passwords in inadyn config
+41332 	Check for iocage host release being less than jail release when creating regular jail
 41385 	Update Samba port to address August CVEs
 41410 	Fix "AttributeError: 'Undefined' object has no attribute 'call'` traceback
 41772 	Add patch to address FreeBSD-SA-18:10.ip
