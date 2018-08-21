@@ -425,3 +425,40 @@ if DEBUG:
 	}
 	ports += "devel/ctags"
 	ports += "devel/py-pyflakes"
+
+if PRODUCT == "TrueNAS" or WITH_ASIGRA:
+    ports += {
+        "name": "databases/postgresql10-server",
+        "options": [
+            "OPTIONS_FILE_UNSET+=DEBUG",
+            "OPTIONS_FILE_UNSET+=DTRACE",
+            "OPTIONS_FILE_SET+=GSSAPI",
+            "OPTIONS_FILE_SET+=INTDATE",
+            "OPTIONS_FILE_SET+=LDAP",
+            "OPTIONS_FILE_SET+=NLS",
+            "OPTIONS_FILE_UNSET+=OPTIMIZED_CFLAGS",
+            "OPTIONS_FILE_UNSET+=PAM",
+            "OPTIONS_FILE_SET+=SSL",
+            "OPTIONS_FILE_SET+=TZDATA",
+            "OPTIONS_FILE_SET+=XML"
+        ]
+    }
+    ports += "databases/postgresql10-client"
+    ports += "databases/postgresql10-contrib"
+    ports += "databases/postgresql10-plpython"
+    ports += {
+        "name": "databases/py-psycopg2",
+        "options": [
+            "PGSQL_DEFAULT=10"
+        ]
+    }
+    ports += "devel/gettext-runtime"
+    ports += "devel/icu"
+    ports += "print/indexinfo"
+    ports += "textproc/libxml2"
+    ports += "lang/perl5.24"
+    ports += "sysutils/dssystem"
+    ports += "sysutils/dsoperator"
+
+    # Asigra uses nss_ldap & pam_ldap
+    # We can adjust nslcd to work the way Asigra requires
