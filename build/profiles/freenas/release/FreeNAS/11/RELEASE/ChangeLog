@@ -6,7 +6,7 @@
 26157 	Add warning that setting the minio directory changes ownership
 26434 	Add descriptive error to API when VM fails to start
 27820 	Add sysutils/devcpu-data
- 28063 	Write local SID to correct DB file
+28063 	Write local SID to correct DB file
 28209 	Add unix_primary_group and unix_nss_info to idmap_ad configuration to address how Samba now handles groups
 28406 	Do not grant extra privileges to users when a Directory Service is enabled
 28615 	Fix the description of Validate Remote Path checkbox in Guide
