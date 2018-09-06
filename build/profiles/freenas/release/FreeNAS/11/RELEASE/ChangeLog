@@ -1,226 +1,207 @@
-12207 	Add Redmine iocage plugin
-17697 	Add a tunable to enable multichannel Samba
-21458 	Provide alert if configured NTP server can not be contacted
-25057 	Fix traceback when deleting boot environment
-25545 	Remove online/offline button for cache device in new UI
-26157 	Add warning that setting the minio directory changes ownership
-26434 	Add descriptive error to API when VM fails to start
-27820 	Add sysutils/devcpu-data
-28063 	Write local SID to correct DB file
-28209 	Add unix_primary_group and unix_nss_info to idmap_ad configuration to address how Samba now handles groups
-28406 	Do not grant extra privileges to users when a Directory Service is enabled
-28615 	Fix the description of Validate Remote Path checkbox in Guide
-29825 	Allow middleware to save Cloud Sync setting even if bucket listing failed
-32055 	Remove warning that vfs_full_audit may cause transfer problems
-32754 	Display version numbers for the Available Plugins in new UI
-32961 	Add MineOS iocage plugin
-33180 	Add nut.so to /usr/local/lib/collectd/
-33186 	Fix installation using serial console
-33453 	Fix unnecessary AD restarts caused by enabling service monitor
-33645 	Add ability to stop winmsa from changing owner
-33774 	Add pool name validation to new UI to prevent creating pools with a duplicate names
-33804 	Sort pools by name in Disk screen of new UI
-33954 	Make filter function case insensitive in new UI
-34077 	Use selectable columns to make User, Disks, and Cron Jobs lists readable in new UI
-34083 	Change true/false to yes/no in entity tables to reduce size of crowded tables in new UI
-34131 	Improve dashboard network information widget in new UI
-34204 	Strengthen locking for the NFSv4.1 server DestroySession operation
-34228 	Add IPsec kernel module
-34309 	Fix sidenav open and close issues in new UI
-34312 	Prevent the graphs on the new UI dashboard from stealing the mouse
-34378 	Log netatalk messages to /var/log/afp.log
-34384 	Indicate in Guide to disable Physical Block Size Reporting when using an iSCSI target for VMware
-34495 	Create qBittorrent iocage plugin
-34624 	Add simple visual effect when clicking a navigation item in new UI
-34648 	Add delay indicator to new UI
-34735 	Support all cloud sync services that rclone supports in new UI
-34762 	Disable SMB1 by default
-34768 	Add note to new UI version of Guide to unset Zoom Text Only
-34822 	Improve Jails breadcrumbs in new UI
-34882 	Use tree view for boot pool status page in new UI
-34921 	Update API section of Guide
-34927 	Add page for editing/viewing CAs in new UI
-34975 	Do not display hidden files when selecting installation media when creating VM in new UI
-35008 	Rename Sharing -> ISCSI -> Global Configuration to Target Global Configuration in new UI
-35011 	Display paused scrub state as Paused in middleware
-35062 	Stop iocage jails before locking drive that contains jails
-35104 	Display paused scrub state in new UI
-35143 	Fix capitalization in "NIC to attach" in new UI
-35221 	"Sparse Volume" checkbox should say "Sparse"
-35266 	Use correct default for Docker host raw file size in new UI
-35269 	Put buttons next to the input field and deal with multiple layout issues when resizing in the new UI
-35275 	Close websocket connection when navigating away from Jail Shell in new UI
-35281 	Fix css in top bar breadcrumb area on VM page
-35293 	Move VM Devices and Edit options to Options menu in new UI
-35299 	Allow edit of Docker VM raw image size in new UI wizard
-35302 	Fix Docker VM wizard autostart field in new UI
-35323 	Fix detach pool dialog remaining open after pool is detached in new UI
-35344 	Fix bad destroy target for iocage export
-35347 	Fix Export Password Secret Seed setting in legacy UI
-35359 	Prevent VM and Docker wizards in new UI from creating VMs with names that are already in use
-35371 	Improve IPv4 validation for Plugins and Jails in new UI
-35407 	Don't show "Members of groupname group" until groupname is populated
-35410 	Prevent user from editing a jail's properties in the new UI while the jail is running
-35413 	Add API call for system "health" status
-35428 	Disable RRD write cache when Reporting Database is unchecked
-35431 	Rewrite plugin_get_versions to operate on a single plugin at a time
-35434 	Join latest job to cloud sync tasks so its state can be inspected through API
-35446 	Fix System -> Advanced -> Console Footer not displaying in legacy UI
-35458 	Add ability to check boxes in new UI by clicking on label in entity forms
-35464 	Fix unique constraint failure in Storage:Scrub API
-35491 	Fix traceback for S3 validation errors in APIv1
-35497 	Wait for all-device probe to complete before mounting root
-35503 	Populate iSCSI extent device list in new UI
-35509 	Fix bugs with IP choices and iSCSI portal IPs
-35524 	Use "Apply Update" instead of "Save" for Manual update button in new UI
-35539 	Make BMC firmware version check more robust
-35572 	Rename certificate edit to view and remove tooltips from read-only fields
-35599 	Don't check peer_secret if peer_user isn't supplied in Sharing -> iSCSI -> Authorized Access
-35608 	Sort services alphabetically in new UI
-35626 	Convert VMware Snapshot page to websocket in new UI
-35629 	Rename System "Enable Console Menu" to "Show Text Console Without Password Prompt" in new UI
-35635 	Add error handler for entity-table getFunction to new UI
-35650 	Improve wording of offline disk dialog
-35718 	Add support for additional Intel NICs
-35730 	Clarify installer boot loader menu
-35737 	Use sane default zvol blocksize based on pool topology
-35741 	Rename webdav.share to sharing.webdav
-35765 	Remove redundant serial ports in System -> Advanced of new UI
-35785 	When importing a pool, do not get disks of UNAVAIL/OFFLINE vdevs
-35789 	Add to the new UI an option to unlock pool using recovery key and hide actions that cannot be accessed when pool is locked
-35797 	Fix args error when adding Cloud Sync Task in new UI
-35809 	Assign background color to chart tooltips on Reports page
-35834 	Fix traceback when editing VMware Snapshot task
-35838 	Don't rely on porcelain for cloning iocage remote repositories
-35933 	Add style rules to render lighter text in dark themes
-35948 	Remove syscons terminal from kernel
-35993 	Format dataset recordsize correctly in new UI
-36078 	Fix URL for FreeNAS logo in legacy UI
-36083 	Unlock volume with recovery key in APIv1
-36103 	Fix typo and lack of clarity in NTLMv1 warning
-36128 	Remove yellow progress bar across top of new UI
-36163 	Match progress spinner to theme primary color
-36168 	Add migration for legacy nologin shell values
-36178 	Fix Services background images URL in new UI
-36203 	Disable/enable repl_remote_hostkey when replication mode is switched in new UI
-36218 	NPM complains about security warnings on install
-36238 	Add VMware sync support for snapshots to APIv1
-36293 	Try to use the hosts's IP instead of 0.0.0.0 for VNC connection
-36408 	Style iX logo with theme primary color
-36453 	Make keytabs and username/password mutually exclusive in new UI
-36538 	Fix smartd.conf being empty on first boot due to race condition
-36553 	Do not allow allow users to shrink zvol in new UI
-36588 	Regenerate /etc/resolv.conf when disabling Domain Controller service
-36598 	Fix "Host: 11.1 is not greater than jail: 11.2" error in iocage
-36653 	Add warning to configure the interface used by the UI
-36668 	Fix validation of extent size in new UI
-36673 	Display popup error when service does not start
-36678 	Add popup to start iSCSI service after configuring
-36683 	Fix "1 out of zero" error on entity table footer in new UI
-36718 	Use human readable Boot Environment Created date/time
-36783 	Allow saving cloud sync in new UI even if bucket listing failed
-36803 	Improve bhyve exit(3) error code
-36808 	Fix VNC for touch events and mobile
-36823 	Fix unneeded stops and restarts in AD monitoring
-36828 	Miscellaneous CSS fixes for new UI
-36913 	Avoid traceback if disk in iSCSI extent does not exist
-36963 	Allow NIS to be ID provider for Active Directory
-36968 	Add validation to S3 "Access Key" and "Secret Key" fields to prevent use of non-allowed characters
-37003 	Set user permissions correctly when selecting the location for the user's home directory
-37088 	Tooltip references to Guide are pointing to old Guide
-37113 	Fix datatable and swatches in new UI
-37138 	Write out pam configuration files in /etc/pam.d/ if they don't already exist
-37143 	Remove unnecessary pam_sss errors from /var/log/auth.log
-37168 	Implement interfaces.websocket_interface which returns the interface the websocket is connected to
-37208 	Fix redundant error message in new UI
-37228 	Update dd example in Guide
-37263 	Fix detection of the installer disk
-37268 	Shorten page titles displayed in tabs of new UI
-37298 	Catch unhandled case where device lookups table was failing with VMs in new UI
-37308 	Update base OS to FreeBSD 11.2
-37318 	Fix typo in VM message
-37393 	Bind children formControlName with parent in new UI
-37408 	Remove Console Screensaver option as it is no longer supported
-37423 	Remove Console Screensaver option from new UI
-37443 	Sync with iocage upstream 07/10/2018
-37478 	Convert Rsync tasks and Cron jobs to entity-form
-37483 	Convert Smart test to entity-form
-37498 	Convert Scrub Task to entity-form
-37503 	Convert Cloud Sync Tasks to entity-form
-37554 	Allow updates from 11.2-STABLE to nightlies
-37570 	Fix ZFS ZIOs leak in ddt_sync()
-37610 	Allow wildcard IPs for iSCSI Portal addresses
-37618 	Add sas3flash -listall to freenas-debug
-37650 	Rename Boot to Boot Environments in the side menu of the new UI
-37666 	Remove ellipsis on overflow to allow data to show in new UI
-37690 	Fix entity table checkboxes in new UI
-37694 	Allow users to paste the contents of certificates signed by an external CA
-37706 	Fix bad caching on list_resource in Jails Wizard in new UI
-37710 	Fix filter function broken by checkboxes on entity pages in new UI
-37726 	Keep minio Secret Key after it is set in new UI
-37730 	Fix traceback in Volume Status
-37766 	Fix performance issue with cron in new UI
-37770 	Add GiB to docker wizard to clarify the size
-37778 	Rename Boot Volume Condition to Boot Pool Condition in new UI
-37786 	Remove double free which caused bhyve to SIGBUS
-37846 	Fix Swap Size field name and tooltip
-37850 	Cosmetic fixes to checkboxes in new UI
-37862 	Add ability to create rsync task without "Validate Remote Path" and fix regeneration of crontab
-37866 	Fix validation for Rsync over SSH in new UI
-37874 	Return password blur function early on invalid conditions in new UI
-37902 	Remove 'net usersidlist' from freenas-debug
-37958 	Hide VNC option if VM has existing VNC device
-37970 	Increase loader autoboot timeouts
-37994 	Add Manual Update section to new UI version of Guide
-37998 	Show random MAC address generator in NIC edit mode of new UI
-38022 	Add validators for VM and Docker wizards in new UI
-38026 	Add writeable certificates field when importing a certificate in new UI
-38038 	Do not send empty SNMP password when sending an email
-38058 	Add UnavailableException for alert checkers
-38078 	Fix Cloud Credentials breadcrumb
-38083 	Hide minutes from cron picker for SMART tasks in new UI
-38105 	Do not count ARC against available RAM
-38155 	Add default gateway interface to vnet jail bridge
-38170 	Add ability to upload config file in new UI
-38195 	Use UNIX ACLs on iocage datasets
-38205 	Update Guide to reflect that iocage was added with FreeNAS 11.0
-38220 	Fix display of rsync task "extra options" in new UI
-38245 	Fix bug in new UI that allowed duplicate LUNs
-38255 	Update zsh to 5.5.1
-38265 	At boot, have MDNS wait for /etc/resolv.conf to be available and valid
-38355 	Fix license error that prevented some plugins from installing
-38390 	Fix bug in Storage -> Disks in new UI that caused "Name" column to disappear
-38400 	Update zvol Configuration Options table in new UI version of Guide
-38455 	Fix installer logo and artwork
-38530 	Add 'run now' option to cron tasks in new UI
-38540 	Fix some button-placement problems in UI Preferences
-38545 	Avoid further CAM retries when drive asks for a recovery action which fails
-38565 	Fix save action while creating VMware snapshot in new UI
-38605 	Fill in gap above scroll bar in new UI with background color
-38615 	Fix conflicting recordSizeMap keys in new UI
-38630 	Fix "cannot open 'None': dataset does not exist" error when creating snapshot in new UI
-38684 	Disable the Cloud Sync Task "save" button if the credential checked failed
-38699 	Replace text logos with ASCII art
-38735 	Add UI Preferences and Theme Editor information to the Guide
-38739 	Remove memtest from loader menu until it is fixed upstream
-38791 	Correct the example for generating a keytab in Guide
-38799 	Fix possible race condition that causes a traceback on System -> General in new UI
-38807 	Add new error handling method for websocket errors
-38863 	Add 'Run Now' option to Cloud Sync task in new UI
-38868 	Add 'run now' option to rsync tasks in new UI
-38878 	Switch iocage plugin infrastructure to FreeBSD 11.2-RELEASE
-38898 	Improve text of unauthorized email alert message
-38993 	Redesign shutdown screen in new UI
-38998 	Do not expose AD or LDAP passwords in new UI
-39067 	Adjust top margin on data table footer in new UI
-39083  Have browser reload login page when leaving reboot screen
-39095 	Hide collapsed toggle in new UI when sidenav is offscreen
-39103 	Raise descriptive error in new UI when VM fails to start
-39213 	Password fix for CHAP authentication
-39228 	Redesign restart screen in new UI
-39248 	Remove unnecessary pthread_mutex_unlock() in VNC server
-39363 	Update text of ZFS Upgrade Pool alert to point to the relevant documentation
-39443 	Convert row data on display in new UI
-39503 	Fix bug in core.service unregister method for new UI
-39533 	Format Plugins IP address field in new UI to make it obvious that interface and mask are also required
-39598 	Make sure to UP VM bridge if it already exists
+27756 	Show cloud sync logs for all statuses
+29106 	Remove note from Guide and tooltip that incorrectly stated encrypted pools could not be used for the system dataset
+30663 	Add graphics/drm-next-kmod to system
+31194 	Add ability to rename iocage jails in new UI
+31269 	Fix error when renaming Plugin Jails
+31390 	Avoid problems when new UI is accessed via DNS instead of IP address
+31518 	Add log reader to Status column of Cloud Sync viewer in new UI
+32220 	Do not display netcli shell option to non-root users in new UI
+32736 	Change default ZFS indirect block size from 128 to 32 for new files and zvols
+33648 	Add password toggle button to new UI
+34327 	Add note to Guide for UPS polling interval
+34894 	Measure performance effects of different indirect block sizes
+34948 	Fix node error when pressing enter on a file input dialog in new UI
+35146 	Fix left sidenav scroll in new UI
+35395 	Apply handleWSError to the websocket of the storage section in new UI
+35605 	Alphabetically sort datasets and pools in Periodic Snapshot Tasks screen of new UI
+35632 	Prompt user to fix Cloud Credential in new UI when credential check fails
+35638 	Show plugin installation progress in new UI
+36188 	Add radarr iocage plugin
+36198 	Fix pool dashboard widget traceback when pool is locked in new UI
+36473 	Improve zsh prompt and add useful bindkeys
+36578 	Fix 404 error in browser console immediately after login to new UI
+36948 	Use callback to return iocage plugin progress
+37188 	Add a short initialization delay to enable left menu scrolling on FreeBSD Firefox and Chrome in new UI
+37258 	Standardize action button names in new UI
+37398 	Remove "Enable automatic upload of daily telemetry" checkbox from new UI
+37448 	Update jail_zfs_dataset tooltip
+37606 	Add missing and updated tooltips or fields
+37662 	Add load spinner to Services page of new UI
+37802 	Support spaces in path when adding storage to an iocage jail
+38006 	Fix text, font, and breadcrumb errors in System -> Update -> Manual Update -> Save Config
+38073 	Add missing Cloud Service Credential tooltips in new UI
+38145 	Add Status column to Cloud Sync Tasks in new UI
+38435 	Fix INFO alerts being shown as CRITICAL
+38570 	Rename Netdata Configure button to Launch in new UI
+38600 	Increase height of dialog to make room for error message when trying to downgrade in new UI
+38620 	Fix truncated tooltips in Snapshot dialog of new UI
+38783 	Add ability to log directly into new UI with a token
+38943 	Prevent downgrades in legacy UI
+39047 	Fix issue with pressing enter in VM wizard of new UI
+39087 	Remove extra logout confirmation from new UI
+39131 	Handle disk wipe percentages correctly in new UI
+39203 	Disable Management function for installed Plugins that do not provide a management interface
+39223 	Update RancherOS to 1.4
+39253 	Several fixes for Custom Theme tool in new UI
+39258 	Allow branch selection for iocage plugins
+39383 	Reword legacy UI dialog in new UI
+39448 	Display version numbers for Installed Plugins in new UI
+39453 	Add API to display plugin version number for Installed Plugins
+39463 	Add validation to boot environment name fields
+39468 	Prevent creation of groups with same name or GID in new UI
+39493 	Show warning if Swap size is set to 0
+39508 	Check for iocage host release being less than plugin release when fetching plugin
+39563 	Fade-to-black 60 seconds after the user clicks to shut down the system using the new UI
+39573 	Update iocage Plugins for BETA3
+39613 	Remove typo in Google Cloud Storage in new UI
+39638 	Change iocage plugin mechanism to use branches
+39702 	Add a delay indicator to entity tables, service table, dashboard, and reports pages in new UI
+39707 	Notify user when plugin install is complete in new UI
+39732 	Fix cron custom setup screen in new UI
+39752 	Move tooltip for snapshot lifetime to the right place in the new UI
+39762 	Update legacy UI to support human readable cron syntax
+39767 	Add validation to vlan tag field in new UI
+39842 	Hide actions that cannot be used when pool is locked and display unlock button when pool is locked
+39857 	Add spinner when group membership is slow to load in new UI
+39877 	iSCSI Auth Secret validation
+39907 	Fix Bacula plugin installation errors
+39912 	Shorten WebDAV placeholder name in new UI
+39917 	Fix label for S.M.A.R.T. test schedule in new UI
+39937 	Fix S3 service port validation in new UI
+39942 	Fix iSCSI breadcrumbs in new UI
+39947 	Ensure VM name is unique, regardless of type of VM
+39957 	Fix iSCSI Associated Target LUN ID validation in new UI
+39962 	Add validation for FTP fields in new UI
+40036 	Display parent vlan interface in new UI
+40066 	Fix nginx rule to correctly refresh plugins screen in new UI
+40076 	Update API to properly handle vnet devices
+40086 	Disallow empty cloud sync bucket
+40096 	Add validation for NetBIOS Name and NetBIOS Alias fields in new UI
+40106 	Check DNS before allowing plugins to continue and raise an error if check fails
+40126 	Improve warning in new UI when user selects another interface for configuration
+40131 	Add missing labels and validation to SNMP fields in new UI
+40146 	Hide SNMPv3 fields in new UI unless "SNMP v3 Support" is enabled
+40161 	Validate UPS fields in new UI
+40176 	Update favicon in new UI and Guide
+40181 	Do not allow multiple VMs with same name
+40206 	Fix theme color in new UI for SMART Tests checkboxes
+40340 	Only show Enable VNC checkbox when Boot Method is UEFI in VM Wizard
+40344 	Add API endpoint to pass MIDDLEWARE_TOKEN to web UI
+40420 	Fix issue with updating jails in new UI
+40428 	Pull in some recent FreeBSD fixes for ISO boot issues on legacy systems
+40440 	Rollback VM creation if anything goes wrong to prevent duplicate VMs
+40456 	Perform VM memory check at the beginning of the create VM wizard in the new UI
+40460 	Append mountpoint to jail's root directory when adding storage
+40472 	Finetune netinfo and cputemp Dashboard components
+40476 	Fix UEFI-CSM boot method for VMs
+40480 	Add link to Guide that further explains ssh-keygen
+40492 	Add ability to display iocage plugins post-install notes
+40500 	Refactor how memory is accounted
+40504 	Fix VM Disk sector size in new UI
+40512 	Put threshold of 8 sequential failures for NTP connection alert
+40516 	Add validation to VNC password in new UI
+40544 	Fix jail start and stop actions in new UI
+40548 	Prevent adding storage to a running jail
+40584 	Strip subnet from management URL for iocage plugins
+40588 	Make column headers consistent between Jails and Installed Plugins
+40592 	Display correct VM summary in new UI when existing disk is used for VM creation
+40628 	Add icons to buttons on Installed Plugins page of new UI
+40656 	Correct System Dataset and Tunables breadcrumbs in new UI
+40712 	Reduce taskqueue congestion caused by ZFS ZIO pipeline activity
+40736 	Fix Services --> S.M.A.R.T. breadcrumb
+40744 	Update new UI version of Guide to indicate destination directory will be automatically created if it does not exist when adding storage to a jail
+40780 	Fix bug that prevented updating a user using APIv1
+40788 	Use CallError on rrdtool failure
+40856 	Fix display of GIDs in new UI
+40864 	Fix multipath_sync tracebacks on boot
+40868 	Fix disable/hide on init/shutdown scripts in new UI
+40908 	Improve the Support Form text and links in the webui
+40916 	Fix tooltip and table entry for Rsync Enabled setting
+40953 	Remove User Base and Group Base fields from Active Directory
+40964 	Rename VMs menu to Virtual Machines
+40976 	Add IP usage validator to middleware
+41012 	Fix MiB and GiB usage in new UI and Guide
+41032 	Improve dialog messages in new UI
+41060 	Improve the validation process for source and destination fields when adding storage to jails
+41064 	Return VM status in vm.query
+41068 	Fix exception when dismissing alert that has gone away
+41084 	Remove unused exit_on_error attribute in iocage
+41092 	Fix validation issue in Edit Disk screen of new UI
+41104 	Bug fix for iSCSI target_authgroup in APIv1
+41148 	Hide "Netwait IP list" field in new UI unless "Enable netwait feature" is enabled
+41160 	Fix Network -> Global Configuration breadcrumb
+41172 	Remove unused "Enable automatic upload of daily telemetry" field
+41196 	Add iocage to freenas-debug
+41248 	Monitor VM status for new UI
+41276 	Fix "not a list" traceback when changing DDNS settings
+41308 	vnet0 option only valid if vnet checked for jail in new UI
+41320 	Increment number in plugin name to support multiple installations
+41328 	Update checkbox settings and dark themes to work with new theme rules
+41355 	Support CIDR subnets for allowed iSCSI initiators in new UI
+41365 	Avoid sending dozens of crash reports filling up thread pool
+41380 	Update Samba port to address August CVEs
+41395 	Properly encode passwords in inadyn config
+41400 	Remove redundant mrsas checks
+41420 	Capitalize the Plugins "install" option in new UI
+41435 	Allow netgroups in NFS share authorized hosts and IP addresses
+41450 	Ensure all new UI components that use core.service use the OnDestroy lifecycle hook to properly unregister
+41496 	Convert WebDAV to use websocket call
+41532 	Fix jenkins conflict with jenkins-tls
+41538 	Fix plexmediaserver conflict with plexmediaserver-plexpass
+41544 	Add field to display iocage plugins post-install notes
+41556 	Update SMB charset choices in middlewared
+41568 	Fix ESERVICESTARTFAILURE traceback
+41580 	Make sure VM sector size is an int
+41592 	Use drop-down menu for Adding a VM Disk Device in new UI
+41598 	Validate zvol while creating a VM
+41640 	Add Google Team Drive support to middleware
+41694 	Improve validation for jail creation
+41718 	Add delay indicator to pools list in new UI
+41724 	Fix query issue that prevented saving of Alert Services settings in new UI
+41730 	Remove stray cancel button from Support page of new UI
+41760 	Force scrollbar to refresh on every menu click in new UI
+41838 	Patch FreeBSD-SA-18:09.l1tf and FreeBSD-SA-18:10.ip
+41844 	Add middleware API for setting password on first login if user left password blank during installation
+41868 	Specifying --file should use file with iocage
+41886 	Enforce VM minimum memory check in new UI
+41910 	Fix system crash/freeze when deleting many files
+41916 	Fix traceback in new UI when creating new VM disk image
+42006 	Update APIv1 documentation for unlocking volume
+42018 	Prevent hold on file descriptors that stalls plugin installation
+42024 	Add support for multiple countries with same key in middlewared
+42048 	Fix bug in rsync plugin which made the validation for rsync fail
+42066 	Add option in new UI to retain the share configuration when detaching a pool
+42090 	Add -a and -p to arcstat
+42239 	Add snackbar notification and error dialog to Plugin Update section of new UI
+42311 	Bring tooltips to the foreground on the Custom Theme page
+42329 	Combine the Log Out, Restart, and Shut Down sections into one chapter in the new UI version of the Guide
+42341 	Update tooltip and button labels on Power page of new UI
+42353 	Fix mountpoint destination issue in new UI
+42359 	Fix callback usage in lib/iocage that prevented jail autostart
+42371 	Add order to VM devices API
+42407 	Change all "UI" instances to "Web" in new UI
+42485 	Fix delete call for jail mount point
+42581 	Fix for jail IP format during validation
+42593 	Add devfs rules to iocage plugins
+42641 	Only show one interface for the plugin IP of a non-vnet iocage jail
+42647 	Fix checkbox theme in new UI for themes with light colors
+42725 	Add LogOnce option for disk usage Reporting plugin
+42749 	Remove NTP alert code that was generating false positives
+42761 	Fix traceback when Plugins INDEX does not exist
+42803 	Unblock speculative prefetcher on pool creation
+42809 	Fix integration tests requests to APIv2 being anonymous by default
+42851 	Fix SMART debug
+42899 	Fix "list index out of range" error when using Advanced Jail Creation in the New UI
+43000 	Fix migration error that prevented upgrade from 11.1-U6 to 11.2-BETA2
+43224 	Fix traceback when creating a Docker or bhyve clone in the new UI
+43328 	Have jail wizard wait until SUCCESS before leaving page
+43415 	Fix traceback found during load testing
+43580 	Wait longer for middlewared to start
+43635 	Disable asyncio debug by default
+43811 	Fix deadlock on thread pool
+44075 	Fix regression in notifier.ds_get_idmap_object
+44482 	Fix crash when deleting pool that has system dataset on it
+44526 	Add trueview.stats event source to middleware
+44735 	Fix bug when installing Plugins without an underlying FreeBSD package
+44940 	Fix removal of SMART alerts
+44958 	Fix bug that prevented update to DDNS configuration
