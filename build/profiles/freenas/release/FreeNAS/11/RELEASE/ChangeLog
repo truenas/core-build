@@ -1,26 +1,40 @@
 27756 	Show cloud sync logs for all statuses
+28063 	Write local SID to correct DB file
+29020 	Encrypt cloud credentials in configuration database
 29106 	Remove note from Guide and tooltip that incorrectly stated encrypted pools could not be used for the system dataset
 30663 	Add graphics/drm-next-kmod to system
 31194 	Add ability to rename iocage jails in new UI
 31269 	Fix error when renaming Plugin Jails
 31390 	Avoid problems when new UI is accessed via DNS instead of IP address
 31518 	Add log reader to Status column of Cloud Sync viewer in new UI
+32055 	Remove warning that vfs_full_audit may cause transfer problems
 32220 	Do not display netcli shell option to non-root users in new UI
 32736 	Change default ZFS indirect block size from 128 to 32 for new files and zvols
+33054 	Automatically create bridge with default route for iocage jails
 33648 	Add password toggle button to new UI
 34327 	Add note to Guide for UPS polling interval
+33645 	Add ability to stop winmsa from changing owner
 34894 	Measure performance effects of different indirect block sizes
+34396 	Use FreeNAS-specific fork of iocage
+34522 	Allow reset of SED password in UI
+34603 	Fix traceback when setting IPMI VLAN ID
+34684 	Fix quota exceeded emails being sent every minute
+34687 	Add timeout for LDAP status calls
 34948 	Fix node error when pressing enter on a file input dialog in new UI
 35146 	Fix left sidenav scroll in new UI
+35215 	Fix smart.nawk script in freenas-debug SMART section
 35395 	Apply handleWSError to the websocket of the storage section in new UI
+35404 	Fix race condition in SMART
 35605 	Alphabetically sort datasets and pools in Periodic Snapshot Tasks screen of new UI
 35632 	Prompt user to fix Cloud Credential in new UI when credential check fails
 35638 	Show plugin installation progress in new UI
+35973 	Remove faulty enabled/disabled logic from freenas-debug
 36188 	Add radarr iocage plugin
 36198 	Fix pool dashboard widget traceback when pool is locked in new UI
 36473 	Improve zsh prompt and add useful bindkeys
 36578 	Fix 404 error in browser console immediately after login to new UI
 36948 	Use callback to return iocage plugin progress
+37143 	Remove unnecessary pam_sss errors from /var/log/auth.log
 37188 	Add a short initialization delay to enable left menu scrolling on FreeBSD Firefox and Chrome in new UI
 37258 	Standardize action button names in new UI
 37398 	Remove "Enable automatic upload of daily telemetry" checkbox from new UI
@@ -28,6 +42,8 @@
 37606 	Add missing and updated tooltips or fields
 37662 	Add load spinner to Services page of new UI
 37802 	Support spaces in path when adding storage to an iocage jail
+37878 	Add sysctls to disable winbind and sssd enumeration
+37902 	Remove 'net usersidlist' from freenas-debug
 38006 	Fix text, font, and breadcrumb errors in System -> Update -> Manual Update -> Save Config
 38073 	Add missing Cloud Service Credential tooltips in new UI
 38145 	Add Status column to Cloud Sync Tasks in new UI
@@ -36,6 +52,7 @@
 38600 	Increase height of dialog to make room for error message when trying to downgrade in new UI
 38620 	Fix truncated tooltips in Snapshot dialog of new UI
 38783 	Add ability to log directly into new UI with a token
+38898 	Improve text of unauthorized email alert message
 38943 	Prevent downgrades in legacy UI
 39047 	Fix issue with pressing enter in VM wizard of new UI
 39087 	Remove extra logout confirmation from new UI
@@ -54,6 +71,7 @@
 39563 	Fade-to-black 60 seconds after the user clicks to shut down the system using the new UI
 39573 	Update iocage Plugins for BETA3
 39613 	Remove typo in Google Cloud Storage in new UI
+39628 	Fix function for storing SIDs
 39638 	Change iocage plugin mechanism to use branches
 39702 	Add a delay indicator to entity tables, service table, dashboard, and reports pages in new UI
 39707 	Notify user when plugin install is complete in new UI
@@ -72,6 +90,7 @@
 39947 	Ensure VM name is unique, regardless of type of VM
 39957 	Fix iSCSI Associated Target LUN ID validation in new UI
 39962 	Add validation for FTP fields in new UI
+39982 	Optimize detection of best host in freenasldap.py for large environments
 40036 	Display parent vlan interface in new UI
 40066 	Fix nginx rule to correctly refresh plugins screen in new UI
 40076 	Update API to properly handle vnet devices
@@ -107,6 +126,7 @@
 40592 	Display correct VM summary in new UI when existing disk is used for VM creation
 40628 	Add icons to buttons on Installed Plugins page of new UI
 40656 	Correct System Dataset and Tunables breadcrumbs in new UI
+40680 	Kerberos authentication fixes for LDAP servers
 40712 	Reduce taskqueue congestion caused by ZFS ZIO pipeline activity
 40736 	Fix Services --> S.M.A.R.T. breadcrumb
 40744 	Update new UI version of Guide to indicate destination directory will be automatically created if it does not exist when adding storage to a jail
@@ -163,6 +183,7 @@
 41838 	Patch FreeBSD-SA-18:09.l1tf and FreeBSD-SA-18:10.ip
 41844 	Add middleware API for setting password on first login if user left password blank during installation
 41868 	Specifying --file should use file with iocage
+41880 	Improve service status wording in freenas-debug
 41886 	Enforce VM minimum memory check in new UI
 41910 	Fix system crash/freeze when deleting many files
 41916 	Fix traceback in new UI when creating new VM disk image
@@ -177,6 +198,7 @@
 42329 	Combine the Log Out, Restart, and Shut Down sections into one chapter in the new UI version of the Guide
 42341 	Update tooltip and button labels on Power page of new UI
 42353 	Fix mountpoint destination issue in new UI
+42257 	Keep AD in configured state even if service start fails
 42359 	Fix callback usage in lib/iocage that prevented jail autostart
 42371 	Add order to VM devices API
 42407 	Change all "UI" instances to "Web" in new UI
@@ -198,10 +220,13 @@
 43415 	Fix traceback found during load testing
 43580 	Wait longer for middlewared to start
 43635 	Disable asyncio debug by default
+43712 	Drop server minimum protocol to SMB2_02
 43811 	Fix deadlock on thread pool
 44075 	Fix regression in notifier.ds_get_idmap_object
 44482 	Fix crash when deleting pool that has system dataset on it
 44526 	Add trueview.stats event source to middleware
+44581 	Fix bug that prevented deletion of Volume/Pool comments
+44625 	Fix a Samba panic if fruit_access_check detects a locking conflict
 44735 	Fix bug when installing Plugins without an underlying FreeBSD package
 44940 	Fix removal of SMART alerts
 44958 	Fix bug that prevented update to DDNS configuration
