@@ -93,7 +93,7 @@ repos += {
     "name": "py-bsd",
     "path": "py-bsd",
     "url": "https://github.com/freenas/py-bsd.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
