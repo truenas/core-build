@@ -457,7 +457,6 @@ if PRODUCT == "TrueNAS" or WITH_ASIGRA:
     ports += "print/indexinfo"
     ports += "textproc/libxml2"
     ports += "lang/perl5.24"
-    ports += "sysutils/dssystem"
     ports += "sysutils/dsoperator"
 
     # Asigra uses nss_ldap & pam_ldap
