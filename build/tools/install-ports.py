@@ -104,6 +104,19 @@ def install_binary_packages():
         path = e('/usr/ports/packages/${name}')
         chroot('${WORLD_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg -o DEBUG_LEVEL=3 install -f ${path}', log=logfile)
 
+# XXX
+# This is for DS-System 14.0.0.1. If we don't have a generic mechanism for this by the time there
+# is an update, then this will need to be updated if there is a newer version available.
+# XXX
+def install_asigra():
+    dssystem_zip = "DS-System_14_0_0_1_FreeBSD.zip"
+    dssystem_url = "http://www.asigra.com/updates/14.0/DS-System/14.0.0.1/{}".format(dssystem_zip)
+
+    info('Fetching dssystem {0}', dssystem_zip)
+    sh('mkdir -p ${WORLD_DESTDIR}/asigra')
+    sh('fetch ${dssystem_url} -o ${WORLD_DESTDIR}/asigra/${dssystem_zip}')
+    sh('unzip -o ${WORLD_DESTDIR}/asigra/${dssystem_zip} -d ${WORLD_DESTDIR}/asigra/')
+    sh('rm -f ${WORLD_DESTDIR}/asigra/${dssystem_zip}')
 
 if __name__ == '__main__':
     if e('${SKIP_PORTS_INSTALL}'):
@@ -117,4 +130,7 @@ if __name__ == '__main__':
     create_pkgng_configuration()
     install_ports()
     install_binary_packages()
+    if e('${PRODUCT}') == "TrueNAS" or e('${WITH_ASIGRA}'):
+        info('Installing Asigra')
+        install_asigra()
     umount_packages()
