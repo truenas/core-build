@@ -135,8 +135,11 @@ make_conf_pkg = {
     "BATCH":                        "yes",
     "WRKDIRPREFIX":                 "/wrkdirs",
     "DISABLE_LICENSES":             "yes",
-    "WITH_DEBUG":                   "yes",
-    "STRIP":                        ""
+    "DEBUG_FLAGS":                  "-g",
+    "CFLAGS":                       "+= -g",
+    "STRIP":                        "",
+    "MAKE_ENV":                     "+= DONTSTRIP=yes",
+    "STRIP_CMD":                    "true"
 }
 
 make_conf_run = {
