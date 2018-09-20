@@ -46,11 +46,13 @@ makejobs = None
 def calculate_make_jobs():
     global makejobs
 
-    jobs = sh_str('sysctl -n kern.smp.cpus')
-    if not jobs:
-        makejobs = 2
+    # We use number of CPUs + 1, to have
+    # some overlap with I/O overhead.
+    cores = sh_str('sysctl -n hw.ncpu')
+    if not cores:
+        cores = 2
 
-    makejobs = os.environ.get("BUILDWORLD_JOBS", 2 * int(jobs) + 1)
+    makejobs = os.environ.get("BUILDWORLD_JOBS", int(cores) + 1)
     debug('Using {0} make jobs', makejobs)
 
 
