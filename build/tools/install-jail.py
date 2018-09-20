@@ -52,4 +52,4 @@ if __name__ == '__main__':
             sh('zfs create -o mountpoint=${JAIL_DESTDIR} ${ZPOOL}${ZROOTFS}/jail')
 
     sh('mkdir -p ${JAIL_DESTDIR}')
-    installworld(e('${JAIL_DESTDIR}'), installworldlog, distributionlog, conf="build")
+    installworld(e('${JAIL_DESTDIR}'), installworldlog, distributionlog, conf="jail")

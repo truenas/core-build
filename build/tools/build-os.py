@@ -59,6 +59,12 @@ def create_make_conf_build():
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
     conf.close()
+    conf = open(objdir('make-jail.conf'), 'w')
+    for k, v in config['make_conf_build'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    for k, v in config['make_conf_jail'].items():
+        conf.write('{0}={1}\n'.format(k, v))
+    conf.close()
     conf = open(objdir('make-run.conf'), 'w')
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))

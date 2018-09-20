@@ -81,7 +81,7 @@ kernel_modules = [
     "smartpqi",
 ]
 
-# World configuration
+# World/kernel build configuration
 make_conf_build = {
     "WITHOUT_ATM":                  "yes",
     "WITHOUT_BLUETOOTH":            "yes",
@@ -117,8 +117,12 @@ make_conf_build = {
     "WITHOUT_TESTS":                "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
-    "DEBUG_FLAGS":                  "-g",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
+}
+
+# Packages build jail configuration
+make_conf_jail = {
+    "WITHOUT_DEBUG_FILES":          "yes",
 }
 
 # Packages configuration
@@ -138,13 +142,16 @@ make_conf_pkg = {
     "STRIP_CMD":                    "true"
 }
 
+# Configuration for installed NAS
 make_conf_run = {
     "WITHOUT_RCS":                  "yes",
 }
 
+# Configuration for installer
 make_conf_boot = {
     "WITHOUT_BHYVE":                "yes",
     "WITHOUT_CALENDAR":             "yes",
+    "WITHOUT_DEBUG_FILES":          "yes",
     "WITHOUT_DICT":                 "yes",
     "WITHOUT_EXAMPLES":             "yes",
     "WITHOUT_GROFF":                "yes",
@@ -152,6 +159,7 @@ make_conf_boot = {
     "WITHOUT_INETD":                "yes",
     "WITHOUT_JAIL":                 "yes",
     "WITHOUT_KDUMP":                "yes",
+    "WITHOUT_KERNEL_SYMBOLS":       "yes",
     "WITHOUT_LOCALES":              "yes",
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_MAIL":                 "yes",
@@ -169,12 +177,10 @@ early_customize_tasks = [
 if SDK == "no":
     temp_dict = {
         "WITHOUT_CLANG_FULL":           "yes",
-        "WITHOUT_DEBUG_FILES":          "yes",
         "WITHOUT_PROFILE":              "yes",
     }
     make_conf_build.update(temp_dict)
     temp_dict = {
-        "WITHOUT_KERNEL_SYMBOLS":       "yes",
         "WITHOUT_TOOLCHAIN":            "yes",
         "WITHOUT_INSTALLLIB":           "yes",
     }
