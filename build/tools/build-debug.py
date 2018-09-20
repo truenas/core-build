@@ -41,6 +41,11 @@ def main():
 
     info('Saving debug information in ${{DEBUG_WORLD}}')
 
+    destpath = os.path.join(e('${DEBUG_WORLD}'), "usr/lib");
+    os.makedirs(destpath)
+    shutil.move(os.path.join(e('${WORLD_DESTDIR}'), "usr/lib/debug"),
+        destpath)
+
     for root, dirs, files in os.walk(e('${WORLD_DESTDIR}/')):
         for name in files:
             filename = os.path.join(root, name)
@@ -71,6 +76,9 @@ def main():
                 continue
 
             if not is_elf(filename):
+                continue
+
+            if sh("readelf -S %s | grep -q '.debug_info'" % (filename), nofail=True) != 0:
                 continue
 
             make_dir(destpath)
