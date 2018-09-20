@@ -25,10 +25,7 @@
 
 samba_git_rev = sh("git -C ${BE_ROOT}/samba log -1 --pretty=format:%ct") if exists("${BE_ROOT}/samba") else "0"
 
-ports += {
-    "name": "ports-mgmt/pkg",
-    "options": ["WITH_DEBUG=yes"]
-}
+ports += "ports-mgmt/pkg"
 ports += "dns/bind-tools"
 ports += "dns/dnsmasq"
 ports += "dns/mDNSResponder_nss"
@@ -341,7 +338,7 @@ ports += {
         "OPTIONS_FILE_SET+=AIO_SUPPORT",
         "OPTIONS_FILE_SET+=CLUSTER",
         "OPTIONS_FILE_UNSET+=CUPS",
-        "OPTIONS_FILE_SET+=DEBUG",
+        "OPTIONS_FILE_UNSET+=DEBUG",
         "OPTIONS_FILE_UNSET+=DEVELOPER",
         "OPTIONS_FILE_SET+=DNSUPDATE",
         "OPTIONS_FILE_SET+=DOCS",
@@ -361,7 +358,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=BIND910",
         "OPTIONS_FILE_UNSET+=AVAHI",
         "OPTIONS_FILE_SET+=MDNSRESPONDER",
-        "WITH_DEBUG=yes",
         "CRAZY=yes"
     ]
 }

@@ -87,7 +87,10 @@ def create_poudriere_config():
 def create_make_conf():
     conf = open(e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf'), 'w')
     for k, v in config['make_conf_pkg'].items():
-        conf.write('{0}={1}\n'.format(k, v))
+        if v.startswith('+='):
+            conf.write('{0}{1}\n'.format(k, v))
+        else:
+            conf.write('{0}={1}\n'.format(k, v))
     conf.close()
 
 

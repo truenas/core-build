@@ -364,10 +364,6 @@ def clean_ufs_image():
             os.chflags(filename, flags)
 
 
-def clean_iso_image():
-    sh("find ${ISO_DESTDIR}/boot -name '*.symbols' -delete")
-
-
 def make_ufs_image():
     sh('mkdir -p ${ISO_DESTDIR}/data')
     sh('makefs -b 10% ${imgfile} ${INSTUFS_DESTDIR}')
@@ -405,7 +401,6 @@ if __name__ == '__main__':
     copy_packages()
     clean_ufs_image()
     setup_diskless()
-    clean_iso_image()
     create_iso_dirs()
     make_ufs_image()
     make_iso_image()
