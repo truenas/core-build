@@ -407,6 +407,10 @@ ports += "net/nsq"
 ports += "net/py-pynsq"
 
 ports += "graphics/drm-next-kmod"
+ports += {
+	"name": "x11/nvidia-driver",
+	"options": ["OPTIONS_FILE_UNSET+=LINUX"]
+}
 
 if DEBUG:
 	ports += "misc/py-pexpect"
