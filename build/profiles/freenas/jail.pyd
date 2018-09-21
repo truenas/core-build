@@ -68,11 +68,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-libzfs",
-    "dest": "/usr/nas_source/py-libzfs"
-}
-
-copy += {
     "source": "${BE_ROOT}/py-bsd",
     "dest": "/usr/nas_source/py-bsd"
 }
