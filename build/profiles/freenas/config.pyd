@@ -40,6 +40,7 @@ else:
     kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
 
 kernel_modules = [
+    "bnxt",
     "cc",
     "dtrace",
     "ext2fs",
