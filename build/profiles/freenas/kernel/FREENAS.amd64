@@ -284,6 +284,7 @@ device		crypto			# Required by IPSEC
 ## FreeNAS shared modifications
 options		GEOM_UZIP
 options		GEOM_ELI
+options		GEOM_MIRROR
 options 	FDESCFS			# File descriptor filesystem
 options 	NULLFS			# NULL filesystem
 options 	UNIONFS			# Union filesystem
