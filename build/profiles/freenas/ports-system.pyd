@@ -443,20 +443,12 @@ if PRODUCT == "TrueNAS" or WITH_ASIGRA:
             "OPTIONS_FILE_SET+=XML"
         ]
     }
-    ports += "databases/postgresql10-client"
-    ports += "databases/postgresql10-contrib"
-    ports += "databases/postgresql10-plpython"
     ports += {
         "name": "databases/py-psycopg2",
         "options": [
             "PGSQL_DEFAULT=10"
         ]
     }
-    ports += "devel/gettext-runtime"
-    ports += "devel/icu"
-    ports += "print/indexinfo"
-    ports += "textproc/libxml2"
-    ports += "lang/perl5.24"
     ports += "sysutils/dssystem"
     ports += "sysutils/dsoperator"
 
