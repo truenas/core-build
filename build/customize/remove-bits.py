@@ -69,7 +69,7 @@ def main(destdir):
     sh("find ${destdir}/usr/local \( -name '*.pyo' \) -delete")
 
     # We don't need python test in the image
-    sh('rm -rf ${destdir}/usr/local/lib/python3.6/test')
+    sh('rm -rf ${destdir}/usr/local/lib/python3.7/test')
 
     # Kill includes
     sh("find ${destdir}/usr/local/include \( \! -name 'pyconfig.h' \) -type f -delete")
