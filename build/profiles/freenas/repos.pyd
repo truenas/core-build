@@ -36,14 +36,14 @@ else:
         "name": "os",
         "path": "os",
         "url": "https://github.com/freenas/os.git",
-        "branch": "freenas/11-stable"
+        "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 
@@ -51,14 +51,14 @@ repos += {
     "name": "webui",
     "path": "webui",
     "url": "http://github.com/freenas/webui.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "freenas-docs-legacy",
     "path": "freenas-docs-legacy",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 
@@ -81,14 +81,14 @@ repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
@@ -109,35 +109,35 @@ repos += {
     "name": "ix-installer",
     "path": "ix-installer",
     "url": "https://github.com/freenas/ix-installer.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "samba",
     "path": "samba",
     "url": "https://github.com/freenas/samba.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "netatalk",
     "path": "netatalk",
     "url": "https://github.com/freenas/Netatalk.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "mdnsresponder",
     "path": "mdnsresponder",
     "url": "https://github.com/freenas/mDNSResponder.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.2-stable"
 }
 
 repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/freenas/iocage.git",
-    "branch": "master"
+    "branch": "freenas/11.2-stable"
 }
 
 if PRODUCT == "TrueNAS":
