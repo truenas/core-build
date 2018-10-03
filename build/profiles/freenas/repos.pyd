@@ -58,7 +58,7 @@ repos += {
     "name": "freenas-docs-legacy",
     "path": "freenas-docs-legacy",
     "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "freenas/11.2-stable"
+    "branch": "master"
 }
 
 
