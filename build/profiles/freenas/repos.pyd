@@ -137,7 +137,7 @@ else:
             "path": "freenas-docs",
             "url": "http://github.com/freenas/freenas-docs.git",
             "branch": "freenas/11.1-stable"
-}
+    }
 
 if PRODUCT == "TrueNAS":
     repos += {
