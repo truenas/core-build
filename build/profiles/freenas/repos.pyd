@@ -55,13 +55,6 @@ repos += {
 }
 
 repos += {
-    "name": "freenas-docs",
-    "path": "freenas-docs",
-    "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "freenas/11.1-stable"
-}
-
-repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
@@ -130,6 +123,21 @@ repos += {
     "url": "https://github.com/freenas/iocage.git",
     "branch": "freenas/11.1-stable"
 }
+
+  if PRODUCT == "TrueNAS":
+	repos += {
+	    "name": "freenas-docs",
+	    "path": "freenas-docs",
+	    "url": "http://github.com/freenas/freenas-docs.git",
+	    "branch": "master"
+	}
+  else:
+    repos += {
+	    "name": "freenas-docs",
+	    "path": "freenas-docs",
+	    "url": "http://github.com/freenas/freenas-docs.git",
+	    "branch": "freenas/11.1-stable"
+	}
 
 if PRODUCT == "TrueNAS":
     repos += {
