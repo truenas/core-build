@@ -66,6 +66,9 @@ kernel_modules = [
     "usb",
     "fuse",
     "vmm",
+    "netgraph/netgraph",
+    "netgraph/ether",
+    "netgraph/socket"
     "netmap",
     "nmdm",
     "ntb",
