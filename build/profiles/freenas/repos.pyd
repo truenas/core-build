@@ -93,7 +93,7 @@ repos += {
     "name": "ix-installer",
     "path": "ix-installer",
     "url": "https://github.com/freenas/ix-installer.git",
-    "branch": "master"
+    "branch": "freenas/11.1-stable"
 }
 
 repos += {
@@ -151,12 +151,12 @@ if PRODUCT == "TrueNAS":
             "name": "vcenter_plugin",
             "path": "vcenter_plugin",
             "url": "git@vcenter.github.com:iXsystems/vcenter_plugin.git",
-            "branch": "build_vcp_html",
+            "branch": "freenas/11.1-stable",
          }
     else:
         repos += {
             "name": "vcenter_plugin",
             "path": "vcenter_plugin",
             "url": "git@github.com:iXsystems/vcenter_plugin.git",
-            "branch": "build_vcp_html",
+            "branch": "freenas/11.1-stable",
          }
