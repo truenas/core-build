@@ -404,6 +404,15 @@ ports += "net/nsq"
 ports += "net/py-pynsq"
 
 ports += "graphics/drm-next-kmod"
+ports += {
+	"name": "x11/nvidia-driver",
+	"options": ["OPTIONS_FILE_UNSET+=LINUX"]
+}
+# This is one of nvidia-driver dependencies.  Removal of EGL is needed to remove LLVM.
+ports += {
+	"name": "graphics/libepoxy",
+	"options": ["OPTIONS_FILE_UNSET+=EGL"]
+}
 
 if DEBUG:
 	ports += "misc/py-pexpect"

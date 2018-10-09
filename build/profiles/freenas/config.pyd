@@ -139,6 +139,7 @@ make_conf_pkg = {
     "BATCH":                        "yes",
     "WRKDIRPREFIX":                 "/wrkdirs",
     "DISABLE_LICENSES":             "yes",
+    "MESA_LLVM_VER":                "",
     "DEBUG_FLAGS":                  "-g",
     "CFLAGS":                       "+= -g",
     "STRIP":                        "",
