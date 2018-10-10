@@ -384,7 +384,6 @@ ports += "devel/py-xattr"
 ports += "converters/convmv"
 
 ports += "sysutils/ipfs-go"
-ports += "security/vault"
 ports += "www/minio"
 #ports += "www/minio-client"
 ports += "misc/mmv"
@@ -399,9 +398,6 @@ ports += "www/novnc"
 ports += "www/novnc-websockify"
 ports += "net/libvncserver"
 ports += "devel/libhyve-remote"
-
-ports += "net/nsq"
-ports += "net/py-pynsq"
 
 ports += "graphics/drm-next-kmod"
 
