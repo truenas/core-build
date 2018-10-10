@@ -69,7 +69,7 @@ kernel_modules = [
     "vmm",
     "netgraph/netgraph",
     "netgraph/ether",
-    "netgraph/socket"
+    "netgraph/socket",
     "netmap",
     "nmdm",
     "ntb",
