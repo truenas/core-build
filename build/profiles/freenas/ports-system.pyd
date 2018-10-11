@@ -394,8 +394,6 @@ ports += {
 ports += "devel/py-xattr"
 ports += "converters/convmv"
 
-ports += "sysutils/nomad"
-ports += "sysutils/py-nomad"
 ports += "sysutils/consul"
 ports += "sysutils/py-consul"
 ports += "sysutils/consul-alerts"
