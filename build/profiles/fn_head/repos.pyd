@@ -96,9 +96,16 @@ repos += {
 }
 
 repos += {
-    "name": "samba",
-    "path": "samba",
-    "url": "https://github.com/freenas/samba.git",
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
+    "branch": "freenas/master"
+}
+
+repos += {
+    "name": "mdnsresponder",
+    "path": "mdnsresponder",
+    "url": "https://github.com/freenas/mDNSResponder.git",
     "branch": "freenas/master"
 }
 
