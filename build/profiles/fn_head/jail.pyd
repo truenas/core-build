@@ -77,11 +77,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/samba",
-    "dest": "/usr/samba_src"
-}
-
-copy += {
     "source": "${BE_ROOT}/netatalk",
     "dest": "/usr/netatalk_src"
 }
