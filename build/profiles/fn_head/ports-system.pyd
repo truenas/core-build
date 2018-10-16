@@ -328,7 +328,7 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=IPV6"]
 }
 ports += {
-    "name": "net/samba47",
+    "name": "net/samba49",
     "options": [
         "REVISION=" + samba_git_rev,
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
@@ -357,7 +357,6 @@ ports += {
         "OPTIONS_FILE_UNSET+=BIND910",
         "OPTIONS_FILE_UNSET+=AVAHI",
         "OPTIONS_FILE_SET+=MDNSRESPONDER",
-        "CRAZY=yes"
     ]
 }
 
