@@ -29,11 +29,6 @@ packages += {
 }
 
 packages += {
-    "name": "docs",
-    "template": "${PROFILE_ROOT}/packages/docs"
-}
-
-packages += {
     "name": "freebsd-pkgdb",
     "template": "${PROFILE_ROOT}/packages/freebsd-pkgdb"
 }
