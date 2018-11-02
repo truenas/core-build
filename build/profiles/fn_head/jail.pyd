@@ -30,17 +30,6 @@ link += {
     "flags": "ro",
 }
 
-if PRODUCT != "TrueNAS":
-    copy += {
-        "source": "${BE_ROOT}/freenas-docs",
-        "dest": "/usr/freenas_docs"
-    }
-
-copy += {
-    "source": "${BE_ROOT}/freenas-docs-legacy",
-    "dest": "/usr/freenas_docs_legacy"
-}
-
 copy += {
     "source": "${BE_ROOT}/freenas/src",
     "dest": "/usr/nas_source"

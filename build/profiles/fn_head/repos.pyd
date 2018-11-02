@@ -56,23 +56,6 @@ repos += {
 
 
 repos += {
-    "name": "freenas-docs-legacy",
-    "path": "freenas-docs-legacy",
-    "url": "http://github.com/freenas/freenas-docs.git",
-    "branch": "master"
-}
-
-
-if PRODUCT != "TrueNAS":
-    repos += {
-        "name": "freenas-docs",
-        "path": "freenas-docs",
-        "url": "http://github.com/freenas/freenas-docs.git",
-        "branch": "angulargui"
-    }
-
-
-repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
