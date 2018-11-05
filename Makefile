@@ -56,7 +56,6 @@ GIT_LOCATION != cat ${GIT_REPO_SETTING}
 BE_ROOT := ${BUILD_ROOT}/${PROFILE}/_BE
 
 OBJDIR := ${BE_ROOT}/objs
-DOC_PATH := ${BE_ROOT}/freenas-docs
 API_PATH := ${BE_ROOT}/freenas/docs
 
 .if exists(${BUILD_ROOT}/.git-ref-path)
@@ -83,7 +82,6 @@ GIT_REF_PATH ?= /build/gitrefs
 
 .export BE_ROOT
 .export OBJDIR
-.export DOC_PATH
 .export API_PATH
 
 .export GIT_REF_PATH
