@@ -61,6 +61,7 @@ files_to_preserve = [
     '/usr/bin/awk',
     '/usr/bin/cut',
     '/usr/bin/cmp',
+    '/usr/bin/env',
     '/usr/bin/find',
     '/usr/bin/grep',
     '/usr/bin/logger',
