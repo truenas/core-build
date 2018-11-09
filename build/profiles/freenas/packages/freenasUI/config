@@ -65,6 +65,9 @@ post-upgrade =
              fi
 	     rm -f /tmp/.sqlite3_ha_skip
 
+	     # documention app got removed but upgrader couldnt remove it at some point
+	     rm -rf /usr/local/www/freenasUI/documentation
+
 	     # Remove dangling .pyc files because previously freenas-ui did not include .pyc in pkg-plist
 	     find /usr/local/www/freenasUI -type f -iname "*.pyc" | while read f; do
 	             if ! dirname $f|grep -q __pycache__; then
