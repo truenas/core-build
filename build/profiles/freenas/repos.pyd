@@ -117,17 +117,3 @@ if PRODUCT == "TrueNAS":
         "url": "git@github.com:iXsystems/truenas.git",
         "branch": "master"
     }
-    if env("USING_JENKINS"):
-        repos += {
-            "name": "vcenter_plugin",
-            "path": "vcenter_plugin",
-            "url": "git@vcenter.github.com:iXsystems/vcenter_plugin.git",
-            "branch": "master",
-         }
-    else:
-        repos += {
-            "name": "vcenter_plugin",
-            "path": "vcenter_plugin",
-            "url": "git@github.com:iXsystems/vcenter_plugin.git",
-            "branch": "master",
-         }
