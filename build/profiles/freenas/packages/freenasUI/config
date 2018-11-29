@@ -50,6 +50,9 @@ post-upgrade =
 		exit 0
         fi
 
+	     # vcp got removed and this is to ensure that the relevant directory is deleted if upgrader fails to remove it
+	     rm -rf /usr/local/www/freenasUI/vcp
+
 	     touch /tmp/.sqlite3_ha_skip
 
              # If database does not have account:0005_add_netdata_user
