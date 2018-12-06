@@ -85,8 +85,3 @@ if PRODUCT == "TrueNAS":
         "source": "${BE_ROOT}/truenas",
         "dest": "/usr/truenas"
     }
-
-    copy += {
-        "source": "${BE_ROOT}/vcenter_plugin",
-        "dest": "/usr/vcenter_plugin"
-    }
