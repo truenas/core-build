@@ -41,6 +41,7 @@ ports += {
 }
 ports += "security/stunnel"
 ports += "comms/lrzsz"
+ports += "sysutils/kiconvtool"
 ports += "sysutils/screen"
 ports += "sysutils/iohyve"
 ports += "sysutils/vm-bhyve"
