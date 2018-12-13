@@ -395,7 +395,7 @@ ports += "www/novnc-websockify"
 ports += "net/libvncserver"
 ports += "devel/libhyve-remote"
 
-ports += "graphics/drm-next-kmod"
+ports += "graphics/drm-fbsd11.2-kmod"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
