@@ -30,7 +30,7 @@ from utils import chroot
 
 
 def main():
-    chroot('${WORLD_DESTDIR}', 'cap_mkdb /conf/base/etc/login.conf')
+    chroot('${WORLD_DESTDIR}', 'cap_mkdb -f /conf/base/etc/login.conf /conf/base/etc/login.conf.template')
 
 
 if __name__ == '__main__':
