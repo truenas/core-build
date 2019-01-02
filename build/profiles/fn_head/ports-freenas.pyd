@@ -121,24 +121,6 @@ ports += {
     ]
 }
 
-ports += {
-    "name": "freenas/pcbsd-warden",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + freenas_git_rev
-    ]
-}
-
-ports += {
-    "name": "freenas/pcbsd-pbi",
-    "options": [
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + freenas_git_rev
-    ]
-}
-
 #ports += {
 #    "name": "freenas/arcsas",
 #    "options": [
