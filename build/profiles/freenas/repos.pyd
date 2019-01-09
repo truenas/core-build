@@ -125,10 +125,10 @@ repos += {
 }
 
 repos += {
-        "name": "freenas-docs",
-        "path": "freenas-docs",
-        "url": "http://github.com/freenas/freenas-docs.git",
-        "branch": "freenas/11.1-stable"
+    "name": "freenas-docs",
+    "path": "freenas-docs",
+    "url": "http://github.com/freenas/freenas-docs.git",
+    "branch": "freenas/11.1-stable"
 }
 
 if PRODUCT == "TrueNAS":
