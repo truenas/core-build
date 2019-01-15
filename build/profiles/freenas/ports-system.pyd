@@ -382,7 +382,10 @@ ports += "sysutils/ipfs-go"
 ports += "www/minio"
 #ports += "www/minio-client"
 ports += "misc/mmv"
-ports += "net-mgmt/netdata"
+ports += {
+    "name": "net-mgmt/netdata",
+    "options": ["OPTIONS_FILE_SET+=FREEIPMI"]
+}
 ports += "misc/mbuffer"
 ports += "devel/git-lite"
 ports += "sysutils/zfs-stats-lite"
