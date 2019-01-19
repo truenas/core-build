@@ -35,7 +35,7 @@ else:
     repos += {
         "name": "os",
         "path": "os",
-        "url": "https://github.com/trueos/trueos.git",
+        "url": "https://github.com/freenas/os.git",
         "branch": "freenas/11.1-stable"
 }
 
