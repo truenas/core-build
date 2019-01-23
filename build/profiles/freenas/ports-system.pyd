@@ -383,7 +383,10 @@ ports += "sysutils/py-consul"
 ports += "sysutils/consul-alerts"
 ports += "sysutils/ipfs-go"
 ports += "www/minio"
-ports += "www/minio-client"
+ports += {
+    "name": "www/minio-client",
+    "options": ["OPTIONS_FILE_UNSET+=MC"]
+}
 ports += "misc/mmv"
 ports += "net-mgmt/netdata"
 ports += "misc/mbuffer"
