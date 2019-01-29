@@ -58,7 +58,6 @@ git clone https://github.com/freenas/build /usr/build
 
     ```make checkout```
 
-* Build
 
 A FreeNAS release is built by first updating the source, then building:
 
