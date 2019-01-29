@@ -311,7 +311,6 @@ ports += "devel/py-setproctitle"
 ports += {
     "name": "security/sssd",
     "options": [
-        "OPTIONS_FILE_SET+=SMB",
         "OPTIONS_FILE_UNSET+=DOCS"
     ]
 }
