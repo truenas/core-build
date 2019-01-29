@@ -40,9 +40,7 @@ Note: All these commands must be run as `root`.
 
 * Clone the build repository (```/usr/build``` is used for this example):
 
-```
-git clone https://github.com/freenas/build /usr/build
-```
+    ```git clone https://github.com/freenas/build /usr/build```
 
 * Install Dependencies
 
