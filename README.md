@@ -33,14 +33,16 @@ Note: All these commands must be run as `root`.
 ## Procedure
 
 * Install git
-  ```
-  pkg install -y git
-  rehash
-  ```
+    ```
+    pkg install -y git
+    rehash
+    ```
 
 * Clone the build repository (```/usr/build``` is used for this example):
 
-    ```git clone https://github.com/freenas/build /usr/build```
+    ```
+    git clone https://github.com/freenas/build /usr/build
+    ```
 
 * Install Dependencies
 
@@ -54,7 +56,9 @@ Note: All these commands must be run as `root`.
 
 * First-time checkout of source:
 
-    ```make checkout```
+    ```
+    make checkout
+    ```
 
 
 A FreeNAS release is built by first updating the source, then building:
