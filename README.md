@@ -11,28 +11,10 @@ Note: All these commands must be run as `root`.
   * 16GB memory, or the equivalent in memory plus swap space
   * at least 80GB of free disk space
 
-
-* Software
+* Operating System
 
   * The build environment must be FreeBSD 11.x (or 11-STABLE)
     (building on FreeBSD 10 or 12 is not supported at this time).
-
-  * Required packages must be installed and set up:
-
-    * ```
-      pkg install -y archivers/pigz archivers/pxz devel/git devel/gmake lang/python3 lang/python ports-mgmt/poudriere-devel
-      rehash
-      python2.7 -m ensurepip
-      python2.7 -m pip install six
-      ```
-
-    ```textproc/py-sphinx_numfig``` must be installed from ports as there
-    is no package for it. This requires the ports tree to be installed:
-
-    * ```make -C /usr/ports/textproc/py-sphinx_numfig install clean```
-
-    ```make bootstrap-pkgs``` installs required dependencies automatically.
-    It only installs what is listed in the ```Makefile```.
 
 
 ## Make Targets
@@ -50,21 +32,33 @@ Note: All these commands must be run as `root`.
 
 ## Procedure
 
-Clone the build repository and switch to that directory
-(```/usr/build``` is used for this example):
+* Install git
+  ```
+  pkg install -y git
+  rehash
+  ```
+
+* Clone the build repository (```/usr/build``` is used for this example):
 
 ```
 git clone https://github.com/freenas/build /usr/build
-cd /usr/build
 ```
 
+* Install Dependencies
 
-First-time checkout of source:
+    ```
+    cd /usr/build
+    make bootstrap-pkgs
+    python3 -m ensurepip
+    python3 pip install six
+    ```
 
-```
-make checkout
-```
 
+* First-time checkout of source:
+
+    ```make checkout```
+
+* Build
 
 A FreeNAS release is built by first updating the source, then building:
 
