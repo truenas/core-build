@@ -81,6 +81,7 @@ kernel_modules = [
     "hwpmc",
     "ipoib",
     "mlx4ib",
+    "mlx5ib",
     "mthca",
     "ocs_fc",
     "smartpqi",
