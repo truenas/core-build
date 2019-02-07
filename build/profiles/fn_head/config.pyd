@@ -80,6 +80,7 @@ kernel_modules = [
     "hwpmc",
     "ipoib",
     "mlx4ib",
+    "mlx5ib",
     "ocs_fc",
     "smartpqi",
 ]
