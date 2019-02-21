@@ -78,6 +78,7 @@ kernel_modules = [
     "nmdm",
     "ntb",
     "nvdimm",
+    "ioat",
     "toecore",
     "cxgb",
     "cxgbe",
