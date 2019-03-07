@@ -43,7 +43,7 @@ post-upgrade =
 	if [ -c /dev/null ]; then
 	   for disk in $(sysctl -n kern.disks); do
 	       if gpart show ${disk} | grep -q freebsd-boot; then
-		   gpart bootcode bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 /dev/${disk}
+		   gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 /dev/${disk}
 	       elif sysctl -n machdep.bootmethod | fgrep -q "EFI" && gpart show ${disk} | grep -q efi; then
 		   if mount -t msdosfs /dev/${disk}p1 /boot/efi; then
 		       cp /boot/boot1.efi /boot/efi/efi/boot/BOOTx64.efi
