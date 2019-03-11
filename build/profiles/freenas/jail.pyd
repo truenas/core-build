@@ -61,11 +61,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/ix-installer",
-    "dest": "/usr/nas_source/ix-installer",
-}
-
-copy += {
     "source": "${BE_ROOT}/netatalk",
     "dest": "/usr/netatalk_src"
 }
