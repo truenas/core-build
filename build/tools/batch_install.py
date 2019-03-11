@@ -99,7 +99,7 @@ args = arg_parser.parse_args()
 
 print("Args = {}".format(args))
 # We locate certain files and libraries in the build root.
-for p in ["ix-installer", "objs/instufs/usr/local/lib"]:
+for p in ["objs/instufs/usr/local/lib"]:
     sys.path.append(os.path.join(args.buildroot[0], p))
 
 avatar_file = os.path.join(args.buildroot[0], "objs/instufs/etc/avatar.conf")

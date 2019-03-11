@@ -83,13 +83,6 @@ repos += {
 }
 
 repos += {
-    "name": "ix-installer",
-    "path": "ix-installer",
-    "url": "https://github.com/freenas/ix-installer.git",
-    "branch": "master"
-}
-
-repos += {
     "name": "netatalk",
     "path": "netatalk",
     "url": "https://github.com/freenas/Netatalk.git",
