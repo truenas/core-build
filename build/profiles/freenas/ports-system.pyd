@@ -308,16 +308,6 @@ ports += "net/py-s3cmd"
 ports += "devel/py-pyparsing"
 ports += "devel/py-setproctitle"
 
-#
-# These are all for SSSD
-#
-ports += {
-    "name": "security/sssd",
-    "options": [
-        "OPTIONS_FILE_SET+=SMB",
-        "OPTIONS_FILE_UNSET+=DOCS"
-    ]
-}
 ports += {
     "name": "security/ca_root_nss",
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
