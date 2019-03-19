@@ -255,8 +255,6 @@ ports += {
     "name": "net/py-ldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
-ports += "sysutils/ataidle"
-ports += "sysutils/gnome_subr"
 ports += {
     "name": "devel/dbus",
     "options": ["OPTIONS_FILE_UNSET+=X11"]
