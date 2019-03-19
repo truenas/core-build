@@ -34,6 +34,7 @@ ports += "archivers/liblz4"
 ports += "archivers/lzo2"
 ports += "archivers/pigz"
 ports += "archivers/plzip"
+ports += "archivers/p7zip"
 ports += "security/easy-rsa"
 ports += {
     "name": "security/openvpn",
