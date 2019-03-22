@@ -304,7 +304,7 @@ device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
 device		cfiscsi			# CAM Target Layer iSCSI target frontend
 
-# ipfw and nat for jails
+# Networking for jails and VMs
 options		IPDIVERT
 options		IPFIREWALL
 options		IPFIREWALL_VERBOSE
@@ -312,6 +312,10 @@ options		IPFIREWALL_DEFAULT_TO_ACCEPT
 options		IPFIREWALL_NAT
 #options		DUMMYNET
 options		LIBALIAS
+options		VIMAGE
+device		epair		# A pair of virtual back-to-back connected Ethernet interfaces
+device		if_bridge	# Ethernet bridge device
+device		tap		# A pty-like virtual Ethernet interface
 
 # InfiniBand support (+ modules ipoib, mlx4ib, mlxen and mthca)
 options		OFED		# InfiniBand support
@@ -321,12 +325,7 @@ options		IPOIB_CM	# IPoIB connected mode
 ## FreeNAS specific modifications
 # misc
 device		padlock
-options		VIMAGE
 device		snp
-device		epair		# A pair of virtual back-to-back connected Ethernet interfaces
-device		if_bridge	# network bridge device
-#  The `tap' device is a pty-like virtual Ethernet interface
-device		tap
 device		ucom
 
 # Watchdog support
