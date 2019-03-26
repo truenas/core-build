@@ -317,11 +317,11 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=IPV6"]
 }
 ports += {
-    "name": "net/samba49",
+    "name": "net/samba410",
     "options": [
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
-        "OPTIONS_FILE_SET+=AD_DC",
+        "OPTIONS_FILE_UNSET+=AD_DC",
         "OPTIONS_FILE_SET+=AIO_SUPPORT",
         "OPTIONS_FILE_SET+=CLUSTER",
         "OPTIONS_FILE_UNSET+=CUPS",
