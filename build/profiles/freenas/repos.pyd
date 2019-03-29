@@ -126,21 +126,6 @@ repos += {
 
 if PRODUCT == "TrueNAS":
     repos += {
-            "name": "freenas-docs",
-            "path": "freenas-docs",
-            "url": "http://github.com/freenas/freenas-docs.git",
-            "branch": "master"
-    }
-else:
-    repos += {
-            "name": "freenas-docs",
-            "path": "freenas-docs",
-            "url": "http://github.com/freenas/freenas-docs.git",
-            "branch": "freenas/11.1-stable"
-    }
-
-if PRODUCT == "TrueNAS":
-    repos += {
         "name": "truenas",
         "path": "truenas",
         "url": "git@github.com:iXsystems/truenas.git",
