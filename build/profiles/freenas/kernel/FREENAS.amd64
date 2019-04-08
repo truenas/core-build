@@ -303,6 +303,7 @@ device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
 device		cfiscsi			# CAM Target Layer iSCSI target frontend
+device		xz			# xz_embedded LZMA de-compression library
 
 # Networking for jails and VMs
 options		IPDIVERT
