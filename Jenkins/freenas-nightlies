@@ -17,7 +17,10 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-	sh 'make checkout PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
+	sh 'mkdir -p /freenas || true'
+	sh 'umount -f /freenas || true'
+	sh 'mount_nullfs ${env.WORKSPACE} /freenas'
+	sh 'cd /freenas && make checkout PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
       }
     }
     stage('Build') {
@@ -28,13 +31,13 @@ pipeline {
         }
       }
       steps {
-        sh 'make release PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
+        sh 'cd /freenas && make release PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
       }
     }
     stage('Publish') {
       steps {
         sshagent (credentials: ['db98c9b2-efa2-406b-828a-f338d31ac0d5','75bd2da4-66b6-4144-ac29-62ff49771e53']) {
-          sh 'make release-push PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
+          sh 'cd /freenas && make release-push PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
         }
       }
     }
