@@ -11,6 +11,7 @@ pipeline {
   environment {
     CHECKOUT_SHALLOW = 'YES'
     DELTAS = '0'
+    FNBUILD="${env.WORKSPACE}"
   }
 
   stages {
@@ -19,7 +20,7 @@ pipeline {
         checkout scm
 	sh 'mkdir -p /freenas || true'
 	sh 'umount -f /freenas || true'
-	sh 'mount_nullfs ${env.WORKSPACE} /freenas'
+	sh 'mount_nullfs ${FNBUILD} /freenas'
 	sh 'cd /freenas && make checkout PROFILE=freenas TRAIN=FreeNAS-11-Nightlies'
       }
     }
