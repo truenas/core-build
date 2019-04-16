@@ -55,21 +55,22 @@ def main():
     else:
         download_suffix = e('${BUILD_TYPE}')
 
+    sshopts = '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
     downloadtargetdir = e('${DOWNLOAD_PREFIX}/${download_suffix}')
-    sh('ssh ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
-    sh('ssh ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
-    sh('scp -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
+    sh('ssh ${sshopts} ${user}@${DOWNLOAD_HOST} rm -rf ${downloadtargetdir}')
+    sh('ssh ${sshopts} ${user}@${DOWNLOAD_HOST} mkdir -p ${downloadtargetdir}')
+    sh('scp ${sshopts} -pr ${rel_dir}/* ${user}@${DOWNLOAD_HOST}:${downloadtargetdir}/')
 
     # For all non-nightly builds create latest symlinks
     if e('${BUILD_TYPE}').lower() in ["master", "freebsd-stable", "freebsd-head"]:
         info('Creating MILESTONE level downloads symlink')
-        sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${buildtimestamp} ${DOWNLOAD_PREFIX}/${BUILD_TYPE}/latest')
+        sh('ssh ${sshopts} ${user}@${DOWNLOAD_HOST} ln -shf ${buildtimestamp} ${DOWNLOAD_PREFIX}/${BUILD_TYPE}/latest')
     else:
         info('Creating top level downloads symlink')
-        sh('ssh ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
+        sh('ssh ${sshopts} ${user}@${DOWNLOAD_HOST} ln -shf ${VERSION_NUMBER}/${download_suffix} ${DOWNLOAD_BASEDIR}/latest')
 
     info('Synchronizing download server to CDN')
-    sh('ssh ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
+    sh('ssh ${sshopts} ${user}@${DOWNLOAD_HOST} /usr/local/sbin/rsync-mirror.sh')
 
 
 if __name__ == '__main__':
