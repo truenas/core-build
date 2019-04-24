@@ -21,7 +21,7 @@ include = /usr/local/www/freenasUI
 # Fresh installs don't need this.
 # However, if the package name changed, we would.
 
-#post-install = 
+post-install = 
 #	if [ -f /data/freenas-v1.db ]; then
 #	   /usr/bin/touch /data/cd-upgrade
 #	   /usr/bin/touch /data/need-update
@@ -29,6 +29,7 @@ include = /usr/local/www/freenasUI
 #	test -f /data/freenas-v1.db && \
 #		/usr/bin/yes | /usr/local/bin/python \
 #		            /usr/local/www/freenasUI/manage.py migrate --all --merge --delete-ghost-migrations
+	/usr/local/bin/sqlite3 /data/freenas-v1.db "REPLACE INTO system_keyvalue (key, value) VALUES ('fake_migration', 'true')"
 
 
 post-upgrade = 
@@ -69,6 +70,7 @@ post-upgrade =
              if [ ! -f "/data/update.failed" ]; then
                  /usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
              fi
+             /usr/local/bin/sqlite3 /data/freenas-v1.db "REPLACE INTO system_keyvalue (key, value) VALUES ('run_migration', 'true')"
 	     rm -f /tmp/.sqlite3_ha_skip
 
 	     # Remove dangling .pyc files because previously freenas-ui did not include .pyc in pkg-plist
