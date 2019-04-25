@@ -114,14 +114,7 @@ ports += {
         "OPTIONS_FILE_UNSET+=FLAGS"
     ]
 }
-ports += {
-    "name": "lang/python27",
-    "options": [
-        "OPTIONS_FILE_UNSET+=NLS",
-    ]
-}
 ports += "lang/python3"
-ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "sysutils/iocage"
