@@ -147,7 +147,6 @@ ports += {
 }
 #ports += "sysutils/xe-guest-utilities"
 ports += "databases/sqlite3"
-ports += "databases/py-sqlite3"
 ports += "databases/py-bsddb3"
 ports += "devel/py-sysctl"
 ports += "www/py-dojango"
