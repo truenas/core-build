@@ -1,0 +1,55 @@
+/*
+
+Our default Jenkins pipeline we use to create our TrueNAS
+nightlies
+
+*/
+
+pipeline {
+  agent { label 'TrueNAS-AWS-Nightlies' }
+
+  environment {
+    CHECKOUT_SHALLOW = 'YES'
+    DELTAS = '0'
+    TNBUILD="${env.WORKSPACE}"
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+	sh 'mkdir -p /truenas || true'
+	sh 'umount -f /truenas || true'
+	sh 'mount_nullfs ${TNBUILD} /truenas'
+        sshagent (credentials: ['7656e8cd-e103-4936-aab4-b946ed310332']) {
+	  sh 'cd /truenas && make checkout PROFILE=freenas PRODUCT=TrueNAS TRAIN=TrueNAS-11-Nightlies'
+        }
+      }
+    }
+    stage('Build') {
+      post {
+        always {
+          archiveArtifacts artifacts: 'freenas/_BE/objs/logs/**', fingerprint: false
+          archiveArtifacts artifacts: 'freenas/_BE/objs/ports/data/logs/bulk/**', fingerprint: false
+        }
+      }
+      steps {
+        sh 'cd /truenas && make release PROFILE=freenas PRODUCT=TrueNAS TRAIN=TrueNAS-11-Nightlies'
+      }
+    }
+    stage('Publish') {
+      steps {
+        sshagent (credentials: ['db98c9b2-efa2-406b-828a-f338d31ac0d5','75bd2da4-66b6-4144-ac29-62ff49771e53']) {
+          sh 'cd /truenas && make release-push PROFILE=freenas PRODUCT=TrueNAS TRAIN=TrueNAS-11-Nightlies'
+        }
+      }
+    }
+  }
+  post {
+    success {
+      script {
+        cleanWs notFailBuild: true
+      }
+    }
+  }
+}
