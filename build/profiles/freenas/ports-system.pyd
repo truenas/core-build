@@ -363,6 +363,10 @@ ports += {
     "name": "www/minio-client",
     "options": ["OPTIONS_FILE_UNSET+=MC"]
 }
+ports += {
+    "name": "www/py-ws4py",
+    "options": ["OPTIONS_FILE_UNSET+=CHERRYPY"]
+}
 ports += "misc/mmv"
 ports += {
     "name": "net-mgmt/netdata",
