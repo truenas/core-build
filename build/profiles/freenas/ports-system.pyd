@@ -365,7 +365,7 @@ ports += {
 }
 ports += {
     "name": "www/py-ws4py",
-    "options": ["OPTIONS_FILE_UNSET+=CHERRYPY"]
+    "options": ["OPTIONS_FILE_UNSET+=CHERRYPY", "OPTIONS_FILE_UNSET+=GEVENT"]
 }
 ports += "misc/mmv"
 ports += {
