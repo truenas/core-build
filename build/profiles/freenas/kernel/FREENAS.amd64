@@ -197,6 +197,7 @@ device		mlx4			# Mellanox ConnectX HCA common code
 device		mlx4en			# Mellanox ConnectX HCA Ethernet
 device		mlx5			# Mellanox ConnectX-4 common code
 device		mlx5en			# Mellanox ConnectX-4 Series
+device		mlxfw			# Mellanox firmware update module.
 device		mxge			# Myricom Myri10GE 10 Gigabit Ethernet adapter driver
 device		ti			# Alteon Networks Tigon I/II gigabit Ethernet
 device		qlxgb			# QLogic 10Gb 3200/8200 Ethernet
