@@ -126,7 +126,6 @@ make_conf_build = {
     "WITHOUT_SVNLITE":              "yes",
     "WITHOUT_SYSCONS":              "yes",
     "WITHOUT_SYSINSTALL":           "yes",
-    "WITHOUT_TESTS":                "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
@@ -190,6 +189,7 @@ if SDK == "no":
     temp_dict = {
         "WITHOUT_CLANG_FULL":           "yes",
         "WITHOUT_PROFILE":              "yes",
+        "WITHOUT_TESTS":                "yes",
     }
     make_conf_build.update(temp_dict)
     temp_dict = {
