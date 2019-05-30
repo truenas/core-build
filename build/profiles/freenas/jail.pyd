@@ -40,10 +40,11 @@ copy += {
     "dest": "/usr/freenasUI"
 }
 
-copy += {
-    "source": "${BE_ROOT}/webui",
-    "dest": "/usr/webui"
-}
+if PRODUCT != "TrueNAS":
+    copy += {
+        "source": "${BE_ROOT}/webui",
+        "dest": "/usr/webui"
+    }
 
 copy += {
     "source": "${BE_ROOT}/py-licenselib",

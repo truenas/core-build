@@ -28,10 +28,6 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
-webui_git_rev = sh("git -C ${BE_ROOT}/webui log -1 --pretty=format:%ct") \
-    if exists("${BE_ROOT}/webui") \
-    else "0"
-
 iocage_git_rev = sh("git -C ${BE_ROOT}/iocage log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/iocage") \
     else "0"
@@ -89,15 +85,20 @@ ports += {
 }
 
 
-ports += {
-    "name": "freenas/freenas-webui",
-    "options": [
-        "PRODUCT=${PRODUCT}",
-        "PRODUCT_VERSION=${VERSION}",
-        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-        "REVISION=" + webui_git_rev
-    ]
-}
+if PRODUCT != "TrueNAS":
+    webui_git_rev = sh("git -C ${BE_ROOT}/webui log -1 --pretty=format:%ct") \
+        if exists("${BE_ROOT}/webui") \
+        else "0"
+
+    ports += {
+        "name": "freenas/freenas-webui",
+        "options": [
+            "PRODUCT=${PRODUCT}",
+            "PRODUCT_VERSION=${VERSION}",
+            "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+            "REVISION=" + webui_git_rev
+        ]
+    }
 
 ports += {
     "name": "sysutils/iocage",
