@@ -47,12 +47,13 @@ repos += {
 }
 
 
-repos += {
-    "name": "webui",
-    "path": "webui",
-    "url": "http://github.com/freenas/webui.git",
-    "branch": "freenas/11.2-stable"
-}
+if PRODUCT != "TrueNAS":
+    repos += {
+        "name": "webui",
+        "path": "webui",
+        "url": "http://github.com/freenas/webui.git",
+        "branch": "freenas/11.2-stable"
+    }
 
 repos += {
     "name": "ports",

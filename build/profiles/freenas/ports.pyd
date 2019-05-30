@@ -28,11 +28,12 @@ include("${PROFILE_ROOT}/ports-system.pyd")
 
 port_trees = [
     "${BE_ROOT}/freenas/nas_ports",
-    "${BE_ROOT}/webui/ports",
 ]
 
 if PRODUCT == "TrueNAS":
     port_trees += "${BE_ROOT}/truenas/ports"
+else:
+    port_trees += "${BE_ROOT}/webui/ports"
 
 binary_packages = [
 ]
