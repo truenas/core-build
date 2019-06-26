@@ -382,6 +382,7 @@ ports += "www/novnc"
 ports += "www/novnc-websockify"
 ports += "net/libvncserver"
 ports += "devel/libhyve-remote"
+ports += "devel/py-libvirt"
 
 ports += "graphics/drm-fbsd11.2-kmod"
 
