@@ -90,6 +90,7 @@ kernel_modules = [
     "mlx5ib",
     "mthca",
     "ocs_fc",
+    "qlxgbe",
     "smartpqi",
 ]
 
