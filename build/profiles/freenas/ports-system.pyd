@@ -24,6 +24,7 @@
 #
 
 ports += "ports-mgmt/pkg"
+ports += "sysutils/openzfs"
 ports += "dns/bind-tools"
 ports += "dns/dnsmasq"
 ports += "dns/mDNSResponder_nss"

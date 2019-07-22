@@ -27,6 +27,7 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
+ports += "sysutils/openzfs"
 ports += "lang/python3"
 ports += "lang/python"
 ports += "databases/sqlite3"

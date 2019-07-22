@@ -129,6 +129,7 @@ make_conf_build = {
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
+    "WITHOUT_ZFS":                  "yes",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
 }
 
@@ -179,6 +180,7 @@ make_conf_boot = {
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
     "WITHOUT_VT":                   "yes",
+    "WITHOUT_ZFS":                  "yes",
 }
 
 early_customize_tasks = [
