@@ -374,6 +374,8 @@ def make_ufs_image():
 def make_iso_image():
     setfile('${ISO_DESTDIR}/boot/loader.conf', template('${BUILD_CONFIG}/templates/cdrom/loader.conf'))
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
+    # FIXME: Currently needed by openzfs
+    sh('cp ${WORLD_DESTDIR}/boot/kernel/opensolaris.ko ${ISO_DESTDIR}/boot/kernel')
     sh('cp ${WORLD_DESTDIR}/boot/loader ${ISO_DESTDIR}/boot/loader')
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
     sh('cp ${WORLD_DESTDIR}/boot/*.4th ${ISO_DESTDIR}/boot')
