@@ -121,6 +121,16 @@ ports += {
     ]
 }
 
+
+ports += {
+    "name": "freenas/py-midcli",
+    "options": [
+        "PRODUCT=${PRODUCT}",
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
+    ]
+}
+
 #ports += {
 #    "name": "freenas/arcsas",
 #    "options": [
