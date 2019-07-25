@@ -43,7 +43,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "freenas/12-devel-oldbuild"
+    "branch": "freenas/12-devel"
 }
 
 
