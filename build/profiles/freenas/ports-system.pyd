@@ -27,8 +27,6 @@ ports += "ports-mgmt/pkg"
 ports += "sysutils/openzfs"
 ports += "dns/bind-tools"
 ports += "dns/dnsmasq"
-ports += "dns/mDNSResponder_nss"
-ports += "net/mDNSResponder"
 ports += "textproc/jq"
 ports += "archivers/liblz4"
 ports += "archivers/lzo2"
@@ -117,7 +115,6 @@ ports += {
 }
 ports += "lang/python3"
 ports += "lang/python"
-ports += "dns/py-bonjour"
 ports += "sysutils/iocage"
 ports += "security/pam_mkhomedir"
 ports += {
@@ -340,6 +337,7 @@ ports += {
 }
 
 ports += "sysutils/lsof"
+ports += "net/avahi-app"
 ports += "sysutils/grub2-bhyve"
 ports += "sysutils/beadm"
 ports += "sysutils/throttle"

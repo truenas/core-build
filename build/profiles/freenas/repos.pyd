@@ -90,13 +90,6 @@ repos += {
 }
 
 repos += {
-    "name": "mdnsresponder",
-    "path": "mdnsresponder",
-    "url": "https://github.com/freenas/mDNSResponder.git",
-    "branch": "freenas/master"
-}
-
-repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/freenas/iocage.git",
