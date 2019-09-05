@@ -336,7 +336,7 @@ ports += {
 ports += "devel/py-xattr"
 ports += "converters/convmv"
 
-ports += "sysutils/ipfs-go"
+#ports += "sysutils/ipfs-go"
 ports += "www/minio"
 ports += {
     "name": "www/minio-client",
