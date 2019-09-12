@@ -67,7 +67,7 @@ kernel_modules = [
     "smbfs",
     "udf",
     "usb",
-    "fuse",
+    "fusefs",
     "vmm",
     "netgraph/netgraph",
     "netgraph/bridge",
