@@ -69,12 +69,11 @@ ports += "net/mosh"
 ports += "net/zerotier"
 ports += "net-mgmt/sipcalc"
 
-if LABEL != "TrueNAS":
-    ports += "net/vblade"
-    ports += {
-        "name": "emulators/virtualbox-ose-kmod",
-        "options": ["OPTIONS_FILE_SET+=VIMAGE"]
-    }
+ports += "net/vblade"
+ports += {
+    "name": "emulators/virtualbox-ose-kmod",
+    "options": ["OPTIONS_FILE_SET+=VIMAGE"]
+}
 
 ports += "security/cyrus-sasl2-gssapi"
 ports += {
@@ -222,9 +221,8 @@ ports += {
 ports += "sysutils/arcconf"
 ports += "sysutils/tw_cli"
 ports += "sysutils/megacli"
-if PRODUCT != "TrueNAS":
-    ports += "sysutils/areca-cli"
-    ports += "sysutils/hptcli"
+ports += "sysutils/areca-cli"
+ports += "sysutils/hptcli"
 ports += {
     "name": "net/py-ldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
