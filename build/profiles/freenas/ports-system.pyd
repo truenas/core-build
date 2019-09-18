@@ -70,6 +70,7 @@ ports += "net/zerotier"
 ports += "net-mgmt/sipcalc"
 
 if LABEL != "TrueNAS":
+    ports += "net/aquantia-atlantic-kmod"
     ports += "net/vblade"
     ports += {
         "name": "emulators/virtualbox-ose-kmod",
