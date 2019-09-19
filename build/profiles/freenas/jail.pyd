@@ -69,9 +69,3 @@ copy += {
     "source": "${BE_ROOT}/iocage",
     "dest": "/usr/iocage_src"
 }
-
-if PRODUCT == "TrueNAS":
-    copy += {
-        "source": "${BE_ROOT}/truenas",
-        "dest": "/usr/truenas"
-    }

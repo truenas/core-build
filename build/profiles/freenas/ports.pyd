@@ -31,8 +31,5 @@ port_trees = [
     "${BE_ROOT}/webui/ports",
 ]
 
-if PRODUCT == "TrueNAS":
-    port_trees += "${BE_ROOT}/truenas/ports"
-
 binary_packages = [
 ]
