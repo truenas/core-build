@@ -26,10 +26,11 @@ if [ $# -lt 4 ]; then
 	exit 1
 fi
 
-LABEL="$1"; shift
-NAME="$1"; shift
-OBJDIR="$1"; shift
-ROOTDIR="$1"; shift
+LABEL="$1"
+NAME="$2"
+OBJDIR="$3"
+ROOTDIR="$4"
+shift 4
 
 if [ -z $ETDUMP ]; then
 	ETDUMP=$OBJDIR/usr/bin/etdump
@@ -43,25 +44,24 @@ if [ -z $MKIMG ]; then
 	MKIMG=$OBJDIR/usr/bin/mkimg
 fi
 
-# This is highly x86-centric and will be used directly below.
-bootable="-o bootimage=i386;$OBJDIR/boot/cdboot -o no-emul-boot"
+stagedir=$(mktemp -d /tmp/stand-temp.XXXXXX)
+mkdir -p "$stagedir/efi/boot"
+cp "$OBJDIR/boot/loader.efi" "$stagedir/efi/boot/bootx64.efi"
+$MAKEFS -t msdos \
+    -o fat_type=12 \
+    -o media_descriptor=248 \
+    -o sectors_per_cluster=1 \
+    -s 800k \
+    efiboot.img "$stagedir"
+rm -rf "$stagedir"
 
-# Make EFI system partition (should be done with makefs in the future)
-dd if=/dev/zero of=efiboot.img bs=4k count=200
-device=`mdconfig -a -t vnode -f efiboot.img`
-newfs_msdos -F 12 -m 0xf8 /dev/$device
-mkdir efi
-mount -t msdosfs /dev/$device efi
-mkdir -p efi/efi/boot
-cp "$OBJDIR/boot/loader.efi" efi/efi/boot/bootx64.efi
-umount efi
-rmdir efi
-mdconfig -d -u $device
-bootable="$bootable -o bootimage=i386;efiboot.img -o no-emul-boot -o platformid=efi"
-
-publisher="iXsystems Inc.  https://www.ixsystems.com/"
-$MAKEFS -t cd9660 $bootable -o rockridge -o label="$LABEL" \
-    -o publisher="$publisher" "$NAME" "$ROOTDIR"
+$MAKEFS -t cd9660 \
+    -o bootimage="i386;$OBJDIR/boot/cdboot" -o no-emul-boot \
+    -o bootimage="i386;efiboot.img" -o no-emul-boot -o platformid="efi" \
+    -o rockridge \
+    -o label="$LABEL" \
+    -o publisher="iXsystems Inc.  https://www.ixsystems.com/" \
+    "$NAME" "$ROOTDIR"
 rm -f efiboot.img
 
 # Look for the EFI System Partition image we dropped in the ISO image.
@@ -78,11 +78,11 @@ done
 # Create a GPT image containing the partitions we need for hybrid boot.
 imgsize=`stat -f %z $NAME`
 $MKIMG -s gpt \
-	--capacity $imgsize \
-	-b $OBJDIR/boot/pmbr \
-	$espparam \
-	-p freebsd-boot:=$OBJDIR/boot/isoboot \
-	-o hybrid.img
+    --capacity $imgsize \
+    -b $OBJDIR/boot/pmbr \
+    $espparam \
+    -p freebsd-boot:="$OBJDIR/boot/isoboot" \
+    -o hybrid.img
 
 # Drop the PMBR, GPT, and boot code into the System Area of the ISO.
 dd if=hybrid.img of=$NAME bs=32k count=1 conv=notrunc
