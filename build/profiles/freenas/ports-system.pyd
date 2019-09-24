@@ -92,7 +92,6 @@ ports += {
         "OPTIONS_FILE_SET+=NSS"
     ]
 }
-ports += "net/smbldap-tools"
 ports += {
     "name": "security/openssh-portable",
     "options": [
