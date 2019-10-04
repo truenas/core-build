@@ -58,7 +58,6 @@ kernel_modules = [
     "linux_common",
     "msdosfs_iconv",
     "ispfw/ispfw",
-    "opensolaris",
     "pf",
     "pflog",
     "smbfs",
