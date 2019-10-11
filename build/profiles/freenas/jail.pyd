@@ -36,11 +36,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/freenas/gui",
-    "dest": "/usr/freenasUI"
-}
-
-copy += {
     "source": "${BE_ROOT}/webui",
     "dest": "/usr/webui"
 }
