@@ -271,7 +271,6 @@ ports += "sysutils/sg3_utils"
 ports += "sysutils/smp_utils"
 ports += "net/trafshow"
 ports += "net/py-s3cmd"
-ports += "devel/py-setproctitle"
 
 ports += {
     "name": "security/ca_root_nss",
