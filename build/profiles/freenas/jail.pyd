@@ -61,11 +61,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/netatalk",
-    "dest": "/usr/netatalk_src"
-}
-
-copy += {
     "source": "${BE_ROOT}/mdnsresponder",
     "dest": "/usr/mdnsresponder_src"
 }
