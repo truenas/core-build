@@ -53,6 +53,11 @@ post-upgrade =
 	   done
 	fi
 
+    rm -rf /usr/local/www/freenasUI
+
+    touch /data/need-update
+    rm -f /data/sentinels/unscheduled-reboot
+
 [Files]
 exclude = /usr/local/www/freenasUI
 	/usr/local/www/webui
