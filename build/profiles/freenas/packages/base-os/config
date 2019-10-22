@@ -29,6 +29,18 @@ post-install =
 	/usr/bin/touch /data/.hba_firmware_update
 
 post-upgrade =
+    if [ $(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db) = "" ];
+    then
+        # Out of order migration, see #27607
+        has_hostname_virtual="$(/usr/local/bin/sqlite3 /data/freenas-v1.db "SELECT count() FROM django_migrations WHERE name = '0007_globalconfiguration_gc_hostname_virtual'")"
+        has_vlan_pcp="$(/usr/local/bin/sqlite3 /data/freenas-v1.db "SELECT count() FROM django_migrations WHERE name = '0005_vlan_vlan_pcp'")"
+        if [ "${has_hostname_virtual}" = "1" -a "${has_vlan_pcp}" = "0" ]; then
+            mkdir -p /data/sentinels
+            /usr/local/bin/sqlite3 /data/freenas-v1.db "SELECT gc_hostname_virtual FROM network_globalconfiguration" > /data/sentinels/gc_hostname_virtual_out_of_order
+            /usr/local/bin/sqlite3 /data/freenas-v1.db "DELETE FROM django_migrations WHERE name = '0007_globalconfiguration_gc_hostname_virtual'"
+        fi
+    fi
+
 	KV="$(uname -K)" || KV=0
 	if [ "${KV}" -lt 1100000 ]; then
 		script_name=base-os-post-upgrade
@@ -37,6 +49,7 @@ post-upgrade =
                 echo  ${script_name} >> /update-scripts/order
                 exit 0
         fi
+
 	/usr/bin/touch /boot/kernel/linker.hints
 	/usr/bin/touch /boot/modules/linker.hints
 	/usr/bin/touch /data/.hba_firmware_update
@@ -55,7 +68,24 @@ post-upgrade =
 
     rm -rf /usr/local/www/freenasUI
 
-    touch /data/need-update
+    if [ $(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db) = "" ];
+    then
+         # If database does not have account:0005_add_netdata_user
+         # it means its too old and needs to run old migrator first
+         newdb=$(/usr/local/bin/sqlite3 /data/freenas-v1.db "select count() from django_migrations where app = 'account' and name = '0005_add_netdata_user'" 2> /dev/null)
+         if [ "${newdb}" != "1" ]; then
+            /usr/local/sbin/migrate93 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+         else
+             rm -f /data/update.failed
+         fi
+         if [ ! -f "/data/update.failed" ]; then
+             /usr/local/bin/migrate113 > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+         fi
+    fi
+    if [ ! -f "/data/update.failed" ]; then
+        /usr/local/bin/migrate > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+    fi
+
     rm -f /data/sentinels/unscheduled-reboot
 
 [Files]
