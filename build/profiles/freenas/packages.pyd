@@ -37,8 +37,3 @@ packages += {
     "name": "freenas-pkg-tools",
     "template": "${PROFILE_ROOT}/packages/freenas-pkg-tools"
 }
-
-packages += {
-    "name": "${PRODUCT}UI",
-    "template": "${PROFILE_ROOT}/packages/freenasUI"
-}
