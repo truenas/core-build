@@ -28,13 +28,13 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "freenas12",
-    "description": "FreeNAS 12",
+    "name": "truenas12",
+    "description": "TrueNAS 12",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
 
-kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
+kernel_config = "${PROFILE_ROOT}/kernel/TRUENAS.amd64"
 
 kernel_modules = [
     "autofs",

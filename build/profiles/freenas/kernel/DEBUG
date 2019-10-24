@@ -1,4 +1,4 @@
-# Debug options to be added to a FREENAS kernel config
+# Debug options to be added to a TRUENAS kernel config
 
 options 	KDB			# Enable kernel debugger support.
 # For minimum debugger support (stable branch) use:
