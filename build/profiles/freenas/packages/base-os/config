@@ -79,11 +79,11 @@ post-upgrade =
              rm -f /data/update.failed
          fi
          if [ ! -f "/data/update.failed" ]; then
-             /usr/local/bin/migrate113 > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+             /usr/local/sbin/migrate113 > "/data/update.failed" 2>&1 && rm -f /data/update.failed
          fi
     fi
     if [ ! -f "/data/update.failed" ]; then
-        /usr/local/bin/migrate > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+        /usr/local/sbin/migrate > "/data/update.failed" 2>&1 && rm -f /data/update.failed
     fi
 
     rm -f /data/sentinels/unscheduled-reboot
