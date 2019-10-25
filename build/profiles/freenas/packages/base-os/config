@@ -90,7 +90,6 @@ post-upgrade =
 
 [Files]
 exclude = /usr/local/www/freenasUI
-	/usr/local/www/webui
 	/usr/local/www/data/docs
 	/usr/local/share/doc
 	/usr/local/share/gtk-doc
