@@ -326,7 +326,7 @@ device		padlock_rng		# VIA Padlock RNG
 device		rdrand_rng		# Intel Bull Mountain RNG
 device		ether			# Ethernet support
 device		vlan			# 802.1Q VLAN support
-device		tun			# Packet tunnel.
+device		tuntap			# Packet tunnel.
 device		md			# Memory "disks"
 device		gif			# IPv6 and IPv4 tunneling
 device		firmware		# firmware assist module
@@ -395,7 +395,6 @@ options		IPFIREWALL_NAT
 options		LIBALIAS
 device		epair			# A pair of virtual back-to-back connected Ethernet interfaces
 device		if_bridge		# Ethernet bridge device
-device		tap			# A pty-like virtual Ethernet interface
 
 ## FreeNAS shared modifications
 options		GEOM_UZIP		# Read-only compressed disks
