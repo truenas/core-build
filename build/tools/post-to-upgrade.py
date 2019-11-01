@@ -54,7 +54,7 @@ def main():
     if not temp_dest or not temp_changelog:
         error('Failed to create temporary directories on {0}', ssh)
 
-    sh('scp ${sshopts} -r ${BE_ROOT}/release/LATEST/. ${ssh}:${temp_dest}')
+    sh('rsync -vr -e "ssh ${sshopts}" ${BE_ROOT}/release/LATEST/ ${ssh}:${temp_dest}/')
     if changelog:
         cl_file = None
         if changelog == '-':
