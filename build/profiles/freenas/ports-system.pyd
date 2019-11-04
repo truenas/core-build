@@ -306,7 +306,7 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=IPV6"]
 }
 ports += {
-    "name": "net/samba410",
+    "name": "net/samba411",
     "options": [
         "OPTIONS_FILE_SET+=ACL_SUPPORT",
         "OPTIONS_FILE_SET+=ADS",
