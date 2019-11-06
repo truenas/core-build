@@ -63,7 +63,7 @@ repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "branch": "master"
+    "branch": "freenas/12-devel"
 }
 
 repos += {
