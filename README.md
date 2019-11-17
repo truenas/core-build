@@ -50,7 +50,7 @@ Note: All these commands must be run as `root`.
     cd /usr/build
     make bootstrap-pkgs
     python3 -m ensurepip
-    python3 pip install six
+    python3 /usr/local/bin/pip3 install six
     ```
 
 
