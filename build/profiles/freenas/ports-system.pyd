@@ -67,7 +67,7 @@ ports += {
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net/mosh"
-ports += "net/zerotier"
+ports += "net/wireguard"
 ports += "net-mgmt/sipcalc"
 
 if LABEL != "TrueNAS":
