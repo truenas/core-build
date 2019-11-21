@@ -431,6 +431,7 @@ device		snp		# Snoop device - to look at pty/vty/etc..
 device		ucom		# USB serial support
 
 # Watchdog support
+device		superio		# SuperIO driver
 device		ichwd		# Intel ICH watchdog timer
 device		amdsbwd		# AMD SB7xx watchdog timer
 device		viawd		# VIA south bridge watchdog timer
