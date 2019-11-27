@@ -322,7 +322,12 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=ETCSYMLINK"]
 }
 ports += "ftp/curl"
-
+ports += {
+    "name": "lang/python36",
+    "options": [
+        "OPTIONS_FILE_SET+=DEBUG",
+    ]
+}
 ports += {
     "name": "dns/samba-nsupdate",
     "options": ["OPTIONS_FILE_SET+=IPV6"]
