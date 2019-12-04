@@ -32,6 +32,9 @@ from utils import sh, e, info
 
 
 def main(destdir):
+    # Dangling symlink
+    sh('rm -rf ${destdir}/sys')
+
     # Kill docs
     sh('rm -rf ${destdir}/usr/local/share/doc')
     sh('rm -rf ${destdir}/usr/local/share/gtk-doc')
