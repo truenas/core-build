@@ -73,6 +73,7 @@ def main():
         "ssh ${sshopts} ${ssh}",
         "/usr/local/bin/freenas-release",
         "-P ${PRODUCT}",
+        "-D ${UPDATE_DB}",
         "--archive ${UPDATE_DEST}",
         "-K ${FREENAS_KEYFILE}",
         "-C ${temp_changelog}" if changelog else "",
