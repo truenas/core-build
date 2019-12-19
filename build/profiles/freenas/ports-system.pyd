@@ -125,6 +125,7 @@ ports += "lang/python2"
 ports += "lang/python"
 ports += "dns/py-bonjour"
 ports += "dns/py-dnspython"
+ports += "sysutils/scanlnk"
 ports += "sysutils/iocage"
 ports += "security/pam_mkhomedir"
 ports += {
