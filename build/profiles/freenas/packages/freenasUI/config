@@ -68,6 +68,7 @@ post-upgrade =
              fi
              if [ ! -f "/data/update.failed" ]; then
                  /usr/local/www/freenasUI/manage.py migrate --fake-initial --noinput > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+                 /usr/local/bin/sqlite3 /data/freenas-v1.db "REPLACE INTO system_keyvalue (key, value) VALUES ('run_migration', 'true')"
              fi
 	     rm -f /tmp/.sqlite3_ha_skip
 
