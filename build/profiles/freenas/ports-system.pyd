@@ -266,6 +266,7 @@ ports += {
 }
 ports += "sysutils/ipmitool"
 ports += "devel/py-daemon"
+ports += "devel/py-kmip"
 ports += "www/wgetpaste"
 ports += "sysutils/sedutil"
 ports += "sysutils/sg3_utils"
