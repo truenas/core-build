@@ -34,7 +34,7 @@ repos += {
     "name": "freenas",
     "path": "freenas",
     "url": "http://github.com/freenas/freenas.git",
-    "branch": "master"
+    "branch": "freenas/11.3-stable"
 }
 
 
@@ -42,14 +42,14 @@ repos += {
     "name": "webui",
     "path": "webui",
     "url": "http://github.com/freenas/webui.git",
-    "branch": "master"
+    "branch": "freenas/11.3-stable"
 }
 
 repos += {
     "name": "ports",
     "path": "ports",
     "url": "https://github.com/freenas/ports.git",
-    "branch": "freenas/master"
+    "branch": "freenas/11.3-stable"
 }
 
 repos += {
