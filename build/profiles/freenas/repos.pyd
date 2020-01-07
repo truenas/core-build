@@ -84,5 +84,5 @@ repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/freenas/iocage.git",
-    "branch": "freenas/12-devel"
+    "branch": "master"
 }
