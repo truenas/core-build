@@ -69,7 +69,6 @@ ports += "net/mosh"
 ports += "net/zerotier"
 ports += "net-mgmt/sipcalc"
 
-ports += "net/vblade"
 ports += {
     "name": "emulators/virtualbox-ose-kmod",
     "options": ["OPTIONS_FILE_SET+=VIMAGE"]
