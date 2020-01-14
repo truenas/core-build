@@ -29,7 +29,8 @@ post-install =
 	/usr/bin/touch /data/.hba_firmware_update
 
 post-upgrade =
-    if [ $(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db) = "" ];
+    has_alembic=$(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db)
+    if [ "$has_alembic" = "" ];
     then
         # Out of order migration, see #27607
         has_hostname_virtual="$(/usr/local/bin/sqlite3 /data/freenas-v1.db "SELECT count() FROM django_migrations WHERE name = '0007_globalconfiguration_gc_hostname_virtual'")"
@@ -68,7 +69,7 @@ post-upgrade =
 
     rm -rf /usr/local/www/freenasUI
 
-    if [ $(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db) = "" ];
+    if [ "$has_alembic" = "" ];
     then
          # If database does not have account:0005_add_netdata_user
          # it means its too old and needs to run old migrator first
