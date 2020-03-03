@@ -108,6 +108,7 @@ ports += {
 ports += "lang/python3"
 ports += "lang/python"
 ports += "sysutils/iocage"
+ports += "security/oath-toolkit"
 ports += "security/pam_mkhomedir"
 ports += {
     "name": "shells/bash",
