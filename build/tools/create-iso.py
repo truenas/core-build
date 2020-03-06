@@ -77,6 +77,7 @@ files_to_preserve = [
     '/usr/bin/uname',
     '/usr/bin/xargs',
     '/usr/sbin/diskinfo',
+    '/usr/sbin/nscd',
     '/usr/sbin/sshd',
     '/usr/sbin/swapinfo',
     '/usr/sbin/vidcontrol',
