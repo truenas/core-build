@@ -115,7 +115,6 @@ make_conf_build = {
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_NDIS":                 "yes",
     "WITHOUT_NLS":                  "yes",
-    "WITHOUT_NS_CACHING":           "yes",
     "WITHOUT_OBJC":                 "yes",
     "WITH_OPENSSH_NONE_CIPHER":     "yes",
     "WITHOUT_PC_SYSINSTALL":        "yes",
