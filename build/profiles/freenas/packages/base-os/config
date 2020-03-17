@@ -86,7 +86,9 @@ post-upgrade =
     if [ ! -f "/data/update.failed" ]; then
         /usr/local/sbin/migrate > "/data/update.failed" 2>&1 && rm -f /data/update.failed
     fi
-
+    if [ ! -f "/data/update.failed" ]; then
+        /usr/local/bin/sqlite3 /data/freenas-v1.db "REPLACE INTO system_keyvalue (key, value) VALUES ('run_migration', 'true')" > "/data/update.failed" 2>&1 && rm -f /data/update.failed
+    fi
     rm -f /data/sentinels/unscheduled-reboot
 
 [Files]
