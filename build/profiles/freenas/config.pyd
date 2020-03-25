@@ -68,7 +68,6 @@ kernel_modules = [
     "usb",
     "fuse",
     "vmm",
-    "mac_ntpd",
     "netgraph/netgraph",
     "netgraph/bridge",
     "netgraph/eiface",
