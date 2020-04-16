@@ -28,16 +28,13 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "freenas11",
-    "description": "FreeNAS 11",
+    "name": "truenas12",
+    "description": "TrueNAS 12",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
 
-if PRODUCT == "TrueNAS":
-    kernel_config = "${BE_ROOT}/truenas/build/TRUENAS11.amd64"
-else:
-    kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
+kernel_config = "${PROFILE_ROOT}/kernel/TRUENAS.amd64"
 
 kernel_modules = [
     "autofs",
@@ -59,22 +56,17 @@ kernel_modules = [
     "linux",
     "linux64",
     "linux_common",
+    "mac_ntpd",
     "msdosfs_iconv",
     "ispfw/ispfw",
+    "opensolaris",
     "pf",
     "pflog",
     "smbfs",
     "udf",
     "usb",
-    "fuse",
+    "fusefs",
     "vmm",
-    "netgraph/netgraph",
-    "netgraph/bridge",
-    "netgraph/eiface",
-    "netgraph/ether",
-    "netgraph/iface",
-    "netgraph/nat",
-    "netgraph/socket",
     "netmap",
     "nmdm",
     "ntb",
@@ -128,6 +120,7 @@ make_conf_build = {
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
+    "WITHOUT_ZFS":                  "yes",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
 }
 
@@ -178,6 +171,7 @@ make_conf_boot = {
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
     "WITHOUT_VT":                   "yes",
+    "WITHOUT_ZFS":                  "yes",
 }
 
 early_customize_tasks = [

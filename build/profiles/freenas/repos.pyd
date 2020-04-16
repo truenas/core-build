@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "freenas/11-stable"
+    "branch": "freenas/12-stable"
 }
 
 repos += {
@@ -74,9 +74,9 @@ repos += {
 }
 
 repos += {
-    "name": "mdnsresponder",
-    "path": "mdnsresponder",
-    "url": "https://github.com/freenas/mDNSResponder.git",
+    "name": "netatalk",
+    "path": "netatalk",
+    "url": "https://github.com/freenas/Netatalk.git",
     "branch": "freenas/master"
 }
 
@@ -86,11 +86,3 @@ repos += {
     "url": "https://github.com/freenas/iocage.git",
     "branch": "master"
 }
-
-if PRODUCT == "TrueNAS":
-    repos += {
-        "name": "truenas",
-        "path": "truenas",
-        "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "master"
-    }

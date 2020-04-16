@@ -27,6 +27,7 @@ freenas_git_rev = sh("git -C ${BE_ROOT}/freenas log -1 --pretty=format:%ct") \
     if exists("${BE_ROOT}/freenas") \
     else "0"
 
+ports += "sysutils/openzfs"
 ports += "lang/python3"
 ports += "lang/python"
 ports += "databases/sqlite3"
@@ -39,7 +40,6 @@ ports += "freenas/py-bsd"
 ports += {
     "name": "freenas/freenas-installer",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev

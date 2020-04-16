@@ -160,7 +160,7 @@ release:
 
 release-push: update-push
 	@${BUILD_TOOLS}/post-to-storage.py
-	@if [ "${PRODUCT}" == "FreeNAS" -a "${INTERNAL_UPDATE}" != "YES" -a "${INTERNAL_UPDATE}" != "yes" ]; then \
+	@if [ "${INTERNAL_UPDATE}" != "YES" -a "${INTERNAL_UPDATE}" != "yes" ]; then \
 		${BUILD_TOOLS}/post-to-download.py; \
 	fi
 
@@ -244,11 +244,7 @@ debug:
 
 api-docs:
 	@env CHECKOUT_ONLY="freenas" ${BUILD_TOOLS}/checkout.py
-.if ${PRODUCT} == "TrueNAS"
-	(make SPHINXOPTS="-t truenas" -C ${API_PATH}/api html)
-.else
 	(make -C ${API_PATH}/api html)
-.endif
 
 clean-docs:
 	make -C ${API_PATH}/api clean

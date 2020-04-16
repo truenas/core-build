@@ -36,11 +36,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/freenas/gui",
-    "dest": "/usr/freenasUI"
-}
-
-copy += {
     "source": "${BE_ROOT}/webui",
     "dest": "/usr/webui"
 }
@@ -61,17 +56,11 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/mdnsresponder",
-    "dest": "/usr/mdnsresponder_src"
+    "source": "${BE_ROOT}/netatalk",
+    "dest": "/usr/netatalk_src"
 }
 
 copy += {
     "source": "${BE_ROOT}/iocage",
     "dest": "/usr/iocage_src"
 }
-
-if PRODUCT == "TrueNAS":
-    copy += {
-        "source": "${BE_ROOT}/truenas",
-        "dest": "/usr/truenas"
-    }
