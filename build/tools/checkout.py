@@ -33,9 +33,24 @@ import sys
 from dsl import load_profile_config
 from utils import sh, sh_str, info, debug, e, setfile, appendfile
 
+
 def get_git_rev():
     """Return git revision.  Assumes $cwd is within the repository."""
     return sh_str("git rev-parse --short HEAD")
+
+
+jenkins_override = {
+    'os': 'OS_OVERRIDE',
+    'freenas': 'FREENAS_OVERRIDE',
+    'webui': 'WEBUI_OVERRIDE',
+    'ports': 'PORTS_OVERRIDE',
+    'py-licenselib': 'LICENSELIB_OVERRIDE',
+    'freenas-pkgtools': 'FREENAS-PKGTOOLS_OVERRIDE',
+    'py-bsd': 'PY-BSD_OVERRIDE',
+    'netatalk': 'NETATALK_OVERRIDE',
+    'iocage': 'IOCAGE_OVERRIDE'
+}
+
 
 dsl = load_profile_config()
 manifest = {sh_str("git config --get remote.origin.url"): get_git_rev()}
@@ -49,6 +64,7 @@ def is_git_repo(path, allow_bare=False):
     if allow_bare and os.path.exists(os.path.join(path, 'HEAD')):
         return True
     return False
+
 
 def find_ref_clone(repo_name):
     """See if there's an existing clone to use as a reference."""
@@ -94,7 +110,11 @@ def checkout_repo(cwd, repo):
     repo_path = repo['path']
     repo_url = repo['url']
     mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
-    branch = repo['branch']
+
+    if jenkins_override[repo_name] in os.environ:
+        branch = os.environ[jenkins_override[repo_name]]
+    else:
+        branch = repo['branch']
 
     if mirror_url:
         if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
@@ -180,6 +200,7 @@ def main():
     generate_manifest()
     setfile('${BE_ROOT}/.pulled', e('${PRODUCT}'))
     return 0
+
 
 if __name__ == '__main__':
     sys.exit(main())
