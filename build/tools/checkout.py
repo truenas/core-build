@@ -39,7 +39,7 @@ def get_git_rev():
     return sh_str("git rev-parse --short HEAD")
 
 
-jenkins_override = {
+repos_override = {
     'os': 'OS_OVERRIDE',
     'freenas': 'FREENAS_OVERRIDE',
     'webui': 'WEBUI_OVERRIDE',
@@ -111,8 +111,8 @@ def checkout_repo(cwd, repo):
     repo_url = repo['url']
     mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
 
-    if jenkins_override[repo_name] in os.environ:
-        branch = os.environ[jenkins_override[repo_name]]
+    if repos_override[repo_name] in os.environ:
+        branch = os.environ[repos_override[repo_name]]
     else:
         branch = repo['branch']
 
