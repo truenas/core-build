@@ -39,19 +39,6 @@ def get_git_rev():
     return sh_str("git rev-parse --short HEAD")
 
 
-repos_override = {
-    'os': 'OS_OVERRIDE',
-    'freenas': 'FREENAS_OVERRIDE',
-    'webui': 'WEBUI_OVERRIDE',
-    'ports': 'PORTS_OVERRIDE',
-    'py-licenselib': 'LICENSELIB_OVERRIDE',
-    'freenas-pkgtools': 'FREENAS-PKGTOOLS_OVERRIDE',
-    'py-bsd': 'PY-BSD_OVERRIDE',
-    'netatalk': 'NETATALK_OVERRIDE',
-    'iocage': 'IOCAGE_OVERRIDE'
-}
-
-
 dsl = load_profile_config()
 manifest = {sh_str("git config --get remote.origin.url"): get_git_rev()}
 
@@ -110,11 +97,7 @@ def checkout_repo(cwd, repo):
     repo_path = repo['path']
     repo_url = repo['url']
     mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
-
-    if repos_override[repo_name] in os.environ:
-        branch = os.environ[repos_override[repo_name]]
-    else:
-        branch = repo['branch']
+    branch = e(f'${{{repo_name.upper()}_OVERRIDE}}') or repo['branch']
 
     if mirror_url:
         if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
