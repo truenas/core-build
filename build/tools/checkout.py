@@ -97,7 +97,7 @@ def checkout_repo(cwd, repo):
     repo_path = repo['path']
     repo_url = repo['url']
     mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
-    branch = e(f'${{{repo_name.upper()}_OVERRIDE}}') or repo['branch']
+    branch = e(f'${{{repo_name.replace("-", "_").upper()}_OVERRIDE}}') or repo['branch']
 
     if mirror_url:
         if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
