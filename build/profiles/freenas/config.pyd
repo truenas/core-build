@@ -42,6 +42,7 @@ kernel_modules = [
     "cc",
     "dtrace",
     "efirt",
+    "evdev",
     "ext2fs",
     "firewire",
     "geom",
