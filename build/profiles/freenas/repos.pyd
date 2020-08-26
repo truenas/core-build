@@ -27,7 +27,7 @@ repos += {
     "name": "os",
     "path": "os",
     "url": "https://github.com/freenas/os.git",
-    "branch": "trusnas/12.0-stable"
+    "branch": "truenas/12.0-stable"
 }
 
 repos += {
