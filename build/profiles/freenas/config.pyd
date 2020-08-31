@@ -28,16 +28,13 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "freenas11",
-    "description": "FreeNAS 11",
+    "name": "truenas12",
+    "description": "TrueNAS 12",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
 
-if PRODUCT == "TrueNAS":
-    kernel_config = "${BE_ROOT}/truenas/build/TRUENAS11.amd64"
-else:
-    kernel_config = "${PROFILE_ROOT}/kernel/FREENAS.amd64"
+kernel_config = "${PROFILE_ROOT}/kernel/TRUENAS.amd64"
 
 kernel_modules = [
     "autofs",
@@ -45,6 +42,7 @@ kernel_modules = [
     "cc",
     "dtrace",
     "efirt",
+    "evdev",
     "ext2fs",
     "firewire",
     "geom",
@@ -59,22 +57,17 @@ kernel_modules = [
     "linux",
     "linux64",
     "linux_common",
+    "mac_ntpd",
     "msdosfs_iconv",
     "ispfw/ispfw",
+    "opensolaris",
     "pf",
     "pflog",
     "smbfs",
     "udf",
     "usb",
-    "fuse",
+    "fusefs",
     "vmm",
-    "netgraph/netgraph",
-    "netgraph/bridge",
-    "netgraph/eiface",
-    "netgraph/ether",
-    "netgraph/iface",
-    "netgraph/nat",
-    "netgraph/socket",
     "netmap",
     "nmdm",
     "ntb",
@@ -117,7 +110,6 @@ make_conf_build = {
     "WITHOUT_LPR":                  "yes",
     "WITHOUT_NDIS":                 "yes",
     "WITHOUT_NLS":                  "yes",
-    "WITHOUT_NS_CACHING":           "yes",
     "WITHOUT_OBJC":                 "yes",
     "WITH_OPENSSH_NONE_CIPHER":     "yes",
     "WITHOUT_PC_SYSINSTALL":        "yes",
@@ -129,6 +121,7 @@ make_conf_build = {
     "WITHOUT_SYSINSTALL":           "yes",
     "WITHOUT_WIRELESS":             "yes",
     "WITHOUT_WPA_SUPPLICANT_EAPOL": "yes",
+    "WITHOUT_ZFS":                  "yes",
     "LOCAL_DIRS":                   "share/examples/ses tools/tools/cxgbtool tools/tools/cxgbetool"
 }
 
@@ -139,8 +132,8 @@ make_conf_jail = {
 
 # Packages configuration
 make_conf_pkg = {
-    "DEFAULT_VERSIONS":             "python=3.7 python3=3.7 ssl=base",
-    "WITH_SAMBA4_PYTHON3":          "python3.7",
+    "DEFAULT_VERSIONS":             "python=3.8 python3=3.8 ssl=base",
+    "WITH_SAMBA4_PYTHON3":          "python3.8",
     "OPTIONS_UNSET":                "DOCS X11 JAVA",
     "WANT_OPENLDAP_SASL":           "yes",
     "USE_PACKAGE_DEPENDS":          "yes",
@@ -179,6 +172,7 @@ make_conf_boot = {
     "WITHOUT_NLS":                  "yes",
     "WITHOUT_PMC":                  "yes",
     "WITHOUT_VT":                   "yes",
+    "WITHOUT_ZFS":                  "yes",
 }
 
 early_customize_tasks = [

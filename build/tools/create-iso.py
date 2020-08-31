@@ -77,6 +77,7 @@ files_to_preserve = [
     '/usr/bin/uname',
     '/usr/bin/xargs',
     '/usr/sbin/diskinfo',
+    '/usr/sbin/nscd',
     '/usr/sbin/sshd',
     '/usr/sbin/swapinfo',
     '/usr/sbin/vidcontrol',
@@ -224,8 +225,6 @@ symlinks = {
     'xz': '/usr/bin/xz',
     'xzcat': '/usr/bin/xzcat',
     'zcat': '/usr/bin/zcat',
-    'zfs': '/sbin/zfs',
-    'zpool': '/sbin/zpool',
     '/bin/pgrep': '/usr/bin/pgrep',
     '/bin/pkill': '/usr/bin/pkill',
     '/.mount/boot': '/boot'
@@ -376,9 +375,7 @@ def make_iso_image():
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
     sh('cp ${WORLD_DESTDIR}/boot/loader ${ISO_DESTDIR}/boot/loader')
     sh('cp ${WORLD_DESTDIR}/boot/device.hints ${ISO_DESTDIR}/boot/device.hints')
-    sh('cp ${WORLD_DESTDIR}/boot/*.4th ${ISO_DESTDIR}/boot')
-    sh('cp ${WORLD_DESTDIR}/boot/loader.rc ${ISO_DESTDIR}/boot/loader.rc')
-    sh('cp ${WORLD_DESTDIR}/boot/menu.rc ${ISO_DESTDIR}/boot/menu.rc')
+    sh('cp -r ${WORLD_DESTDIR}/boot/lua ${ISO_DESTDIR}/boot/')
     sh('cp -R ${WORLD_DESTDIR}/boot/defaults ${ISO_DESTDIR}/boot/defaults')
 
     # New-style isoboot image

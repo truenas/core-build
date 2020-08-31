@@ -39,7 +39,6 @@ iocage_git_rev = sh("git -C ${BE_ROOT}/iocage log -1 --pretty=format:%ct") \
 ports += {
     "name": "freenas/freenas-files",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
@@ -49,45 +48,31 @@ ports += {
 ports += {
     "name": "freenas/pipewatcher",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
     ]
 }
-
-if PRODUCT == "TrueNAS":
-    truenas_git_rev = sh("git -C ${BE_ROOT}/truenas log -1 --pretty=format:%ct") \
-        if exists("${BE_ROOT}/truenas") \
-        else "0"
-    ports += {
-        "name": "truenas/truenas-files",
-        "options": [
-            "PRODUCT_VERSION=${VERSION}",
-            "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
-            "REVISION=" + truenas_git_rev
-        ]
-    }
 
 ports += {
     "name": "freenas/freenas-migrate93",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
     ]
 }
 
 ports += {
-    "name": "freenas/freenas-ui",
+    "name": "freenas/freenas-files",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
     ]
 }
 
+# TODO: Temporarily we allow passing product to webui port but this support would be removed
+#  once webui gets in shape for FN12
 
 ports += {
     "name": "freenas/freenas-webui",
@@ -102,7 +87,6 @@ ports += {
 ports += {
     "name": "sysutils/iocage",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + iocage_git_rev
@@ -114,10 +98,18 @@ ports += {
 ports += {
     "name": "freenas/py-middlewared",
     "options": [
-        "PRODUCT=${PRODUCT}",
         "PRODUCT_VERSION=${VERSION}",
         "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
         "REVISION=" + freenas_git_rev
+    ]
+}
+
+
+ports += {
+    "name": "freenas/py-midcli",
+    "options": [
+        "PRODUCT_VERSION=${VERSION}",
+        "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}",
     ]
 }
 

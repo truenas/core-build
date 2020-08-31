@@ -26,22 +26,21 @@
 repos += {
     "name": "os",
     "path": "os",
-    "url": "https://github.com/freenas/os.git",
-    "branch": "freenas/11.3-stable"
+    "url": "https://github.com/freebsd/freebsd.git",
+    "branch": "master"
 }
 
 repos += {
     "name": "freenas",
     "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
+    "url": "http://github.com/PersonalBSD/freenas-core.git",
     "branch": "freenas/11.3-stable"
 }
-
 
 repos += {
     "name": "webui",
     "path": "webui",
-    "url": "http://github.com/freenas/webui.git",
+    "url": "http://github.com/PersonalBSD/freenas-webui.git",
     "branch": "freenas/11.3-stable"
 }
 
@@ -55,21 +54,21 @@ repos += {
 repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
-    "url": "https://github.com/freenas/licenselib.git",
+    "url": "https://github.com/PersonalBSD/freenas-licenselib.git",
     "branch": "freenas/11.3-stable"
 }
 
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
-    "url": "https://github.com/freenas/freenas-pkgtools.git",
+    "url": "https://github.com/PersonalBSD/freenas-pkgtools.git",
     "branch": "freenas/11.3-stable"
 }
 
 repos += {
     "name": "py-bsd",
     "path": "py-bsd",
-    "url": "https://github.com/freenas/py-bsd.git",
+    "url": "https://github.com/PersonalBSD/freenas-py-bsd.git",
     "branch": "freenas/11.3-stable"
 }
 
@@ -83,14 +82,6 @@ repos += {
 repos += {
     "name": "iocage",
     "path": "iocage",
-    "url": "https://github.com/freenas/iocage.git",
+    "url": "https://github.com/PersonalBSD/freenas-iocage.git",
     "branch": "freenas/11.3-stable"
 }
-
-if PRODUCT == "TrueNAS":
-    repos += {
-        "name": "truenas",
-        "path": "truenas",
-        "url": "git@github.com:iXsystems/truenas.git",
-        "branch": "truenas/11.3-stable"
-    }
