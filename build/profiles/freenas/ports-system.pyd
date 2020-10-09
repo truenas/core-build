@@ -345,7 +345,6 @@ ports += {
 ports += "misc/mmv"
 ports += "misc/mbuffer"
 ports += "devel/git-lite"
-ports += "sysutils/zfs-stats-lite"
 ports += "sysutils/ncdu"
 
 # There ports are all vm related.
