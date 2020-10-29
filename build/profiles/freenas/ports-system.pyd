@@ -112,6 +112,7 @@ ports += {
     "options": [
         "OPTIONS_FILE_SET+=ACL",
         "OPTIONS_FILE_SET+=ICONV",
+        "OPTIONS_FILE_SET+=ZLIB_BASE",
         "OPTIONS_FILE_UNSET+=FLAGS"
     ]
 }
