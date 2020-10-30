@@ -29,12 +29,55 @@
 
 import os
 import json
-from dsl import load_file
-from utils import e, sh, sh_str, readfile, setfile, template, info
+import subprocess
+from dsl import load_file, load_profile_config
+from utils import e, glob, objdir, sh, sh_str, readfile, setfile, template, info
 
 
 dsl = load_file('${BUILD_CONFIG}/release.pyd', os.environ)
 url = dsl.url
+
+
+def stage_non_installed_ports():
+
+    """
+    If a port was given the `install` key and it was
+    set to False, then the port was not installed but
+    we still should save the associated *.txz file in
+    the final release directory.
+    """
+
+    config = load_profile_config()
+    glob_pattern = '/*.txz'
+
+    non_installed_ports = []
+    for i in config.ports:
+        if isinstance(i, dict) and not i.get('install', True):
+            if 'package' in i:
+                non_installed_ports.append(i.package)
+            else:
+                non_installed_ports.append(i.name)
+
+    if non_installed_ports:
+        sh('mkdir -p ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/${NON_INSTALLED_DIR}')
+        pkgdir = subprocess.run(
+            ['find', objdir('ports/data/packages'), '-name', 'All', '-type', 'd'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if pkgdir.stdout:
+            pkgdir = pkgdir.stdout.decode().strip()
+
+            for i in non_installed_ports:
+                # port name will have the directory it resides in
+                # so make sure to remove it if it's there
+                if '/' in i:
+                    i = i.split('/')[1]
+
+                for t in glob(pkgdir + glob_pattern):
+                    pkg = t.split('/')[-1]
+                    if pkg.startswith(i):
+                        sh('cp ${t} ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/${NON_INSTALLED_DIR}')
 
 
 def stage_release():
@@ -110,5 +153,6 @@ def create_json():
 
 if __name__ == '__main__':
     stage_release()
+    stage_non_installed_ports()
     create_aux_files(dsl, e('${RELEASE_STAGEDIR}'))
     create_json()
