@@ -276,6 +276,12 @@ def error(fmt, *args):
 def get_port_names(ports):
     for i in ports:
         if isinstance(i, dict):
+            # since this function is called at the installation
+            # phase of the build process, we check to make sure
+            # that if `install` key is there and if it's set to
+            # false then we don't install it
+            if not i.get('install', True):
+                continue
             if 'package' in i:
                 yield i.package
             else:
