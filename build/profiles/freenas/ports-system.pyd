@@ -147,7 +147,7 @@ ports += {
     "name": "emulators/open-vm-tools-nox11",
     "options": ["OPTIONS_FILE_UNSET+=ICU"]
 }
-#ports += "sysutils/xe-guest-utilities"
+ports += "sysutils/xe-guest-utilities"
 ports += "databases/sqlite3"
 ports += "security/gnupg"
 ports += "www/apache24"
