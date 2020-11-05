@@ -27,12 +27,29 @@
 
 
 def success():
+    """
+    Return the success message.
+
+    Args:
+    """
     return True, None
 
 
 def failure(reason):
+    """
+    Called when a failure occurs.
+
+    Args:
+        reason: (str): write your description
+    """
     return False, reason
 
 
 def fatal(reason):
+    """
+    Returns the given reason.
+
+    Args:
+        reason: (str): write your description
+    """
     return None, reason

@@ -45,11 +45,23 @@ output_root = objdir('test-output')
 
 class Main(object):
     def __init__(self):
+        """
+        Initialize the test suite.
+
+        Args:
+            self: (todo): write your description
+        """
         self.test_suites = []
         self.output_path = None
         self.excluded = ['os', 'objs', 'ports', 'release']
 
     def find_tests(self):
+        """
+        Find test files.
+
+        Args:
+            self: (todo): write your description
+        """
         info('Looking for test manifests in ${{BE_ROOT}}')
         for dir in os.listdir(e('${BE_ROOT}')):
             if dir not in self.excluded:
@@ -59,10 +71,23 @@ class Main(object):
                         self.test_suites.append(root)
 
     def load_manifest(self, path):
+        """
+        Load the manifest.
+
+        Args:
+            self: (todo): write your description
+            path: (str): write your description
+        """
         with open(os.path.join(path, 'MANIFEST.json'), 'r') as manifest_file:
             return json.load(manifest_file)
 
     def run(self):
+        """
+        Runs the suite.
+
+        Args:
+            self: (todo): write your description
+        """
         for s in self.test_suites:
             script = os.path.join(s, 'run.py')
             start_time = time.time()
@@ -113,6 +138,12 @@ class Main(object):
             print(out.decode('utf-8'))
 
     def aggregate_results(self):
+        """
+        Aggregate the results in the results.
+
+        Args:
+            self: (todo): write your description
+        """
         sh('mkdir -p ${output_root}')
         for s in self.test_suites:
             manifest = self.load_manifest(s)
@@ -140,6 +171,17 @@ class Main(object):
             output_file.write(self.print_xml(results))
 
     def generate_suite_error(self, out_path, name, test_time, text, err):
+        """
+        Generate test suite suite
+
+        Args:
+            self: (todo): write your description
+            out_path: (str): write your description
+            name: (str): write your description
+            test_time: (int): write your description
+            text: (str): write your description
+            err: (todo): write your description
+        """
         top = Element('testsuite', errors="1", failures="0", name=name, skipped="0", tests='0', time=str(test_time))
         case = SubElement(top, 'testcase', classname="UNDEFINED", name="UNDEFINED", time=str(test_time))
         error = SubElement(case, 'error', message=text)
@@ -149,11 +191,24 @@ class Main(object):
             output_file.write(self.print_xml(top))
 
     def print_xml(self, elem):
+        """
+        Return a pretty formatted string.
+
+        Args:
+            self: (todo): write your description
+            elem: (todo): write your description
+        """
         rough_string = tostring(elem, 'utf-8')
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 
     def main(self):
+        """
+        Main function.
+
+        Args:
+            self: (todo): write your description
+        """
         parser = argparse.ArgumentParser()
         parser.add_argument('-a', metavar='ADDRESS', required=True, help='FreeNAS box address')
         parser.add_argument('-u', metavar='USERNAME', required=True, help='Username')

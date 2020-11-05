@@ -36,6 +36,11 @@ output = objdir('${NAME}.debug.txz')
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     sh('rm -rf ${DEBUG_ROOT}')
     sh('mkdir -p ${DEBUG_ROOT}')
 
@@ -99,6 +104,11 @@ def main():
 
 
 def create_package():
+    """
+    Create a package.
+
+    Args:
+    """
     info('Creating debug package')
     if os.path.exists('/usr/local/bin/pigz'):
         sh('tar -C ${DEBUG_ROOT} -cvf - . | /usr/local/bin/pigz -c > ${output}', log='/dev/null')
@@ -109,6 +119,12 @@ def create_package():
 
 
 def make_dir(path):
+    """
+    Create a directory.
+
+    Args:
+        path: (str): write your description
+    """
     try:
         os.makedirs(os.path.dirname(path))
     except OSError as err:

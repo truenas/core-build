@@ -29,6 +29,12 @@ from tests import success, failure
 
 
 def run(ssh):
+    """
+    Execute a command on ssh
+
+    Args:
+        ssh: (int): write your description
+    """
     ret, out, err = ssh('kqueue-tests')
 
     if ret != 0:

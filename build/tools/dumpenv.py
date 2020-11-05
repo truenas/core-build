@@ -31,6 +31,11 @@ from utils import e, info
 
 
 def main():
+    """
+    Main entry point.
+
+    Args:
+    """
     info('Build environment:')
     for key, value in os.environ.items():
         print(e('${key}: ${value}'))

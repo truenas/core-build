@@ -46,10 +46,20 @@ ready = threading.Event()
 
 
 def cleanup():
+    """
+    Clean up all the files
+
+    Args:
+    """
     sh('bhyvectl --destroy --vm=${VM_NAME}', nofail=True)
 
 
 def setup_files():
+    """
+    Setup the working directory to the working directories
+
+    Args:
+    """
     sh('mkdir -p ${destdir}')
     sh('truncate -s 8G ${destdir}/boot.img')
     sh('truncate -s 20G ${destdir}/hd1.img')
@@ -57,6 +67,11 @@ def setup_files():
 
 
 def alloc_network():
+    """
+    All network.
+
+    Args:
+    """
     global tapdev
 
     tapdev = sh_str('ifconfig tap create')
@@ -64,18 +79,40 @@ def alloc_network():
 
 
 def setup_network():
+    """
+    Setup network
+
+    Args:
+    """
     info('Configuring VM networking')
     sh('ifconfig ${tapdev} inet ${HOST_IP} ${NETMASK} up')
 
 
 def cleanup_network():
+    """
+    Clean up the network.
+
+    Args:
+    """
     sh('ifconfig ${tapdev} destroy')
 
 
 def setup_dhcp_server():
+    """
+    Sets up dhcp.
+
+    Args:
+    """
     global dhcp_server
 
     def dhcp_request(mac, hostname):
+        """
+        Request the dhcp request.
+
+        Args:
+            mac: (str): write your description
+            hostname: (str): write your description
+        """
         info('DHCP request from {0} ({1})'.format(hostname, mac))
         lease = Lease()
         lease.client_mac = mac
@@ -92,6 +129,11 @@ def setup_dhcp_server():
     info('Started DHCP server on {0}', tapdev)
 
 def do_install():
+    """
+    Install the virtual environment.
+
+    Args:
+    """
     info('Starting up VM for unattended install')
     vm_proc = sh_spawn(
         'bhyve -m ${MEMSIZE} -c ${CORES} -A -H -P',
@@ -113,6 +155,11 @@ def do_install():
 
 
 def do_run():
+    """
+    Run the virtual machine.
+
+    Args:
+    """
     info('Starting up VM for testing')
     vm_proc = sh_spawn(
         'bhyve -m ${MEMSIZE} -c ${CORES} -A -H -P',

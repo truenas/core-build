@@ -33,11 +33,25 @@ DSL_PREFIX = 'dsl.config.'
 
 class ConfigDict(dict):
     def __getattr__(self, item):
+        """
+        Return the value of an item
+
+        Args:
+            self: (dict): write your description
+            item: (str): write your description
+        """
         return self.get(item)
 
 
 class ConfigArray(list):
     def __iadd__(self, other):
+        """
+        Return a new set of all of self.
+
+        Args:
+            self: (todo): write your description
+            other: (todo): write your description
+        """
         if type(other) not in (list, ConfigArray):
             self.append(other)
             return self
@@ -45,6 +59,13 @@ class ConfigArray(list):
         return super(ConfigArray, self).__iadd__(other)
 
     def where(self, **predicates):
+        """
+        Return the first element matching predicate.
+
+        Args:
+            self: (todo): write your description
+            predicates: (dict): write your description
+        """
         for i in self:
             found = True
             for k, v in predicates.items():
@@ -60,12 +81,27 @@ class ConfigArray(list):
 
 class GlobalsWrapper(dict):
     def __init__(self, env, filename):
+        """
+        Initialize the environment.
+
+        Args:
+            self: (todo): write your description
+            env: (todo): write your description
+            filename: (str): write your description
+        """
         super(GlobalsWrapper, self).__init__()
         self.dict = ConfigDict()
         self.filename = filename
         self.env = env
 
     def __getitem__(self, item):
+        """
+        Return the value of an item.
+
+        Args:
+            self: (todo): write your description
+            item: (str): write your description
+        """
         if item.isupper():
             if item in self.dict:
                 return self.dict[item]
@@ -106,12 +142,27 @@ class GlobalsWrapper(dict):
         return arr
 
     def __setitem__(self, key, value):
+        """
+        Set an environment variable.
+
+        Args:
+            self: (todo): write your description
+            key: (str): write your description
+            value: (str): write your description
+        """
         if key.isupper():
             self.env[key] = value
         else:
             self.dict[key] = value
 
     def include(self, filename):
+        """
+        Load configuration variables from a file.
+
+        Args:
+            self: (todo): write your description
+            filename: (str): write your description
+        """
         filename = os.path.expandvars(filename)
         if filename[0] != '/':
             filename = os.path.join(os.path.dirname(self.filename), filename)
@@ -129,6 +180,13 @@ class GlobalsWrapper(dict):
 
 class AstTransformer(ast.NodeTransformer):
     def visit_Str(self, node):
+        """
+        Return an ast node as string.
+
+        Args:
+            self: (todo): write your description
+            node: (todo): write your description
+        """
         return ast.Call(
             func=ast.Name(id='e', ctx=ast.Load()),
             args=[node],
@@ -138,6 +196,13 @@ class AstTransformer(ast.NodeTransformer):
         )
 
     def visit_List(self, node):
+        """
+        Visit an ast node.
+
+        Args:
+            self: (todo): write your description
+            node: (todo): write your description
+        """
         self.generic_visit(node)
         return ast.Call(
             func=ast.Name(id='ConfigArray', ctx=ast.Load()),
@@ -148,6 +213,13 @@ class AstTransformer(ast.NodeTransformer):
         )
 
     def visit_Dict(self, node):
+        """
+        Dump an ast node.
+
+        Args:
+            self: (todo): write your description
+            node: (todo): write your description
+        """
         self.generic_visit(node)
         return ast.Call(
             func=ast.Name(id='ConfigDict', ctx=ast.Load()),
@@ -159,6 +231,13 @@ class AstTransformer(ast.NodeTransformer):
 
 
 def load_file(filename, env):
+    """
+    Load a python source file.
+
+    Args:
+        filename: (str): write your description
+        env: (str): write your description
+    """
     from utils import e
     filename = e(filename)
     g = GlobalsWrapper(env, filename)
@@ -171,6 +250,12 @@ def load_file(filename, env):
 
 
 def override_profile_config(config):
+    """
+    Overrides l_profile.
+
+    Args:
+        config: (todo): write your description
+    """
     # local import may be needed to avoid circular import issues
     from utils import info
     override = {k.replace(DSL_PREFIX, ''): v for k, v in os.environ.items() if k.startswith(DSL_PREFIX)}
@@ -204,6 +289,11 @@ def override_profile_config(config):
 
 
 def load_profile_config():
+    """
+    Load configuration file.
+
+    Args:
+    """
     return override_profile_config(load_file(
         '${BUILD_PROFILES}/${PROFILE}/config.pyd', os.environ
     ))

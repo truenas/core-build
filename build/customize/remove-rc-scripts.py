@@ -31,6 +31,12 @@ from utils import sh
 
 
 def main(destdir):
+    """
+    Main function.
+
+    Args:
+        destdir: (str): write your description
+    """
     sh('rm -f ${destdir}/etc/rc.d/hostid')
     sh('rm -f ${destdir}/etc/rc.d/hostid_save')
 

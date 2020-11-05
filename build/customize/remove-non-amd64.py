@@ -32,6 +32,12 @@ from utils import sh, e, sh_str, is_elf, info
 
 
 def main(destdir):
+    """
+    Main function.
+
+    Args:
+        destdir: (str): write your description
+    """
 
     # If we are doing SDK build, we can stop here
     if e('${SDK}') == "yes":

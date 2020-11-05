@@ -38,6 +38,11 @@ create_aux_files = import_function('create-release-distribution', 'create_aux_fi
 
 
 def main():
+    """
+    Main program.
+
+    Args:
+    """
     prod = e("${PRODUCTION}")
     if prod and prod.lower() == "yes":
         KEY_PASSWORD = e("${IX_KEY_PASSWORD}") or getpass.getpass("Enter Password: ")

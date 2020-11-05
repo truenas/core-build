@@ -39,6 +39,11 @@ from utils import e , info
 dsl = load_profile_config()
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     source = e('${PROFILE_ROOT}/release')
     destination = e('${BUILD_ROOT}/release')
 

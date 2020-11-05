@@ -33,6 +33,11 @@ from utils import sh, e, info, error
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     ref_date = 0
     rel_dir = ''
     dirstring = e('${BE_ROOT}/release/${PRODUCT}')

@@ -236,6 +236,11 @@ instufs = objdir('instufs')
 
 
 def create_iso_dirs():
+    """
+    Create all directories.
+
+    Args:
+    """
     sh('mkdir -p ${ISO_DESTDIR}/data')
     sh('mkdir -p ${ISO_DESTDIR}/dev')
     sh('mkdir -p ${ISO_DESTDIR}/.mount')
@@ -244,6 +249,11 @@ def create_iso_dirs():
 
 
 def create_ufs_dirs():
+    """
+    Create ufo directories.
+
+    Args:
+    """
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/pre-install')
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/firmware')
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/install')
@@ -258,6 +268,11 @@ def create_ufs_dirs():
 
 
 def setup_diskless():
+    """
+    Setup diskless disk
+
+    Args:
+    """
     sh('touch ${INSTUFS_DESTDIR}/etc/diskless')
     sh('cp -a ${INSTUFS_DESTDIR}/etc/ ${INSTUFS_DESTDIR}/conf/default/etc')
     sh('cp -a ${INSTUFS_DESTDIR}/var/ ${INSTUFS_DESTDIR}/conf/default/var')
@@ -265,6 +280,11 @@ def setup_diskless():
 
 
 def cleandirs():
+    """
+    Clears all directories
+
+    Args:
+    """
     info('Cleaning previous build products')
     if os.path.isdir(e('${INSTUFS_DESTDIR}')):
         sh('chflags -R 0 ${INSTUFS_DESTDIR}')
@@ -275,6 +295,11 @@ def cleandirs():
 
 
 def install_ports():
+    """
+    Install all ports
+
+    Args:
+    """
     pkgs = ' '.join(get_port_names(ports.ports))
     info('Installing packages')
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/etc/pkg/repos')
@@ -283,6 +308,11 @@ def install_ports():
 
 
 def install_pkgtools():
+    """
+    Install all the packages.
+
+    Args:
+    """
     info('Installing freenas-pkgtools')
     sh(
         "env MAKEOBJDIRPREFIX=${OBJDIR}",
@@ -291,6 +321,11 @@ def install_pkgtools():
 
 
 def mount_packages():
+    """
+    Mount packages
+
+    Args:
+    """
     on_abort(umount_packages)
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/ports/packages')
@@ -298,11 +333,21 @@ def mount_packages():
 
 
 def umount_packages():
+    """
+    Umount packages
+
+    Args:
+    """
     sh('umount -f ${INSTUFS_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
 
 def install_files():
+    """
+    Install the installation.
+
+    Args:
+    """
     info('Copying installer files')
     setfile('${INSTUFS_DESTDIR}/etc/avatar.conf', template('${BUILD_CONFIG}/templates/avatar.conf'))
     if e("${UNATTENDED_CONFIG}"):
@@ -311,6 +356,11 @@ def install_files():
 
 
 def populate_ufsroot():
+    """
+    Populate ufo_uf.
+
+    Args:
+    """
     info('Populating UFS root')
 
     for i in purge_dirs:
@@ -328,6 +378,11 @@ def populate_ufsroot():
 
 
 def copy_packages():
+    """
+    Copy all packages
+
+    Args:
+    """
     sh('mkdir -p ${ISO_DESTDIR}/${PRODUCT}')
     sh('cp -R ${OBJDIR}/packages/Packages ${ISO_DESTDIR}/${PRODUCT}')
     # Move any validation scripts back
@@ -339,11 +394,21 @@ def copy_packages():
 
 
 def copy_data():
+    """
+    Copy data
+
+    Args:
+    """
     sh('mkdir -p ${INSTUFS_DESTDIR}/data')
     sh('cp -R ${WORLD_DESTDIR}/data ${INSTUFS_DESTDIR}/')
 
 
 def clean_ufs_image():
+    """
+    Removes all images from the images.
+
+    Args:
+    """
     sh('${BUILD_ROOT}/build/customize/remove-bits.py ${INSTUFS_DESTDIR}')
 
     # Strip binaries
@@ -365,12 +430,22 @@ def clean_ufs_image():
 
 
 def make_ufs_image():
+    """
+    Èi̇·åıĸåįķ
+
+    Args:
+    """
     sh('mkdir -p ${ISO_DESTDIR}/data')
     sh('makefs -b 10% ${imgfile} ${INSTUFS_DESTDIR}')
     sh('mkuzip -o ${ISO_DESTDIR}/data/base.ufs.uzip ${imgfile}')
 
 
 def make_iso_image():
+    """
+    Make an image file
+
+    Args:
+    """
     setfile('${ISO_DESTDIR}/boot/loader.conf', template('${BUILD_CONFIG}/templates/cdrom/loader.conf'))
     setfile('${ISO_DESTDIR}/.mount.conf', template('${BUILD_CONFIG}/templates/cdrom/mount.conf'))
     sh('cp ${WORLD_DESTDIR}/boot/loader ${ISO_DESTDIR}/boot/loader')

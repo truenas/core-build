@@ -34,12 +34,26 @@ import serial
 
 class Main(object):
     def __init__(self):
+        """
+        Initialize the console.
+
+        Args:
+            self: (todo): write your description
+        """
         self.console = None
         self.server = None
         self.logfile = None
         self.clients = []
 
     def handle_connection(self, sock, addr):
+        """
+        Handle a connection.
+
+        Args:
+            self: (todo): write your description
+            sock: (todo): write your description
+            addr: (str): write your description
+        """
         print('New connection from {0}:{1}'.format(*addr))
         self.clients.append(sock)
 
@@ -62,6 +76,12 @@ class Main(object):
             self.console.write(ch)
 
     def console_reader(self):
+        """
+        Send a message to the console.
+
+        Args:
+            self: (todo): write your description
+        """
         while True:
             try:
                 ch = self.console.read()
@@ -78,6 +98,13 @@ class Main(object):
                 i.send(ch)
 
     def start_server(self, port):
+        """
+        Start a new socket.
+
+        Args:
+            self: (todo): write your description
+            port: (int): write your description
+        """
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
         sock.bind(('', port))
         sock.listen(1)
@@ -94,6 +121,12 @@ class Main(object):
             t.start()
 
     def main(self):
+        """
+        Main function.
+
+        Args:
+            self: (todo): write your description
+        """
         parser = argparse.ArgumentParser()
         parser.add_argument('-c', metavar='CON-PORT', help='Port device node')
         parser.add_argument('-l', metavar='LOGFILE', help='Log file')

@@ -31,6 +31,11 @@ from utils import chroot,e
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     if not os.path.exists(e('${WORLD_DESTDIR}/var/cache/pkg')):
         os.makedirs(e('${WORLD_DESTDIR}/var/cache/pkg'))
     chroot('${WORLD_DESTDIR}', 'pkg clean -a -y')

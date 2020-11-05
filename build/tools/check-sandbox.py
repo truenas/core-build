@@ -35,6 +35,11 @@ config = load_profile_config()
 
 
 def check_sandbox():
+    """
+    Check if the path exists.
+
+    Args:
+    """
     if not os.path.exists(e('${BE_ROOT}/.pulled')):
         error('Sandbox is not fully checked out')
 

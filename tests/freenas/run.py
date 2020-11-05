@@ -36,10 +36,20 @@ venvdir = objdir('tests/venv')
 
 
 def cleanup():
+    """
+    Clean up all the files
+
+    Args:
+    """
     sh('bhyvectl --destroy --vm=${VM_NAME}', nofail=True)
 
 
 def setup_venv():
+    """
+    Setup virtualenv
+
+    Args:
+    """
     sh('virtualenv ${venvdir}')
     sh('${venvdir}/bin/pip install -U cython six paramiko nose2')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-bsd')

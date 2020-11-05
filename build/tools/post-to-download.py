@@ -33,6 +33,11 @@ from utils import sh, sh_str, e, info, error
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     user = sh_str('id -un')
     if user == 'root':
         user = 'freenas'

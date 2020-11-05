@@ -30,6 +30,12 @@ from tests import success, failure
 
 
 def run(ssh):
+    """
+    Execute a command on ssh
+
+    Args:
+        ssh: (int): write your description
+    """
     time.sleep(10)
     ret, out, err = ssh('launchctl dump com.apple.notifyd')
 

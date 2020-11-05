@@ -31,6 +31,11 @@ from utils import sh, e, readfile
 
 
 def save_build_env():
+    """
+    Save build environment
+
+    Args:
+    """
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}")
     sh("mkdir -p ${SAVED_BUILD_ENV_DESTDIR}/wrkdirs")

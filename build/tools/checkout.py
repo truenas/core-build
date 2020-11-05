@@ -65,6 +65,13 @@ def find_ref_clone(repo_name):
 
 
 def get_latest_commit(repo, branch):
+    """
+    Return the commit of a commit
+
+    Args:
+        repo: (str): write your description
+        branch: (todo): write your description
+    """
     output = sh_str('git ls-remote', repo, f'refs/heads/{branch}')
     commit = output.split()
     if commit and not re.search(r'^[a-f0-9]+$', commit[0]):
@@ -151,12 +158,22 @@ def checkout_repo(cwd, repo):
 
 
 def generate_manifest():
+    """
+    Generate manifest
+
+    Args:
+    """
     sh('rm -f ${BE_ROOT}/repo-manifest')
     for k, v in manifest.items():
         appendfile('${BE_ROOT}/repo-manifest', e('${k} ${v}'))
 
 
 def main():
+    """
+    Main function. py file.
+
+    Args:
+    """
     if not e('${SKIP_CHECKOUT}'):
         cwd = os.getcwd()
         checkout_only = e('${CHECKOUT_ONLY}')
