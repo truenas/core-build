@@ -8,6 +8,12 @@ from redmine import Redmine, exceptions
 
 
 def main(argv):
+    """
+    Main entry point.
+
+    Args:
+        argv: (str): write your description
+    """
     key = ''
     vers = ''
     descrpt = ''

@@ -31,6 +31,12 @@ from utils import glob, e, info, setfile
 
 
 def main(name):
+    """
+    Main entry point
+
+    Args:
+        name: (str): write your description
+    """
     setfile("${BUILD_ROOT}/.profile-setting", name)
     info("New selected profile: {0}", name)
 

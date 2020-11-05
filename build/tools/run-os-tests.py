@@ -61,6 +61,11 @@ ssh_args =  ['ssh',
 
 
 def setup_network():
+    """
+    Setup network
+
+    Args:
+    """
     global tapdev
 
     info('Configuring VM networking')
@@ -70,6 +75,11 @@ def setup_network():
 
 
 def setup_rootfs():
+    """
+    Setup the root directory.
+
+    Args:
+    """
     buildkernel(e('${KERNCONF}-DEBUG'), ['mach'], buildkernellog)
     installworld('${OBJDIR}/test-root', installworldlog, distributionlog, conf="run")
     installkernel(e('${KERNCONF}'), '${OBJDIR}/test-root', installkernellog, modules=['mach'], conf="run")
@@ -79,13 +89,28 @@ def setup_rootfs():
 
 
 def setup_swap():
+    """
+    Swap
+
+    Args:
+    """
     sh('truncate -s ${SWAP_SIZE} ${OBJDIR}/test-swap.bin')
 
 
 def install_python_packages():
+    """
+    Install python packages
+
+    Args:
+    """
     sh('cd ${SRC_ROOT}/py-launch; python setup.py install ')
 
 def setup_vm():
+    """
+    Setup the vm.
+
+    Args:
+    """
     global vm_proc, termserv_proc
 
     info('Starting up VM')
@@ -117,9 +142,19 @@ def setup_vm():
 
 
 def wait_vm():
+    """
+    Wait for a vm is running.
+
+    Args:
+    """
     global vm_wait_thread
 
     def wait_thread():
+        """
+        Wait for the vm toil.
+
+        Args:
+        """
         errcode = vm_proc.wait()
         info('VM exited')
         shutdown_vm()
@@ -129,12 +164,24 @@ def wait_vm():
 
 
 def shutdown_vm():
+    """
+    Shutdown all vm
+
+    Args:
+    """
     termserv_proc.terminate()
     sh('bhyvectl --destroy --vm=${VM_NAME}', nofail=True)
     sh('ifconfig ${tapdev} destroy')
 
 
 def ssh(command, logfile):
+    """
+    Run a command on the ssh
+
+    Args:
+        command: (str): write your description
+        logfile: (str): write your description
+    """
     appendfile(logfile, 'ssh: ${command}')
     proc = subprocess.Popen(
         ssh_args + [command],
@@ -151,6 +198,11 @@ def ssh(command, logfile):
 
 
 def main():
+    """
+    Run the program.
+
+    Args:
+    """
     if e('${PLAYGROUND}'):
         info('Type RETURN to kill VM')
         input()

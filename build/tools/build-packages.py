@@ -42,6 +42,11 @@ sequence = ''
 validators = []
 
 def read_repo_manifest():
+    """
+    Read the package manifest.
+
+    Args:
+    """
     global pkgversion
     global sequence
 
@@ -58,6 +63,11 @@ def read_repo_manifest():
 
 
 def build_pkgtools():
+    """
+    Build a package dependencies
+
+    Args:
+    """
     info('Building freenas-pkgtools')
     info('Log file: {0}', pkgtoolslog)
 
@@ -69,6 +79,11 @@ def build_pkgtools():
 
 
 def copy_validators():
+    """
+    Copy all validators to the current environment.
+
+    Args:
+    """
     # If an update validation script is given, copy that
     if os.path.exists(e('${PROFILE_ROOT}/ValidateUpdate')):
         sh('cp ${PROFILE_ROOT}/ValidateUpdate ${pkgdir}/Packages/ValidateUpdate')
@@ -93,6 +108,11 @@ def copy_validators():
             validators.append(e('-V ${pkgdir}/Packages/' + p))
 
 def build_packages():
+    """
+    Build package packages.
+
+    Args:
+    """
     retval = []
     info('Building packages')
     sh('rm -rf ${pkgdir}/Packages')
@@ -114,6 +134,12 @@ def build_packages():
 
 
 def create_manifest(pkgs):
+    """
+    Create the manifest.
+
+    Args:
+        pkgs: (todo): write your description
+    """
     info('Creating package manifests')
     date = int(time.time())
     train = e('${TRAIN}') or 'FreeNAS'

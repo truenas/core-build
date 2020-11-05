@@ -30,6 +30,11 @@ from utils import info
 
 
 def main():
+    """
+    Main entry point.
+
+    Args:
+    """
     info('Build completed')
     info('Version string: ${PRODUCT} ${VERSION} (${REVISION})')
     info('Total time taken: {0}')

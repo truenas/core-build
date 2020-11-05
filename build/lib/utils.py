@@ -40,10 +40,22 @@ _abort_func = None
 
 
 def interrupt(signal, frame):
+    """
+    Interrupt a signal.
+
+    Args:
+        signal: (str): write your description
+        frame: (todo): write your description
+    """
     error('Build interrupted by SIGINT')
 
 
 def sh(*args, **kwargs):
+    """
+    Execute a command
+
+    Args:
+    """
     logfile = kwargs.pop('log', None)
     logtimestamp = kwargs.pop('logtimestamp', False)
     mode = kwargs.pop('mode', 'w')
@@ -74,6 +86,11 @@ def sh(*args, **kwargs):
 
 
 def sh_spawn(*args, **kwargs):
+    """
+    Run a command in a subprocess.
+
+    Args:
+    """
     logfile = kwargs.pop('log', None)
     mode = kwargs.pop('mode', 'w')
     nofail = kwargs.pop('nofail', False)
@@ -84,6 +101,11 @@ def sh_spawn(*args, **kwargs):
         f = open(logfile, mode)
 
     def preexec():
+        """
+        Pgrxec
+
+        Args:
+        """
         os.setpgrp()
 
     debug('sh: {0}', cmd)
@@ -91,6 +113,11 @@ def sh_spawn(*args, **kwargs):
 
 
 def sh_str(*args, **kwargs):
+    """
+    Run a command in a shell command.
+
+    Args:
+    """
     logfile = kwargs.pop('log', None)
     mode = kwargs.pop('mode', 'w')
     cmd = e(' '.join(args), **get_caller_vars())
@@ -104,12 +131,23 @@ def sh_str(*args, **kwargs):
 
 
 def chroot(root, *args, **kwargs):
+    """
+    Run a chroot command.
+
+    Args:
+        root: (todo): write your description
+    """
     root = e(root, **get_caller_vars())
     cmd = e(' '.join(args), **get_caller_vars())
     return sh("chroot ${root} /bin/sh -c '${cmd}'", **kwargs)
 
 
 def setup_env():
+    """
+    Sets the environment variables from environment variables.
+
+    Args:
+    """
     signal.signal(signal.SIGINT, interrupt)
     dsl = load_file('${BUILD_CONFIG}/env.pyd', os.environ)
     for k, v in dsl.items():
@@ -118,16 +156,36 @@ def setup_env():
 
 
 def env(name, default=None):
+    """
+    Return the environment variable.
+
+    Args:
+        name: (str): write your description
+        default: (todo): write your description
+    """
     return os.getenv(name, default)
 
 
 def readfile(filename):
+    """
+    Read a file from a file.
+
+    Args:
+        filename: (str): write your description
+    """
     filename = e(filename, **get_caller_vars())
     with open(filename, 'r', encoding='utf8', errors='ignore') as f:
         return f.read().strip()
 
 
 def setfile(filename, contents):
+    """
+    Set the contents of the given file.
+
+    Args:
+        filename: (str): write your description
+        contents: (str): write your description
+    """
     filename = e(filename, **get_caller_vars())
     debug('setfile: {0}', filename)
 
@@ -142,6 +200,14 @@ def setfile(filename, contents):
 
 
 def appendfile(filename, contents, nl=True):
+    """
+    Append a new file.
+
+    Args:
+        filename: (str): write your description
+        contents: (str): write your description
+        nl: (str): write your description
+    """
     filename = e(filename, **get_caller_vars())
     contents = e(contents, **get_caller_vars())
     debug('appendfile: {0}', filename)
@@ -156,6 +222,11 @@ def appendfile(filename, contents, nl=True):
 
 
 def abort():
+    """
+    Abort the global global function.
+
+    Args:
+    """
     global _abort_func
     if _abort_func is not None:
         tmpfn = _abort_func
@@ -164,9 +235,22 @@ def abort():
 
 
 def on_abort(func):
+    """
+    Abort a function on_abort_func.
+
+    Args:
+        func: (todo): write your description
+    """
     global _abort_func
 
     def fn(signum, frame):
+        """
+        Signal handler.
+
+        Args:
+            signum: (int): write your description
+            frame: (todo): write your description
+        """
         info('ERROR: Build aborted')
         abort()
         sys.exit(1)
@@ -178,6 +262,11 @@ def on_abort(func):
 
 
 def get_caller_vars():
+    """
+    Returns a list of caller variables.
+
+    Args:
+    """
     frame = inspect.currentframe()
     try:
         parent = frame.f_back.f_back
@@ -190,6 +279,12 @@ def get_caller_vars():
 
 
 def e(s, **kwargs):
+    """
+    R
+
+    Args:
+        s: (int): write your description
+    """
     s = os.path.expandvars(s)
     if not kwargs:
         kwargs = get_caller_vars()
@@ -201,14 +296,32 @@ def e(s, **kwargs):
 
 
 def pathjoin(*args):
+    """
+    Return a path.
+
+    Args:
+    """
     return os.path.join(*[e(i) for i in args])
 
 
 def objdir(path):
+    """
+    Return the path of the given path.
+
+    Args:
+        path: (str): write your description
+    """
     return os.path.join(e('${OBJDIR}'), e(path, **get_caller_vars()))
 
 
 def template(filename, variables=None):
+    """
+    Returns a template file.
+
+    Args:
+        filename: (str): write your description
+        variables: (todo): write your description
+    """
     f = open(e(filename), 'r')
     t = string.Template(f.read())
     variables = variables or {}
@@ -219,11 +332,23 @@ def template(filename, variables=None):
 
 
 def glob(path):
+    """
+    Globuf of globasg.
+
+    Args:
+        path: (str): write your description
+    """
     import glob as g
     return g.glob(e(path, **get_caller_vars()))
 
 
 def walk(path):
+    """
+    Walk through all files recursively.
+
+    Args:
+        path: (str): write your description
+    """
     path = e(path, **get_caller_vars())
     for root, dirs, files in os.walk(path):
         for name in files:
@@ -234,6 +359,13 @@ def walk(path):
 
 
 def sha256(filename, output=None):
+    """
+    Generate sha256 hash
+
+    Args:
+        filename: (str): write your description
+        output: (todo): write your description
+    """
     filename = e(filename, **get_caller_vars())
     if not output:
         output = filename + '.sha256'
@@ -244,36 +376,78 @@ def sha256(filename, output=None):
 
 
 def import_function(filename, fname):
+    """
+    Import a module from a file.
+
+    Args:
+        filename: (str): write your description
+        fname: (str): write your description
+    """
     module = __import__(filename)
     return getattr(module, fname)
 
 
 def elapsed():
+    """
+    Returns the elapsed time.
+
+    Args:
+    """
     timestamp = env('BUILD_STARTED', str(int(time.time())))
     td = int(timestamp)
     return str(datetime.timedelta(seconds=time.time() - td)).split('.')[0] # XXX
 
 
 def info(fmt, *args):
+    """
+    Print a message information.
+
+    Args:
+        fmt: (str): write your description
+    """
     print('[{0}] ==> '.format(elapsed()) + e(fmt.format(*args)))
 
 
 def debug(fmt, *args):
+    """
+    Print debug information.
+
+    Args:
+        fmt: (str): write your description
+    """
     if env('BUILD_LOGLEVEL') == 'DEBUG':
         log(fmt, *args)
 
 
 def log(fmt, *args):
+    """
+    Log a message to stderr.
+
+    Args:
+        fmt: (str): write your description
+    """
     print(e(fmt.format(*args)))
 
 
 def error(fmt, *args):
+    """
+    Print error message.
+
+    Args:
+        fmt: (todo): write your description
+    """
     print('[{0}] ==> ERROR: '.format(elapsed()) + e(fmt.format(*args)))
     abort()
     sys.exit(1)
 
 
 def get_port_names(ports):
+    """
+    Return a list of port.
+
+    Args:
+        ports: (int): write your description
+    """
     for i in ports:
         if isinstance(i, dict):
             # since this function is called at the installation
@@ -292,6 +466,12 @@ def get_port_names(ports):
 
 
 def is_elf(filename):
+    """
+    Returns true if a file is an existing file.
+
+    Args:
+        filename: (str): write your description
+    """
     if os.path.islink(filename):
         return False
 

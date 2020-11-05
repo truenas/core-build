@@ -30,6 +30,11 @@ from utils import setfile, template
 
 
 def main():
+    """
+    Main entrypoint for the main.
+
+    Args:
+    """
     setfile('${WORLD_DESTDIR}/etc/avatar.conf', template('${BUILD_CONFIG}/templates/avatar.conf'))
 
 

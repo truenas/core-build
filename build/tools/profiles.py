@@ -32,6 +32,11 @@ from utils import glob, e, info
 
 
 def main():
+    """
+    Main routine.
+
+    Args:
+    """
     info("Available profiles:")
     for i in glob("${BUILD_PROFILES}/*"):
         dsl = load_file(e("${i}/config.pyd"), os.environ)

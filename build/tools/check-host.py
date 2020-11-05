@@ -31,6 +31,11 @@ from utils import e, info, debug, error, sh_str
 
 
 def check_build_sanity():
+    """
+    Check if the build.
+
+    Args:
+    """
     if len(e('${BUILD_ROOT}')) > 38:
         error("Current path too long ({0} characters) for nullfs mounts during build",
               len(os.getcwd()))
@@ -40,6 +45,13 @@ def check_build_sanity():
 
 
 def check_port(name, port):
+    """
+    Checks if the port exists.
+
+    Args:
+        name: (str): write your description
+        port: (int): write your description
+    """
     debug('Checking for "{0}" command', name)
     for i in e('${PATH}').split(':'):
         if os.path.exists(e('${i}/${name}')):
@@ -49,6 +61,14 @@ def check_port(name, port):
 
 
 def check_port_version(name, port, version):
+    """
+    .. versionadded :: pypi is available.
+
+    Args:
+        name: (str): write your description
+        port: (int): write your description
+        version: (str): write your description
+    """
     debug('Checking for version {0} of {1}', version, name)
     install_ver = os.popen("""pkg info -q | awk -F- '/%s/ {print $2}'"""
                            """| awk -F. '/%s/ {print $2}'""" % (name, version)).read().strip()
@@ -57,6 +77,14 @@ def check_port_version(name, port, version):
 
 
 def check_port_byfile(name, port, fname):
+    """
+    Checks if port exists
+
+    Args:
+        name: (str): write your description
+        port: (int): write your description
+        fname: (str): write your description
+    """
     debug('Checking for "{0}"', name)
     if os.path.exists(fname):
         return
@@ -65,6 +93,11 @@ def check_port_byfile(name, port, fname):
 
 
 def check_build_tools():
+    """
+    Checks the status of the build
+
+    Args:
+    """
     check_port('git', 'devel/git')
     check_port('pxz', 'archivers/pxz')
     check_port('python3', 'lang/python3')

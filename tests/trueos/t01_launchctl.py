@@ -28,6 +28,12 @@ from tests import success, failure
 
 
 def run(ssh):
+    """
+    Run a command on ssh
+
+    Args:
+        ssh: (int): write your description
+    """
     ret, out, err = ssh('launchctl list')
 
     if ret != 0:

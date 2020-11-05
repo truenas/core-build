@@ -30,6 +30,11 @@ from utils import sh, setfile
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/etc/local')
     sh('mkdir -p ${WORLD_DESTDIR}/conf/base/var')

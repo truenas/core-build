@@ -40,6 +40,12 @@ def ParseConfig(path="/etc/install.conf"):
     """
 
     def yesno(s):
+        """
+        Returns true if the string is a yes false otherwise.
+
+        Args:
+            s: (str): write your description
+        """
         if s.lower() in ["yes", "true"]:
             return True
         return False

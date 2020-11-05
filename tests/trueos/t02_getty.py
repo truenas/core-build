@@ -29,6 +29,12 @@ from tests import success, failure
 
 
 def run(ssh):
+    """
+    Execute a command on ssh
+
+    Args:
+        ssh: (int): write your description
+    """
     ret, out, err = ssh('launchctl dump org.freebsd.getty.ttyu0')
 
     if ret != 0:

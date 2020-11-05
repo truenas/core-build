@@ -30,9 +30,20 @@ from tests import success, failure
 
 
 def run(ssh):
+    """
+    Run a command on ssh
+
+    Args:
+        ssh: (int): write your description
+    """
     p_ret = None
 
     def waiter():
+        """
+        Execute a command on the ssh
+
+        Args:
+        """
         ret, out, err = ssh('notifyutil -1 foo')
         p_ret = ret
 

@@ -34,6 +34,11 @@ dsl = load_profile_config()
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     for i in dsl['early_customize_tasks']:
         logfile = objdir('logs/custom-${i}')
         sh('${BUILD_ROOT}/build/customize/${i}.py ${WORLD_DESTDIR}', log=logfile)

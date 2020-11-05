@@ -37,6 +37,13 @@ dsl = load_file('${BUILD_CONFIG}/repos.pyd', os.environ)
 
 
 def tag_repo(repo, tag):
+    """
+    Create a repository.
+
+    Args:
+        repo: (str): write your description
+        tag: (str): write your description
+    """
     sh("git --git-dir=${repo}/.git tag ${tag}")
 
 

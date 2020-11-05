@@ -81,6 +81,11 @@ def stage_non_installed_ports():
 
 
 def stage_release():
+    """
+    Stage release information.
+
+    Args:
+    """
     sh('mkdir -p ${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}')
     releases = [e('${OBJDIR}/${NAME}.${ext}') for ext in dsl.formats]
     for path in releases:
@@ -92,6 +97,11 @@ def stage_release():
 
 
 def get_aux_files_desc():
+    """
+    Returns a list of all files in the file
+
+    Args:
+    """
     for aux in dsl.aux_files:
         name = aux.name
         # Please note that the aux.source is not the one in the
@@ -107,6 +117,11 @@ def get_aux_files_desc():
 
 
 def get_image_files_desc():
+    """
+    Return a list of image file paths.
+
+    Args:
+    """
     for ext in dsl.formats:
         path = e('${RELEASE_STAGEDIR}/${BUILD_ARCH_SHORT}/${NAME}.${ext}')
         filename = os.path.basename(path)
@@ -120,6 +135,13 @@ def get_image_files_desc():
 
 
 def create_aux_files(dsl, dest):
+    """
+    Create the nameset of the template files.
+
+    Args:
+        dsl: (str): write your description
+        dest: (str): write your description
+    """
     for aux in dsl.aux_files:
         if not os.path.exists(aux.source):
             continue
@@ -134,6 +156,11 @@ def create_aux_files(dsl, dest):
 
 
 def create_json():
+    """
+    Create a json file.
+
+    Args:
+    """
     version = e('${VERSION}').split('-')[0]
     json_file = {
         'name': e('${PRODUCT}'),

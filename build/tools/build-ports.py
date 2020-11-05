@@ -49,6 +49,11 @@ portoptions = e('${POUDRIERE_ROOT}/etc/poudriere.d/options')
 
 
 def calculate_make_jobs():
+    """
+    Calculate the jobs that job
+
+    Args:
+    """
     global makejobs
 
     jobs = sh_str('sysctl -n kern.smp.cpus')
@@ -60,6 +65,11 @@ def calculate_make_jobs():
 
 
 def create_overlay():
+    """
+    Creates overlay
+
+    Args:
+    """
     info('Creating ports overlay...')
     sh('rm -rf ${PORTS_OVERLAY}')
     sh('mkdir -p ${PORTS_OVERLAY}')
@@ -67,6 +77,11 @@ def create_overlay():
 
 
 def create_poudriere_config():
+    """
+    Create the poudririereeregere - poud.
+
+    Args:
+    """
     sh('mkdir -p ${DISTFILES_CACHE}')
     opts = {
         'ports_repo': config['repos'].where(name='ports')['path'],
@@ -85,6 +100,11 @@ def create_poudriere_config():
 
 
 def create_make_conf():
+    """
+    Create conf file
+
+    Args:
+    """
     conf = open(e('${POUDRIERE_ROOT}/etc/poudriere.d/make.conf'), 'w')
     for k, v in config['make_conf_pkg'].items():
         if v.startswith('+='):
@@ -95,6 +115,11 @@ def create_make_conf():
 
 
 def create_ports_list():
+    """
+    Create a list
+
+    Args:
+    """
     info('Creating ports list')
     sh('rm -rf', portoptions)
 
@@ -117,6 +142,11 @@ def create_ports_list():
 
 
 def obtain_jail_name():
+    """
+    Returns the name of the name of the jail.
+
+    Args:
+    """
     global jailname
     for i in string.ascii_lowercase:
         user = e('${SUDO_USER}')
@@ -133,6 +163,11 @@ def obtain_jail_name():
 
 
 def prepare_jail():
+    """
+    Prepare jail
+
+    Args:
+    """
     basepath = e('${POUDRIERE_ROOT}/etc/poudriere.d/jails/${jailname}')
     sh('mkdir -p ${basepath}')
 
@@ -148,6 +183,11 @@ def prepare_jail():
 
 
 def merge_port_trees():
+    """
+    Merge all ports
+
+    Args:
+    """
     for i in config['port_trees']:
         info(e('Merging ports tree ${i}'))
 
@@ -174,6 +214,11 @@ def merge_port_trees():
             sh('cp -l ${gids} ${PORTS_OVERLAY}/GIDs')
 
 def keep_wrkdirs():
+    """
+    Keeps all files in the working directory.
+
+    Args:
+    """
     if e('${SAVE_DEBUG}'):
         for p in glob('${PORTS_OVERLAY}/*/*'):
             if os.path.isdir(p):
@@ -181,6 +226,11 @@ def keep_wrkdirs():
 
 
 def prepare_env():
+    """
+    Prepares environment variables
+
+    Args:
+    """
     for cmd in jailconf.get('copy', []):
         dest = os.path.join(e('${JAIL_DESTDIR}'), cmd['dest'][1:])
         sh('rm -rf ${dest}')
@@ -202,6 +252,11 @@ def prepare_env():
 
 
 def cleanup_env():
+    """
+    Cleanup the global process.
+
+    Args:
+    """
     global poudriere_proc
 
     info('Cleaning up poudriere environment...')
@@ -228,6 +283,11 @@ def cleanup_env():
 
 
 def run():
+    """
+    Starts the daemon.
+
+    Args:
+    """
     global poudriere_proc
     poudriere_proc = sh_spawn('poudriere -e ${POUDRIERE_ROOT}/etc bulk -w -J', str(makejobs), '-f', portslist, '-j ${jailname} -p p', detach=True)
     poudriere_proc.wait()
@@ -237,6 +297,11 @@ def run():
 
 
 def siginfo(*args):
+    """
+    Send sigtermrized signal.
+
+    Args:
+    """
     global poudriere_proc
     if poudriere_proc and poudriere_proc.pid:
         try:
@@ -246,6 +311,11 @@ def siginfo(*args):
 
 
 def terminate(*args):
+    """
+    Terminate the child process.
+
+    Args:
+    """
     global poudriere_proc
     if poudriere_proc and poudriere_proc.pid:
         try:

@@ -33,10 +33,21 @@ from utils import glob, sh
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     pkg_paths = []
     pkg_names = []
 
     def append_packages(name):
+        """
+        Add packages to package
+
+        Args:
+            name: (str): write your description
+        """
         for i in glob('${OBJDIR}/ports/data/packages/*/All/'+'{0}*.txz'.format(name)):
             pkg_paths.append(i)
             pkg_names.append(os.path.basename(i))

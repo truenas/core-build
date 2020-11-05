@@ -30,6 +30,11 @@ from utils import chroot
 
 
 def main():
+    """
+    Main entry point.
+
+    Args:
+    """
     chroot('${WORLD_DESTDIR}', 'cap_mkdb -f /conf/base/etc/login.conf /conf/base/etc/login.conf.template')
 
 

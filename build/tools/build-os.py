@@ -44,6 +44,11 @@ makejobs = None
 
 
 def calculate_make_jobs():
+    """
+    Calculate the jobs.
+
+    Args:
+    """
     global makejobs
 
     # We use number of CPUs + 1, to have
@@ -57,6 +62,11 @@ def calculate_make_jobs():
 
 
 def create_make_conf_build():
+    """
+    Create the conf file.
+
+    Args:
+    """
     conf = open(makeconfbuild, 'w')
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
@@ -84,6 +94,11 @@ def create_make_conf_build():
 
 
 def create_kernel_config():
+    """
+    Create kernel config file.
+
+    Args:
+    """
     with open(kernconf, 'w') as f:
         with open(pathjoin('${PROFILE_ROOT}', config['kernel_config']), 'r') as f2:
             f.write(f2.read())
@@ -100,6 +115,14 @@ def create_kernel_config():
 
 
 def buildkernel(kconf, modules, log):
+    """
+    Build kernel
+
+    Args:
+        kconf: (todo): write your description
+        modules: (list): write your description
+        log: (todo): write your description
+    """
     modules = ' '.join(modules)
     info('Building kernel {0} from {1}', kconf, e('${OS_ROOT}'))
     info('Log file: {0}', log)
@@ -121,6 +144,11 @@ def buildkernel(kconf, modules, log):
 
 
 def buildworld():
+    """
+    Generate the world
+
+    Args:
+    """
     info('Building world from ${{OS_ROOT}}')
     info('Log file: {0}', worldlog)
     debug('World make.conf: {0}', makeconfbuild)
@@ -138,6 +166,15 @@ def buildworld():
 
 
 def installworld(destdir, worldlog, distriblog, conf="build"):
+    """
+    Install a world from the world.
+
+    Args:
+        destdir: (str): write your description
+        worldlog: (todo): write your description
+        distriblog: (str): write your description
+        conf: (todo): write your description
+    """
     info('Installing world in {0}', destdir)
     info('Log file: {0}', worldlog)
     makeconf = objdir("make-${conf}.conf")
@@ -165,6 +202,17 @@ def installworld(destdir, worldlog, distriblog, conf="build"):
 
 
 def installkernel(kconf, destdir, log, kodir=None, modules=None, conf="build"):
+    """
+    Install kernel
+
+    Args:
+        kconf: (todo): write your description
+        destdir: (str): write your description
+        log: (todo): write your description
+        kodir: (str): write your description
+        modules: (list): write your description
+        conf: (todo): write your description
+    """
     info('Installing kernel in {0}', log)
     info('Log file: {0}', log)
     if modules is None:

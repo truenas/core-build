@@ -31,6 +31,11 @@ from utils import e, sh, info
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     os.chdir(e('${PCBSD_ROOT}'))
     sh('./mkports.sh ${PORTS_OVERLAY} ${DISTFILES_CACHE}')
 

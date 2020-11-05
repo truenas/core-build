@@ -32,6 +32,12 @@ from utils import sh
 
 
 def main(destdir):
+    """
+    Main function.
+
+    Args:
+        destdir: (str): write your description
+    """
     # symlink /usr/local/bin/bash to /bin/bash
     sh("ln -sf /usr/local/bin/bash ${destdir}/bin/bash")
 

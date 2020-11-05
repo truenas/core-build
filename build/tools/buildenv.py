@@ -32,6 +32,11 @@ from utils import e, info, error, setup_env
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     setup_env()
     os.execlp(sys.argv[1], *sys.argv[1:])
 

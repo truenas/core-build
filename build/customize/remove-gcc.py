@@ -55,6 +55,11 @@ files_to_save = [
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
 
     # If doing SDK build we can stop here
     if e('${SDK}') == "yes":

@@ -42,6 +42,11 @@ logfile = objdir('logs/pkg-install')
 
 
 def mount_packages():
+    """
+    Mount packages
+
+    Args:
+    """
     on_abort(umount_packages)
     jailname = readfile(e('${OBJDIR}/jailname'))
     sh('mkdir -p ${WORLD_DESTDIR}/usr/ports/packages')
@@ -49,6 +54,11 @@ def mount_packages():
 
 
 def fetch_binary_packages():
+    """
+    Fetches all binary packages.
+
+    Args:
+    """
     if e('${SKIP_PACKAGES_FETCH}'):
         return
 
@@ -63,6 +73,11 @@ def fetch_binary_packages():
 
 
 def umount_packages():
+    """
+    Umount packages
+
+    Args:
+    """
     sh('umount -f ${WORLD_DESTDIR}/usr/ports/packages')
     on_abort(None)
 
@@ -74,6 +89,11 @@ def umount_packages():
 
 
 def create_pkgng_configuration():
+    """
+    Create configuration files.
+
+    Args:
+    """
     sh('mkdir -p ${WORLD_DESTDIR}/usr/local/etc/pkg/repos')
     for i in glob.glob(e('${BUILD_CONFIG}/templates/pkg-repos/*')):
         fname = os.path.basename(i)
@@ -81,6 +101,11 @@ def create_pkgng_configuration():
 
 
 def install_ports():
+    """
+    Install all ports on the system.
+
+    Args:
+    """
     pkgs = ' '.join(get_port_names(config.ports))
     sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     sh('mount -t fdescfs fdescfs ${WORLD_DESTDIR}/dev/fd')
@@ -101,6 +126,11 @@ def install_ports():
 
 
 def install_binary_packages():
+    """
+    Install binary packages.
+
+    Args:
+    """
     for i in config.binary_packages:
         _, name = os.path.split(i)
         path = e('/usr/ports/packages/${name}')

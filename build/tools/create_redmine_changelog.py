@@ -8,6 +8,12 @@ from redmine import Redmine, exceptions
 
 
 def main(argv):
+    """
+    Main function.
+
+    Args:
+        argv: (str): write your description
+    """
     key = ''
     project = ''
     target = 'SU Candidate'
