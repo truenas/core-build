@@ -398,6 +398,7 @@ device		epair			# A pair of virtual back-to-back connected Ethernet interfaces
 device		if_bridge		# Ethernet bridge device
 
 ## FreeNAS shared modifications
+options 	MAXPHYS=(1024*1024)	# Increase maximum I/O size.
 options		GEOM_UZIP		# Read-only compressed disks
 device		xz			# xz_embedded LZMA de-compression library
 options		GEOM_ELI		# Disk encryption.
