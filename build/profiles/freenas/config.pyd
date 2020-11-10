@@ -82,9 +82,7 @@ kernel_modules = [
     "mlx4ib",
     "mlx5ib",
     "mthca",
-    "ocs_fc",
     "qlxgbe",
-    "smartpqi",
 ]
 
 # World/kernel build configuration
