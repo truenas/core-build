@@ -83,6 +83,8 @@ kernel_modules = [
     "mlx5ib",
     "mthca",
     "qlxgbe",
+    "qat",
+    "qatfw",
 ]
 
 # World/kernel build configuration
