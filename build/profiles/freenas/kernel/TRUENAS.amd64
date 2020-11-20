@@ -382,9 +382,9 @@ device		xenpci			# Xen HVM Hypervisor services driver
 #device		netmap			# netmap(4) support
 
 # evdev interface
-#options 	EVDEV_SUPPORT		# evdev support in legacy drivers
-#device		evdev			# input event device support
-#device		uinput			# install /dev/uinput cdev
+options 	EVDEV_SUPPORT		# evdev support in legacy drivers
+device		evdev			# input event device support
+device		uinput			# install /dev/uinput cdev
 
 ## Networking for jails and VMs
 options		IPDIVERT
@@ -420,6 +420,9 @@ device		carp
 device		pty			# BSD-style compatibility pseudo ttys
 device		iscsi
 device		cfiscsi			# CAM Target Layer iSCSI target frontend
+device		uhid
+device		ums
+device		wmt
 
 # InfiniBand support (+ modules ipoib, mlx4ib, mlx5ib, mlxen and mthca)
 options		OFED		# InfiniBand support
