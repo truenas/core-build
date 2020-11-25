@@ -153,7 +153,7 @@ device		amr			# AMI MegaRAID
 device		arcmsr			# Areca SATA II RAID
 device		ciss			# Compaq Smart RAID 5*
 #device		dpt			# DPT Smartcache III, IV - See NOTES for options
-device		hptmv			# Highpoint RocketRAID 182x
+#device		hptmv			# Highpoint RocketRAID 182x
 device		hptnr			# Highpoint DC7280, R750
 device		hptrr			# Highpoint RocketRAID 17xx, 22xx, 23xx, 25xx
 device		hpt27xx			# Highpoint RocketRAID 27xx
@@ -237,7 +237,7 @@ device		vmx			# VMware VMXNET3 Ethernet
 device		bxe			# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
 device		cxgb			# Chelsio T3 10 Gigabit Ethernet adapter driver
 device		cxgbe			# Chelsio T4 and T5 based 1GbE/10GbE/40GbE PCIe Ethernet adapters.
-device		de			# DEC/Intel DC21x4x (``Tulip'')
+#device		de			# DEC/Intel DC21x4x (``Tulip'')
 device		le			# AMD Am7900 LANCE and Am79C9xx PCnet
 device		mlx4			# Mellanox ConnectX HCA common code
 device		mlx4en			# Mellanox ConnectX HCA Ethernet
@@ -267,7 +267,7 @@ device		bge			# Broadcom BCM570xx Gigabit Ethernet
 #device		cas			# Sun Cassini/Cassini+ and NS DP83065 Saturn
 #device		dc			# DEC/Intel 21143 and various workalikes
 device		et			# Agere ET1310 10/100/Gigabit Ethernet
-device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
+#device		fxp			# Intel EtherExpress PRO/100B (82557, 82558)
 #device		gem			# Sun GEM/Sun ERI/Apple GMAC
 #device		hme			# Sun HME (Happy Meal Ethernet)
 device		jme			# JMicron JMC250 Gigabit/JMC260 Fast Ethernet
@@ -280,7 +280,7 @@ device		re			# RealTek 8139C+/8169/8169S/8110S
 device		rl			# RealTek 8129/8139
 #device		sf			# Adaptec AIC-6915 (``Starfire'')
 device		sge			# Silicon Integrated Systems SiS190/191
-device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
+#device		sis			# Silicon Integrated Systems SiS 900/SiS 7016
 device		sk			# SysKonnect SK-984x & SK-982x gigabit Ethernet
 #device		ste			# Sundance ST201 (D-Link DFE-550TX)
 device		stge			# Sundance/Tamarack TC9021 gigabit Ethernet
@@ -408,7 +408,6 @@ options		NULLFS			# NULL filesystem
 options		UNIONFS			# Union filesystem
 options		TMPFS			# Efficient memory filesystem
 options		ISP_TARGET_MODE		# Qlogic FC target mode
-options		COMPAT_LINUXKPI
 device		amdsmn
 device		amdtemp
 device		coretemp
@@ -424,9 +423,9 @@ device		uhid
 device		ums
 device		wmt
 
-# InfiniBand support (+ modules ipoib, mlx4ib, mlx5ib, mlxen and mthca)
-options		OFED		# InfiniBand support
-options		SDP		# SDP protocol
+# InfiniBand support (+ modules ibcore, ipoib, if_infiniband, mlx4ib, mlx5ib, mlxen and mthca)
+#options		OFED		# InfiniBand support
+#options		SDP		# SDP protocol
 options		IPOIB_CM	# IPoIB connected mode
 
 ## FreeNAS specific modifications
