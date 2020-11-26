@@ -423,7 +423,7 @@ device		uhid
 device		ums
 device		wmt
 
-# InfiniBand support (+ modules ibcore, ipoib, if_infiniband, mlx4ib, mlx5ib, mlxen and mthca)
+# InfiniBand support (+ modules ibcore, ipoib, mlx4ib, mlx5ib, mlxen and mthca)
 #options		OFED		# InfiniBand support
 #options		SDP		# SDP protocol
 options		IPOIB_CM	# IPoIB connected mode
