@@ -57,7 +57,6 @@ kernel_modules = [
     "linux",
     "linux64",
     "linux_common",
-    "linuxkpi",
     "mac_ntpd",
     "msdosfs_iconv",
     "ispfw/ispfw",
