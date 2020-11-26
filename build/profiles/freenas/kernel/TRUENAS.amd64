@@ -408,6 +408,7 @@ options		NULLFS			# NULL filesystem
 options		UNIONFS			# Union filesystem
 options		TMPFS			# Efficient memory filesystem
 options		ISP_TARGET_MODE		# Qlogic FC target mode
+options		COMPAT_LINUXKPI
 device		amdsmn
 device		amdtemp
 device		coretemp
