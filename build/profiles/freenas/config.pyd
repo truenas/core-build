@@ -80,7 +80,6 @@ kernel_modules = [
     "dummynet",
     "hwpmc",
     "ibcore",
-    "if_infiniband",
     "ipoib",
     "mlx4ib",
     "mlx5ib",
