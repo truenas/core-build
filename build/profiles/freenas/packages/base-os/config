@@ -29,6 +29,12 @@ post-install =
 	/usr/bin/touch /data/.hba_firmware_update
 	/usr/bin/touch /data/.ses_firmware_update
 
+	if ! dmidecode -s system-product-name | egrep "^(FREE|TRUE)NAS" > /dev/null; then
+		for i in `seq 0 3`; do
+			echo "hint.isp.$i.role=2" >> /boot/loader.conf.local
+		done
+	fi
+
 post-upgrade =
     has_alembic=$(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db)
     if [ "$has_alembic" = "" ];
@@ -92,6 +98,12 @@ post-upgrade =
         /usr/local/bin/sqlite3 /data/freenas-v1.db "REPLACE INTO system_keyvalue (key, value) VALUES ('run_migration', 'true')" > "/data/update.failed" 2>&1 && rm -f /data/update.failed
     fi
     rm -f /data/sentinels/unscheduled-reboot
+
+    if ! dmidecode -s system-product-name | egrep "^(FREE|TRUE)NAS" > /dev/null; then
+        for i in `seq 0 3`; do
+            echo "hint.isp.$i.role=2" >> /boot/loader.conf.local
+        done
+    fi
 
 [Files]
 exclude = /usr/local/www/freenasUI
