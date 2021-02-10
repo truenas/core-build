@@ -1,4 +1,4 @@
-# Building FreeNAS 11 from Scratch
+# Building TrueNAS 12 CORE/Enterprise from Scratch
 
 Note: All these commands must be run as `root`.
 
@@ -13,8 +13,7 @@ Note: All these commands must be run as `root`.
 
 * Operating System
 
-  * The build environment must be FreeBSD 11.x (or 11-STABLE)
-    (building on FreeBSD 10 or 12 is not supported at this time).
+  * The build environment must be FreeBSD 12.x (or 12-STABLE)
 
 
 ## Make Targets
@@ -41,7 +40,7 @@ Note: All these commands must be run as `root`.
 * Clone the build repository (```/usr/build``` is used for this example):
 
     ```
-    git clone https://github.com/freenas/build /usr/build
+    git clone https://github.com/truenas/build /usr/build
     ```
 
 * Install Dependencies
@@ -88,7 +87,7 @@ Use ```make clean``` to remove all built files.
 Built files are in the ```freenas/_BE``` subdirectory,
 ```/usr/build/freenas/_BE``` in this example.
 
-ISO files: ```freenas/_BE/release/FreeNAS-11-MASTER-{date}/x64/```.
+ISO files: ```freenas/_BE/release/TrueNAS-12-MASTER-{date}/x64/```.
 
 Update files: ```freenas/_BE/release/```.
 
