@@ -115,7 +115,7 @@ ports += {
 ports += "lang/python3"
 ports += "lang/python"
 ports += {
-    "name": "lang/python38-debugging",
+    "name": "lang/python39-debugging",
     "install": False,
 }
 ports += "sysutils/scanlnk"
