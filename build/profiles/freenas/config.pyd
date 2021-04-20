@@ -28,8 +28,8 @@ include("ports.pyd")
 include("packages.pyd")
 
 profile = {
-    "name": "truenas12",
-    "description": "TrueNAS 12",
+    "name": "truenas13",
+    "description": "TrueNAS 13",
     "owner": "dev@ixsystems.com",
     "status": "active"
 }
