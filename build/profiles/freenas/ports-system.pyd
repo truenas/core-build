@@ -360,7 +360,7 @@ ports += "www/novnc-websockify"
 ports += "net/libvncserver"
 ports += "devel/libhyve-remote"
 
-ports += "graphics/drm-fbsd12.0-kmod"
+ports += "graphics/drm-kmod"
 ports += "net/aquantia-atlantic-kmod"
 
 if DEBUG:
