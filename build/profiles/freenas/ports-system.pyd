@@ -51,7 +51,6 @@ ports += "sysutils/pciutils"
 ports += "net/socat"
 ports += "sysutils/pv"
 ports += "sysutils/openseachest"
-ports += "dns/inadyn-mt"
 ports += "dns/inadyn-troglobit"
 ports += "editors/nano"
 ports += {
