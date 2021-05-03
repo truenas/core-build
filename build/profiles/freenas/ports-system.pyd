@@ -361,6 +361,7 @@ ports += "devel/libhyve-remote"
 
 ports += "graphics/drm-kmod"
 ports += "net/aquantia-atlantic-kmod"
+ports += "net/realtek-re-kmod"
 
 if DEBUG:
 	ports += "misc/py-pexpect"
