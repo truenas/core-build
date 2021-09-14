@@ -51,7 +51,8 @@ $MAKEFS -t msdos \
     -o fat_type=12 \
     -o media_descriptor=248 \
     -o sectors_per_cluster=1 \
-    -s 800k \
+    -o volume_label=EFISYS \
+    -s 2048k \
     efiboot.img "$stagedir"
 rm -rf "$stagedir"
 
@@ -80,8 +81,8 @@ imgsize=`stat -f %z $NAME`
 $MKIMG -s gpt \
     --capacity $imgsize \
     -b $OBJDIR/boot/pmbr \
-    $espparam \
     -p freebsd-boot:="$OBJDIR/boot/isoboot" \
+    $espparam \
     -o hybrid.img
 
 # Drop the PMBR, GPT, and boot code into the System Area of the ISO.
