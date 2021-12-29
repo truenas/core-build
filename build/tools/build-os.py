@@ -60,6 +60,8 @@ def create_make_conf_build():
     conf = open(makeconfbuild, 'w')
     for k, v in config['make_conf_build'].items():
         conf.write('{0}={1}\n'.format(k, v))
+    for param in config['make_conf_extra']:
+        conf.write(f'{param}\n')
     conf.close()
     conf = open(objdir('make-jail.conf'), 'w')
     for k, v in config['make_conf_build'].items():
