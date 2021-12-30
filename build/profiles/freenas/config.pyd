@@ -95,6 +95,10 @@ kernel_modules = [
 ]
 
 # World/kernel build configuration
+make_conf_extra = [
+    "CFLAGS += -DNS_REREAD_CONF",
+]
+
 make_conf_build = {
     "WITHOUT_ATM":                  "yes",
     "WITHOUT_BLUETOOTH":            "yes",
