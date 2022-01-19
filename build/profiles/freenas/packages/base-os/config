@@ -90,6 +90,8 @@ post-upgrade =
          if [ ! -f "/data/update.failed" ]; then
              /usr/local/sbin/migrate113 -f /data/freenas-v1.db > "/data/update.failed" 2>&1 && rm -f /data/update.failed
          fi
+    else
+        rm -f /data/update.failed
     fi
     if [ ! -f "/data/update.failed" ]; then
         /usr/local/sbin/migrate > "/data/update.failed" 2>&1 && rm -f /data/update.failed
