@@ -115,6 +115,7 @@ ports += {
     "install": False,
 }
 ports += "sysutils/scanlnk"
+ports += "sysutils/winacl"
 ports += "sysutils/iocage"
 ports += "security/pam_mkhomedir"
 ports += {
