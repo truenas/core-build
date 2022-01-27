@@ -96,15 +96,15 @@ def checkout_repo(cwd, repo):
     repo_name = repo['name']
     repo_path = repo['path']
     repo_url = repo['url']
-    mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
+    # mirror_url = e(f'${{REPO_{repo_name.replace("-", "_").upper()}_URL}}')
     branch = e(f'${{{repo_name.replace("-", "_").upper()}_OVERRIDE}}') or repo['branch']
 
-    if mirror_url:
-        if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
-            info(f'Mirror {mirror_url} up-to-date with remote {repo_url}, using it')
-            repo_url = mirror_url
-        else:
-            info(f'Mirror {mirror_url} does not match latest commit of {repo_url}, skipping it')
+    # if mirror_url:
+    #     if get_latest_commit(mirror_url, branch) == get_latest_commit(repo_url, branch):
+    #         info(f'Mirror {mirror_url} up-to-date with remote {repo_url}, using it')
+    #         repo_url = mirror_url
+    #     else:
+    #         info(f'Mirror {mirror_url} does not match latest commit of {repo_url}, skipping it')
 
     # Search for a reference clone before changing directories
     # in case it's a relative path.
