@@ -112,9 +112,9 @@ def checkout_repo(cwd, repo):
     refclone = find_ref_clone(repo_name)
     if refclone:
         refclone = os.path.abspath(refclone)
-
     os.chdir(buildenv_root)
     if is_git_repo(repo_path):
+        print(f'#### get {repo_url} 1')
         os.chdir(repo_path)
         current_branch = sh_str('git rev-parse --abbrev-ref HEAD')
         current_origin = sh_str('git remote get-url origin')
@@ -123,6 +123,7 @@ def checkout_repo(cwd, repo):
             # carefully set their own variant, but oh well.
             sh('git remote set-url origin', repo_url)
             sh('git fetch origin')
+            print(f'#### get {branch} 1')
             sh('git checkout', branch)
 
         # git pull --rebase exhibits bad behavior in git 2.8.x and
@@ -131,6 +132,8 @@ def checkout_repo(cwd, repo):
         # internal git bugs.
         sh('git fetch && git rebase')
     else:
+        print(f'#### get {repo_url} 2')
+        print(f'#### get {branch} 2')
         if e('${CHECKOUT_SHALLOW}'):
             sh('git clone -b', branch, '--depth 1', repo_url, repo_path)
         else:
