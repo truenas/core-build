@@ -56,26 +56,26 @@ repos += {
     "name" :"py-licenselib",
     "path": "py-licenselib",
     "url": "https://github.com/freenas/licenselib.git",
-    "branch": "master"
+    "branch": "truenas/13.0-stable"
 }
 
 repos += {
     "name": "freenas-pkgtools",
     "path": "freenas-pkgtools",
     "url": "https://github.com/freenas/freenas-pkgtools.git",
-    "branch": "master"
+    "branch": "truenas/13.0-stable"
 }
 
 repos += {
     "name": "py-bsd",
     "path": "py-bsd",
     "url": "https://github.com/freenas/py-bsd.git",
-    "branch": "master"
+    "branch": "truenas/13.0-stable"
 }
 
 repos += {
     "name": "iocage",
     "path": "iocage",
     "url": "https://github.com/freenas/iocage.git",
-    "branch": "truenas/12.0-stable"
+    "branch": "truenas/13.0-stable"
 }
