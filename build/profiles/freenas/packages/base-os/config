@@ -31,7 +31,11 @@ post-install =
 
 	if ! dmidecode -s system-product-name | egrep "^(FREE|TRUE)NAS" > /dev/null; then
 		for i in `seq 0 3`; do
-			echo "hint.isp.$i.role=2" >> /boot/loader.conf.local
+			file=/boot/loader.conf.local
+			name="hint.isp.$i.role"
+			if ! cat "$file" | grep -q "$name"; then
+				echo "$name=2" >> $file
+			fi
 		done
 	fi
 
