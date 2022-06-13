@@ -94,7 +94,10 @@ kernel_modules = [
     "fxp",
     "ice_ddp",
     "sis",
+    "hpt27xx",
     "hptmv",
+    "hptnr",
+    "hptrr",
 ]
 
 # World/kernel build configuration
