@@ -4,7 +4,7 @@
  <a href="https://jira.ixsystems.com"><img alt="File Issue" src="https://badgen.net/badge/Jira/File%20Issue//red?icon=jira" /></a>
 </p>
 
-# Building TrueNAS 12 CORE/Enterprise from Scratch
+# Building TrueNAS 13 CORE/Enterprise from Scratch
 
 Note: All these commands must be run as `root`.
 
@@ -19,7 +19,7 @@ Note: All these commands must be run as `root`.
 
 * Operating System
 
-  * The build environment must be FreeBSD 12.x (or 12-STABLE)
+  * The build environment must be FreeBSD 13.x (or 13-STABLE)
 
 
 ## Make Targets
@@ -93,7 +93,7 @@ Use ```make clean``` to remove all built files.
 Built files are in the ```freenas/_BE``` subdirectory,
 ```/usr/build/freenas/_BE``` in this example.
 
-ISO files: ```freenas/_BE/release/TrueNAS-12-MASTER-{date}/x64/```.
+ISO files: ```freenas/_BE/release/TrueNAS-13-MASTER-{date}/x64/```.
 
 Update files: ```freenas/_BE/release/```.
 
