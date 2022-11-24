@@ -40,6 +40,23 @@ post-install =
 	fi
 
 post-upgrade =
+    # this code relies heavily on how beadm works
+    rootfs=$(mount | awk '/ \/ / {print $1}')
+    lastsnap=$(zfs list -t snapshot -d 1 -H -S creation -o name $rootfs | head -1)
+    if [ -n "$lastsnap" ]; then
+      clone=$(zfs list -o clones -H $lastsnap)
+      if [ -n "$clone" ]; then
+        mkdir /tmp/oldbe
+        if mount -t zfs "$clone" /tmp/oldbe; then
+          echo "Copying $clone:/data/freenas-v1.db"
+          cp /tmp/oldbe/data/freenas-v1.db /data/freenas-v1.db.tmp
+          mv /data/freenas-v1.db.tmp /data/freenas-v1.db
+          umount "$clone"
+	fi
+        rmdir /tmp/oldbe
+      fi
+    fi
+
     has_alembic=$(echo "SELECT name FROM sqlite_master WHERE name = 'alembic_version'" | sqlite3 /data/freenas-v1.db)
     if [ "$has_alembic" = "" ];
     then
