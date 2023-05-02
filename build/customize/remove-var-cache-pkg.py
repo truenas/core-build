@@ -27,13 +27,15 @@
 #####################################################################
 
 import os
-from utils import chroot,e
+from utils import chroot, e, sh
 
 
 def main():
     if not os.path.exists(e('${WORLD_DESTDIR}/var/cache/pkg')):
         os.makedirs(e('${WORLD_DESTDIR}/var/cache/pkg'))
+    sh('mount -t devfs devfs ${WORLD_DESTDIR}/dev')
     chroot('${WORLD_DESTDIR}', 'pkg clean -a -y')
+    sh('umount -f ${WORLD_DESTDIR}/dev')
 
 
 if __name__ == '__main__':
