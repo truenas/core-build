@@ -280,6 +280,7 @@ def install_ports():
     sh('mkdir -p ${INSTUFS_DESTDIR}/usr/local/etc/pkg/repos')
     sh('cp ${BUILD_CONFIG}/templates/pkg-repos/local.conf ${INSTUFS_DESTDIR}/usr/local/etc/pkg/repos/')
     chroot('${INSTUFS_DESTDIR}', 'env ASSUME_ALWAYS_YES=yes pkg install -r local -f ${pkgs}')
+    sh('chmod -x ${INSTUFS_DESTDIR}/usr/sbin/pkg')
 
 
 def install_pkgtools():
