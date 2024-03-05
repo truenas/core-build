@@ -227,7 +227,7 @@ ports += "sysutils/megacli"
 ports += "sysutils/areca-cli"
 ports += "sysutils/hptcli"
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-python-ldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 ports += {
@@ -324,7 +324,7 @@ ports += "misc/xtail"
 ports += "sysutils/edk2@bhyve"
 ports += "benchmarks/fio"
 ports += "sysutils/cmdwatch"
-ports += "sysutils/devcpu-data"
+ports += "sysutils/cpu-microcode"
 ports += "sysutils/htop"
 ports += "sysutils/mcelog"
 ports += {
