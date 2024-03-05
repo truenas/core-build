@@ -74,7 +74,7 @@ ports += {
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net/mosh"
-ports += "net/wireguard"
+ports += "net/wireguard-tools"
 ports += "net-mgmt/sipcalc"
 
 ports += "security/cyrus-sasl2-gssapi"
