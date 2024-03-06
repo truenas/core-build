@@ -165,8 +165,10 @@ ports += {
 }
 ports += {
     "name": "sysutils/nut",
-    "options": ["OPTIONS_FILE_UNSET+=NEON"]
-    "options": ["OPTIONS_FILE_SET+=DEV"]
+    "options": [
+        "OPTIONS_FILE_UNSET+=NEON",
+        "OPTIONS_FILE_SET+=DEV"
+    ],
 }
 #ports += "devel/gio-fam-backend"
 ports += "sysutils/jailme"
