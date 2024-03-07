@@ -24,7 +24,7 @@
 #
 
 ports += "ports-mgmt/pkg"
-prots += {
+ports += {
     "name": "lang/gcc12",
     "options": [
         "OPTIONS_FILE_UNSET+=MULTILIB"
