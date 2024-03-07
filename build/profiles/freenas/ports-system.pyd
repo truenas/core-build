@@ -26,9 +26,7 @@
 ports += "ports-mgmt/pkg"
 ports += {
     "name": "lang/gcc12",
-    "options": [
-        "OPTIONS_FILE_UNSET+=MULTILIB"
-    ],
+    "options": ["OPTIONS_FILE_UNSET+=MULTILIB"]
     install: False
 }
 ports += {
