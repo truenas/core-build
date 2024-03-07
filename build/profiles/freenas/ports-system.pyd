@@ -26,7 +26,10 @@
 ports += "ports-mgmt/pkg"
 ports += {
     "name": "lang/gcc12",
-    "options": ["OPTIONS_FILE_UNSET+=MULTILIB"],
+    "options": [
+        "OPTIONS_FILE_UNSET+=LTO_BOOTSTRAP",
+        "OPTIONS_FILE_SET+=STANDARD_BOOTSTRAP",
+    ],
     "install": False
 }
 ports += {
