@@ -24,6 +24,13 @@
 #
 
 ports += "ports-mgmt/pkg"
+prots += {
+    "name": "lang/gcc12",
+    "options": [
+        "OPTIONS_FILE_UNSET+=MULTILIB"
+    ],
+    install=False
+}
 ports += {
     "name": "sysutils/openzfs",
     "options": ["OPTIONS_FILE_SET+=PYTHON"]
