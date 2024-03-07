@@ -29,7 +29,7 @@ prots += {
     "options": [
         "OPTIONS_FILE_UNSET+=MULTILIB"
     ],
-    install=False
+    install: False
 }
 ports += {
     "name": "sysutils/openzfs",
