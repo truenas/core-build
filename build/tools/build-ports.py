@@ -71,7 +71,9 @@ def create_poudriere_config():
     opts = {
         'ports_repo': config['repos'].where(name='ports')['path'],
         'ports_branch': config['repos'].where(name='ports')['branch'],
-        'no_zfs': 'yes'
+        'no_zfs': 'yes',
+        'package_fetch_branch': 'lates',
+        'package_fetch_whitelist': 'gcc* rust'
     }
 
     if e('${USE_ZFS}'):
