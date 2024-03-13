@@ -51,11 +51,14 @@ portoptions = e('${POUDRIERE_ROOT}/etc/poudriere.d/options')
 def calculate_make_jobs():
     global makejobs
 
+    """
     jobs = sh_str('sysctl -n kern.smp.cpus')
     if not jobs:
         makejobs = 2
 
     makejobs = os.environ.get("POUDRIERE_JOBS", int(jobs) + 1)
+    """
+    makejobs = 6
     debug('Using {0} make jobs', makejobs)
 
 
