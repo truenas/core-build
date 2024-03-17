@@ -74,7 +74,7 @@ ports += {
 ports += "misc/cpuid"
 ports += "net-mgmt/clog"
 ports += "net/mosh"
-ports += "net/wireguard"
+ports += "net/wireguard-tools"
 ports += "net-mgmt/sipcalc"
 
 ports += "security/cyrus-sasl2-gssapi"
@@ -110,10 +110,6 @@ ports += {
 }
 ports += "lang/python3"
 ports += "lang/python"
-ports += {
-    "name": "lang/python39-debugging",
-    "install": False,
-}
 ports += "sysutils/scanlnk"
 ports += "sysutils/iocage"
 ports += "security/pam_mkhomedir"
@@ -169,7 +165,10 @@ ports += {
 }
 ports += {
     "name": "sysutils/nut",
-    "options": ["OPTIONS_FILE_UNSET+=NEON"]
+    "options": [
+        "OPTIONS_FILE_UNSET+=NEON",
+        "OPTIONS_FILE_SET+=DEV"
+    ],
 }
 #ports += "devel/gio-fam-backend"
 ports += "sysutils/jailme"
@@ -227,8 +226,12 @@ ports += "sysutils/megacli"
 ports += "sysutils/areca-cli"
 ports += "sysutils/hptcli"
 ports += {
-    "name": "net/py-ldap",
+    "name": "net/py-python-ldap",
     "options": ["OPTIONS_FILE_SET+=SASL"]
+}
+ports += {
+    "name": "dns/py-dnspython",
+    "options": ["OPTIONS_FILE_UNSET+=DOQ"]
 }
 ports += {
     "name": "devel/dbus",
@@ -324,7 +327,7 @@ ports += "misc/xtail"
 ports += "sysutils/edk2@bhyve"
 ports += "benchmarks/fio"
 ports += "sysutils/cmdwatch"
-ports += "sysutils/devcpu-data"
+ports += "sysutils/cpu-microcode"
 ports += "sysutils/htop"
 ports += "sysutils/mcelog"
 ports += {
