@@ -230,6 +230,10 @@ ports += {
     "options": ["OPTIONS_FILE_SET+=SASL"]
 }
 ports += {
+    "name": "dns/py-dnspython",
+    "options": ["OPTIONS_FILE_UNSET+=DOQ"]
+}
+ports += {
     "name": "devel/dbus",
     "options": ["OPTIONS_FILE_UNSET+=X11"]
 }
