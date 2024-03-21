@@ -42,7 +42,7 @@ repos += {
     "name": "webui",
     "path": "webui",
     "url": "http://github.com/freenas/webui.git",
-    "branch": "truenas/13.1-stable"
+    "branch": "truenas/13.3-stable"
 }
 
 repos += {
