@@ -107,6 +107,10 @@ ports += {
         "OPTIONS_FILE_UNSET+=FLAGS"
     ]
 }
+ports += {
+    "name": "lang/python39",
+    "options": ["OPTIONS_FILE_UNSET+=PYMALLOC"]
+}
 ports += "lang/python3"
 ports += "lang/python"
 ports += "sysutils/scanlnk"
