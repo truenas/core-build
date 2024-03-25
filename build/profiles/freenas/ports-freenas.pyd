@@ -123,7 +123,7 @@ ports += {
 #}
 
 dedicated_repo_ports = [
-    "py-licenselib", "py-bsd", "freenas-pkgtools",
+    "py-licenselib", "freenas-pkgtools",
 ]
 
 for iter_port in dedicated_repo_ports:

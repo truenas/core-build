@@ -51,11 +51,6 @@ copy += {
 }
 
 copy += {
-    "source": "${BE_ROOT}/py-bsd",
-    "dest": "/usr/nas_source/py-bsd"
-}
-
-copy += {
     "source": "${BE_ROOT}/iocage",
     "dest": "/usr/iocage_src"
 }

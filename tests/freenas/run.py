@@ -42,7 +42,6 @@ def cleanup():
 def setup_venv():
     sh('virtualenv ${venvdir}')
     sh('${venvdir}/bin/pip install -U cython six paramiko nose2')
-    sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-bsd')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-netif')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-dhcp')
     sh('${venvdir}/bin/pip install -U ${BE_ROOT}/py-freenas.utils')
