@@ -26,15 +26,15 @@
 repos += {
     "name": "os",
     "path": "os",
-    "url": "https://github.com/freenas/os.git",
-    "branch": "truenas/13.3-stable"
+    "url": "http://github.com/dravanet/truenas-os.git",
+    "branch": "truenas/13.3-stable-ctld-live-config"
 }
 
 repos += {
     "name": "freenas",
     "path": "freenas",
-    "url": "http://github.com/freenas/freenas.git",
-    "branch": "truenas/13.3-stable"
+    "url": "http://github.com/dravanet/truenas-middleware.git",
+    "branch": "truenas/13.3-stable-dravanet"
 }
 
 
