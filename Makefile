@@ -97,7 +97,7 @@ GIT_REF_PATH ?= /build/gitrefs
 	@echo "[0:00:00] ==> NOTICE: Build timestamp: ${BUILD_TIMESTAMP}"
 
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-host.py
-.if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(profiles) && !make(select-profile) && !make(docs) && !make(api-docs)
+.if !make(checkout) && !make(update) && !make(clean) && !make(cleandist) && !make(profiles) && !make(select-profile) && !make(docs) && !make(api-docs) && !make(release-push) && !make(update-push)
 	@${BUILD_TOOLS}/buildenv.py ${BUILD_TOOLS}/check-sandbox.py
 .endif
 .endif
