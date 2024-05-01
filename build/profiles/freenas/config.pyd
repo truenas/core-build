@@ -50,6 +50,7 @@ kernel_modules = [
     "geom",
     "hid",
     "i2c",
+    "if_wg",
     "ipmi",
     "ipsec",
     "iscsi",
